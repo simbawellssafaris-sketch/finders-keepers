@@ -15,6 +15,9 @@ export default function sitemap() {
   for (const f of files) {
     const name = f.slice(0, -5);
     if (name === HOME) continue;
+    // a page whose canonical address is another page (a duplicate we keep reachable) stays out of the sitemap
+    const canonical = (fs.readFileSync(path.join(dir, f), 'utf8').slice(0, 6000).match(/<link rel="canonical" href="([^"]*)"/) || [])[1];
+    if (canonical && !canonical.endsWith(`/${name}.html`)) continue;
     const priority = name.startsWith('finders-safaris-') || name.startsWith('destinations') ? 0.9
       : /-experience$/.test(name) ? 0.5 : 0.7;
     entries.push({ url: `${origin}/${name}.html`, lastModified: fs.statSync(path.join(dir, f)).mtime, changeFrequency: 'monthly', priority });

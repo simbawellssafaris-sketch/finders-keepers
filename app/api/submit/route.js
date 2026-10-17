@@ -51,6 +51,8 @@ function tooMany(ip) {
 }
 
 export async function POST(request) {
+  // Browsers label requests started by another website "cross-site"; only this site's own pages may use the route.
+  if (request.headers.get('sec-fetch-site') === 'cross-site') return NextResponse.json({ ok: false }, { status: 403 });
   const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
   if (tooMany(ip)) return NextResponse.json({ ok: false, error: 'Too many requests' }, { status: 429 });
 

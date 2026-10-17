@@ -720,9 +720,9 @@
       <div>
         <h5>Stay In Touch</h5>
         <form class="foot-form" id="footSubForm" novalidate>
-          <input type="text" id="footFirstName" placeholder="First Name*" required>
-          <input type="text" id="footLastName" placeholder="Last Name*" required>
-          <input type="email" id="footEmail" placeholder="E-mail Address*" required>
+          <input type="text" id="footFirstName" placeholder="First Name*" aria-label="First name" autocomplete="given-name" required>
+          <input type="text" id="footLastName" placeholder="Last Name*" aria-label="Last name" autocomplete="family-name" required>
+          <input type="email" id="footEmail" placeholder="E-mail Address*" aria-label="Email address" autocomplete="email" required>
           <button type="submit" class="btn">Subscribe</button>
           <p class="foot-form-note" id="footFormNote"></p>
         </form>

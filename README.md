@@ -89,3 +89,8 @@ types: one-line lodge/experience footer, the link-column footer, and the package
 (30% deposit, balance 60 days before departure, travel insurance required, the group-departure refund choice) and from how the site actually handles data
 (Supabase, Hostinger email, Google Fonts, optional Cloudflare Turnstile). They should be reviewed by a lawyer before being relied on. The cancellation
 charges themselves are deliberately not stated: the page says they are written in each quotation and booking confirmation.
+
+## Production readiness
+
+See `docs/production-readiness.md` for the environment variables, database backup and restore steps, search-engine (Google / Bing) setup, the
+security headers, and what was deliberately left out (analytics, admin dashboard, payments).
