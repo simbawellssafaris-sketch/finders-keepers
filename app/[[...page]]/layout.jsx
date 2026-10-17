@@ -1,4 +1,5 @@
 import { loadPage, pageName } from '../../lib/pages';
+import SupabaseForms from './supabase-forms';
 
 // Root layout: knows which page is being built, so each page keeps its own <head> tags
 // (title, description, social tags, styles, fonts) exactly as before.
@@ -8,7 +9,10 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>{headNodes}</head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <SupabaseForms />
+      </body>
     </html>
   );
 }

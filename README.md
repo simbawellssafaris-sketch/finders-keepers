@@ -34,3 +34,19 @@ The "Find Your Journey" button in every header opens a search box (also press `/
 ## Good to know
 - The domain/email is the placeholder `findersandkeepers.com` until the real one is bought (`lib/site.mjs`; page files use `{{domain}}`). Share previews and the sitemap use it.
 - Adding a page: put a new `.html` file in `content/pages/` and rebuild — it gets SEO tags, search and sitemap entries automatically.
+
+## Database (Supabase)
+
+Website forms are saved to Supabase (project `finders&keepers`). There is no login: visitors can submit forms and nothing else.
+
+| Form | Table |
+|---|---|
+| "Let's Plan Your Journey" enquiry pop-up (also on The 1923) | `enquiries` |
+| Private jets, layover safaris, flight arrangements, city tour, airport fast-track | `service_requests` (`service` says which; the form-specific answers are in `details`) |
+| Newsletter / journal sign-ups (footer, pop-up, homepage) | `newsletter_subscribers` |
+
+- Row Level Security is on for every table. The public (`anon`) role can only **insert**: it cannot read, change or delete rows, so one visitor can never see another's details. Read submissions in the Supabase dashboard (Table Editor).
+- The save happens in the browser (`app/[[...page]]/supabase-forms.jsx` + `lib/forms.js`), so it works for both the server build and the static export. The pages' own thank-you messages and WhatsApp / email buttons are unchanged. If a visitor is offline, the submission is kept in their browser and sent next time.
+- `.env` holds `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (see `.env.example`). These are baked in when the site is **built**, so on a host such as Hostinger add both as environment variables before building. The publishable key is meant to be public; never put the service-role key in a `NEXT_PUBLIC_` variable.
+- `lib/supabase/server.js` is a ready-made server client for the later admin page; no page uses it yet.
+- Windows note: if the project folder name contains `&` (e.g. `nders&keepers`), `npm run ...` fails; use the two `.bat` files, which call Node directly.

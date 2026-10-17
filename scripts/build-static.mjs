@@ -1,9 +1,12 @@
 // Builds the plain-files version of the site into /out, ready to upload to any web host.
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
 
-execSync('npx next build --webpack', { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
+// Run Next.js through node directly (not npx / npm shims) so this also works in a folder whose name contains '&'.
+const nextBin = createRequire(import.meta.url).resolve('next/dist/bin/next');
+execFileSync(process.execPath, [nextBin, 'build', '--webpack'], { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
 
 const OUT = path.join(process.cwd(), 'out');
 const KEEP = new Set(['_next', 'assets', 'icons', 'images']);
