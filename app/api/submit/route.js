@@ -15,6 +15,30 @@ const COLUMNS = {
   newsletter_subscribers: ['email', 'first_name', 'last_name', 'source', 'source_page'],
 };
 
+// Checks that keep spam out of the inbox: a hidden trap field (filtered in the browser), submitting too fast after the page
+// opened, and Cloudflare Turnstile when its keys are configured. A refused check answers 403; the browser then still saves the
+// row to Supabase (so a real person is never lost) but nothing is emailed.
+const MIN_AGE_MS = 1500;
+
+async function passesTurnstile(token, ip) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true; // not configured: rely on the other checks
+  if (!token) return false;
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ secret, response: String(token), ...(ip !== 'unknown' ? { remoteip: ip } : {}) }),
+      signal: AbortSignal.timeout(8000),
+    });
+    const data = await res.json();
+    return data.success === true;
+  } catch (e) {
+    console.error('Turnstile check unavailable, letting the submission through:', e && e.message);
+    return true; // Cloudflare unreachable: do not block real customers
+  }
+}
+
 // Simple per-visitor limit (kept in memory, resets on restart): 8 submissions per 10 minutes.
 const hits = new Map();
 function tooMany(ip) {
@@ -34,6 +58,9 @@ export async function POST(request) {
   const table = body && body.table;
   const row = body && body.row;
   if (!COLUMNS[table] || !row || typeof row !== 'object') return NextResponse.json({ ok: false }, { status: 400 });
+
+  if (typeof body.age !== 'number' || body.age < MIN_AGE_MS) return NextResponse.json({ ok: false, error: 'Too fast' }, { status: 403 });
+  if (!(await passesTurnstile(body.ts, ip))) return NextResponse.json({ ok: false, error: 'Verification failed' }, { status: 403 });
 
   const clean = {};
   for (const key of COLUMNS[table]) {

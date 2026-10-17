@@ -70,3 +70,14 @@ Add these as environment variables on Hostinger (they are read when the server r
 
 Without `SMTP_USER` / `SMTP_PASS` the submission is still saved, just not emailed. The static zip has no server, so there the forms are
 saved straight to Supabase from the browser and no email is sent. (`npm run build:static` sets `app/api` aside while it builds.)
+
+## Spam protection
+
+The form route (`app/api/submit/route.js`) only emails a submission that passes these checks; a refused one is still saved to the database by the browser, just not emailed:
+
+- a hidden trap field, added to every form by `armForms()` in `lib/forms.js`, which only bots fill in (dropped in the browser);
+- a minimum time since the page opened (1.5 s): bots submit instantly;
+- at most 8 submissions per visitor per 10 minutes (answers 429);
+- **Cloudflare Turnstile** (free CAPTCHA, normally invisible) when `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (public, baked in at build time) and `TURNSTILE_SECRET_KEY` (server only) are set. Without them this check is skipped. Cloudflare publishes test keys for local testing (site `1x00000000000000000000AA`, secret `1x0000000000000000000000000000000AA` always pass).
+
+Known limit: the Supabase publishable key is public by design, so someone who extracts it could still insert rows straight into the database, bypassing these checks (it cannot read anything and no email is sent for such rows). Stricter option for later: remove the anonymous insert policy and let only the server route insert with a server-only key.

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { getSupabase } from '../../lib/supabase/client';
-import { buildSubmission, saveSubmission, flushPending } from '../../lib/forms';
+import { buildSubmission, saveSubmission, flushPending, armForms } from '../../lib/forms';
 
 // Saves every website form (enquiries, service requests, newsletter sign-ups) to Supabase as it is submitted.
 // Renders nothing. The pages' own scripts still show the thank-you message and the WhatsApp / email options.
@@ -13,6 +13,7 @@ export default function SupabaseForms() {
       console.warn('Supabase is not configured (NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY): forms will not be saved.');
       return;
     }
+    armForms();
     flushPending(supabase);
     const retry = () => flushPending(supabase);
     // Capture phase: runs before the page's own handler, which may reset the form after a successful submit.
