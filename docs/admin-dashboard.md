@@ -3,7 +3,16 @@
 Address: `https://finderskeeperssafaris.com/admin` (signs in at `/admin/login`). It is only part of the server version of the site (Hostinger
 Node.js). The static zip has no server, so it has no dashboard.
 
-## What it does
+## What it does (round 2 additions are marked *)
+- *Log an enquiry by hand* (button on the Enquiries page) for leads that come by phone, WhatsApp, email or in person, with a **channel** label.
+- *Assign* each enquiry or request to a person, and set a *follow-up date*. The Overview lists follow-ups that are due or overdue, and the
+  lists can be filtered by channel, by who it is assigned to, and by "follow-up due".
+- *History* on every record: who changed the status, notes, assignment or follow-up, and when. History cannot be edited or deleted from the dashboard.
+- *Roles:* **Owner** can do everything. **Staff** can read, edit and log enquiries but cannot delete anything or manage the team.
+- *Two-factor login* (authenticator app) under **Security**. Once on, signing in needs a 6-digit code after the password.
+- *Team page:* see who has access; owners can rename people, change roles and remove access.
+
+The original features:
 - **Overview:** new enquiries, new service requests, subscribers, last 7 days, latest activity.
 - **Enquiries / Service requests:** search, filter by status, open a record, see everything the customer sent, one-click Reply by email and
   Open WhatsApp, set a status (New, Contacted, Quoted, Won, Lost, Spam), keep private notes, delete permanently.
@@ -42,3 +51,25 @@ It uses the two `NEXT_PUBLIC_SUPABASE_*` variables that are already set. It does
 - Times are shown in East Africa Time.
 - Deleting is permanent; use the Spam status to keep a record without cluttering the New list.
 - If the database is ever restored from a backup, the `admins` table is restored with it.
+
+## Two-factor login (everyone should switch it on)
+1. Sign in, open **Security** (top right), click **Set up two-factor login**.
+2. Install an authenticator app on your phone (Google Authenticator, Microsoft Authenticator or Authy), scan the QR code, type the 6-digit code.
+3. From then on, signing in asks for the code after the password.
+If someone loses their phone: Supabase dashboard > **Authentication > Users** > open that user > remove their factor. They can then sign in with just
+their password and set up again.
+
+## Adding a team member (owners)
+1. Supabase > Authentication > Users > Add user > Create new user (their own email, strong password, tick Auto Confirm User).
+2. Supabase > SQL Editor:
+
+```sql
+insert into public.admins (user_id, role, display_name)
+select id, 'staff', 'Their name' from auth.users where email = 'their-email@example.com';
+```
+
+Use 'admin' instead of 'staff' for another owner. The Team page can rename people and change roles afterwards.
+
+## One setting only you can switch on
+Supabase > **Authentication > Sign In / Providers** (or Attack Protection): turn on **leaked password protection** (Pro plan). It stops people choosing
+a password that appears in known data breaches.
