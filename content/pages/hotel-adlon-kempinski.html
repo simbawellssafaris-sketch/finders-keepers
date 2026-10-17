@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Adlon Kempinski &mdash; Berlin, Germany</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --charcoal: #241f16;
+    --accent: #7A7360;
+    --accent-dark: #565143;
+    --olive: #6B7A5A;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(36,31,22,0.14);
+    --shadow: 0 30px 60px -30px rgba(36,31,22,0.35);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--charcoal); font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.6; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.4; fill:none; }
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--charcoal); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/hotel-adlon-kempinski/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/hotel-adlon-kempinski/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/hotel-adlon-kempinski/3.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.06; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+  .hero-caption{ position:relative; z-index:2; padding:0 clamp(20px,6vw,80px) 100px; color: var(--tent-cream); max-width:720px; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--tent-cream); }
+  .brandmark{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  .brandmark span{ color: var(--gold); }
+  .hero-coords{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-align:right; line-height:1.7; opacity:0.85; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--gold); } .hero-headline .eyebrow::before{ background: var(--gold); }
+  .hero-headline h1{ color: var(--tent-cream); font-size: clamp(2.5rem, 6.6vw, 4.8rem); line-height:0.98; margin-top:18px; }
+  .hero-headline p{ color: rgba(251,246,234,0.82); max-width:440px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(251,246,234,0.14); border:1px solid rgba(251,246,234,0.4); backdrop-filter: blur(6px); color: var(--tent-cream); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(251,246,234,0.35); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--gold); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'Space Mono', monospace; font-size:0.72rem; color: var(--tent-cream); letter-spacing:0.06em; }
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(36,31,22,0.5); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--charcoal); } .tab.active{ color: var(--accent); } .tab.active::after{ transform: scaleX(1); }
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(36,31,22,0.78); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent); }
+  .stat .label{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(36,31,22,0.6); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+  .lodges-note{ background: var(--tent-cream); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(36,31,22,0.85); }
+  .lodges-note strong{ color: var(--accent); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/hotel-adlon-kempinski/3.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Fraunces', serif; color: var(--accent); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(36,31,22,0.72); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--olive); }
+  .exp-card h3{ font-size:1.25rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.72); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--accent); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/hotel-adlon-kempinski/2.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(36,31,22,0.82); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent); font-family:'Fraunces',serif; }
+  .loc-map{ background: var(--charcoal); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'Space Mono', monospace; color: var(--accent); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+  .offer-bar{ background: var(--olive-deep, #3A4130); color: var(--tent-cream); padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: var(--tent-cream); padding:16px 30px; text-decoration:none; font-family:'Space Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; color: rgba(36,31,22,0.5); background: var(--ivory); }
+
+.offer-bar{ background: #3C4634; }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">HOTEL <span>ADLON</span></div>
+    <div class="hero-coords">52&deg;30'N 13&deg;22'E<br>PARISER PLATZ, BERLIN</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Kempinski &mdash; Unter den Linden</span>
+    <h1>Opposite the<br>Brandenburg Gate</h1>
+    <p>Opened by Kaiser Wilhelm II in 1907, at the corner of Unter den Linden and Pariser Platz.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 03</div>
+</div>
+
+<!--@include lodge-tabbar-->
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Nineteen<br>Oh-Seven</h2></div>
+    <p class="lede">Three hundred and seven rooms and seventy-eight suites, facing the Brandenburg Gate.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(36,31,22,0.82); font-size:1.02rem;">Lorenz Adlon, a cobbler&rsquo;s son from Mainz, bought the Redern property in 1905 and had Carl Gause and Robert Leibniz build a hotel on it in two years. It opened on 23 October 1907, and Kaiser Wilhelm II insisted on being the first guest. What it offered then sounds ordinary now and was not: hot and cold running water, a ladies&rsquo; lounge, a music room, its own laundry and its own electric power plant, and an interior garden with an elephant fountain given by a Maharaja. There are 307 rooms and 78 suites today, and the address &mdash; the corner of Unter den Linden and Pariser Platz, directly across from the Brandenburg Gate &mdash; is the same one.</p>
+
+  <div class="lodges-note"><strong>Gate-facing rooms are finite.</strong> Only a limited number of rooms and suites look directly onto Pariser Platz and the Brandenburg Gate. Request one by name.</div>
+
+  <div class="stat-row"><div class="stat"><div class="num">1907</div><div class="label">Year It Opened</div></div><div class="stat"><div class="num">307</div><div class="label">Rooms</div></div><div class="stat"><div class="num">78</div><div class="label">Suites</div></div><div class="stat"><div class="num">2</div><div class="label">Michelin Stars</div></div></div>
+</section>
+
+<!--@include elevation-divider-->
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Rooms</span><h2>Unter den<br>Linden</h2></div>
+    <p class="lede">Rooms facing the boulevard, the courtyard, or the Gate itself.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Brandenburg Gate View &mdash; Hotel Adlon</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>The Gate View</strong><span>Selected rooms and suites look straight across Pariser Platz to the Brandenburg Gate.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Boulevard Facing</strong><span>Others run along Unter den Linden, Berlin&rsquo;s principal ceremonial avenue.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Courtyard Quiet</strong><span>Interior rooms face the garden courtyard, and are the quietest in the building.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>Classic Berlin</strong><span>Interiors in the grand-hotel manner the original building established in 1907.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>Berlin,<br>at the Centre</h2></div>
+    <p class="lede">Museum Island, the Reichstag and the Tiergarten, all within walking distance.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Landmark</span><h3>Brandenburg Gate</h3><p>Directly across the square, and the single most photographed structure in Germany.</p></div></div><div class="exp-card"><div><span class="exp-tag">Museums</span><h3>Museum Island</h3><p>Five museums on one island in the Spree, listed by UNESCO.</p></div></div><div class="exp-card"><div><span class="exp-tag">Politics</span><h3>The Reichstag</h3><p>Norman Foster&rsquo;s glass dome above the debating chamber; book the climb in advance.</p></div></div><div class="exp-card"><div><span class="exp-tag">Memorial</span><h3>Holocaust Memorial</h3><p>2,711 concrete stelae, immediately south of the hotel.</p></div></div><div class="exp-card"><div><span class="exp-tag">Park</span><h3>The Tiergarten</h3><p>The city&rsquo;s great park, beginning at the far side of the Gate.</p></div></div><div class="exp-card"><div><span class="exp-tag">History</span><h3>The Wall</h3><p>What remains of it, at the East Side Gallery and at Bernauer Stra&szlig;e.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">Two Stars,<br>and the Lobby Lounge</h2>
+      <p class="lede" style="margin-top:24px;">Berlin&rsquo;s most decorated hotel dining room, and a lounge under the elephant fountain.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>Lorenz Adlon Esszimmer, holding two Michelin stars</span></div><div class="venue"><span class="n">02</span><span>SRA BUA, for pan-Asian cooking</span></div><div class="venue"><span class="n">03</span><span>The Lobby Lounge and Bar, beneath the elephant fountain</span></div><div class="venue"><span class="n">04</span><span>Afternoon tea served daily in the lounge</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">Lorenz Adlon Esszimmer &mdash; Hotel Adlon</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>Pariser<br>Platz</h2></div>
+    <p class="lede">At the corner of Unter den Linden, opposite the Brandenburg Gate.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>On Pariser Platz at the eastern side of the Brandenburg Gate, in Mitte.</li><li>Walking distance to the Reichstag, the Holocaust Memorial and the Tiergarten.</li><li>Fifteen minutes on foot along Unter den Linden to Museum Island.</li><li>Roughly 35 minutes from Berlin Brandenburg Airport.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#7A7360"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">HOTEL ADLON KEMPINSKI</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">PARISER PLATZ, MITTE</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">OPENED 1907</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">GERMANY</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Arrive at Berlin Brandenburg Airport.</p></div><div class="journey-step"><span class="k">Drive</span><p>Roughly 35 minutes by private chauffeur into Mitte.</p></div><div class="journey-step"><span class="k">Arrive</span><p>Check in, then walk through the Gate into the Tiergarten.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Berlin</span>
+      <h2>The Kaiser Was the First Guest</h2>
+      <p>Since 1907, at the corner of Unter den Linden, facing the Gate.</p>
+    </div>
+    <a class="cta" href="finders-safaris-france.html">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>HOTEL ADLON KEMPINSKI &middot; PARISER PLATZ &middot; BERLIN &middot; GERMANY</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

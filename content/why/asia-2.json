@@ -1,0 +1,110 @@
+{
+  "japan-alpine-peaks-hidden-samurai-valleys": {
+    "lead": "Japan’s Alpine heart: preserved Edo towns, thatched Shirakawa-go farmhouses and a private teahouse breakfast in Kenroku-en.",
+    "reasons": [
+      { "t": "Takayama in a machiya", "d": "Wanosato Takayama is a luxury machiya estate in the heart of the preserved Edo-period town, with aged sake and Hida beef canapés on a private deck over the Miyagawa River at sunset." },
+      { "t": "Castles and thatched roofs", "d": "Matsumoto’s five-storey black Crow Castle, and Shirakawa-go’s steep-roofed Gassho-zukuri farmhouses, built to withstand heavy mountain snow." },
+      { "t": "Kanazawa after hours", "d": "A private hot bento breakfast in a historic teahouse in Kenroku-en, one of Japan’s three great gardens, an after-hours walk through Myoryuji Ninja Temple, and the koi canals of Hida-Furukawa." }
+    ],
+    "bestFor": ["First-time Japan", "Culture lovers", "Photographers"]
+  },
+  "japan-ancient-spiritual-kingdom-sea-canals": {
+    "lead": "A night in a working Buddhist temple on Mount Koya, the Kumano Kodo pilgrimage trail and Naoshima’s art island, reached by private helicopter.",
+    "reasons": [
+      { "t": "Sleeping in a temple", "d": "A night at Soji-in, a working Buddhist temple, with a traditional vegetarian meal and the monks’ pre-dawn chanting and fire rituals." },
+      { "t": "Among 200,000 stupas", "d": "Okunoin, Japan’s largest sacred cemetery, walked beneath giant cedars past moss-covered stupas, then the stone stairways of the Kumano Kodo pilgrimage trail." },
+      { "t": "Art by helicopter", "d": "Private helicopters to Mount Koya and to Naoshima, then the Chichu Underground Museum, Benesse House, the Art House Project and a private yacht on the Seto Inland Sea." }
+    ],
+    "bestFor": ["Spiritual travellers", "Art lovers", "Return Japan visitors"]
+  },
+  "malayan-grandeur": {
+    "lead": "Malaysia from the Petronas Towers to the Cameron Highlands’ tea hills, George Town’s street art and Langkawi’s sky bridge, in one flowing loop.",
+    "reasons": [
+      { "t": "A capital and a hilltop", "d": "Three nights at the Grand Hyatt Kuala Lumpur with the Petronas skybridge and Batu Caves, then Crockfords Genting, the most private hotel in the Genting Highlands, with butler service." },
+      { "t": "Tea, strawberries and heritage", "d": "Walks through the Cameron Highlands’ tea plantations and strawberry farms, and a private UNESCO tour of George Town’s shophouses, clan halls, street art and hawker food." },
+      { "t": "A rainforest finish", "d": "The Ritz-Carlton Langkawi’s beachfront rainforest setting, with the Langkawi Sky Bridge, island hopping and a mangrove safari." }
+    ],
+    "bestFor": ["First Malaysia trips", "Food lovers", "Couples"]
+  },
+  "malaysia-ancient-jungle-island-frontier": {
+    "lead": "Borneo in ten days: orangutans, sun bears and pygmy elephants, with a river villa and a canopy walkway in the Danum Valley rainforest.",
+    "reasons": [
+      { "t": "Orangutans and sun bears", "d": "Young orangutans learning to climb at the Sepilok Rehabilitation Centre, and the Sun Bear Conservation Centre, home to the world’s smallest bear." },
+      { "t": "A villa over the river", "d": "A luxury river villa at Borneo Rainforest Lodge, with a private plunge pool suspended over the Danum River in untouched primary rainforest." },
+      { "t": "Canopy and pygmy elephants", "d": "A dawn walk on the 300-metre canopy walkway, 26 metres above the forest floor, private tracking of Bornean pygmy elephants, and a champagne sunset beach below Mount Kinabalu." }
+    ],
+    "bestFor": ["Wildlife lovers", "Adventurous couples", "Photographers"]
+  },
+  "malaysia-central-coral-coast-loop": {
+    "lead": "Kuala Lumpur’s skyline, then a private charter flight and yacht to Redang Island’s marine park for turtles and coral.",
+    "reasons": [
+      { "t": "Kuala Lumpur, from the skybridge", "d": "The double-decker Petronas Skybridge at 170 metres, the 272 steps up Batu Caves to a 42-metre golden statue, and a rooftop helipad sundowner over the skyline." },
+      { "t": "Redang’s reefs", "d": "A private charter flight and luxury yacht to Redang Island, with world-class snorkelling among giant green sea turtles and reef walls." },
+      { "t": "A hidden wetland", "d": "The Setiu Wetlands’ crimson mangrove roots, lagoons and river terrapins, with a breakfast on an elevated wooden platform, then a cliffside spa at The Taaras." }
+    ],
+    "bestFor": ["Snorkellers", "First Malaysia trips", "Couples"]
+  },
+  "malaysia-great-western-spice-route": {
+    "lead": "Penang’s heritage and Langkawi’s limestone coast, joined by a private speedboat across the sea.",
+    "reasons": [
+      { "t": "George Town, properly", "d": "The blue-washed Cheong Fatt Tze mansion, the stilted clan jetties with a botanical cocktail sundowner, and the ribbon bridge over a 130-million-year-old rainforest canopy on Penang Hill." },
+      { "t": "A speedboat to Langkawi", "d": "A private speedboat crossing from Penang to the Langkawi archipelago, avoiding the long way round." },
+      { "t": "Karst and a sky bridge", "d": "A champagne brunch on an isolated sandbar in Kilim Karst Geoforest with brahminy kites overhead, the SkyBridge suspended 700 metres above sea level, and a yacht cruise along Datai Beach." }
+    ],
+    "bestFor": ["Food lovers", "Couples", "Nature lovers"]
+  },
+  "malaysia-southern-heritage-rainforest-arc": {
+    "lead": "Malacca’s Portuguese, Dutch and Peranakan layers, then a firefly safari and a jungle-cliff beach breakfast at One&Only Desaru Coast.",
+    "reasons": [
+      { "t": "Malacca with a historian", "d": "A Famosa fort, St Paul’s Church and the Dutch Christ Church square, a Malacca River cruise with vintage port and Nyonya delicacies, and the Baba & Nyonya Heritage Museum." },
+      { "t": "Gibbons and fireflies", "d": "Dawn gibbon calls in Panti Forest Reserve, a bioluminescent firefly safari on the Lebam River, and the ancient rainforest of Endau-Rompin." },
+      { "t": "A cove for breakfast", "d": "At One&Only Desaru Coast, a marine picnic with breakfast on an isolated jungle-cliff beach on a pristine South China Sea cove." }
+    ],
+    "bestFor": ["History lovers", "Food lovers", "Couples"]
+  },
+  "philippines-eastern-mindanao-siargao": {
+    "lead": "Siargao’s island circuit: a bare white sandbar, glowing caves and a lagoon of stingless jellyfish, from a clifftop villa.",
+    "reasons": [
+      { "t": "Naked, Daku and Guyam", "d": "The bare white sandbar of Naked Island, a champagne brunch in a private overwater reef pavilion on Daku Island, and snorkelling around circular Guyam atoll." },
+      { "t": "Jellyfish and glowing caves", "d": "Swimming among millions of stingless neon-blue jellyfish in Sohoton Cove, water that glows blue in Hagukan Cave, and a 15-foot cliff jump in Magkukuob Cave." },
+      { "t": "Sundown on a pontoon", "d": "A private pontoon sundowner on Sugba Lagoon’s glassy turquoise channels, then a night in a perched ocean villa at Nay Palad Hideaway." }
+    ],
+    "bestFor": ["Adventurous couples", "Snorkellers", "Photographers"]
+  },
+  "philippines-northern-palawan-sanctuary": {
+    "lead": "El Nido’s hidden lagoons, private kayaks and a bioluminescent night swim, from the Pangulasian Island resort.",
+    "reasons": [
+      { "t": "Lagoons you swim into", "d": "A swim through a tiny rock opening into the Secret Lagoon, a private kayak on the Big Lagoon past blue starfish and blacktip reef shark pups, and crowd-free snorkelling with sea turtles in Cadlao Lagoon." },
+      { "t": "Breakfast under a limestone overhang", "d": "A white-linen breakfast on Shimizu Island under a limestone overhang, and a sundowner on a deserted island with a carpet-and-pillow setup." },
+      { "t": "A night in the water", "d": "A bioluminescent swim among glowing plankton, plus a reef walk at Entalula and deep-wall snorkelling." }
+    ],
+    "bestFor": ["Snorkellers", "Couples", "Island seekers"]
+  },
+  "philippines-southern-luzon-calamianes": {
+    "lead": "Coron’s lakes, wrecks and dugongs: Asia’s clearest lake, a WWII shipwreck reef and sea cows, from a private-pool villa.",
+    "reasons": [
+      { "t": "Lakes of clear water", "d": "Kayangan Lake, famed for the cleanest water in Asia, Barracuda Lake’s thermocline where cool fresh water turns to 38°C salt, and the submerged rock tunnel at Twin Lagoons." },
+      { "t": "Dugongs and a shipwreck", "d": "Exclusive snorkelling beside endangered dugongs at Busuanga, and the 25-metre WWII Japanese supply ship at Sangat Island, now a brain coral reef." },
+      { "t": "Powder sand and a lagoon sundowner", "d": "A sandbar breakfast on Malcapuya Island, a boat-deck sundowner of premium wine inside the limestone lagoon walls, and an island-tip pool villa at Two Seasons Coron." }
+    ],
+    "bestFor": ["Divers and snorkellers", "Couples", "Marine-life lovers"]
+  },
+  "singapore-couples-escape": {
+    "lead": "Singapore for two: a private dinner in a moving cable car, a tall-ship cruise and a skyline rooftop, with a full spa day.",
+    "reasons": [
+      { "t": "Dinner in the sky", "d": "A private multi-course dinner inside a moving cable car as the sun sets over Sentosa harbour." },
+      { "t": "Water, skyline and light", "d": "A Royal Albatross tall-ship cruise with champagne and live music, sunset from Marina Bay Sands SkyPark with a rooftop dinner, and the lasers and fireworks of Wings of Time." },
+      { "t": "City and beach", "d": "Six nights in the city at Hotel Mi Rochor and four at Shangri-La Rasa Sentosa, with a wellness day and walks through Chinatown, Little India and Haji Lane." }
+    ],
+    "bestFor": ["Honeymooners", "Couples", "City-break lovers"]
+  },
+  "singapore-group-escape": {
+    "lead": "Singapore built for a group: a night safari, a private yacht, Universal Studios and an adrenaline day, with plenty of shared time.",
+    "reasons": [
+      { "t": "A night safari for everyone", "d": "Tram rides through illuminated jungle with nocturnal wildlife moving freely around you, plus the Singapore Zoo, Bird Paradise and River Wonders." },
+      { "t": "Yacht and skyline", "d": "A private luxury yacht around the Southern Islands with music and cocktails at sunset, and Marina Bay Sands and the Merlion." },
+      { "t": "Rides and adrenaline", "d": "A full group day at Universal Studios Singapore, and an adrenaline day of Skyline Luge, Mega Zip and iFly indoor skydiving, with Sentosa’s beach clubs for downtime." }
+    ],
+    "bestFor": ["Groups of friends", "Multi-generation trips", "Families"]
+  }
+}

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angama Mara — Suspended in Mid-Air</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --ivory-deep: #E0D3B8;
+    --charcoal: #2A2318;
+    --ochre: #A3462B;
+    --ochre-dark: #7E3520;
+    --olive: #545C41;
+    --olive-deep: #3A4130;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(42,35,24,0.14);
+    --shadow: 0 30px 60px -30px rgba(42,35,24,0.35);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .eyebrow{
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    color: var(--ochre);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 22px; height: 1px;
+    background: var(--ochre);
+    display:inline-block;
+  }
+
+  a{ color: inherit; }
+  button{ font-family: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+  }
+
+  /* ============ ELEVATION MOTIF (signature) ============ */
+  .elevation-rule{
+    width: 100%;
+    height: 46px;
+    display:block;
+  }
+  .elevation-rule path{
+    stroke: var(--gold);
+    stroke-width: 1.4;
+    fill: none;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position: relative;
+    height: 100svh;
+    min-height: 560px;
+    width: 100%;
+    overflow: hidden;
+    background: var(--charcoal);
+  }
+
+  .hero-track{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: transform 900ms cubic-bezier(.65,0,.35,1);
+  }
+
+  .hero-slide{
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+
+  .hero-slide .scene{
+    position:absolute; inset:0;
+  }
+
+  /* duotone photographic-style panels, no external photography */
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/angama-mara/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/angama-mara/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/angama-mara/3.jpg'); background-size:cover; background-position:center; }
+  .scene-4{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/angama-mara/4.jpg'); background-size:cover; background-position:center; }
+
+  .scene::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%);
+  }
+
+  .scene .grain{
+    position:absolute; inset:0;
+    opacity:0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .hero-caption{
+    position:relative;
+    z-index:2;
+    padding: 0 clamp(20px,6vw,80px) 100px;
+    color: var(--tent-cream);
+    max-width: 720px;
+  }
+
+  .hero-caption .tag{
+    font-family:'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display:block;
+    margin-bottom: 14px;
+  }
+
+  .hero-caption h3{
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--tent-cream);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .hero-top{
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    display:flex; align-items:flex-start; justify-content:space-between;
+    padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0;
+    color: var(--tent-cream);
+  }
+
+  .brandmark{
+    font-family:'Fraunces', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+  }
+  .brandmark span{ color: var(--gold); }
+
+  .hero-coords{
+    font-family:'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-align:right;
+    line-height:1.7;
+    opacity:0.85;
+  }
+
+  .hero-headline{
+    position:absolute;
+    z-index: 2;
+    left: clamp(20px,6vw,80px);
+    bottom: 190px;
+    max-width: 780px;
+  }
+
+  .hero-headline .eyebrow{ color: var(--gold); }
+  .hero-headline .eyebrow::before{ background: var(--gold); }
+
+  .hero-headline h1{
+    color: var(--tent-cream);
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    line-height: 0.98;
+    margin-top: 18px;
+  }
+
+  .hero-headline p{
+    color: rgba(251,246,234,0.82);
+    max-width: 440px;
+    margin-top: 18px;
+    font-size: 1rem;
+  }
+
+  /* arrows */
+  .hero-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    z-index:4;
+    width:52px; height:52px;
+    border-radius:50%;
+    background: rgba(251,246,234,0.14);
+    border: 1px solid rgba(251,246,234,0.4);
+    backdrop-filter: blur(6px);
+    color: var(--tent-cream);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition: background 200ms ease, transform 200ms ease;
+  }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); }
+  .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+
+  .hero-dots{
+    position:absolute;
+    bottom: 40px;
+    left: clamp(20px,6vw,80px);
+    z-index:4;
+    display:flex;
+    gap:10px;
+  }
+  .hero-dot{
+    width: 26px; height: 3px;
+    background: rgba(251,246,234,0.35);
+    border:none; cursor:pointer;
+    position:relative;
+    padding:0;
+  }
+  .hero-dot::after{
+    content:"";
+    position:absolute; inset:0;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease;
+  }
+  .hero-dot.active::after{ transform: scaleX(1); }
+
+  .hero-scene-count{
+    position:absolute;
+    bottom: 40px;
+    right: clamp(20px,6vw,80px);
+    z-index:4;
+    font-family:'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--tent-cream);
+    letter-spacing: 0.06em;
+  }
+
+  /* ============ STICKY SCROLLSPY TABS ============ */
+  .tabbar-wrap{
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--line);
+  }
+  .tabbar{
+    max-width: 1180px;
+    margin: 0 auto;
+    display:flex;
+    gap: clamp(18px, 3vw, 44px);
+    padding: 0 clamp(20px,6vw,80px);
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .tabbar::-webkit-scrollbar{ display:none; }
+
+  .tab{
+    background:none; border:none;
+    padding: 22px 0 18px;
+    font-family:'Space Mono', monospace;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(42,35,24,0.5);
+    cursor:pointer;
+    white-space:nowrap;
+    position:relative;
+    transition: color 200ms ease;
+  }
+  .tab::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0;
+    height: 2px;
+    background: var(--ochre);
+    transform: scaleX(0);
+    transform-origin:left;
+    transition: transform 250ms ease;
+  }
+  .tab:hover{ color: var(--charcoal); }
+  .tab.active{ color: var(--ochre); }
+  .tab.active::after{ transform: scaleX(1); }
+
+  /* ============ SECTIONS ============ */
+  section{
+    padding: clamp(70px, 9vw, 130px) clamp(20px,6vw,80px);
+    max-width: 1180px;
+    margin: 0 auto;
+    scroll-margin-top: 66px;
+  }
+
+  .section-head{
+    display:grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 56px;
+  }
+  .section-head h2{
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-top: 14px;
+  }
+  .section-head .lede{
+    font-size: 1.05rem;
+    color: rgba(42,35,24,0.78);
+    padding-top: 4px;
+  }
+
+  @media (max-width: 800px){
+    .section-head{ grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 50px 0 0;
+  }
+  .stat{
+    background: var(--ivory);
+    padding: 26px 18px;
+    text-align:center;
+  }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    color: var(--ochre);
+  }
+  .stat .label{
+    font-family:'Space Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(42,35,24,0.6);
+    margin-top: 6px;
+  }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+
+  /* ---- overview intro copy ---- */
+  .lodges-note{
+    background: var(--tent-cream);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ochre);
+    padding: 28px 32px;
+    margin-top: 54px;
+    font-size: 0.98rem;
+    color: rgba(42,35,24,0.85);
+  }
+  .lodges-note strong{ color: var(--ochre); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+
+  /* ---- suites ---- */
+  .suite-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items:center;
+  }
+  .suite-visual{
+    aspect-ratio: 4/5;
+    border-radius: 2px;
+    background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/angama-mara/4.jpg'); background-size:cover; background-position:center;
+    position:relative;
+    overflow:hidden;
+    box-shadow: var(--shadow);
+  }
+  .suite-visual::after{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%);
+  }
+  .suite-visual .cap{
+    position:absolute; left:24px; bottom:24px; z-index:2;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--tent-cream);
+  }
+  .feature-list{ list-style:none; padding:0; margin: 30px 0 0; }
+  .feature-list li{
+    display:flex; gap:16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    align-items:flex-start;
+  }
+  .feature-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .feature-list .mark{
+    font-family:'Fraunces', serif;
+    color: var(--ochre);
+    font-size: 1rem;
+    font-style: italic;
+    min-width: 32px;
+  }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(42,35,24,0.72); font-size:0.95rem; }
+
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+
+  /* ---- experiences ---- */
+  .exp-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+    margin-top: 50px;
+  }
+  .exp-card{
+    background: var(--ivory);
+    padding: 34px 28px;
+    min-height: 230px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition: background 250ms ease;
+  }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{
+    font-family:'Space Mono', monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--olive);
+  }
+  .exp-card h3{
+    font-size: 1.25rem;
+    margin-top: 20px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .exp-card p{
+    margin-top: 10px;
+    font-size: 0.92rem;
+    color: rgba(42,35,24,0.72);
+  }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+
+  /* ---- dining ---- */
+  .dining-wrap{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items:center;
+  }
+  .venue-list{ margin-top: 32px; display:grid; gap: 14px; }
+  .venue-list .venue{
+    display:flex; align-items:baseline; gap:16px;
+    padding-bottom:14px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .venue-list .venue .n{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem; color: var(--ochre);
+  }
+  .dining-visual{
+    aspect-ratio: 3/4;
+    background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/angama-mara/3.jpg'); background-size:cover; background-position:center;
+    position:relative; overflow:hidden;
+    box-shadow: var(--shadow);
+  }
+  .dining-visual .cap{
+    position:absolute; left:24px; bottom:24px;
+    font-family:'Space Mono', monospace; font-size:0.68rem;
+    letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream);
+  }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; } .dining-wrap{ display:flex; flex-direction:column-reverse;} }
+
+  /* ---- location ---- */
+  .loc-wrap{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap: 22px; }
+  .loc-bullets li{
+    padding-left: 26px;
+    position:relative;
+    color: rgba(42,35,24,0.82);
+  }
+  .loc-bullets li::before{
+    content:"—";
+    position:absolute; left:0; top:0;
+    color: var(--ochre);
+    font-family:'Fraunces',serif;
+  }
+  .loc-map{
+    background: var(--charcoal);
+    border-radius: 2px;
+    position:relative;
+    overflow:hidden;
+    min-height: 340px;
+    box-shadow: var(--shadow);
+  }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+
+  .journey-strip{
+    margin-top: 54px;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .journey-step{
+    background: var(--ivory);
+    padding: 26px 22px;
+  }
+  .journey-step .k{
+    font-family:'Space Mono', monospace;
+    color: var(--ochre); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(42,35,24,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+
+  /* ============ OFFER BAR (continuity with packages page) ============ */
+  .offer-bar{
+    background: var(--olive-deep);
+    color: var(--tent-cream);
+    padding: 60px clamp(20px,6vw,80px);
+  }
+  .offer-inner{
+    max-width: 1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 40px;
+    flex-wrap:wrap;
+  }
+  .offer-inner .eyebrow{ color: var(--gold); }
+  .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width: 420px; margin-top: 10px; }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background: var(--ochre);
+    color: var(--tent-cream);
+    padding: 16px 30px;
+    text-decoration:none;
+    font-family:'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    cursor:pointer;
+    transition: background 200ms ease;
+    white-space:nowrap;
+  }
+  .cta:hover{ background: var(--ochre-dark); }
+
+  footer{
+    padding: 40px clamp(20px,6vw,80px);
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing:0.08em;
+    color: rgba(42,35,24,0.5);
+    background: var(--ivory);
+  }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">ANGAMA <span>MARA</span></div>
+    <div class="hero-coords">01°22'S 34°49'E<br>OLOOLOLO ESCARPMENT</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-4"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Safari Lodge — Maasai Mara</span>
+    <h1>Suspended<br>in Mid-Air</h1>
+    <p>Perched 1,000ft above the Mara Triangle on the Oloololo Escarpment — where Africa's great herds move below and three kopjes once framed the making of Out of Africa.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 04</div>
+</div>
+
+<!-- ============ STICKY SCROLLSPY TABS ============ -->
+<!--@include lodge-tabbar-3-->
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Overview</span>
+      <h2>Welcome to<br>the Real World</h2>
+    </div>
+    <p class="lede">Angama's contemporary design breaks from the traditional safari mould. Set along the rim of the Great Rift Valley, Angama Mara pairs sweeping views over Kenya's Maasai Mara with an architectural language drawn straight from the land beneath it.</p>
+  </div>
+
+  <p style="max-width:760px; color:rgba(42,35,24,0.82); font-size:1.02rem;">
+    The lodge's setting looks down onto what many safari travellers consider the finest game reserve on the continent. Its Tented Suites stretch across two kopjes on the edge of the escarpment; a third kopje, immediately recognisable to film lovers, is where some of the most memorable scenes from <em>Out of Africa</em> were shot. Angama Mara's architecture carries real drama — red brickwork inspired by the finish of local Maasai dwellings, set against glass, canvas and the endless sky beyond.
+  </p>
+
+  <div class="lodges-note">
+    <strong>One of three Angama addresses.</strong> Angama Mara sits alongside the intimate, four-tent Angama Safari Camp deeper in the Mara, and the elephant-inspired Angama Amboseli, tucked into the jewelbox of Kimana Sanctuary beneath Kilimanjaro. This page covers Angama Mara alone.
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">30</div><div class="label">Tented Suites</div></div>
+    <div class="stat"><div class="num">700ha</div><div class="label">Private Site</div></div>
+    <div class="stat"><div class="num">1,000ft</div><div class="label">Above the Plains</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Camps, North &amp; South</div></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-->
+
+<!-- ============ SUITES ============ -->
+<section id="suites">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Suites</span>
+      <h2>Every Angle,<br>the View</h2>
+    </div>
+    <p class="lede">Each Tented Suite is built to make the most of the Mara from every angle — from the bed, the bath, the writing desk and even the shower. Classic safari olive canvas on the outside, warm cream within.</p>
+  </div>
+
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Tented Suite — Glass Front</span></div>
+    <ul class="feature-list">
+      <li>
+        <span class="mark">01</span>
+        <div class="txt"><strong>100 sqm, including deck</strong><span>An 11-metre wide floor-to-ceiling glass front opens the entire suite onto the escarpment, with a deck made for in-tent dining, massage or a red rocking chair safari.</span></div>
+      </li>
+      <li>
+        <span class="mark">02</span>
+        <div class="txt"><strong>Super king, extra length</strong><span>A handsome drinks cabinet, a vanity with double basins, separate w/c, writing desk and a Butler's Lobby for the discreet delivery of morning tea and coffee.</span></div>
+      </li>
+      <li>
+        <span class="mark">03</span>
+        <div class="txt"><strong>Family &amp; interconnecting suites</strong><span>Two standard tents joined by a secure interleading passageway, in both North and South camp, so families can move between suites safely and privately.</span></div>
+      </li>
+      <li>
+        <span class="mark">04</span>
+        <div class="txt"><strong>Patty's Tent</strong><span>A Tented Suite designed with accessibility in mind — grab rails and ramps included — without giving up any of the comforts found elsewhere in camp.</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+<!-- ============ EXPERIENCES ============ -->
+<section id="experiences">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Experiences</span>
+      <h2>The Toughest<br>of Choices</h2>
+    </div>
+    <p class="lede">Guests staying with Angama face the toughest of choices: how to spend the day. A sunrise hot-air balloon safari over the plains, photographing Africa's abundant wildlife, a romantic picnic for two, or beading with the Maasai — each a starting point for planning the adventure.</p>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div><span class="exp-tag">Sunrise</span><h3>Hot-Air Balloon Safari</h3><p>Drift silently above the Mara Triangle at first light, the herds and river scrolling by beneath the basket.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Studio</span><h3>Photographic Studio</h3><p>Tutorials, editing sessions and equipment hire, with photographers on hand to help guests bring a shot home.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">On Foot</span><h3>Walking Safaris</h3><p>Guided walks with Maasai naturalists along the rim of the Great Rift Valley, at a pace the game drive never allows.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Culture</span><h3>Beading with the Maasai</h3><p>Sit with local artisans and learn the craft behind the beadwork worn across the Mara Triangle.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Conservation</span><h3>Mara Elephant Project</h3><p>Meet the team behind one of the region's leading elephant conservation efforts, at work just beyond camp.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Golden Hour</span><h3>Red Rocking Chair Safaris</h3><p>Do nothing at all — settle into a private deck chair as the light turns and the plains go quiet.</p></div>
+    </div>
+  </div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+<!-- ============ DINING ============ -->
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">From the Shamba<br>to the Table</h2>
+      <p class="lede" style="margin-top:24px;">A one-acre kitchen garden, the Shamba, supplies the freshest produce on the escarpment — herbs and vegetables guests can pick themselves before lunch. There is no single dining room at Angama Mara; meals move to wherever the light is best.</p>
+      <div class="venue-list">
+        <div class="venue"><span class="n">01</span><span>The baraza, overlooking the Mara Triangle</span></div>
+        <div class="venue"><span class="n">02</span><span>A lantern-lit dinner in the forest</span></div>
+        <div class="venue"><span class="n">03</span><span>The Library, among the books and film reels</span></div>
+        <div class="venue"><span class="n">04</span><span>In-suite, on a private deck</span></div>
+        <div class="venue"><span class="n">05</span><span>Picnic on the "Out of Africa" kopje</span></div>
+      </div>
+    </div>
+    <div class="dining-visual"><span class="cap">The Baraza — Garden to Table</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+<!-- ============ LOCATION ============ -->
+<section id="location">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Location</span>
+      <h2>Between Heaven<br>and Earth</h2>
+    </div>
+    <p class="lede">Set on the edge of the Oloololo Escarpment, there is little conventional about Angama Mara's setting — views stretch across the Maasai Mara, 1,000ft below. The 700-hectare site directly borders the Mara Triangle, with 1.2km of Rift Valley frontage, its own forests and game close at hand.</p>
+  </div>
+
+  <div class="loc-wrap">
+    <ul class="loc-bullets">
+      <li>The rare beauty of the site has an emotional effect on visitors — an almost dreamlike quality of being somewhere "between heaven and earth".</li>
+      <li>Guests instantly connect with the romance of the setting, where some of the loveliest scenes from <em>Out of Africa</em> were filmed.</li>
+      <li>No Tented Suite has the best view, nor the worst — all are spread along the edge of the Rift Valley.</li>
+      <li>Unrivalled exclusivity, with a private road running directly into the Reserve — a mere 10-minute drive to the entrance.</li>
+    </ul>
+
+    <div class="loc-map">
+      <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#A3462B"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">ANGAMA MARA</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">OLOOLOLO ESCARPMENT</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">1,000FT ABOVE THE PLAINS</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">MARA TRIANGLE</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="journey-strip">
+    <div class="journey-step"><span class="k">Fly</span><p>Scheduled flights from Nairobi's Wilson Airport land at Angama Mara or Kichwa Tembo airstrip in around 45 minutes.</p></div>
+    <div class="journey-step"><span class="k">Drive</span><p>A private access road carries guests directly into the Mara Triangle — under 20 minutes from the lodge.</p></div>
+    <div class="journey-step"><span class="k">Arrive</span><p>Check-in from 12:00, checkout by 10:00, with a change room held for late departures.</p></div>
+  </div>
+</section>
+
+<!-- ============ OFFER BAR ============ -->
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Bonus Night</span>
+      <h2>Stay 4, Pay 3</h2>
+      <p>Book three nights at Angama Mara and receive a fourth free — valid January through June, and October through the Festive Season.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay →</a>
+  </div>
+</div>
+
+<footer>ANGAMA MARA · OLOOLOLO ESCARPMENT · MAASAI MARA, KENYA</footer>
+
+<script>
+  // ---------------- HERO CAROUSEL ----------------
+  const track = document.getElementById('heroTrack');
+  const slides = track.children.length;
+  const dotsWrap = document.getElementById('heroDots');
+  const sceneCur = document.getElementById('sceneCur');
+  const captions = [
+    "The Escarpment — 1,000ft above the Mara Triangle",
+    "A Tented Suite — Suspended in Mid-Air",
+    "The Kopje — where Out of Africa was filmed",
+    "A Private Deck — red rocking chair safaris",
+    "Sunrise — hot-air balloons over the plains",
+    "The Great Migration — Mara River crossings"
+  ];
+  let current = 0;
+  let autoTimer;
+
+  for(let i=0;i<slides;i++){
+    const dot = document.createElement('button');
+    dot.className = 'hero-dot' + (i===0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to image ' + (i+1));
+    dot.addEventListener('click', ()=> goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function render(){
+    track.style.transform = `translateX(-${current*100}%)`;
+    [...dotsWrap.children].forEach((d,i)=> d.classList.toggle('active', i===current));
+    sceneCur.textContent = String(current+1).padStart(2,'0');
+    let existing = document.querySelector('.hero-headline p');
+  }
+
+  function goTo(i){
+    current = (i + slides) % slides;
+    render();
+    restartAuto();
+  }
+
+  document.getElementById('prevArrow').addEventListener('click', ()=> goTo(current-1));
+  document.getElementById('nextArrow').addEventListener('click', ()=> goTo(current+1));
+
+  function restartAuto(){
+    clearInterval(autoTimer);
+    autoTimer = setInterval(()=> goTo(current+1), 6500);
+  }
+  restartAuto();
+  document.getElementById('hero').addEventListener('mouseenter', ()=> clearInterval(autoTimer));
+  document.getElementById('hero').addEventListener('mouseleave', restartAuto);
+
+  render();
+
+  // ---------------- SCROLLSPY TABS ----------------
+  const tabs = [...document.querySelectorAll('.tab')];
+  const sections = tabs.map(t => document.getElementById(t.dataset.target));
+
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      const target = document.getElementById(tab.dataset.target);
+      const offset = document.querySelector('.tabbar-wrap').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.target === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(sec => sec && observer.observe(sec));
+</script>
+
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

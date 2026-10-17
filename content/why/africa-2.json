@@ -1,0 +1,128 @@
+{
+  "laikipia-royal-sanctuaries": {
+    "lead": "Laikipia’s rhino sanctuaries, a balloon over Lewa and a flamingo-lined lake, in a route that stays compact and unhurried.",
+    "reasons": [
+      { "t": "Rhinos under armed guard", "d": "See the world’s last two northern white rhinos at Ol Pejeta, protected around the clock by armed guards, in the heart of Kenya’s conservation country." },
+      { "t": "Horses, camels and walking", "d": "A horse-riding safari through rhino and wildlife conservancies, a camel safari, and guided walks with armed conservation rangers." },
+      { "t": "A balloon, a lake and hot springs", "d": "A balloon over the Lewa plateau with champagne breakfast, then a boat safari on flamingo-lined Lake Nakuru with a stop at the Olkaria hot springs at Hell’s Gate." }
+    ],
+    "bestFor": ["Conservation-minded travellers", "Active travellers", "First-time Kenya"]
+  },
+  "namibia-classic-icons-kaokoveld": {
+    "lead": "Namibia’s greatest hits at a private pace: Deadvlei before the crowds, Etosha with crystal glassware, and the remote Kunene River at the edge of the world.",
+    "reasons": [
+      { "t": "Deadvlei without the queue", "d": "Private access at sunrise through the lodge’s own gate, followed by a white-linen champagne breakfast set up by your guide in the middle of the Namib." },
+      { "t": "The coast from the air", "d": "A Skeleton Coast scenic flight over shipwrecks and Cape fur seal colonies, and private rhino tracking on foot or by open vehicle at Ongava’s exclusive concession." },
+      { "t": "Serra Cafema, at the edge", "d": "One of Africa’s most remote lodges, an oasis camp on the Kunene River, with desert-adapted elephant tracking and a star-bed sleepout." }
+    ],
+    "bestFor": ["Photographers", "Couples", "Remote-lodge lovers"]
+  },
+  "namibia-elegant-central-loop": {
+    "lead": "A central Namibia loop with a private touch at every stop: dunes at dawn, oysters on a catamaran and cocktails beneath a granite arch.",
+    "reasons": [
+      { "t": "Sossusvlei at first light", "d": "Deadvlei at sunrise through a private lodge gate, with its 900-year-old camel thorn trees all to yourself, then a champagne breakfast in the open desert." },
+      { "t": "Where the dunes meet the sea", "d": "A private catamaran in Walvis Bay with oysters and Cap Classique, and a private 4x4 to Sandwich Harbour, where towering dunes drop straight into the Atlantic." },
+      { "t": "Granite, rock art and leopards", "d": "Sundowners with a private bartender beneath the Spitzkoppe Rock Arch, ancient San rock art at Erongo, and leopard tracking at Okonjima." }
+    ],
+    "bestFor": ["Couples", "First-time Namibia", "Food and wine lovers"]
+  },
+  "namibia-rugged-desert-ancient-coast": {
+    "lead": "The oldest desert on Earth from a balloon, then the Skeleton Coast and Damaraland for a wilder, rougher Namibia.",
+    "reasons": [
+      { "t": "Ballooning the Namib", "d": "A sunrise hot air balloon over the Namib with a champagne breakfast on landing, and a silver-service sundowner on a NamibRand dune ridge in a certified Dark Sky area." },
+      { "t": "Coast of shipwrecks", "d": "A low-level flight over Skeleton Coast shipwrecks and whale bones, a stay at Shipwreck Lodge, and Sandwich Harbour’s 100-metre dunes plunging into the Atlantic." },
+      { "t": "Desert lions and ancient art", "d": "Tracking desert-adapted lions and brown hyenas in Hoarusib Canyon, and the engravings at Twyfelfontein in Damaraland." }
+    ],
+    "bestFor": ["Adventurous travellers", "Photographers", "Stargazers"]
+  },
+  "namibia-southern-wonders-wilderness": {
+    "lead": "Southern Namibia’s quieter wonders: meerkats, a canyon descent, a ghost town to yourself and a rock lobster dinner on the Diamond Coast.",
+    "reasons": [
+      { "t": "Fish River Canyon, rim to floor", "d": "Sundowners on the rim as the rock turns purple and orange, then a private 4x4 descent to swim in natural rock pools on the canyon floor." },
+      { "t": "Kolmanskop before the public", "d": "Exclusive sunrise access to the ghost town, alone in its sand-filled halls, followed by a fresh rock lobster dinner in Lüderitz overlooking the South Atlantic." },
+      { "t": "Meerkats and a camp on boulders", "d": "Meerkat tracking at sunset in the Kalahari’s terracotta dunes, and antique-filled tented suites at Zannier Sonop, perched on boulders at the edge of the NamibRand dune sea." }
+    ],
+    "bestFor": ["Return Namibia visitors", "Photographers", "Curious travellers"]
+  },
+  "northern-escarpment-dream": {
+    "lead": "Kenya from the north to the Mara escarpment: rhino conservation at Lewa, star beds at Loisaba and a glass-fronted suite above the Maasai Mara.",
+    "reasons": [
+      { "t": "Sleeping under the stars", "d": "Loisaba’s famous raised star beds put you out in the open under Laikipia’s sky, with a camel safari and full-day game drives to match." },
+      { "t": "A saddle at Lewa", "d": "A horse-riding safari across Lewa’s protected plains, alongside the conservancy’s celebrated rhino conservation work." },
+      { "t": "The Mara from the sky", "d": "A balloon over the Maasai Mara with a champagne breakfast, a stay at Angama Mara, a Maasai cultural village visit, then Lake Naivasha and Hell’s Gate." }
+    ],
+    "bestFor": ["Couples", "Active travellers", "First-time Kenya"]
+  },
+  "private-estates-of-laikipia": {
+    "lead": "Six private conservancy estates in one circuit: Laikipia’s quietest, most exclusive corner, with art, horses and dense wildlife.",
+    "reasons": [
+      { "t": "Art and plateau views", "d": "Segera Retreat combines conservation, contemporary African art and panoramic views across the Laikipia plateau." },
+      { "t": "On horseback among rhino", "d": "Borana Lodge offers horseback safaris alongside rhino, elephant and Grevy’s zebra on the open plateau." },
+      { "t": "Remote by design", "d": "&Beyond Suyian is known for its remoteness and wildlife density in northern Laikipia, and Loisaba’s Tented Camp adds camel safaris and some of Kenya’s best stargazing." }
+    ],
+    "bestFor": ["Return Kenya travellers", "Riders", "Seclusion seekers"]
+  },
+  "rhino-tracking-sacred-mountain-circuit": {
+    "lead": "On foot with black rhino, among Samburu singing wells and the Mathews Range: a northern Kenya journey built around walking.",
+    "reasons": [
+      { "t": "Black rhino on foot", "d": "Exclusive on-foot black rhino tracking with expert rangers in the community-run Sera Rhino Sanctuary." },
+      { "t": "Singing wells and star dinners", "d": "The Samburu Singing Wells, where warriors chant to call cattle to hand-dug wells, plus a bonfire dinner in a dry riverbed beneath the stars." },
+      { "t": "Into the Mathews Range", "d": "An interpretive walking safari reading the tracks of the desert’s smaller creatures, a horseback ride, and the Reteti Elephant Sanctuary." }
+    ],
+    "bestFor": ["Walkers", "Solo travellers", "Conservation-minded travellers"]
+  },
+  "rift-valley-discovery": {
+    "lead": "Amboseli, the Mara and the Rift Valley lakes in one tidy loop, flown between parks and walked at Hell’s Gate.",
+    "reasons": [
+      { "t": "Bull elephants and Kilimanjaro", "d": "Amboseli’s giant bull elephants walk across a Mount Kilimanjaro backdrop." },
+      { "t": "Flown, not driven", "d": "Private executive flights link every destination with scenic views, so the time goes to wildlife rather than roads." },
+      { "t": "Lakes and gorges", "d": "A boat safari on Lake Naivasha among hippos, a walking safari through Hell’s Gate’s dramatic cliffs, and a Mara balloon with champagne breakfast." }
+    ],
+    "bestFor": ["First-time Kenya", "Couples", "Photographers"]
+  },
+  "rwanda-creative-valleys-spas-lakes": {
+    "lead": "Rwanda without the gorillas: fashion, museums, lakeside spas and a balloon at dawn over Lake Kivu.",
+    "reasons": [
+      { "t": "Design and craft in Kigali", "d": "A private viewing at a Kigali fashion house with custom-tailored Rwandan garments, and the Butare Ethnographic Museum’s collection of royal weapons, clothing and instruments." },
+      { "t": "Lake Kivu, slowly", "d": "A lantern bonfire dinner on a private stone terrace over the lake, a private speedboat, and a thermal foot massage at the Gisenyi hot springs." },
+      { "t": "A balloon and a brunch", "d": "A hot air balloon over the Gisenyi shoreline at dawn, with volcanic silhouettes in the distance, then a champagne brunch on a grassy promontory." }
+    ],
+    "bestFor": ["Culture lovers", "Spa seekers", "Couples"]
+  },
+  "rwanda-kenya-east-african-rift": {
+    "lead": "Thirteen days that pair the Maasai Mara’s Migration with Rwanda’s mountain gorillas, with Kigali’s history in between.",
+    "reasons": [
+      { "t": "Migration season in the Mara", "d": "Champagne sundowners over the plains from the Oloololo Escarpment, with more than a million wildebeest, zebra and gazelle crossing the Mara River in season." },
+      { "t": "A dawn balloon, a bush feast", "d": "A hot air balloon over the Mara at dawn, with hippos, crocodiles and elephants below, followed by a white-linen breakfast in the open grassland." },
+      { "t": "Then the Virunga gorillas", "d": "A private historian tour of the Kigali Genocide Memorial, a helicopter to Bisate Lodge’s thatched forest villas, and a mountain gorilla trek." }
+    ],
+    "bestFor": ["First Africa trips", "Primate lovers", "Photographers"]
+  },
+  "rwanda-primates-great-rift": {
+    "lead": "Chimpanzees, a colobus troop and a canopy walkway in one of Africa’s oldest rainforests, then the shore of Lake Kivu.",
+    "reasons": [
+      { "t": "Chimpanzees with a primatologist", "d": "Wild chimpanzee tracking through Nyungwe’s ancient canopy with an elite primatologist." },
+      { "t": "Above the canopy", "d": "A 160-metre suspension walkway 70 metres above the river gorges, a dawn balloon over the forest, and a troop of more than 400 colobus monkeys." },
+      { "t": "A stay on a tea estate", "d": "One&Only Nyungwe House sits on a working tea estate, with a leaf-to-cup tea masterclass, before Lake Kivu’s islands and a private island beach dinner." }
+    ],
+    "bestFor": ["Primate lovers", "Birders", "Nature photographers"]
+  },
+  "rwanda-royal-volcanoes-primates": {
+    "lead": "Mountain gorillas, golden monkeys and a helicopter flight to Bisate Lodge on the edge of Volcanoes National Park.",
+    "reasons": [
+      { "t": "An hour with a silverback family", "d": "A quiet hour face to face with a gorilla family in the misty bamboo forest, then a white-linen gourmet breakfast in an open bamboo clearing." },
+      { "t": "Arrive by helicopter", "d": "A private helicopter over terraced hills and volcanic peaks to Bisate Lodge, on the edge of the gorilla habitat." },
+      { "t": "Volcanoes, monkeys and lakes", "d": "A dawn balloon over the Virunga Massif, a private golden monkey trek through the bamboo canopy, and a speedboat on the Twin Lakes." }
+    ],
+    "bestFor": ["Gorilla seekers", "Families", "Photographers"]
+  },
+  "savannas-coral-coast": {
+    "lead": "Savannah, volcanic springs and coral reef in one Kenyan journey, all linked by private flights and ending on a private island.",
+    "reasons": [
+      { "t": "The Mara, Tsavo, then the sea", "d": "Eleven nights across four destinations, connected entirely by private executive flights." },
+      { "t": "A suite above the Mara", "d": "A glass-fronted suite at Angama Mara, suspended above the escarpment, with a dawn balloon and champagne bush breakfast." },
+      { "t": "Hippos, then a private island", "d": "Finch Hattons beside springs full of hippos, a viewing tank at Mzima Springs, then four nights on Chale Island, ringed by coral reefs, with a sunset dhow cruise." }
+    ],
+    "bestFor": ["Honeymooners", "Safari-and-beach trips", "Couples"]
+  }
+}

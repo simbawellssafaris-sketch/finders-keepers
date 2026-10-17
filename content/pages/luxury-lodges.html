@@ -1,0 +1,3067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Lodges & Camps — The Collection | {{brand}}</title>
+<meta name="description" content="East Africa's most extraordinary safari lodges and private camps, and the world's finest bush, beach and mountain retreats.">
+<meta name="keywords" content="luxury safari lodges, tented camps, private camps, safari accommodation, luxury lodges Africa">
+<link rel="canonical" href="https://{{domain}}/luxury-lodges.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{brand}}">
+<meta property="og:title" content="Luxury Lodges & Camps — The Collection | {{brand}}">
+<meta property="og:description" content="East Africa's most extraordinary safari lodges and private camps, and the world's finest bush, beach and mountain retreats.">
+<meta property="og:url" content="https://{{domain}}/luxury-lodges.html">
+<meta property="og:image" content="assets/img/lodges/adrere-amellal/1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Luxury Lodges & Camps — The Collection | {{brand}}">
+<meta name="twitter:description" content="East Africa's most extraordinary safari lodges and private camps, and the world's finest bush, beach and mountain retreats.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Luxury Lodges & Camps — The Collection | {{brand}}","description":"East Africa's most extraordinary safari lodges and private camps, and the world's finest bush, beach and mountain retreats.","url":"https://{{domain}}/luxury-lodges.html","isPartOf":{"@type":"WebSite","name":"{{brand}}","url":"https://{{domain}}/"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;color:#1a1209;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --rust:#8B3A2A;
+  --rust-dark:#6B2D1F;
+  --warm:#EDE3CE;
+  --ink:#1a1209;
+  --muted:#8a7a68;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Raleway',sans-serif;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar{
+  background:var(--rust);color:#fff;padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;letter-spacing:0.04em;font-family:var(--sans);
+}
+.topbar-left{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.topbar-right a{color:#fff;opacity:0.9;transition:opacity .2s;}
+.topbar-right a:hover{opacity:1;}
+.topbar-dot{opacity:0.35;}
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  background:#fff;border-bottom:1px solid #e8e0d4;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 40px;height:64px;
+}
+.nav-left{display:flex;align-items:center;gap:32px;}
+
+/* Hamburger — 3 bars animate to X */
+.nav-hamburger{
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:5px;
+  padding:4px;position:relative;z-index:600;
+  flex-shrink:0;
+}
+.nav-hamburger .hb{
+  display:block;width:22px;height:1.5px;
+  background:var(--ink);
+  transition:transform .35s ease,opacity .25s ease,top .35s ease;
+  transform-origin:center;
+  position:relative;
+}
+/* Hamburger → X when mega menu open */
+.mega-open .nav-hamburger .hb:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mega-open .nav-hamburger .hb:nth-child(2){opacity:0;transform:scaleX(0);}
+.mega-open .nav-hamburger .hb:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-link{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;transition:color .2s;
+}
+.nav-link:hover{color:var(--rust);}
+.nav-logo{
+  font-family:var(--serif);font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--ink);text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
+.nav-right-area{display:flex;align-items:center;justify-content:flex-end;}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);transition:color .2s;font-family:var(--sans);
+}
+.nav-search:hover{color:var(--rust);}
+
+/* ══════════════════════════════════════════
+   3-LEVEL CASCADING MEGA MENU — FIXED
+══════════════════════════════════════════ */
+
+/* Fullscreen overlay — hidden by default */
+.mega-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9000;
+  display:none;
+}
+.mega-overlay.open{ display:block; }
+
+/* Dark backdrop behind panels */
+.mega-backdrop{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(10,6,2,0.5);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.mega-overlay.open .mega-backdrop{ opacity:1; }
+
+/* Panel row — sits on top of backdrop, left-aligned */
+.mega-panels{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  z-index:1;
+  /* wide enough to hold all 3 panels */
+  width:1180px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.mega-overlay.open .mega-panels{
+  pointer-events:all;
+}
+
+/* Base panel — hidden off left edge */
+.mpanel{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#fff;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-right:1px solid #e0d8cc;
+  /* animate using left position */
+  transition:left .38s cubic-bezier(0.16,1,0.3,1);
+  pointer-events:none;
+}
+.mpanel.visible{
+  pointer-events:all;
+}
+
+/* PANEL 1
+   hidden:  left:-380px (off screen left)
+   visible: left:0
+*/
+.mpanel-1{
+  width:380px;
+  left:-380px;
+}
+.mpanel-1.visible{ left:0; }
+
+/* PANEL 2
+   hidden:  left:-420px (behind panel 1)
+   visible: left:380px (right of panel 1)
+*/
+.mpanel-2{
+  width:420px;
+  left:-420px;
+}
+.mpanel-2.visible{ left:380px; }
+
+/* PANEL 3
+   hidden:  left:-380px (behind panel 2)
+   visible: left:800px (right of panel 2)
+*/
+.mpanel-3{
+  width:380px;
+  left:-380px;
+}
+.mpanel-3.visible{ left:800px; }
+
+/* Panel 1 inner padding */
+.mp1-inner{ padding:32px 36px 40px; }
+
+/* Close × */
+.mp-close-row{ margin-bottom:28px; }
+.mp-close{
+  background:none;border:none;cursor:pointer;
+  font-size:26px;line-height:1;color:var(--ink);
+  padding:0;transition:opacity .2s;font-family:sans-serif;
+}
+.mp-close:hover{ opacity:0.4; }
+
+/* Level 1 main links */
+.mp1-nav{ list-style:none; }
+.mp1-nav li{ border-bottom:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav li:first-child{ border-top:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-size:30px;font-weight:400;
+  color:var(--ink);padding:16px 0;
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.mp1-nav a:hover,
+.mp1-nav li.active-item > a{ color:var(--rust); }
+.mp1-nav a svg{ flex-shrink:0;transition:transform .2s; }
+.mp1-nav li.active-item > a svg{ transform:translateX(4px); }
+
+/* Divider + POPULAR */
+.mp1-divider{
+  height:0.5px;background:rgba(26,18,9,0.12);margin:28px 0 20px;
+}
+.mp1-popular-label{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:#3E6B4E;margin-bottom:16px;
+}
+.mp1-secondary{ list-style:none; }
+.mp1-secondary li{ border-bottom:0.5px solid rgba(26,18,9,0.06); }
+.mp1-secondary a{
+  display:block;font-family:var(--sans);font-size:13px;
+  color:rgba(26,18,9,0.6);padding:9px 0;transition:color .2s;
+}
+.mp1-secondary a:hover{ color:var(--rust); }
+
+/* Panel 2 */
+.mp2-inner{ padding:28px 32px 40px; }
+.mp2-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp2-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp2-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp2-card:hover .mp2-card-bg{ transform:scale(1.05); }
+.mp2-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp2-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mc2bg1{ background:radial-gradient(ellipse at 45% 55%,#1a3010,#060c04); }
+.mc2bg2{ background:radial-gradient(ellipse at 55% 45%,#201808,#0c0a04); }
+.mc2bg3{ background:radial-gradient(ellipse at 40% 60%,#001828,#040810); }
+.mc2bg4{ background:radial-gradient(ellipse at 60% 40%,#1e0800,#0c0400); }
+.mc2bg5{ background:radial-gradient(ellipse at 50% 50%,#180a00,#0a0500); }
+.mc2bg6{ background:radial-gradient(ellipse at 45% 55%,#0a1020,#04060c); }
+.mp2-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp2-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp2-regions{ list-style:none; }
+.mp2-regions li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp2-regions a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:13px 0;cursor:pointer;transition:color .2s;text-decoration:none;
+}
+.mp2-regions a:hover,
+.mp2-regions a.active{ color:var(--rust); }
+.mp2-regions a svg{ flex-shrink:0;opacity:0.3;transition:opacity .2s; }
+.mp2-regions a:hover svg,
+.mp2-regions a.active svg{ opacity:1;color:var(--rust); }
+
+/* Panel 3 */
+.mp3-inner{ padding:28px 32px 40px; }
+.mp3-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp3-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp3-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp3-card:hover .mp3-card-bg{ transform:scale(1.05); }
+.mp3-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp3-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mp3-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp3-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp3-countries{ list-style:none; }
+.mp3-countries li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp3-countries a{
+  display:flex;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:12px 0;transition:color .2s;text-decoration:none;
+}
+.mp3-countries a:hover{ color:var(--rust); }
+
+/* Stagger animations */
+.mega-overlay.open .mp1-nav li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-nav li:nth-child(1){ animation-delay:.05s; }
+.mega-overlay.open .mp1-nav li:nth-child(2){ animation-delay:.10s; }
+.mega-overlay.open .mp1-nav li:nth-child(3){ animation-delay:.15s; }
+.mega-overlay.open .mp1-secondary li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-secondary li:nth-child(1){ animation-delay:.18s; }
+.mega-overlay.open .mp1-secondary li:nth-child(2){ animation-delay:.21s; }
+.mega-overlay.open .mp1-secondary li:nth-child(3){ animation-delay:.24s; }
+.mega-overlay.open .mp1-secondary li:nth-child(4){ animation-delay:.27s; }
+.mega-overlay.open .mp1-secondary li:nth-child(5){ animation-delay:.30s; }
+.mega-overlay.open .mp1-secondary li:nth-child(6){ animation-delay:.33s; }
+@keyframes mpIn{
+  from{ opacity:0; transform:translateX(-12px); }
+  to{   opacity:1; transform:none; }
+}
+
+/* ══════════════════════════════
+   DESTINATION HERO — full-bleed image
+══════════════════════════════ */
+.dest-hero{
+  position:relative;
+  height:300px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.dest-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 40% 55%, #2c4030 0%, #142010 60%, #060c04 100%);
+  background-size:cover;background-position:center 40%;
+}
+.dest-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(10,6,2,0.25) 0%, rgba(10,6,2,0.60) 100%);
+}
+.dest-hero-content{position:relative;z-index:2;padding:0 24px;}
+.dest-hero-title{
+  font-family:var(--serif);font-size:clamp(40px,6vw,72px);
+  font-weight:400;color:#fff;line-height:1.05;margin-bottom:28px;
+}
+.dest-hero-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);
+  padding-bottom:6px;transition:opacity .2s;
+}
+.dest-hero-link:hover{opacity:0.7;}
+
+/* ══════════════════════════════
+   OVERVIEW SECTION — breadcrumb + paragraphs
+══════════════════════════════ */
+.dest-overview{background:var(--warm);padding:48px 15% 60px;}
+.dest-breadcrumb{
+  font-family:var(--sans);font-size:12px;color:var(--muted);
+  margin-bottom:32px;letter-spacing:0.02em;
+}
+.dest-breadcrumb a{color:var(--muted);transition:color .2s;}
+.dest-breadcrumb a:hover{color:var(--rust);}
+.dest-breadcrumb .current{color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+.dest-breadcrumb .sep{margin:0 8px;opacity:0.5;}
+.dest-overview-headline{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.4;
+  color:var(--ink);margin:0 0 24px;max-width:90%;
+}
+.dest-overview p{
+  font-family:var(--sans);font-size:15px;line-height:1.85;
+  color:var(--ink);margin-bottom:24px;max-width:100%;
+}
+.dest-overview p:last-child{margin-bottom:0;}
+.dest-overview a.inline-link{color:var(--rust);text-decoration:underline;text-underline-offset:2px;}
+.dest-overview p em{font-style:italic;}
+
+/* ══════════════════════════════
+   SECONDARY STICKY NAV — jump links
+══════════════════════════════ */
+.dest-subnav-wrap{position:sticky;top:64px;z-index:300;}
+.dest-subnav{
+  position:relative;background:var(--warm);
+  border-top:1px solid #e8ddc8;border-bottom:1px solid #e8ddc8;
+  display:flex;align-items:center;gap:36px;
+  padding:18px 15%;overflow-x:auto;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0.04em;
+  white-space:nowrap;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.dest-subnav-spacer{height:0;}
+.dest-subnav a{
+  color:var(--ink);transition:color .2s;display:flex;align-items:center;gap:6px;
+}
+.dest-subnav a.back-to-top{color:var(--muted);}
+.dest-subnav a.active,.dest-subnav a:hover{color:var(--rust);}
+.dest-subnav a.active{border-bottom:1.5px solid var(--rust);padding-bottom:4px;}
+
+/* ══════════════════════════════
+   SECTION HEADINGS (shared)
+══════════════════════════════ */
+.dest-section{padding:64px 15%;}
+.dest-section-eyebrow{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.dest-section-title{
+  text-align:center;font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);
+  font-weight:400;color:var(--ink);line-height:1.3;max-width:900px;
+  margin:0 auto 48px;
+}
+
+/* ══════════════════════════════
+══════════════════════════════ */
+
+/* ══════════════════════════════
+   JOURNEY CARDS — image left / details right
+══════════════════════════════ */
+.journey-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-top:1px solid #e8e0d4;border-bottom:1px solid #e8e0d4;
+  background:#fff;align-items:stretch;
+  width:100%;
+}
+.journey-card-img{
+  position:relative;overflow:hidden;
+  min-height:560px;
+}
+.journey-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+}
+.jcbg1{background:radial-gradient(ellipse at 40% 60%, #1c3424 0%, #08140a 100%);}
+.jcbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.jcbg3{background:radial-gradient(ellipse at 45% 55%, #1c2c38 0%, #08101a 100%);}
+.journey-card-badges{
+  position:absolute;top:16px;left:16px;display:flex;gap:8px;
+}
+.jc-badge{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:7px 12px;font-weight:500;
+}
+.jc-badge-type{background:#fff;color:var(--ink);}
+.jc-badge-offer{background:var(--rust);color:#fff;}
+.journey-card + .journey-card{margin-top:0;border-top:none;}
+.journey-card-body{
+  padding:56px 64px;display:flex;flex-direction:column;justify-content:center;
+}
+.jc-title{
+  font-family:var(--serif);font-size:32px;font-weight:400;
+  color:var(--ink);margin-bottom:14px;line-height:1.2;
+}
+.jc-meta{
+  font-family:var(--sans);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+}
+.jc-desc{
+  font-family:var(--sans);font-size:14.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:22px;
+}
+.jc-itinerary-label{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.jc-itinerary{
+  font-family:var(--sans);font-size:13.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:24px;
+}
+.jc-footer{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:22px;
+}
+.jc-price{font-family:var(--sans);font-size:13px;color:var(--ink);}
+.jc-price strong{font-size:17px;}
+.jc-btn{
+  background:var(--ink);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 26px;transition:background .25s;
+}
+.jc-btn:hover{background:var(--rust);}
+
+/* ══════════════════════════════
+   EXPERIENCES GRID — 4 columns
+══════════════════════════════ */
+.exp-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.exp-card{cursor:pointer;}
+.exp-card-img{
+  position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;
+}
+.exp-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.exp-card:hover .exp-card-img-bg{transform:scale(1.05);}
+.ecbg1{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.ecbg2{background:radial-gradient(ellipse at 50% 50%, #403424 0%, #140e08 100%);}
+.ecbg3{background:radial-gradient(ellipse at 55% 40%, #243828 0%, #0a140c 100%);}
+.ecbg4{background:radial-gradient(ellipse at 40% 50%, #1c3424 0%, #08140a 100%);}
+.exp-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+
+.exp-card-explore{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--rust);}
+.exp-card-link{display:block;text-decoration:none;color:inherit;}
+.exp-card-link:hover .exp-card-explore{gap:10px;transition:gap .2s ease;}
+
+.exp-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;
+  color:var(--ink);line-height:1.35;
+}
+
+/* ══════════════════════════════
+   FEATURED ACCOMMODATION — editorial
+══════════════════════════════ */
+.featured-acc{padding:64px 15%;}
+.featured-acc-label{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:32px;
+}
+.featured-acc-img{
+  aspect-ratio:16/7;overflow:hidden;margin-bottom:32px;
+  background:radial-gradient(ellipse at 50% 50%, #3c2c1c 0%, #140c06 100%);
+}
+.featured-acc-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);line-height:1.3;margin-bottom:24px;max-width:900px;
+}
+.featured-acc p{
+  font-family:var(--sans);font-size:14px;line-height:1.85;
+  color:var(--ink);margin-bottom:18px;max-width:1000px;
+}
+
+/* ══════════════════════════════
+   ACCOMMODATIONS — horizontal scroll carousel
+══════════════════════════════ */
+.acc-carousel-wrap{position:relative;}
+.acc-carousel{
+  display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;
+  scrollbar-width:none;padding-bottom:4px;
+}
+.acc-carousel::-webkit-scrollbar{display:none;}
+.acc-card{flex:0 0 480px;cursor:pointer;}
+.acc-card-img{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:16px;}
+.acc-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.acc-card:hover .acc-card-img-bg{transform:scale(1.05);}
+.acbg1{background:radial-gradient(ellipse at 50% 50%, #1c2c38 0%, #08101a 100%);}
+.acbg2{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.acbg3{background:radial-gradient(ellipse at 55% 45%, #403424 0%, #140e08 100%);}
+.acbg4{background:radial-gradient(ellipse at 50% 50%, #243828 0%, #0a140c 100%);}
+.acbg5{background:radial-gradient(ellipse at 48% 52%, #1c3424 0%, #08140a 100%);}
+.acc-badge{
+  position:absolute;top:12px;left:12px;
+  background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:6px 11px;font-weight:500;
+}
+.acc-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;
+}
+.acc-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);
+}
+.acc-arrow{
+  position:absolute;top:38%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;background:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);color:var(--ink);transition:background .2s,color .2s;
+}
+.acc-arrow:hover{background:var(--rust);color:#fff;}
+.acc-arrow.prev{left:-22px;}
+.acc-arrow.next{right:-22px;}
+
+/* ══════════════════════════════
+   WAYS TO EXPLORE
+══════════════════════════════ */
+/* ══════════════════════════════
+   SPEAK TO US CTA
+══════════════════════════════ */
+.expert-cta{padding:0 15% 64px;}
+.expert-cta-inner{
+  display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  background:var(--white);border-left:4px solid var(--rust);
+  padding:48px 56px;
+}
+.expert-cta-logo{
+  width:90px;height:90px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:32px;flex-shrink:0;
+}
+.expert-cta-title{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.35;
+  color:var(--ink);margin:0 0 12px;
+}
+.expert-cta-text{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin:0 0 16px;}
+.expert-cta-contact{
+  font-family:var(--sans);font-size:13px;line-height:1.9;color:var(--ink);
+  text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;
+}
+.expert-cta-contact strong{display:block;font-size:16px;letter-spacing:0.02em;margin-bottom:4px;}
+
+.ways-explore{padding:64px 15%;background:var(--warm);}
+.ways-tabs{display:flex;flex-wrap:wrap;border:1px solid #e2d6bd;border-radius:6px;overflow:hidden;margin-bottom:36px;background:#fff;}
+.ways-tab{flex:1;min-width:140px;text-align:center;padding:18px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);cursor:pointer;background:transparent;border:none;border-right:1px solid #e2d6bd;line-height:1.4;transition:background .2s ease;}
+.ways-tab:last-child{border-right:none;}
+.ways-tab.active{background:#DFCFA3;}
+.ways-tab:hover:not(.active){background:#f2ead6;}
+.ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.ways-img{aspect-ratio:4/3;width:100%;min-width:0;background:radial-gradient(ellipse at 50% 50%, #3a2814 0%, #100a04 100%);overflow:hidden;position:relative;}
+.ways-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ways-content{position:relative;}
+.ways-content .ways-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
+.ways-content h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.3;}
+.ways-content p{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin-bottom:18px;}
+.ways-link{font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+
+/* ══════════════════════════════
+   MAP SECTION
+══════════════════════════════ */
+.map-section{padding:0 15% 64px;}
+.map-frame{
+  aspect-ratio:16/8;background:var(--warm);border:1px solid #e8ddc8;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;color:var(--muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* ══════════════════════════════
+   ALL JOURNEYS — filters + package grid
+══════════════════════════════ */
+.all-journeys{padding:64px 8% 80px;background:var(--warm);}
+.all-journeys-header{text-align:center;margin-bottom:12px;}
+.all-journeys-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);margin-bottom:8px;
+}
+.all-journeys-results{
+  text-align:center;font-family:var(--sans);font-size:13px;color:var(--muted);
+  margin-bottom:8px;
+}
+.all-journeys-results strong{color:var(--ink);}
+.all-journeys-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #e0d8cc;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.08em;
+  padding:8px 14px;margin:0 auto 40px;width:fit-content;
+}
+
+.all-journeys-layout{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;}
+
+/* Filter sidebar */
+.aj-filters{display:flex;flex-direction:column;gap:28px;}
+.aj-filter-group h4{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.aj-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.aj-pill{
+  font-family:var(--sans);font-size:11.5px;color:var(--ink);
+  border:1px solid #e0d8cc;background:#fff;
+  padding:7px 14px;border-radius:20px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.aj-pill:hover,.aj-pill.active{border-color:var(--rust);color:var(--rust);}
+.aj-checkbox{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13px;color:var(--ink);
+  padding:6px 0;cursor:pointer;
+}
+.aj-checkbox input{accent-color:var(--rust);width:14px;height:14px;}
+
+/* Package grid — 2 columns */
+.aj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.aj-card{background:#fff;border:1px solid #e8e0d4;}
+.aj-card-img{position:relative;aspect-ratio:4/4.2;overflow:hidden;}
+.aj-card-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
+.aj-card:hover .aj-card-img-bg{transform:scale(1.05);}
+.ajbg1{background:radial-gradient(ellipse at 45% 55%, #1c3424 0%, #08140a 100%);}
+.ajbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.ajbg3{background:radial-gradient(ellipse at 40% 60%, #1c2c38 0%, #08101a 100%);}
+.ajbg4{background:radial-gradient(ellipse at 55% 50%, #2c3818 0%, #0c1406 100%);}
+.ajbg5{background:radial-gradient(ellipse at 45% 45%, #403424 0%, #140e08 100%);}
+.ajbg6{background:radial-gradient(ellipse at 50% 55%, #243828 0%, #0a140c 100%);}
+.aj-card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;}
+.aj-badge{
+  font-family:var(--sans);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:6px 10px;font-weight:500;
+}
+.aj-badge-type{background:#fff;color:var(--ink);}
+.aj-badge-offer{background:var(--rust);color:#fff;}
+.aj-badge-new{background:var(--ink);color:#fff;}
+.aj-card-body{padding:20px 22px 24px;}
+.aj-card-title{
+  font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);
+  line-height:1.3;margin-bottom:10px;
+}
+.aj-card-meta{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--muted);
+  margin-bottom:12px;
+}
+.aj-card-route{font-family:var(--sans);font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:14px;}
+.aj-card-route b{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.aj-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:14px;
+}
+.aj-card-price{font-family:var(--sans);font-size:12.5px;color:var(--ink);}
+.aj-card-price strong{font-size:15px;}
+.aj-card-link{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--rust);border-bottom:1px solid var(--rust);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.aj-card-link:hover{opacity:0.6;}
+
+.aj-loadmore{
+  display:block;margin:40px auto 0;
+  background:none;border:1px solid var(--ink);color:var(--ink);
+  font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:14px 36px;cursor:pointer;transition:background .25s,color .25s;
+}
+.aj-loadmore:hover{background:var(--ink);color:#fff;}
+
+
+/* ══════════════════════════════
+   FLOATING CTA
+══════════════════════════════ */
+.speak-btn{
+  position:fixed;bottom:24px;right:24px;z-index:300;background:var(--rust);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.25);transition:background .25s;
+}
+.speak-btn:hover{background:var(--rust-dark);}
+
+/* ══════════════════════════════
+   FOOTER (reuse from homepage)
+══════════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+.footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;letter-spacing:0.04em;margin-bottom:12px;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.33);margin-bottom:24px;}
+.footer-social{display:flex;gap:12px;}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.fsoc:hover{border-color:rgba(255,255,255,0.5);}
+.footer-col-head{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:16px;font-family:var(--sans);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.52);transition:color .2s;font-family:var(--sans);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:10.5px;color:rgba(255,255,255,0.28);transition:color .2s;font-family:var(--sans);}
+.footer-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* ══════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .topbar{padding:10px 20px;font-size:10.5px;}
+  .topbar-right{display:none;}
+  .nav{padding:0 20px;}
+  .nav-left .nav-link{display:none;}
+  .nav-logo{font-size:18px;gap:7px;}
+  .nav-logo img{height:24px;}
+  .dest-overview{padding:40px 24px 48px;}
+  .dest-section{padding:48px 24px;}
+  .dest-subnav{padding:14px 24px;}
+  .dest-subnav.is-pinned{padding:12px 24px;}
+  .journey-card{grid-template-columns:1fr;}
+  .journey-card-img{min-height:320px;}
+  .journey-card-body{padding:32px 24px;}
+      .exp-grid{grid-template-columns:1fr 1fr;}
+  .ways-grid{grid-template-columns:1fr;}
+  .ways-tabs{flex-direction:column;}
+  .ways-tab{border-right:none;border-bottom:1px solid #e2d6bd;}
+  .ways-tab:last-child{border-bottom:none;}
+  .expert-cta-inner{grid-template-columns:1fr;text-align:center;padding:36px 24px;}
+  .expert-cta-contact{white-space:normal;}
+  .expert-cta{padding:0 24px 48px;}
+  .featured-acc{padding:48px 24px;}
+  .ways-explore{padding:48px 24px;}
+  .map-section{padding:0 24px 48px;}
+  .all-journeys{padding:48px 24px 64px;}
+  .all-journeys-layout{grid-template-columns:1fr;gap:24px;}
+  .aj-filters{flex-direction:row;flex-wrap:wrap;gap:16px;}
+  .aj-filter-group{flex:1 1 100%;}
+  .aj-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .dest-hero-title{font-size:clamp(32px,8vw,52px);}
+  .mpanel-1{width:88vw;max-width:380px;}
+  .mpanel-2{width:88vw;max-width:420px;left:0;}
+  .mpanel-3{width:88vw;max-width:380px;left:0;}
+}
+@media(max-width:600px){
+  .exp-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .footer-top{grid-template-columns:1fr;}
+  .dest-breadcrumb{font-size:11px;}
+}
+
+/* ── Theme collection pages ── */
+.th-hero{position:relative;background:var(--warm);padding:0 0 0 7%;display:grid;grid-template-columns:minmax(280px,38%) 1fr;align-items:end;min-height:clamp(400px,64vh,600px);}
+.th-hero-copy{position:relative;z-index:3;padding:64px 40px 56px 0;}
+.th-hero .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.th-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5.4vw,62px);line-height:1.06;margin-bottom:20px;}
+.th-hero p{font-family:var(--sans);font-size:15px;line-height:1.9;opacity:.9;max-width:42ch;margin-bottom:26px;}
+.th-hero-img{position:relative;align-self:stretch;min-height:300px;overflow:hidden;background:#241a0e;}
+.th-hero-img img{width:100%;height:100%;object-fit:cover;}
+.th-hero-img .th-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+.th-hero-img .th-hero-slide.on{opacity:1;}
+.th-hero-img .th-hero-slide img{width:100%;height:100%;object-fit:cover;}
+.th-hero-dots{position:absolute;z-index:3;bottom:18px;right:18px;display:flex;gap:8px;}
+.th-hero-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(255,255,255,.45);padding:0;cursor:pointer;transition:background .3s,transform .3s;}
+.th-hero-dots button.on{background:#fff;transform:scale(1.3);}
+
+.th-nav{position:sticky;top:64px;z-index:250;background:#fff;border-top:1px solid #e0d8cc;border-bottom:1px solid #e0d8cc;}
+.th-nav-in{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1040px;margin:0 auto;padding:0 16px;}
+.th-nav-in::-webkit-scrollbar{display:none;}
+.th-nav a{font-family:var(--sans);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:19px 22px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .25s,border-color .25s;}
+.th-nav a:hover{color:var(--ink);}
+.th-nav a.on{color:var(--rust);border-bottom-color:var(--rust);}
+.th-nav a:focus-visible{outline:2px solid var(--rust);outline-offset:-4px;}
+
+.th-sec{padding:76px 7%;scroll-margin-top:132px;}
+.th-sec-warm{background:var(--warm);}
+.th-sec-dark{background:#150e07;color:#fff;}
+.th-sec-dark .tj-eyebrow{color:rgba(255,255,255,.5);}
+.th-sec-dark .tj-section-title,.th-sec-dark h3,.th-sec-dark h4{color:#fff;}
+.th-sec-dark .tj-section-lead{color:rgba(255,255,255,.72);}
+.th-lead{font-family:var(--sans);font-size:15px;line-height:2;max-width:860px;margin-bottom:20px;}
+.th-pull{font-family:var(--serif);font-size:clamp(21px,2.9vw,32px);line-height:1.45;max-width:900px;margin:10px 0 28px;font-style:italic;}
+
+/* split: image beside copy */
+.th-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-top:46px;}
+.th-split-img{aspect-ratio:4/3;overflow:hidden;background:#241a0e;}
+.th-split-img img{width:100%;height:100%;object-fit:cover;}
+.th-split-img{position:relative;}
+.th-split-img .th-ov-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+.th-split-img .th-ov-slide.on{opacity:1;}
+.th-split-img .th-ov-slide img{width:100%;height:100%;object-fit:cover;}
+.th-ov-dots{position:absolute;z-index:3;bottom:14px;right:14px;display:flex;gap:7px;}
+.th-ov-dots button{width:6px;height:6px;border-radius:50%;border:none;background:rgba(255,255,255,.5);padding:0;cursor:pointer;transition:background .3s,transform .3s;}
+.th-ov-dots button.on{background:#fff;transform:scale(1.3);}
+
+/* promise grid */
+.th-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:#e2d6bd;border:1px solid #e2d6bd;margin-top:46px;}
+.th-cell{background:#fff;padding:30px 26px;}
+.th-sec-warm .th-cell{background:var(--warm);}
+.th-cell svg{color:var(--rust);margin-bottom:15px;}
+.th-cell h4{font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:9px;}
+.th-cell p{font-family:var(--sans);font-size:13px;line-height:1.82;opacity:.86;}
+
+/* theme cards that open */
+.th-themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:46px;}
+.th-card{border:1px solid #e2d6bd;background:#fff;display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .3s ease;}
+.th-card:hover{box-shadow:0 18px 40px -28px rgba(26,18,9,.45);}
+.th-card-img{aspect-ratio:16/10;overflow:hidden;background:#241a0e;}
+.th-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.th-card:hover .th-card-img img{transform:scale(1.05);}
+.th-card-b{padding:26px 24px 24px;display:flex;flex-direction:column;flex:1;}
+.th-card .tag{font-family:var(--sans);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:11px;}
+.th-card h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.24;margin-bottom:11px;}
+.th-card > .th-card-b > p{font-family:var(--sans);font-size:13px;line-height:1.85;opacity:.88;margin-bottom:16px;}
+.th-more{font-family:var(--sans);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--rust);background:none;border:none;border-bottom:1px solid currentColor;padding:0 0 3px;cursor:pointer;align-self:flex-start;margin-top:auto;}
+.th-more:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+.th-detail{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.th-detail-in{padding-top:18px;margin-top:18px;border-top:1px solid #efe6d5;}
+.th-detail p{font-family:var(--sans);font-size:12.5px;line-height:1.85;opacity:.86;margin-bottom:12px;}
+.th-detail ul{list-style:none;margin-top:4px;}
+.th-detail li{font-family:var(--sans);font-size:12.5px;line-height:1.7;padding:6px 0 6px 20px;position:relative;opacity:.86;}
+.th-detail li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:1px;background:var(--rust);}
+
+/* lodge carousel */
+.th-car-wrap{position:relative;margin-top:46px;}
+.th-car{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;}
+.th-car::-webkit-scrollbar{display:none;}
+.th-slide{flex:0 0 clamp(260px,30%,340px);scroll-snap-align:start;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;overflow:hidden;background:#1c1409;}
+.th-slide-img{aspect-ratio:4/3;overflow:hidden;background:#241a0e;}
+.th-slide-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.th-slide:hover .th-slide-img img{transform:scale(1.06);}
+.th-slide-b{padding:22px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.th-slide .loc{font-family:var(--sans);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:#c9a86a;margin-bottom:9px;}
+.th-slide h4{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.22;margin-bottom:10px;color:#fff;}
+.th-slide p{font-family:var(--sans);font-size:12.5px;line-height:1.8;color:rgba(255,255,255,.74);margin-bottom:16px;flex:1;}
+.th-slide a{font-family:var(--sans);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#c9a86a;border-bottom:1px solid currentColor;padding-bottom:3px;align-self:flex-start;}
+/* the same carousel on a light section */
+.th-car-light .th-slide{border-color:#e2d6bd;background:#fff;}
+.th-car-light .th-slide .loc{color:var(--rust);}
+.th-car-light .th-slide h4{color:var(--ink);}
+.th-car-light .th-slide p{color:var(--ink);opacity:.86;}
+.th-car-light .th-slide .route{font-size:11.5px;line-height:1.7;opacity:.62;margin-top:-8px;}
+.th-car-light .th-slide a{color:var(--rust);}
+.th-sec-warm .th-arrow{border-color:#ded0b6;color:var(--ink);}
+.th-sec-warm .th-arrow:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);}
+.th-sec-warm .th-dot{background:#ded0b6;}
+.th-sec-warm .th-dot.on{background:var(--rust);}
+.th-car-ctrl{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;}
+.th-dots{display:flex;gap:8px;}
+.th-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.28);cursor:pointer;padding:0;transition:background .25s,transform .25s;}
+.th-dot.on{background:#c9a86a;transform:scale(1.3);}
+.th-dot:focus-visible{outline:2px solid #c9a86a;outline-offset:3px;}
+.th-arrows{display:flex;gap:9px;}
+.th-arrow{width:42px;height:42px;border:1px solid rgba(255,255,255,.34);background:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s;}
+.th-arrow:hover:not(:disabled){background:rgba(255,255,255,.14);}
+.th-arrow:disabled{opacity:.3;cursor:default;}
+.th-arrow:focus-visible{outline:2px solid #c9a86a;outline-offset:3px;}
+
+.th-note{border:1px solid #e2d6bd;border-left:3px solid var(--rust);background:var(--warm);padding:24px 26px;margin-top:44px;display:flex;gap:14px;align-items:flex-start;}
+.th-sec-warm .th-note{background:#fff;}
+.th-note svg{flex-shrink:0;color:var(--rust);margin-top:1px;}
+.th-note p{font-family:var(--sans);font-size:12.5px;line-height:1.85;opacity:.86;margin:0;}
+
+.th-final{position:relative;min-height:380px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#0d0904;}
+.th-final-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.th-final-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,6,3,.55),rgba(9,6,3,.88));}
+.th-final-in{position:relative;z-index:2;padding:74px 8%;max-width:820px;}
+.th-final h2{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(25px,3.8vw,44px);line-height:1.16;margin-bottom:16px;}
+.th-final p{font-family:var(--sans);font-size:15px;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:30px;}
+.th-final-btns{display:flex;flex-wrap:wrap;gap:13px;justify-content:center;}
+
+@media(max-width:900px){
+  .th-hero{grid-template-columns:1fr;padding:0;min-height:0;}
+  .th-hero-copy{order:2;padding:44px 8% 40px;}
+  .th-hero-img{order:1;min-height:clamp(240px,42vh,360px);}
+  .th-sec{padding:56px 8%;scroll-margin-top:118px;}
+  .th-slide{flex:0 0 78%;}
+  .th-arrows{display:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .th-card-img img,.th-slide-img img{transition:none;}
+  .th-detail{transition:none;}
+}
+
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<style>
+/* ══════════════════════════════
+   THE COLLECTION — city hotels / luxury lodges index
+══════════════════════════════ */
+.lx-page{background:#141110;}
+.lx-hero{position:relative;min-height:72vh;display:flex;align-items:flex-end;overflow:hidden;background:#0d0b0a;}
+.lx-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;}
+.lx-hero-slide.on{opacity:.85;}
+.lx-hero-slide div{position:absolute;inset:0;background-size:cover;background-position:center;animation:lxHeroZoom 9s ease-out forwards;}
+@keyframes lxHeroZoom{from{transform:scale(1.06);}to{transform:scale(1);}}
+.lx-hero-dots{position:absolute;z-index:3;bottom:26px;right:8%;display:flex;gap:9px;}
+.lx-hero-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(251,246,234,.4);padding:0;cursor:pointer;transition:background .3s,transform .3s;}
+.lx-hero-dots button.on{background:#c9a86a;transform:scale(1.3);}
+.lx-hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,10,.35) 0%,rgba(13,11,10,.35) 40%,rgba(13,11,10,.98) 100%);}
+.lx-hero-in{position:relative;z-index:2;padding:0 8% 72px;max-width:920px;}
+.lx-k{font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#c9a86a;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+.lx-rule{width:60px;height:1px;background:#c9a86a;display:inline-block;}
+.lx-hero h1{font-family:var(--serif);font-weight:400;color:#fbf6ea;font-size:clamp(36px,6vw,72px);line-height:1.04;margin-bottom:22px;}
+.lx-hero p{font-family:var(--sans);font-size:clamp(14px,1.4vw,17px);line-height:1.9;color:rgba(251,246,234,.8);max-width:600px;}
+.lx-breadcrumb{background:#141110;padding:16px 8% 0;}
+.lx-breadcrumb a,.lx-breadcrumb span.current{font-family:var(--sans);font-size:11.5px;letter-spacing:.04em;color:rgba(251,246,234,.5);}
+.lx-breadcrumb a:hover{color:#c9a86a;}
+.lx-breadcrumb .sep{margin:0 8px;color:rgba(251,246,234,.3);}
+.lx-stats{display:flex;gap:56px;padding:44px 8% 40px;flex-wrap:wrap;}
+.lx-stat .num{font-family:var(--serif);font-size:clamp(26px,2.8vw,38px);color:#c9a86a;line-height:1;}
+.lx-stat .label{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,246,234,.55);margin-top:8px;}
+.lx-nav{position:sticky;top:0;z-index:30;background:rgba(20,17,16,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(251,246,234,.1);border-bottom:1px solid rgba(251,246,234,.1);}
+.lx-nav-in{display:flex;overflow-x:auto;padding:0 8%;scrollbar-width:none;}
+.lx-nav-in::-webkit-scrollbar{display:none;}
+.lx-nav a{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,246,234,.55);padding:19px 20px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.lx-nav a:hover,.lx-nav a.on{color:#fbf6ea;border-color:#c9a86a;}
+.lx-region{padding:64px 8% 8px;}
+.lx-region-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap;border-bottom:1px solid rgba(251,246,234,.12);padding-bottom:22px;}
+.lx-region-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);color:#fbf6ea;margin-bottom:8px;}
+.lx-region-head p{font-family:var(--sans);font-size:13px;color:rgba(251,246,234,.6);max-width:56ch;}
+.lx-region-count{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c9a86a;white-space:nowrap;}
+.lx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:24px;padding-bottom:64px;}
+.lx-card{position:relative;display:block;text-decoration:none;aspect-ratio:3/4;overflow:hidden;background:#0d0b0a;border:1px solid rgba(251,246,234,.08);}
+.lx-card-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+.lx-card:hover .lx-card-img{transform:scale(1.08);}
+.lx-card-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,7,0) 38%,rgba(10,8,7,.94) 100%);}
+.lx-card-b{position:absolute;left:0;right:0;bottom:0;padding:18px 18px 20px;z-index:2;}
+.lx-card-loc{font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#c9a86a;margin-bottom:7px;}
+.lx-card h3{font-family:var(--serif);font-weight:400;font-size:18px;line-height:1.22;color:#fff;}
+.lx-card-arrow{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:rgba(251,246,234,.14);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s;}
+.lx-card-arrow svg{width:14px;height:14px;stroke:#fff;}
+.lx-card:hover .lx-card-arrow{opacity:1;transform:translateY(0);}
+.lx-final{position:relative;padding:110px 8%;text-align:center;background:#0d0b0a;border-top:1px solid rgba(251,246,234,.1);}
+.lx-final h2{font-family:var(--serif);font-weight:400;color:#fbf6ea;font-size:clamp(26px,3.4vw,42px);margin-bottom:18px;}
+.lx-final p{font-family:var(--sans);color:rgba(251,246,234,.7);max-width:560px;margin:0 auto 32px;line-height:1.85;}
+.lx-final-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.lx-btn{display:inline-block;font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:15px 32px;border:1px solid #c9a86a;color:#c9a86a;transition:background .25s,color .25s;text-decoration:none;}
+.lx-btn:hover{background:#c9a86a;color:#0d0b0a;}
+.lx-btn-fill{background:#c9a86a;color:#0d0b0a;}
+.lx-btn-fill:hover{background:transparent;color:#c9a86a;}
+.lx-overview{border-bottom:1px solid rgba(251,246,234,.12);padding-bottom:56px;}
+.lx-overview-p{font-family:var(--sans);font-size:14.5px;line-height:1.95;color:rgba(251,246,234,.78);max-width:76ch;margin-bottom:16px;}
+.lx-page .lx-fact-grid.th-grid{background:rgba(251,246,234,.12);border-color:rgba(251,246,234,.12);margin-top:34px;}
+.lx-page .lx-fact-grid .th-cell{background:#1b1716;}
+.lx-page .lx-fact-grid .th-cell svg{color:#c9a86a;}
+.lx-page .lx-fact-grid .th-cell h4{color:#fbf6ea;}
+.lx-page .lx-fact-grid .th-cell p{color:rgba(251,246,234,.68);}
+@media(max-width:700px){
+  .lx-stats{gap:34px;}
+}
+</style>
+</head>
+<body>
+<!--@include mega-menu-panels--><!-- /mega-overlay -->
+
+<!--@include topbar-menu-pages-->
+
+<!-- ══════════════════════════════
+     NAV
+══════════════════════════════ -->
+<!--@include nav-menu-pages-->
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<main id="main" class="lx-page">
+<section class="lx-hero" id="lxHeroCarousel">
+  <div class="lx-hero-slide on"><div style="background-image:url('assets/img/lodges/jw-marriott-mara-lodge/1.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/angama-amboseli/6.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/bisate-lodge/4.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/singita-milele/4.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/singita-lebombo-lodge/5.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/lion-sands-river-lodge/1.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/lion-sands-river-lodge/10.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/melia-ngorongoro-lodge/1.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/olonana-lodge/5.jpg')"></div></div>
+  <div class="lx-hero-slide"><div style="background-image:url('assets/img/lodges/wilderness-magashi-camp/4.jpg')"></div></div>
+  <div class="lx-hero-veil"></div>
+  <div class="lx-hero-dots" id="lxHeroDots"></div>
+  <div class="lx-hero-in">
+    <p class="lx-k"><span class="lx-rule"></span> The Collection</p>
+    <h1>Where the road<br>runs out, and the bush begins.</h1>
+    <p>Our curated collection of the world's most extraordinary safari lodges, tented camps and private reserves — chosen for the land they sit on as much as the rooms themselves.</p>
+  </div>
+</section>
+
+<p class="lx-breadcrumb"><a href="finders-safaris-homepage.html">Home</a><span class="sep">&rsaquo;</span><span class="current">Luxury Lodges</span></p>
+
+<div class="lx-stats">
+    <div class="lx-stat"><div class="num">210</div><div class="label">Lodges & Camps</div></div>
+    <div class="lx-stat"><div class="num">5</div><div class="label">Regions</div></div>
+    <div class="lx-stat"><div class="num">182</div><div class="label">Locations</div></div>
+  </div>
+
+<nav class="lx-nav" id="lxNav" aria-label="Sections">
+  <div class="lx-nav-in"><a href="#overview">Overview</a><a href="#africa">Africa</a><a href="#indian-ocean">Indian Ocean</a><a href="#asia">Asia</a><a href="#europe">Europe</a><a href="#oceania">Oceania</a></div>
+</nav>
+
+<section class="lx-region lx-overview" id="overview">
+  <div class="lx-region-head" style="border-bottom:none;">
+    <div><h2>Luxury measured by the land, not the thread count.</h2><p style="max-width:70ch;">The rooms here range from a canvas tent to a private villa with its own pool, but every one of them is chosen first for where it stands — a private concession, a riverbank, a stretch of reef — and only second for what is inside the room.</p></div>
+  </div>
+  <p class="lx-overview-p">At the top end sit the private-villa camps and exclusive-use properties — Segera, Malori, Singita Milele — where you book the entire lodge, staff included, and the only other guests are the people you arrived with. Just below that are the classic luxury tented camps: en-suite bathrooms, a proper bed, hot bucket showers or plumbed hot water, and a mess tent for dinner, all inside a private concession where the game drives don't share the road with anyone else's vehicle.</p>
+  <p class="lx-overview-p">Further along the range are the safari lodges proper — permanent thatch-and-stone suites, often with a plunge pool and a viewing deck, in reserves shared with a small number of other camps rather than exclusive-use. And at the more relaxed end are the eco-lodges, tea estate cottages and beach bandas: simpler, gentler on the budget, but still chosen for a genuinely special piece of land rather than a convenient one.</p>
+  <p class="lx-overview-p">What every property in this collection shares, whatever its level, is a guide, a location, and a design that could not be picked up and dropped somewhere else. A room is only ever half the reason to stay.</p>
+  <div class="th-grid lx-fact-grid">
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-7 7 7v11"/><path d="M9 21v-6h6v6"/></svg><h4>Exclusive-Use Villas</h4><p>Book the whole camp — Segera, Malori, Singita Milele and similar private-villa properties, staff and vehicle included.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10a8 8 0 0 1 16 0v10"/><path d="M4 20h16"/></svg><h4>Luxury Tented Camps</h4><p>En-suite bathrooms and proper beds inside canvas, on a private concession where the game drives are yours alone.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg><h4>Safari Lodges</h4><p>Permanent thatch-and-stone suites, often with a plunge pool, in reserves shared with a small number of neighbouring camps.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 22l3-9 3 4 4-6 3 5 3-3 4 9z"/></svg><h4>Chosen For The Land</h4><p>A concession, a riverbank, a private reef — every property here earns its place by where it stands, at every level of comfort.</p></div>
+  </div>
+</section>
+
+<section class="lx-region" id="africa">
+  <div class="lx-region-head">
+    <div><h2>Africa</h2><p>Safari's founding continent — Nairobi to the Cape, Cairo to Harare.</p></div>
+    <p class="lx-region-count">117 Properties</p>
+  </div>
+  <div class="lx-grid">
+    <a class="lx-card" href="andbeyond-grumeti-river-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/andbeyond-grumeti-river-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Western Serengeti, Tanzania</p>
+          <h3>&Beyond Grumeti Serengeti River Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="andbeyond-lake-manyara-tree-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/andbeyond-lake-manyara-tree-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Lake Manyara National Park, Tanzania</p>
+          <h3>&Beyond Lake Manyara Tree Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="andbeyond-ngorongoro-crater-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/andbeyond-ngorongoro-crater-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ngorongoro Conservation Area, Tanzania</p>
+          <h3>&Beyond Ngorongoro Crater Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sandibe-okavango-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sandibe-okavango-safari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Okavango Delta</p>
+          <h3>&Beyond Sandibe Okavango Safari Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="andbeyond-suyian.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/andbeyond-suyian/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>&Beyond Suyian</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="adrere-amellal.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/adrere-amellal/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Siwa Oasis</p>
+          <h3>Adrere Amellal Eco-Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="amalinda-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/amalinda-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Matobo Hills, Zimbabwe</p>
+          <h3>Amalinda Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="angama-amboseli.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/angama-amboseli/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Amboseli</p>
+          <h3>Angama Amboseli</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="angama-mara.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/angama-mara/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>Angama Mara</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="apoka-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/apoka-safari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kidepo Valley National Park, Uganda</p>
+          <h3>Apoka Safari Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="arusha-coffee-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/arusha-coffee-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Arusha, Tanzania</p>
+          <h3>Arusha Coffee Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="berber-place.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/berber-place/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Atlas Foothills</p>
+          <h3>Berber Place</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="birkenhead-house-hermanus.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/birkenhead-house-hermanus/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Whale Coast</p>
+          <h3>Birkenhead House</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="bisate-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/bisate-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Volcanoes National Park, Rwanda</p>
+          <h3>Bisate Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="borana-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/borana-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Borana Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="bumi-hills-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/bumi-hills-safari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Lake Kariba, Zimbabwe</p>
+          <h3>Bumi Hills Safari Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="camp-okuti.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/camp-okuti/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Moremi Game Reserve</p>
+          <h3>Camp Okuti</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="campi-ya-kanzi.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/campi-ya-kanzi/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Chyulu Hills</p>
+          <h3>Campi ya Kanzi</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="chale-island-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/chale-island-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kenya South Coast</p>
+          <h3>Chale Island Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="chiefs-camp-okavango.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/chiefs-camp-okavango/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Okavango Delta</p>
+          <h3>Chief's Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="chobe-game-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/chobe-game-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Chobe</p>
+          <h3>Chobe Game Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="cottars-1920s-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/cottars/cottars-vintage-safari-car.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>Cottar's 1920s Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="damaraland-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/damaraland-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kunene Region, Namibia</p>
+          <h3>Damaraland Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="dar-ahlam.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/dar-ahlam/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Skoura</p>
+          <h3>Dar Ahlam</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="desert-whisper.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/desert-whisper/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Namib Desert, Namibia</p>
+          <h3>Desert Whisper</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="eagles-nest-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/eagles-nest-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Aus</p>
+          <h3>Eagle's Nest Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="elephant-bedroom-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/elephant-bedroom-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Samburu</p>
+          <h3>Elephant Bedroom Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="fairmont-mount-kenya-safari-club.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/fairmont-mount-kenya-safari-club/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mount Kenya</p>
+          <h3>Fairmont Mount Kenya Safari Club</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="finch-hattons-tsavo-west.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/finch-hattons-tsavo-west/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Tsavo West</p>
+          <h3>Finch Hattons</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="fish-river-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/fish-river-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Fish River Canyon</p>
+          <h3>Fish River Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="greystoke-mahale.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/greystoke-mahale/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mahale Mountains, Tanzania</p>
+          <h3>Greystoke Mahale</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="heure-bleue-palais.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/heure-bleue-palais/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Essaouira</p>
+          <h3>Heure Bleue Palais</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="inara-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/inara-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Agafay</p>
+          <h3>Inara Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="ishara-mara.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/ishara-mara/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara National Reserve</p>
+          <h3>Ishara</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="jabali-ridge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/jabali-ridge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ruaha National Park, Tanzania</p>
+          <h3>Jabali Ridge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="jw-marriott-mara-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/jw-marriott-mara-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>JW Marriott Mara Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kasbah-tamadot.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kasbah-tamadot/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Atlas Foothills</p>
+          <h3>Kasbah Tamadot</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kicheche-ol-pejeta.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kicheche-ol-pejeta/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Kicheche Laikipia Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kilindi-zanzibar.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kilindi-zanzibar/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Nungwi</p>
+          <h3>Kilindi Zanzibar</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kyambura-gorge-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kyambura-gorge-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Queen Elizabeth National Park, Uganda</p>
+          <h3>Kyambura Gorge Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kyaninga-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kyaninga-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Fort Portal, Uganda</p>
+          <h3>Kyaninga Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="la-residence-franschhoek.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/la-residence-franschhoek/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Franschhoek</p>
+          <h3>La Residence</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lake-kivu-serena-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lake-kivu-serena-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Gisenyi, Rwanda</p>
+          <h3>Lake Kivu Serena Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lake-nakuru-cliff-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-cliff-nakuru/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Rift Valley</p>
+          <h3>Lake Nakuru Cliff Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lamai-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lamai-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">The Lamai Wedge, Northern Serengeti, Tanzania</p>
+          <h3>Lamai Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="le-saint-tropez-zanzibar.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/le-saint-tropez-zanzibar/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Southern Zanzibar</p>
+          <h3>Le Saint Tropez Boutique Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lemala-wildwaters-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lemala-wildwaters-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Jinja, Uganda</p>
+          <h3>Lemala Wildwaters Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="leroo-la-tau-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/leroo-la-tau-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Makgadikgadi</p>
+          <h3>Leroo La Tau</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lewa-wilderness.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lewa-wilderness/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Lewa Wilderness</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="linkwasha-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/linkwasha-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hwange National Park, Zimbabwe</p>
+          <h3>Linkwasha Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lion-sands-river-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lion-sands-river-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sabi Sand</p>
+          <h3>Lion Sands River Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="little-kulala.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/little-kulala/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sossusvlei, Namibia</p>
+          <h3>Little Kulala</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="loisaba-lodo-springs.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/loisaba-lodo-springs/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Loisaba Lodo Springs</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="loldia-house.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/loldia-house/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Lake Naivasha</p>
+          <h3>Loldia House</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="mahali-mzuri.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mahali-mzuri/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>Mahali Mzuri</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="malori-tswalu.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/malori-tswalu/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Tswalu Kalahari</p>
+          <h3>Malori</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="mashatu-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mashatu-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Eastern Botswana</p>
+          <h3>Mashatu Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="matetsi-victoria-falls.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/matetsi-victoria-falls/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Victoria Falls, Zimbabwe</p>
+          <h3>Matetsi Victoria Falls</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="melia-zanzibar.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/melia-zanzibar/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northeast Zanzibar</p>
+          <h3>Meli&aacute; Zanzibar</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="merzouga-luxury-desert-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/merzouga-luxury-desert-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sahara Desert</p>
+          <h3>Merzouga Luxury Desert Camps</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="mokuti-etosha.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mokuti-etosha/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Eastern Etosha</p>
+          <h3>Mokuti Etosha</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="molori-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/malori-tswalu/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Madikwe</p>
+          <h3>Molori Safari Lodge &mdash; Madikwe Game Reserve, South Africa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="movenpick-royal-lily.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/movenpick-royal-lily/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Swiss Hospitality</p>
+          <h3>Mövenpick MS Royal Lily</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="mwiba-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mwiba-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Southern Serengeti, Tanzania</p>
+          <h3>Mwiba Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="ndali-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/ndali-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Fort Portal, Uganda</p>
+          <h3>Ndali Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="melia-ngorongoro-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/melia-ngorongoro-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ngorongoro Conservation Area, Tanzania</p>
+          <h3>Ngorongoro Lodge Meliá Collection</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nile-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nile-safari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Murchison Falls National Park, Uganda</p>
+          <h3>Nile Safari Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nimali-tarangire.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nimali-tarangire/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Tarangire National Park, Tanzania</p>
+          <h3>Nimali Tarangire</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nomad-lamai-serengeti.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lamai-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Serengeti</p>
+          <h3>Nomad Lamai Serengeti</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nyamatusi-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nyamatusi-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mana Pools National Park, Zimbabwe</p>
+          <h3>Nyamatusi Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="okonjima-bush-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/okonjima-bush-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Central Namibia</p>
+          <h3>Okonjima Bush Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="okonjima-bush-suite.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/okonjima-bush-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Central Namibia</p>
+          <h3>Okonjima Bush Suite &mdash; Okonjima Nature Reserve, Namibia</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="olivers-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/olivers-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Tarangire National Park, Tanzania</p>
+          <h3>Oliver's Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="olonana-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/olonana-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>Olonana Lodge &mdash; Maasai Mara, Kenya</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="one-and-only-nyungwe-house.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/one-and-only-nyungwe-house/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Nyungwe National Park, Rwanda</p>
+          <h3>One&Only Nyungwe House</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="ongava-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/ongava-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Etosha National Park, Namibia</p>
+          <h3>Ongava Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="porini-ol-kinyei-cottages.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/porini-ol-kinyei-cottages/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Maasai Mara</p>
+          <h3>Porini Ol Kinyei Safari Cottages</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="puku-ridge-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/puku-ridge-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">South Luangwa</p>
+          <h3>Puku Ridge Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="rosenhof-boutique-manor.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/rosenhof-boutique-manor/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Klein Karoo</p>
+          <h3>Rosenhof Country House</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="royal-zambezi-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/royal-zambezi-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Lower Zambezi</p>
+          <h3>Royal Zambezi Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="samanea-wellness-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/samanea-wellness-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kep Coast</p>
+          <h3>Samanea Wellness Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sanctuary-baines-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sanctuary-baines-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Okavango Delta</p>
+          <h3>Sanctuary Baines' Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sanctuary-gorilla-forest-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sanctuary-gorilla-forest-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Bwindi Impenetrable National Park, Uganda</p>
+          <h3>Sanctuary Gorilla Forest Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sanctuary-tambarare.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sanctuary-tambarare/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Sanctuary Tambarare</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sand-rivers-selous.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sand-rivers-selous/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Nyerere National Park, Tanzania</p>
+          <h3>Sand Rivers Selous</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sapi-explorers-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sapi-explorers-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mana Pools Region, Zimbabwe</p>
+          <h3>Sapi Explorers Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sarara-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sarara-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Kenya</p>
+          <h3>Sarara Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="saruni-leopard-hill.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/saruni-leopard-hill/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mara Naboisho</p>
+          <h3>Saruni Leopard Hill</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="saruni-rhino.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/saruni-rhino/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Kenya</p>
+          <h3>Saruni Rhino</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="saruni-samburu.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/saruni-samburu/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Samburu</p>
+          <h3>Saruni Samburu</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sasaab-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sasaab-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Samburu</p>
+          <h3>Sasaab Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="satao-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/satao-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Tsavo East</p>
+          <h3>Satao Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="savute-safari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/savute-safari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Chobe National Park</p>
+          <h3>Savute Safari Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="segera-retreat.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/segera-retreat/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Laikipia</p>
+          <h3>Segera Retreat</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="serengeti-explorer-elewana.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/serengeti-explorer-elewana/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">South-Central Serengeti, Tanzania</p>
+          <h3>Serengeti Explorer by Elewana</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="serra-cafema.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/serra-cafema/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kaokoland</p>
+          <h3>Serra Cafema</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="serval-wildlife-resort-kilimanjaro.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/serval-wildlife-resort-kilimanjaro/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kilimanjaro</p>
+          <h3>Serval Wildlife Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="shipwreck-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/shipwreck-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Skeleton Coast, Namibia</p>
+          <h3>Shipwreck Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="singita-boulders-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/singita-boulders-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sabi Sand Reserve</p>
+          <h3>Singita Boulders Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="singita-lebombo-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/singita-lebombo-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kruger National Park</p>
+          <h3>Singita Lebombo Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="singita-milele.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/singita-milele/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Grumeti Reserve, Tanzania</p>
+          <h3>Singita Milele</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="singita-pamushana-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/singita-pamushana-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Southeastern Zimbabwe</p>
+          <h3>Singita Pamushana Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sonesta-star-goddess.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sonesta-star-goddess/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Upper Egypt</p>
+          <h3>Sonesta Star Goddess</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="spitzkoppen-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/spitzkoppen-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Erongo Region, Namibia</p>
+          <h3>Spitzkoppen Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="tau-pan-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/tau-pan-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Central Kalahari</p>
+          <h3>Tau Pan Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="tawi-lodge-amboseli.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/tawi-lodge-amboseli/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Amboseli</p>
+          <h3>Tawi Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-cliff-nakuru.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-cliff-nakuru/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Rift Valley</p>
+          <h3>The Cliff Nakuru</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="oberoi-zahra.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/oberoi-zahra/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Upper Egypt</p>
+          <h3>The Oberoi Zahra</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-plettenberg.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-plettenberg/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Garden Route</p>
+          <h3>The Plettenberg</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-strand-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-strand-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Swakopmund, Namibia</p>
+          <h3>The Strand Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-zawadi-hotel-zanzibar.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-zawadi-hotel-zanzibar/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Michamvi Peninsula</p>
+          <h3>The Zawadi Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="tswalu-motse-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/tswalu-motse-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Southern Kalahari</p>
+          <h3>Tswalu Motse</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="widiane-suite.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/widiane-suite/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Middle Atlas</p>
+          <h3>Widiane Suite & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="wilderness-magashi-camp.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/wilderness-magashi-camp/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Akagera</p>
+          <h3>Wilderness Magashi Camp</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="wolwedans-desert-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/wolwedans-desert-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">NamibRand Nature Reserve, Namibia</p>
+          <h3>Wolwedans Desert Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="zannier-sonop.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/zannier-sonop/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">NamibRand</p>
+          <h3>Zannier Sonop</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="zebra-kalahari-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/zebra-kalahari-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Kalahari</p>
+          <h3>Zebra Kalahari Lodge</h3>
+        </div>
+      </a>
+  </div>
+</section>
+
+<section class="lx-region" id="indian-ocean">
+  <div class="lx-region-head">
+    <div><h2>Indian Ocean</h2><p>Island coastlines and atolls across the Seychelles, Maldives, Mauritius and Zanzibar.</p></div>
+    <p class="lx-region-count">22 Properties</p>
+  </div>
+  <div class="lx-grid">
+    <a class="lx-card" href="mnemba-island-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mnemba-island-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mnemba Atoll</p>
+          <h3>&Beyond Mnemba Island Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="alphonse-island-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/alphonse-island-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Outer Islands</p>
+          <h3>Alphonse Island Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="anantara-maia-seychelles.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/anantara-maia-seychelles/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mahé</p>
+          <h3>Anantara Maia Seychelles Villas</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="aqua-boutique-hotel-mahe.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/aqua-boutique-hotel-mahe/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Mahé</p>
+          <h3>AQUA Boutique Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="cape-weligama-sri-lanka.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/cape-weligama-sri-lanka/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Weligama</p>
+          <h3>Cape Weligama</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="centara-grand-lagoon-maldives.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/centara-grand-lagoon-maldives/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">South Malé Atoll</p>
+          <h3>Centara Grand Island Resort & Spa Maldives</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="ceylon-tea-trails-sri-lanka.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/ceylon-tea-trails-sri-lanka/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hill Country</p>
+          <h3>Ceylon Tea Trails</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="cocoon-collection-maldives.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/cocoon-collection-maldives/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Lhaviyani Atoll</p>
+          <h3>Cocoon Collection Maldives</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="constance-lemuria-praslin.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/constance-lemuria-praslin/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northwest Praslin</p>
+          <h3>Constance Lemuria</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="eden-bleu-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/eden-bleu-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Eden Island</p>
+          <h3>Eden Bleu Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="heritage-le-telfair-mauritius.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/heritage-le-telfair-mauritius/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">South Coast Mauritius</p>
+          <h3>Heritage Le Telfair Golf & Wellness Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lux-grand-baie-mauritius.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lux-grand-baie-mauritius/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Northern Mauritius</p>
+          <h3>LUX* Grand Baie</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="lux-le-morne-mauritius.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/lux-le-morne-mauritius/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Le Morne Peninsula</p>
+          <h3>LUX* Le Morne Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="maradiva-villas-mauritius.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/maradiva-villas-mauritius/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">West Coast</p>
+          <h3>Maradiva Villas Resort & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="oneandonly-le-saint-geran.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/oneandonly-le-saint-geran/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">East Coast Mauritius</p>
+          <h3>One&Only Le Saint Géran</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="paradis-beachcomber-le-morne.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/paradis-beachcomber-le-morne/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Le Morne</p>
+          <h3>Paradis Beachcomber Golf Resort & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="raffles-seychelles-praslin.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/raffles-seychelles-praslin/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Praslin Island</p>
+          <h3>Raffles Seychelles</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="six-senses-zil-pasyon-felicite.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/six-senses-zil-pasyon-felicite/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Félicité</p>
+          <h3>Six Senses Zil Pasyon</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-manta-resort-pemba.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-manta-resort-pemba/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Pemba Island</p>
+          <h3>The Manta Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="uga-jungle-beach-trincomalee.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/uga-jungle-beach-trincomalee/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Trincomalee</p>
+          <h3>Uga Jungle Beach</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="uga-ulagalla-sri-lanka.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/uga-ulagalla-sri-lanka/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Cultural Triangle</p>
+          <h3>Uga Ulagalla</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="water-garden-sigiriya.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/water-garden-sigiriya/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sigiriya</p>
+          <h3>Water Garden Sigiriya</h3>
+        </div>
+      </a>
+  </div>
+</section>
+
+<section class="lx-region" id="asia">
+  <div class="lx-region-head">
+    <div><h2>Asia</h2><p>From Kyoto temples to Bornean rainforest, Bangkok to the Mekong.</p></div>
+    <p class="lx-region-count">52 Properties</p>
+  </div>
+  <div class="lx-grid">
+    <a class="lx-card" href="alila-villas-uluwatu.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/alila-villas-uluwatu/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Uluwatu, Bali</p>
+          <h3>Alila Villas Uluwatu</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="almanity-hoi-an.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/almanity-hoi-an/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hoi An</p>
+          <h3>Almanity Hoi An Resort & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="amanpuri.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/amanpuri/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Phuket</p>
+          <h3>Amanpuri</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="amansara.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/amansara/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Siem Reap</p>
+          <h3>Amansara</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="anantara-hoi-an-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/anantara-hoi-an-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hoi An</p>
+          <h3>Anantara Hoi An Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="anantara-mui-ne-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/anantara-mui-ne-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mui Ne</p>
+          <h3>Anantara Mui Ne Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="anantara-rasananda-koh-phangan.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/anantara-rasananda-koh-phangan/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Phangan</p>
+          <h3>Anantara Rasananda Koh Phangan Villas</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="anya-premier-hotel-quy-nhon.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/anya-premier-hotel-quy-nhon/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Quy Nhon</p>
+          <h3>Anya Premier Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="badian-beach-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/badian-beach-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Moalboal, Cebu</p>
+          <h3>Badian Beach Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="banyan-tree-yangshuo.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/banyan-tree-yangshuo/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Yangshuo</p>
+          <h3>Banyan Tree Yangshuo</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="bawah-reserve-overwater-bungalow.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/bawah-reserve-overwater-bungalow/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Anambas Islands</p>
+          <h3>Bawah Reserve</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="benesse-house-oval-naoshima.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/benesse-house-oval-naoshima/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Naoshima Island</p>
+          <h3>Benesse House Oval</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="borneo-rainforest-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/borneo-rainforest-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Danum Valley</p>
+          <h3>Borneo Rainforest Lodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="cameron-highlands-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/cameron-highlands-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Cameron Highlands</p>
+          <h3>Cameron Highlands Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="chay-lap-farmstay-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/chay-lap-farmstay-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Phong Nha</p>
+          <h3>Chay Lap Farmstay & Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="crockfords-genting.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/crockfords-genting/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Genting Highlands</p>
+          <h3>Crockfords</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="dinso-resort-koh-chang.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/dinso-resort-koh-chang/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Chang</p>
+          <h3>Dinso Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="dinso-resort-villas-phuket.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/dinso-resort-villas-phuket/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Phuket</p>
+          <h3>Dinso Resort & Villas</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="el-nido-pangulasian-island.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/el-nido-pangulasian-island/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Bacuit Bay, Palawan</p>
+          <h3>El Nido Resorts Pangulasian Island</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="four-seasons-koh-samui.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/four-seasons-koh-samui/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Samui</p>
+          <h3>Four Seasons Resort Koh Samui</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="gexian-village-pillow-pine-inn.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/gexian-village-pillow-pine-inn/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Gexian Village</p>
+          <h3>Gexiancun Resort Zhenshansu</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="hide-out-resort-koh-kood.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/koh-kood-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Kood</p>
+          <h3>Hide Out Resort Koh Kood</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="hideout-bali-sidemen.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/hideout-bali-sidemen/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">East Bali</p>
+          <h3>Hideout Bali</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="indochine-premium-cruise.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/indochine-premium-cruise/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Halong Bay</p>
+          <h3>Indochine Premium Cruise</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="jungle-house-khao-sok.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/jungle-house-khao-sok/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Khao Sok</p>
+          <h3>Jungle House Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="koh-kood-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/koh-kood-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Kood</p>
+          <h3>Koh Kood Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="sojiin-temple-lodging-koyasan.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/sojiin-temple-lodging-koyasan/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mount Koya</p>
+          <h3>Koyasan Shukubo Soji-in</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="kuwarasan-a-pramana-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/kuwarasan-a-pramana-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ubud, Bali</p>
+          <h3>Kuwarasan A Pramana Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="maua-nusa-penida.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/maua-nusa-penida/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Nusa Penida</p>
+          <h3>MĀUA Nusa Penida</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="munduk-cabins-north-bali.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/munduk-cabins-north-bali/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">North Bali</p>
+          <h3>Munduk Cabins by Desa Hay</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nabalie-zhangjiajie-wulingyuan.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nabalie-zhangjiajie-wulingyuan/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Zhangjiajie, Hunan</p>
+          <h3>Nabalie Grand Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nay-palad-hideaway-siargao.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nay-palad-hideaway-siargao/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Siargao Island</p>
+          <h3>Nay Palad Hideaway</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="one-and-only-desaru-coast.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/one-and-only-desaru-coast/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Desaru Coast</p>
+          <h3>One&Only Desaru Coast</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="papiu-resort-ha-giang.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/papiu-resort-ha-giang/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ha Giang</p>
+          <h3>P'apiu Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="paradise-resort-koh-tao.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/paradise-resort-koh-tao/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Tao</p>
+          <h3>Paradise Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="phulay-bay-ritz-carlton-reserve.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/phulay-bay-ritz-carlton-reserve/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Krabi</p>
+          <h3>Phulay Bay, A Ritz-Carlton Reserve</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="saigon-ban-gioc-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/saigon-ban-gioc-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Cao Bang</p>
+          <h3>Saigon Ban Gioc Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="salinda-resort-phu-quoc.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/salinda-resort-phu-quoc/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Phu Quoc Island</p>
+          <h3>Salinda Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="shangri-la-rasa-ria.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/shangri-la-rasa-ria/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Malaysian Borneo</p>
+          <h3>Shangri-La Rasa Ria</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="shangri-la-rasa-sentosa-singapore.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/shangri-la-rasa-sentosa-singapore/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sentosa Island</p>
+          <h3>Shangri-La Rasa Sentosa, Singapore</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="shinta-mani-wild.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/shinta-mani-wild/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Cardamom Mountains</p>
+          <h3>Shinta Mani Wild</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="silk-road-dunhuang-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/silk-road-dunhuang-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Gansu, China</p>
+          <h3>Silk Road Dunhuang Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="song-saa-private-island.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/song-saa-private-island/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Koh Rong</p>
+          <h3>Song Saa Private Island</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="tam-coc-garden-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/tam-coc-garden-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ninh Binh</p>
+          <h3>Tam Coc Garden Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="ritz-carlton-langkawi.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/ritz-carlton-langkawi/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Langkawi</p>
+          <h3>The Ritz-Carlton, Langkawi</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-taaras-redang.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-taaras-redang/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Redang</p>
+          <h3>The Taaras Beach & Spa Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="tia-wellness-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/tia-wellness-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Da Nang</p>
+          <h3>TIA Wellness Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="topas-ecolodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/topas-ecolodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sapa</p>
+          <h3>Topas Ecolodge</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="two-seasons-coron-island-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/two-seasons-coron-island-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Coron, Palawan</p>
+          <h3>Two Seasons Coron Island Resort & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="village-hotel-sentosa.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/village-hotel-sentosa/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Sentosa Island</p>
+          <h3>Village Hotel Sentosa by Far East Hospitality</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="wangxian-cliff-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/wangxian-cliff-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Wangxian Valley</p>
+          <h3>Wangxiangu Cliff Homestay</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="wanosato-takayama.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/wanosato-takayama/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hida Takayama</p>
+          <h3>Wanosato</h3>
+        </div>
+      </a>
+  </div>
+</section>
+
+<section class="lx-region" id="europe">
+  <div class="lx-region-head">
+    <div><h2>Europe</h2><p>Historic capitals and grand institutions, from Zurich to Zagreb.</p></div>
+    <p class="lx-region-count">15 Properties</p>
+  </div>
+  <div class="lx-grid">
+    <a class="lx-card" href="canaves-oia-santorini.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/canaves-oia-santorini/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Oia</p>
+          <h3>Canaves Oia Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="caruso-belmond-ravello.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/caruso-belmond-ravello/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Ravello</p>
+          <h3>Caruso, A Belmond Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="chios-chandris-hotel.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/chios-chandris-hotel/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Chios</p>
+          <h3>Chios Chandris Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="de-dames-van-de-jonge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/de-dames-van-de-jonge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Giethoorn</p>
+          <h3>De Dames Van De Jonge &mdash; Giethoorn, Netherlands</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="doga-thermal-pamukkale.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/doga-thermal-pamukkale/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Pamukkale</p>
+          <h3>Doga Thermal Health & Spa</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="fenomen-plitvice-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/fenomen-plitvice-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Plitvice Lakes</p>
+          <h3>Fenomen Plitvice Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="korumar-ephesus-beach-resort.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/korumar-ephesus-beach-resort/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Aegean Coast</p>
+          <h3>Korumar Ephesus Beach & Spa Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="les-sources-de-cheverny.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/les-sources-de-cheverny/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Loir-et-Cher</p>
+          <h3>Les Sources de Cheverny &mdash; Loire Valley, France</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="maxx-royal-belek.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/maxx-royal-belek/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Turkish Riviera</p>
+          <h3>Maxx Royal Belek Golf Resort</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="mont-cervin-palace.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/mont-cervin-palace/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Zermatt</p>
+          <h3>Mont Cervin Palace &mdash; Zermatt, Switzerland</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="museum-hotel-cappadocia.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/museum-hotel-cappadocia/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Cappadocia</p>
+          <h3>Museum Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="myconian-avaton-mykonos.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/myconian-avaton-mykonos/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Elia Beach</p>
+          <h3>Myconian Avaton</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="nobu-hotel-ibiza-bay.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/nobu-hotel-ibiza-bay/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Balearic Islands</p>
+          <h3>Nobu Hotel Ibiza Bay &mdash; Talamanca, Spain</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="palace-elisabeth-hvar.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/palace-elisabeth-hvar/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Hvar Town</p>
+          <h3>Palace Elisabeth, Hvar Heritage Hotel</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="victoria-jungfrau.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/victoria-jungfrau/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Bernese Oberland</p>
+          <h3>Victoria-Jungfrau Grand Hotel & Spa &mdash; Interlaken, Switzerland</h3>
+        </div>
+      </a>
+  </div>
+</section>
+
+<section class="lx-region" id="oceania">
+  <div class="lx-region-head">
+    <div><h2>Oceania</h2><p>New Zealand's fjords and lakes, and Fiji's outer islands.</p></div>
+    <p class="lx-region-count">4 Properties</p>
+  </div>
+  <div class="lx-grid">
+    <a class="lx-card" href="fiordland-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/fiordland-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Fiordland</p>
+          <h3>Fiordland Lodge &mdash; Te Anau, New Zealand</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="huka-lodge.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/huka-lodge/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Central North Island</p>
+          <h3>Huka Lodge &mdash; Taup&#333;, New Zealand</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="six-senses-fiji.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/six-senses-fiji/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Mamanuca Archipelago</p>
+          <h3>Six Senses Fiji &mdash; Malolo Island, Fiji</h3>
+        </div>
+      </a>
+    <a class="lx-card" href="the-rees-queenstown.html">
+        <div class="lx-card-img" style="background-image:url('assets/img/lodges/the-rees-queenstown/1.jpg')"></div>
+        <div class="lx-card-ov"></div>
+        <div class="lx-card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></div>
+        <div class="lx-card-b">
+          <p class="lx-card-loc">Otago</p>
+          <h3>The Rees Hotel &mdash; Queenstown, New Zealand</h3>
+        </div>
+      </a>
+  </div>
+</section>
+
+<section class="lx-final">
+  <h2>Starting or ending in the city?</h2>
+  <p>Our City Hotels collection gathers every landmark urban address in our portfolio.</p>
+  <div class="lx-final-btns">
+    <a href="city-hotels.html" class="lx-btn">View City Hotels</a>
+    <a href="tailor-your-journey.html" class="lx-btn lx-btn-fill">Plan Your Stay</a>
+  </div>
+</section>
+</main>
+
+<!--@include script-4-->
+
+<!--@include footer-site-->
+
+<!--@include speak-button-->
+
+<!--@include mega-menu-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+<!--@include script-5-->
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.lx-nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var line = window.innerHeight * 0.3;
+    var current = 0;
+    sections.forEach(function(s,i){ if (s && s.getBoundingClientRect().top <= line) current = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===current); });
+  }
+  document.addEventListener('scroll', function(){ window.requestAnimationFrame(spy); }, {passive:true, capture:true});
+  window.addEventListener('resize', spy);
+  spy();
+})();
+(function(){
+  var car = document.getElementById('lxHeroCarousel');
+  if (!car) return;
+  var slides = car.querySelectorAll('.lx-hero-slide');
+  var dotsWrap = document.getElementById('lxHeroDots');
+  var i = 0;
+  slides.forEach(function(_, idx){
+    var b = document.createElement('button');
+    if (idx === 0) b.className = 'on';
+    b.setAttribute('aria-label', 'Show image ' + (idx + 1));
+    b.addEventListener('click', function(){ show(idx); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = dotsWrap.querySelectorAll('button');
+  function show(n){
+    slides[i].classList.remove('on');
+    dots[i].classList.remove('on');
+    i = n;
+    slides[i].classList.add('on');
+    dots[i].classList.add('on');
+  }
+  setInterval(function(){ show((i + 1) % slides.length); }, 4500);
+})();
+</script>
+</body>
+</html>

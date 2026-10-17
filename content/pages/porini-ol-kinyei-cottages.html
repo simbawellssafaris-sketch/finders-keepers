@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porini Ol Kinyei Safari Cottages — Ol Kinyei Conservancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --charcoal: #241f16;
+    --accent: #B5622E;
+    --accent-dark: #8C4A21;
+    --olive: #5A6B45;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(36,31,22,0.14);
+    --shadow: 0 30px 60px -30px rgba(36,31,22,0.35);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--charcoal); font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.6; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.4; fill:none; }
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--charcoal); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/3.jpg'); background-size:cover; background-position:center; }
+  .scene-4{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/4.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.06; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+  .hero-caption{ position:relative; z-index:2; padding:0 clamp(20px,6vw,80px) 100px; color: var(--tent-cream); max-width:720px; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--tent-cream); }
+  .brandmark{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  .brandmark span{ color: var(--gold); }
+  .hero-coords{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-align:right; line-height:1.7; opacity:0.85; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--gold); } .hero-headline .eyebrow::before{ background: var(--gold); }
+  .hero-headline h1{ color: var(--tent-cream); font-size: clamp(2.5rem, 6.6vw, 4.8rem); line-height:0.98; margin-top:18px; }
+  .hero-headline p{ color: rgba(251,246,234,0.82); max-width:440px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(251,246,234,0.14); border:1px solid rgba(251,246,234,0.4); backdrop-filter: blur(6px); color: var(--tent-cream); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(251,246,234,0.35); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--gold); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'Space Mono', monospace; font-size:0.72rem; color: var(--tent-cream); letter-spacing:0.06em; }
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(36,31,22,0.5); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--charcoal); } .tab.active{ color: var(--accent); } .tab.active::after{ transform: scaleX(1); }
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(36,31,22,0.78); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent); }
+  .stat .label{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(36,31,22,0.6); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+  .lodges-note{ background: var(--tent-cream); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(36,31,22,0.85); }
+  .lodges-note strong{ color: var(--accent); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/4.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Fraunces', serif; color: var(--accent); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(36,31,22,0.72); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--olive); }
+  .exp-card h3{ font-size:1.25rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.72); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--accent); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/porini-ol-kinyei-cottages/3.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(36,31,22,0.82); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent); font-family:'Fraunces',serif; }
+  .loc-map{ background: var(--charcoal); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'Space Mono', monospace; color: var(--accent); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+  .offer-bar{ background: var(--olive-deep, #3A4130); color: var(--tent-cream); padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: var(--tent-cream); padding:16px 30px; text-decoration:none; font-family:'Space Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; color: rgba(36,31,22,0.5); background: var(--ivory); }
+
+.offer-bar{ background: #3A4130; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">PORINI <span>OL KINYEI</span></div>
+    <div class="hero-coords">01°15'S 35°15'E<br>OL KINYEI CONSERVANCY</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-4"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Safari Cottages — Maasai Mara</span>
+    <h1>Home, Away<br>from Home</h1>
+    <p>Four hillside cottages on 18,700 acres of community-owned wilderness — the only IUCN Green List conservancy in the Mara, reserved entirely for Porini's own guests.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 04</div>
+</div>
+
+<div class="tabbar-wrap">
+  <nav class="tabbar" id="tabbar">
+    <button class="tab active" data-target="overview">Overview</button>
+    <button class="tab" data-target="suites">Cottages</button>
+    <button class="tab" data-target="experiences">Experiences</button>
+    <button class="tab" data-target="dining">Dining</button>
+    <button class="tab" data-target="location">Location</button>
+  </nav>
+</div>
+
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Wilderness,<br>Held in Trust</h2></div>
+    <p class="lede">Ol Kinyei was the first community conservancy of its kind in the Mara — an 18,700-acre wildlife sanctuary leased entirely to Porini, so no other operator's vehicles ever enter its boundaries.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(36,31,22,0.82); font-size:1.02rem;">Tucked away on a hillside above a wildlife-rich dam, the four Ol Kinyei Safari Cottages are the newest and most private way to experience this conservancy — a "home away from home" built for families and small groups who want the run of their own four-bedroom house, private chef included, without giving up an inch of the wilderness outside the door. Ol Kinyei sits at the northernmost edge of the Loita wildebeest migration, with calving typically seen every February and March, and carries a resident pride of over twenty lions along with regular leopard and cheetah sightings.</p>
+  <div class="lodges-note"><strong>One of three Porini addresses in Ol Kinyei.</strong> The Safari Cottages share the conservancy with the six-tent Porini Mara Camp and the six-tent Porini Cheetah Camp — all three reserved exclusively for Porini guests, with no other tourist vehicles permitted inside the 18,700-acre boundary.</div>
+  <div class="stat-row"><div class="stat"><div class="num">4</div><div class="label">Four-Bedroom Cottages</div></div><div class="stat"><div class="num">18,700ac</div><div class="label">Private Conservancy</div></div><div class="stat"><div class="num">2005</div><div class="label">First of its Kind</div></div><div class="stat"><div class="num">1</div><div class="label">Wildlife Dam on Site</div></div></div>
+</section>
+
+<!--@include elevation-divider-->
+
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Cottages</span><h2>A Hillside,<br>A Private Dam</h2></div>
+    <p class="lede">Each of the four cottages is a self-contained home — four en-suite bedrooms, a private kitchen and chef, and shared spaces built for a group to spread out and settle in.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Hillside Cottage — Overlooking the Dam</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Four En-Suite Bedrooms</strong><span>Every cottage sleeps a full family or group of friends, each bedroom with its own bathroom, built on a hillside with sweeping views over the open plains below.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Private Kitchen & Chef</strong><span>A dedicated chef prepares every meal to order, from candlelit dinners under the stars to daily requests, with no fixed menu or mealtime.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Shared Lounge, Fireplace & Media Room</strong><span>A fireplace for cool evenings, a media room for children, remote work or rainy afternoons, and a sunken fire pit and hammock outside.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>The Dam, In Walking Distance</strong><span>A large wildlife dam sits just below the cottages — a steady draw for elephants, lions and the plains game that pass through Ol Kinyei year-round.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>A Conservancy,<br>To Yourselves</h2></div>
+    <p class="lede">With no other operator's vehicles permitted inside Ol Kinyei, every drive, walk and sundowner here happens without another safari vehicle in sight.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Day &amp; Night</span><h3>Game Drives</h3><p>Open-sided 4x4 drives by day and by night — night drives being a conservancy privilege not permitted inside the national reserve.</p></div></div><div class="exp-card"><div><span class="exp-tag">On Foot</span><h3>Walks with Maasai Warriors</h3><p>Escorted bush walks led by Maasai game rangers, tracking spoor and reading the grasslands at ground level.</p></div></div><div class="exp-card"><div><span class="exp-tag">Sunrise</span><h3>Hot-Air Balloon Safari</h3><p>An optional balloon safari with a champagne breakfast, drifting over Ol Kinyei and the wider Mara ecosystem.</p></div></div><div class="exp-card"><div><span class="exp-tag">Culture</span><h3>Maasai Village Visits</h3><p>Visits to a local homestead, with archery, fire-making and beadwork shared by the Ol Kinyei Maasai.</p></div></div><div class="exp-card"><div><span class="exp-tag">Family</span><h3>Young Adventurers Programme</h3><p>Guides teach children to track spoor, build a fire with sticks, and learn the Big Five — built for families staying in the cottages.</p></div></div><div class="exp-card"><div><span class="exp-tag">Golden Hour</span><h3>Sundowners at the Dam</h3><p>Evening drinks at a scenic viewpoint over the plains, timed to the light before the night drive begins.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">A Private Chef,<br>Every Cottage</h2>
+      <p class="lede" style="margin-top:24px;">There is no communal mess tent here — each cottage has its own kitchen and chef, so meals happen exactly when and where the group wants them.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>Candlelit dinner in the cottage's own dining area</span></div><div class="venue"><span class="n">02</span><span>Bush picnic breakfast or lunch out on a game drive</span></div><div class="venue"><span class="n">03</span><span>Sundowner snacks at the sunken fire pit</span></div><div class="venue"><span class="n">04</span><span>A full English or bush breakfast, either way</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">Private Kitchen — Fire Pit &amp; Hammock</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>The Loita<br>Migration's Edge</h2></div>
+    <p class="lede">Ol Kinyei sits at the top of the Serengeti-Mara ecosystem, where open savannah plains meet rolling hills, springs, streams and rivers — and where the Loita wildebeest migration calves every year.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>18,700 acres set aside in 2005 as the first community conservancy of its kind in the Mara ecosystem.</li><li>A recognised IUCN Green List site — one of a handful worldwide meeting the standard for well-managed protected areas.</li><li>Vehicles are limited to one per 1,400 acres, keeping sightings uncrowded even in high season.</li><li>Every cottage stay pays directly into the community land-lease that keeps Ol Kinyei protected.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#B5622E"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">OL KINYEI COTTAGES</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">OL KINYEI CONSERVANCY</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">HILLSIDE ABOVE THE DAM</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">MASAAI MARA ECOSYSTEM</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Scheduled flights from Nairobi's Wilson Airport land at Ol Seki Airstrip, roughly 25 minutes from the cottages.</p></div><div class="journey-step"><span class="k">Transfer</span><p>A short drive from the airstrip brings guests directly into the conservancy and up to the hillside cottages.</p></div><div class="journey-step"><span class="k">Combine</span><p>The Safari Cottages pair easily with a stay at Porini Mara or Porini Cheetah Camp for a longer circuit.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Bonus Night</span>
+      <h2>Stay 3, Get the 4th Free</h2>
+      <p>Combine three nights at any Porini Camp with three nights at the Ol Kinyei Safari Cottages and receive a fourth night free — valid January to June and October to mid-December.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>PORINI OL KINYEI SAFARI COTTAGES · OL KINYEI CONSERVANCY · MAASAI MARA, KENYA</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

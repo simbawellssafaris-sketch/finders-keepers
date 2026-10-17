@@ -1,0 +1,55 @@
+<!-- FS-FLOATCARD-DOCK:START -->
+<style>#enqFab.fs-fc-adjacent{transition:right .15s ease,bottom .15s ease;}.floatcard.fs-fc-shifted{transition:right .15s ease;}</style>
+<script>
+(function(){
+  var floatcard = document.querySelector('.floatcard');
+  var fab = document.getElementById('enqFab');
+  var hero = document.getElementById('top') || document.querySelector('.hero');
+  if (!floatcard || !fab || !hero) return;
+  fab.classList.add('fs-fc-adjacent');
+  floatcard.classList.add('fs-fc-shifted');
+  var gap = 12;
+
+  function positionWide(){
+    /* fab stays at its own default right/bottom anchor; the price pill
+       shifts left just enough to sit beside it, badge-then-button
+       reading left to right, same as the original single-bar layout. */
+    fab.style.right = '';
+    fab.style.bottom = '';
+    floatcard.style.left = '';
+    floatcard.style.right = (24 + fab.offsetWidth + gap) + 'px';
+  }
+  function positionNarrow(){
+    /* the price pill already runs edge to edge via its own responsive
+       CSS at this width, so there is no room beside it — stack the
+       button above it instead, right-aligned to match. */
+    floatcard.style.right = '';
+    floatcard.style.left = '';
+    var fcRect = floatcard.getBoundingClientRect();
+    fab.style.right = (window.innerWidth - fcRect.right) + 'px';
+    fab.style.bottom = (window.innerHeight - fcRect.top + gap) + 'px';
+  }
+  function positionDock(){
+    if (window.innerWidth <= 900) positionNarrow();
+    else positionWide();
+  }
+  function reset(){
+    fab.style.right = '';
+    fab.style.bottom = '';
+    floatcard.style.right = '';
+  }
+  function update(){
+    var pastHero = hero.getBoundingClientRect().bottom <= 0;
+    if (pastHero) { fab.hidden = false; positionDock(); }
+    else { fab.hidden = true; reset(); }
+  }
+  var ticking = false;
+  function onScroll(){
+    if (!ticking) { ticking = true; requestAnimationFrame(function(){ update(); ticking = false; }); }
+  }
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+<!-- FS-FLOATCARD-DOCK:END -->

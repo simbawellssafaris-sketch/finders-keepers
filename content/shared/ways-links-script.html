@@ -1,0 +1,34 @@
+<!-- FS-WAYS-LINKS:START -->
+<script>
+(function(){
+  var wrap = document.getElementById('waysTabs');
+  var link = document.getElementById('waysLink');
+  if (!wrap || !link) return;
+  var URLS = [
+    ['tailor-made', 'tailor-made-safaris.html'],
+    ['small group', 'small-group-journeys.html'],
+    ['solo', 'solo-travel.html'],
+    ['couples', 'couples-escapes.html'],
+    ['family', 'family-adventures.html'],
+    ['honeymoon', 'couples-escapes.html'],
+    ['private', 'tailor-made-safaris.html'],
+    ['group', 'small-group-journeys.html']
+  ];
+  function urlFor(label){
+    var norm = label.replace(/\s+/g, ' ').trim().toLowerCase();
+    for (var i = 0; i < URLS.length; i++) if (norm.indexOf(URLS[i][0]) !== -1) return URLS[i][1];
+    return null;
+  }
+  var tabs = Array.prototype.slice.call(wrap.querySelectorAll('.ways-tab'));
+  var hrefs = tabs.map(function(t){ return urlFor(t.textContent); });
+
+  function applyActive(){
+    var idx = tabs.findIndex(function(t){ return t.classList.contains('active'); });
+    if (idx === -1) idx = 0;
+    if (hrefs[idx]) link.setAttribute('href', hrefs[idx]);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', applyActive); });
+  applyActive();
+})();
+</script>
+<!-- FS-WAYS-LINKS:END -->

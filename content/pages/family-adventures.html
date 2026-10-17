@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Adventures | Tailor-Made Family Safaris &mdash; {{brand}}</title>
+<meta name="description" content="Tailor-made family safaris built around who is travelling &mdash; defining moments, graduations, birthdays, bucket lists and family holidays, with lodges chosen for families.">
+<meta name="keywords" content="family safari, multigenerational safari, family safari Kenya, graduation safari trip, family safari lodges, malaria-free family safari">
+<link rel="canonical" href="https://{{domain}}/family-adventures.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{brand}}">
+<meta property="og:title" content="Family Adventures | Tailor-Made Family Safaris &mdash; {{brand}}">
+<meta property="og:description" content="Tailor-made family safaris built around who is travelling &mdash; defining moments, graduations, birthdays, bucket lists and family holidays, with lodges chosen for families.">
+<meta property="og:url" content="https://{{domain}}/family-adventures.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1400&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Family Adventures | Tailor-Made Family Safaris &mdash; {{brand}}">
+<meta name="twitter:description" content="Tailor-made family safaris built around who is travelling &mdash; defining moments, graduations, birthdays, bucket lists and family holidays, with lodges chosen for families.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1400&auto=format&fit=crop">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Family Adventures | Tailor-Made Family Safaris &mdash; {{brand}}","description":"Tailor-made family safaris built around who is travelling &mdash; defining moments, graduations, birthdays, bucket lists and family holidays, with lodges chosen for families.","url":"https://{{domain}}/family-adventures.html","isPartOf":{"@type":"WebSite","name":"{{brand}}","url":"https://{{domain}}/"},"provider":{"@type":"TravelAgency","name":"{{brand}}","areaServed":"Worldwide"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;color:#1a1209;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --rust:#8B3A2A;
+  --rust-dark:#6B2D1F;
+  --warm:#EDE3CE;
+  --ink:#1a1209;
+  --muted:#8a7a68;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Raleway',sans-serif;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar{
+  background:var(--rust);color:#fff;padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;letter-spacing:0.04em;font-family:var(--sans);
+}
+.topbar-left{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.topbar-right a{color:#fff;opacity:0.9;transition:opacity .2s;}
+.topbar-right a:hover{opacity:1;}
+.topbar-dot{opacity:0.35;}
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  background:#fff;border-bottom:1px solid #e8e0d4;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 40px;height:64px;
+}
+.nav-left{display:flex;align-items:center;gap:32px;}
+
+/* Hamburger — 3 bars animate to X */
+.nav-hamburger{
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:5px;
+  padding:4px;position:relative;z-index:600;
+  flex-shrink:0;
+}
+.nav-hamburger .hb{
+  display:block;width:22px;height:1.5px;
+  background:var(--ink);
+  transition:transform .35s ease,opacity .25s ease,top .35s ease;
+  transform-origin:center;
+  position:relative;
+}
+/* Hamburger → X when mega menu open */
+.mega-open .nav-hamburger .hb:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mega-open .nav-hamburger .hb:nth-child(2){opacity:0;transform:scaleX(0);}
+.mega-open .nav-hamburger .hb:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-link{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;transition:color .2s;
+}
+.nav-link:hover{color:var(--rust);}
+.nav-logo{
+  font-family:var(--serif);font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--ink);text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
+.nav-right-area{display:flex;align-items:center;justify-content:flex-end;}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);transition:color .2s;font-family:var(--sans);
+}
+.nav-search:hover{color:var(--rust);}
+
+/* ══════════════════════════════════════════
+   3-LEVEL CASCADING MEGA MENU — FIXED
+══════════════════════════════════════════ */
+
+/* Fullscreen overlay — hidden by default */
+.mega-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9000;
+  display:none;
+}
+.mega-overlay.open{ display:block; }
+
+/* Dark backdrop behind panels */
+.mega-backdrop{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(10,6,2,0.5);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.mega-overlay.open .mega-backdrop{ opacity:1; }
+
+/* Panel row — sits on top of backdrop, left-aligned */
+.mega-panels{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  z-index:1;
+  /* wide enough to hold all 3 panels */
+  width:1180px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.mega-overlay.open .mega-panels{
+  pointer-events:all;
+}
+
+/* Base panel — hidden off left edge */
+.mpanel{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#fff;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-right:1px solid #e0d8cc;
+  /* animate using left position */
+  transition:left .38s cubic-bezier(0.16,1,0.3,1);
+  pointer-events:none;
+}
+.mpanel.visible{
+  pointer-events:all;
+}
+
+/* PANEL 1
+   hidden:  left:-380px (off screen left)
+   visible: left:0
+*/
+.mpanel-1{
+  width:380px;
+  left:-380px;
+}
+.mpanel-1.visible{ left:0; }
+
+/* PANEL 2
+   hidden:  left:-420px (behind panel 1)
+   visible: left:380px (right of panel 1)
+*/
+.mpanel-2{
+  width:420px;
+  left:-420px;
+}
+.mpanel-2.visible{ left:380px; }
+
+/* PANEL 3
+   hidden:  left:-380px (behind panel 2)
+   visible: left:800px (right of panel 2)
+*/
+.mpanel-3{
+  width:380px;
+  left:-380px;
+}
+.mpanel-3.visible{ left:800px; }
+
+/* Panel 1 inner padding */
+.mp1-inner{ padding:32px 36px 40px; }
+
+/* Close × */
+.mp-close-row{ margin-bottom:28px; }
+.mp-close{
+  background:none;border:none;cursor:pointer;
+  font-size:26px;line-height:1;color:var(--ink);
+  padding:0;transition:opacity .2s;font-family:sans-serif;
+}
+.mp-close:hover{ opacity:0.4; }
+
+/* Level 1 main links */
+.mp1-nav{ list-style:none; }
+.mp1-nav li{ border-bottom:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav li:first-child{ border-top:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-size:30px;font-weight:400;
+  color:var(--ink);padding:16px 0;
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.mp1-nav a:hover,
+.mp1-nav li.active-item > a{ color:var(--rust); }
+.mp1-nav a svg{ flex-shrink:0;transition:transform .2s; }
+.mp1-nav li.active-item > a svg{ transform:translateX(4px); }
+
+/* Divider + POPULAR */
+.mp1-divider{
+  height:0.5px;background:rgba(26,18,9,0.12);margin:28px 0 20px;
+}
+.mp1-popular-label{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:#3E6B4E;margin-bottom:16px;
+}
+.mp1-secondary{ list-style:none; }
+.mp1-secondary li{ border-bottom:0.5px solid rgba(26,18,9,0.06); }
+.mp1-secondary a{
+  display:block;font-family:var(--sans);font-size:13px;
+  color:rgba(26,18,9,0.6);padding:9px 0;transition:color .2s;
+}
+.mp1-secondary a:hover{ color:var(--rust); }
+
+/* Panel 2 */
+.mp2-inner{ padding:28px 32px 40px; }
+.mp2-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp2-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp2-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp2-card:hover .mp2-card-bg{ transform:scale(1.05); }
+.mp2-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp2-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mc2bg1{ background:radial-gradient(ellipse at 45% 55%,#1a3010,#060c04); }
+.mc2bg2{ background:radial-gradient(ellipse at 55% 45%,#201808,#0c0a04); }
+.mc2bg3{ background:radial-gradient(ellipse at 40% 60%,#001828,#040810); }
+.mc2bg4{ background:radial-gradient(ellipse at 60% 40%,#1e0800,#0c0400); }
+.mc2bg5{ background:radial-gradient(ellipse at 50% 50%,#180a00,#0a0500); }
+.mc2bg6{ background:radial-gradient(ellipse at 45% 55%,#0a1020,#04060c); }
+.mp2-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp2-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp2-regions{ list-style:none; }
+.mp2-regions li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp2-regions a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:13px 0;cursor:pointer;transition:color .2s;text-decoration:none;
+}
+.mp2-regions a:hover,
+.mp2-regions a.active{ color:var(--rust); }
+.mp2-regions a svg{ flex-shrink:0;opacity:0.3;transition:opacity .2s; }
+.mp2-regions a:hover svg,
+.mp2-regions a.active svg{ opacity:1;color:var(--rust); }
+
+/* Panel 3 */
+.mp3-inner{ padding:28px 32px 40px; }
+.mp3-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp3-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp3-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp3-card:hover .mp3-card-bg{ transform:scale(1.05); }
+.mp3-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp3-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mp3-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp3-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp3-countries{ list-style:none; }
+.mp3-countries li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp3-countries a{
+  display:flex;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:12px 0;transition:color .2s;text-decoration:none;
+}
+.mp3-countries a:hover{ color:var(--rust); }
+
+/* Stagger animations */
+.mega-overlay.open .mp1-nav li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-nav li:nth-child(1){ animation-delay:.05s; }
+.mega-overlay.open .mp1-nav li:nth-child(2){ animation-delay:.10s; }
+.mega-overlay.open .mp1-nav li:nth-child(3){ animation-delay:.15s; }
+.mega-overlay.open .mp1-secondary li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-secondary li:nth-child(1){ animation-delay:.18s; }
+.mega-overlay.open .mp1-secondary li:nth-child(2){ animation-delay:.21s; }
+.mega-overlay.open .mp1-secondary li:nth-child(3){ animation-delay:.24s; }
+.mega-overlay.open .mp1-secondary li:nth-child(4){ animation-delay:.27s; }
+.mega-overlay.open .mp1-secondary li:nth-child(5){ animation-delay:.30s; }
+.mega-overlay.open .mp1-secondary li:nth-child(6){ animation-delay:.33s; }
+@keyframes mpIn{
+  from{ opacity:0; transform:translateX(-12px); }
+  to{   opacity:1; transform:none; }
+}
+
+/* ══════════════════════════════
+   DESTINATION HERO — full-bleed image
+══════════════════════════════ */
+.dest-hero{
+  position:relative;
+  height:300px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.dest-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 40% 55%, #2c4030 0%, #142010 60%, #060c04 100%);
+  background-size:cover;background-position:center 40%;
+}
+.dest-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(10,6,2,0.25) 0%, rgba(10,6,2,0.60) 100%);
+}
+.dest-hero-content{position:relative;z-index:2;padding:0 24px;}
+.dest-hero-title{
+  font-family:var(--serif);font-size:clamp(40px,6vw,72px);
+  font-weight:400;color:#fff;line-height:1.05;margin-bottom:28px;
+}
+.dest-hero-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);
+  padding-bottom:6px;transition:opacity .2s;
+}
+.dest-hero-link:hover{opacity:0.7;}
+
+/* ══════════════════════════════
+   OVERVIEW SECTION — breadcrumb + paragraphs
+══════════════════════════════ */
+.dest-overview{background:var(--warm);padding:48px 15% 60px;}
+.dest-breadcrumb{
+  font-family:var(--sans);font-size:12px;color:var(--muted);
+  margin-bottom:32px;letter-spacing:0.02em;
+}
+.dest-breadcrumb a{color:var(--muted);transition:color .2s;}
+.dest-breadcrumb a:hover{color:var(--rust);}
+.dest-breadcrumb .current{color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+.dest-breadcrumb .sep{margin:0 8px;opacity:0.5;}
+.dest-overview-headline{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.4;
+  color:var(--ink);margin:0 0 24px;max-width:90%;
+}
+.dest-overview p{
+  font-family:var(--sans);font-size:15px;line-height:1.85;
+  color:var(--ink);margin-bottom:24px;max-width:100%;
+}
+.dest-overview p:last-child{margin-bottom:0;}
+.dest-overview a.inline-link{color:var(--rust);text-decoration:underline;text-underline-offset:2px;}
+.dest-overview p em{font-style:italic;}
+
+/* ══════════════════════════════
+   SECONDARY STICKY NAV — jump links
+══════════════════════════════ */
+.dest-subnav-wrap{position:sticky;top:64px;z-index:300;}
+.dest-subnav{
+  position:relative;background:var(--warm);
+  border-top:1px solid #e8ddc8;border-bottom:1px solid #e8ddc8;
+  display:flex;align-items:center;gap:36px;
+  padding:18px 15%;overflow-x:auto;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0.04em;
+  white-space:nowrap;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.dest-subnav-spacer{height:0;}
+.dest-subnav a{
+  color:var(--ink);transition:color .2s;display:flex;align-items:center;gap:6px;
+}
+.dest-subnav a.back-to-top{color:var(--muted);}
+.dest-subnav a.active,.dest-subnav a:hover{color:var(--rust);}
+.dest-subnav a.active{border-bottom:1.5px solid var(--rust);padding-bottom:4px;}
+
+/* ══════════════════════════════
+   SECTION HEADINGS (shared)
+══════════════════════════════ */
+.dest-section{padding:64px 15%;}
+.dest-section-eyebrow{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.dest-section-title{
+  text-align:center;font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);
+  font-weight:400;color:var(--ink);line-height:1.3;max-width:900px;
+  margin:0 auto 48px;
+}
+
+/* ══════════════════════════════
+══════════════════════════════ */
+
+/* ══════════════════════════════
+   JOURNEY CARDS — image left / details right
+══════════════════════════════ */
+.journey-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-top:1px solid #e8e0d4;border-bottom:1px solid #e8e0d4;
+  background:#fff;align-items:stretch;
+  width:100%;
+}
+.journey-card-img{
+  position:relative;overflow:hidden;
+  min-height:560px;
+}
+.journey-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+}
+.jcbg1{background:radial-gradient(ellipse at 40% 60%, #1c3424 0%, #08140a 100%);}
+.jcbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.jcbg3{background:radial-gradient(ellipse at 45% 55%, #1c2c38 0%, #08101a 100%);}
+.journey-card-badges{
+  position:absolute;top:16px;left:16px;display:flex;gap:8px;
+}
+.jc-badge{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:7px 12px;font-weight:500;
+}
+.jc-badge-type{background:#fff;color:var(--ink);}
+.jc-badge-offer{background:var(--rust);color:#fff;}
+.journey-card + .journey-card{margin-top:0;border-top:none;}
+.journey-card-body{
+  padding:56px 64px;display:flex;flex-direction:column;justify-content:center;
+}
+.jc-title{
+  font-family:var(--serif);font-size:32px;font-weight:400;
+  color:var(--ink);margin-bottom:14px;line-height:1.2;
+}
+.jc-meta{
+  font-family:var(--sans);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+}
+.jc-desc{
+  font-family:var(--sans);font-size:14.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:22px;
+}
+.jc-itinerary-label{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.jc-itinerary{
+  font-family:var(--sans);font-size:13.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:24px;
+}
+.jc-footer{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:22px;
+}
+.jc-price{font-family:var(--sans);font-size:13px;color:var(--ink);}
+.jc-price strong{font-size:17px;}
+.jc-btn{
+  background:var(--ink);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 26px;transition:background .25s;
+}
+.jc-btn:hover{background:var(--rust);}
+
+/* ══════════════════════════════
+   EXPERIENCES GRID — 4 columns
+══════════════════════════════ */
+.exp-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.exp-card{cursor:pointer;}
+.exp-card-img{
+  position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;
+}
+.exp-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.exp-card:hover .exp-card-img-bg{transform:scale(1.05);}
+.ecbg1{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.ecbg2{background:radial-gradient(ellipse at 50% 50%, #403424 0%, #140e08 100%);}
+.ecbg3{background:radial-gradient(ellipse at 55% 40%, #243828 0%, #0a140c 100%);}
+.ecbg4{background:radial-gradient(ellipse at 40% 50%, #1c3424 0%, #08140a 100%);}
+.exp-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+
+.exp-card-explore{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--rust);}
+.exp-card-link{display:block;text-decoration:none;color:inherit;}
+.exp-card-link:hover .exp-card-explore{gap:10px;transition:gap .2s ease;}
+
+.exp-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;
+  color:var(--ink);line-height:1.35;
+}
+
+/* ══════════════════════════════
+   FEATURED ACCOMMODATION — editorial
+══════════════════════════════ */
+.featured-acc{padding:64px 15%;}
+.featured-acc-label{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:32px;
+}
+.featured-acc-img{
+  aspect-ratio:16/7;overflow:hidden;margin-bottom:32px;
+  background:radial-gradient(ellipse at 50% 50%, #3c2c1c 0%, #140c06 100%);
+}
+.featured-acc-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);line-height:1.3;margin-bottom:24px;max-width:900px;
+}
+.featured-acc p{
+  font-family:var(--sans);font-size:14px;line-height:1.85;
+  color:var(--ink);margin-bottom:18px;max-width:1000px;
+}
+
+/* ══════════════════════════════
+   ACCOMMODATIONS — horizontal scroll carousel
+══════════════════════════════ */
+.acc-carousel-wrap{position:relative;}
+.acc-carousel{
+  display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;
+  scrollbar-width:none;padding-bottom:4px;
+}
+.acc-carousel::-webkit-scrollbar{display:none;}
+.acc-card{flex:0 0 480px;cursor:pointer;}
+.acc-card-img{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:16px;}
+.acc-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.acc-card:hover .acc-card-img-bg{transform:scale(1.05);}
+.acbg1{background:radial-gradient(ellipse at 50% 50%, #1c2c38 0%, #08101a 100%);}
+.acbg2{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.acbg3{background:radial-gradient(ellipse at 55% 45%, #403424 0%, #140e08 100%);}
+.acbg4{background:radial-gradient(ellipse at 50% 50%, #243828 0%, #0a140c 100%);}
+.acbg5{background:radial-gradient(ellipse at 48% 52%, #1c3424 0%, #08140a 100%);}
+.acc-badge{
+  position:absolute;top:12px;left:12px;
+  background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:6px 11px;font-weight:500;
+}
+.acc-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;
+}
+.acc-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);
+}
+.acc-arrow{
+  position:absolute;top:38%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;background:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);color:var(--ink);transition:background .2s,color .2s;
+}
+.acc-arrow:hover{background:var(--rust);color:#fff;}
+.acc-arrow.prev{left:-22px;}
+.acc-arrow.next{right:-22px;}
+
+/* ══════════════════════════════
+   WAYS TO EXPLORE
+══════════════════════════════ */
+/* ══════════════════════════════
+   SPEAK TO US CTA
+══════════════════════════════ */
+.expert-cta{padding:0 15% 64px;}
+.expert-cta-inner{
+  display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  background:var(--white);border-left:4px solid var(--rust);
+  padding:48px 56px;
+}
+.expert-cta-logo{
+  width:90px;height:90px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:32px;flex-shrink:0;
+}
+.expert-cta-title{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.35;
+  color:var(--ink);margin:0 0 12px;
+}
+.expert-cta-text{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin:0 0 16px;}
+.expert-cta-contact{
+  font-family:var(--sans);font-size:13px;line-height:1.9;color:var(--ink);
+  text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;
+}
+.expert-cta-contact strong{display:block;font-size:16px;letter-spacing:0.02em;margin-bottom:4px;}
+
+.ways-explore{padding:64px 15%;background:var(--warm);}
+.ways-tabs{display:flex;flex-wrap:wrap;border:1px solid #e2d6bd;border-radius:6px;overflow:hidden;margin-bottom:36px;background:#fff;}
+.ways-tab{flex:1;min-width:140px;text-align:center;padding:18px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);cursor:pointer;background:transparent;border:none;border-right:1px solid #e2d6bd;line-height:1.4;transition:background .2s ease;}
+.ways-tab:last-child{border-right:none;}
+.ways-tab.active{background:#DFCFA3;}
+.ways-tab:hover:not(.active){background:#f2ead6;}
+.ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.ways-img{aspect-ratio:4/3;width:100%;min-width:0;background:radial-gradient(ellipse at 50% 50%, #3a2814 0%, #100a04 100%);overflow:hidden;position:relative;}
+.ways-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ways-content{position:relative;}
+.ways-content .ways-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
+.ways-content h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.3;}
+.ways-content p{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin-bottom:18px;}
+.ways-link{font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+
+/* ══════════════════════════════
+   MAP SECTION
+══════════════════════════════ */
+.map-section{padding:0 15% 64px;}
+.map-frame{
+  aspect-ratio:16/8;background:var(--warm);border:1px solid #e8ddc8;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;color:var(--muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* ══════════════════════════════
+   ALL JOURNEYS — filters + package grid
+══════════════════════════════ */
+.all-journeys{padding:64px 8% 80px;background:var(--warm);}
+.all-journeys-header{text-align:center;margin-bottom:12px;}
+.all-journeys-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);margin-bottom:8px;
+}
+.all-journeys-results{
+  text-align:center;font-family:var(--sans);font-size:13px;color:var(--muted);
+  margin-bottom:8px;
+}
+.all-journeys-results strong{color:var(--ink);}
+.all-journeys-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #e0d8cc;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.08em;
+  padding:8px 14px;margin:0 auto 40px;width:fit-content;
+}
+
+.all-journeys-layout{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;}
+
+/* Filter sidebar */
+.aj-filters{display:flex;flex-direction:column;gap:28px;}
+.aj-filter-group h4{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.aj-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.aj-pill{
+  font-family:var(--sans);font-size:11.5px;color:var(--ink);
+  border:1px solid #e0d8cc;background:#fff;
+  padding:7px 14px;border-radius:20px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.aj-pill:hover,.aj-pill.active{border-color:var(--rust);color:var(--rust);}
+.aj-checkbox{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13px;color:var(--ink);
+  padding:6px 0;cursor:pointer;
+}
+.aj-checkbox input{accent-color:var(--rust);width:14px;height:14px;}
+
+/* Package grid — 2 columns */
+.aj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.aj-card{background:#fff;border:1px solid #e8e0d4;}
+.aj-card-img{position:relative;aspect-ratio:4/4.2;overflow:hidden;}
+.aj-card-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
+.aj-card:hover .aj-card-img-bg{transform:scale(1.05);}
+.ajbg1{background:radial-gradient(ellipse at 45% 55%, #1c3424 0%, #08140a 100%);}
+.ajbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.ajbg3{background:radial-gradient(ellipse at 40% 60%, #1c2c38 0%, #08101a 100%);}
+.ajbg4{background:radial-gradient(ellipse at 55% 50%, #2c3818 0%, #0c1406 100%);}
+.ajbg5{background:radial-gradient(ellipse at 45% 45%, #403424 0%, #140e08 100%);}
+.ajbg6{background:radial-gradient(ellipse at 50% 55%, #243828 0%, #0a140c 100%);}
+.aj-card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;}
+.aj-badge{
+  font-family:var(--sans);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:6px 10px;font-weight:500;
+}
+.aj-badge-type{background:#fff;color:var(--ink);}
+.aj-badge-offer{background:var(--rust);color:#fff;}
+.aj-badge-new{background:var(--ink);color:#fff;}
+.aj-card-body{padding:20px 22px 24px;}
+.aj-card-title{
+  font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);
+  line-height:1.3;margin-bottom:10px;
+}
+.aj-card-meta{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--muted);
+  margin-bottom:12px;
+}
+.aj-card-route{font-family:var(--sans);font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:14px;}
+.aj-card-route b{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.aj-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:14px;
+}
+.aj-card-price{font-family:var(--sans);font-size:12.5px;color:var(--ink);}
+.aj-card-price strong{font-size:15px;}
+.aj-card-link{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--rust);border-bottom:1px solid var(--rust);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.aj-card-link:hover{opacity:0.6;}
+
+.aj-loadmore{
+  display:block;margin:40px auto 0;
+  background:none;border:1px solid var(--ink);color:var(--ink);
+  font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:14px 36px;cursor:pointer;transition:background .25s,color .25s;
+}
+.aj-loadmore:hover{background:var(--ink);color:#fff;}
+
+
+/* ══════════════════════════════
+   FLOATING CTA
+══════════════════════════════ */
+.speak-btn{
+  position:fixed;bottom:24px;right:24px;z-index:300;background:var(--rust);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.25);transition:background .25s;
+}
+.speak-btn:hover{background:var(--rust-dark);}
+
+/* ══════════════════════════════
+   FOOTER (reuse from homepage)
+══════════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+.footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;letter-spacing:0.04em;margin-bottom:12px;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.33);margin-bottom:24px;}
+.footer-social{display:flex;gap:12px;}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.fsoc:hover{border-color:rgba(255,255,255,0.5);}
+.footer-col-head{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:16px;font-family:var(--sans);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.52);transition:color .2s;font-family:var(--sans);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:10.5px;color:rgba(255,255,255,0.28);transition:color .2s;font-family:var(--sans);}
+.footer-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* ══════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .topbar{padding:10px 20px;font-size:10.5px;}
+  .topbar-right{display:none;}
+  .nav{padding:0 20px;}
+  .nav-left .nav-link{display:none;}
+  .nav-logo{font-size:18px;gap:7px;}
+  .nav-logo img{height:24px;}
+  .dest-overview{padding:40px 24px 48px;}
+  .dest-section{padding:48px 24px;}
+  .dest-subnav{padding:14px 24px;}
+  .dest-subnav.is-pinned{padding:12px 24px;}
+  .journey-card{grid-template-columns:1fr;}
+  .journey-card-img{min-height:320px;}
+  .journey-card-body{padding:32px 24px;}
+      .exp-grid{grid-template-columns:1fr 1fr;}
+  .ways-grid{grid-template-columns:1fr;}
+  .ways-tabs{flex-direction:column;}
+  .ways-tab{border-right:none;border-bottom:1px solid #e2d6bd;}
+  .ways-tab:last-child{border-bottom:none;}
+  .expert-cta-inner{grid-template-columns:1fr;text-align:center;padding:36px 24px;}
+  .expert-cta-contact{white-space:normal;}
+  .expert-cta{padding:0 24px 48px;}
+  .featured-acc{padding:48px 24px;}
+  .ways-explore{padding:48px 24px;}
+  .map-section{padding:0 24px 48px;}
+  .all-journeys{padding:48px 24px 64px;}
+  .all-journeys-layout{grid-template-columns:1fr;gap:24px;}
+  .aj-filters{flex-direction:row;flex-wrap:wrap;gap:16px;}
+  .aj-filter-group{flex:1 1 100%;}
+  .aj-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .dest-hero-title{font-size:clamp(32px,8vw,52px);}
+  .mpanel-1{width:88vw;max-width:380px;}
+  .mpanel-2{width:88vw;max-width:420px;left:0;}
+  .mpanel-3{width:88vw;max-width:380px;left:0;}
+}
+@media(max-width:600px){
+  .exp-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .footer-top{grid-template-columns:1fr;}
+  .dest-breadcrumb{font-size:11px;}
+}
+
+/* ── Theme collection pages ── */
+.th-hero{position:relative;background:var(--warm);padding:0 0 0 7%;display:grid;grid-template-columns:minmax(280px,38%) 1fr;align-items:end;min-height:clamp(400px,64vh,600px);}
+.th-hero-copy{position:relative;z-index:3;padding:64px 40px 56px 0;}
+.th-hero .k{font-family:var(--sans);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--rust);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.th-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5.4vw,62px);line-height:1.06;margin-bottom:20px;}
+.th-hero p{font-family:var(--sans);font-size:15px;line-height:1.9;opacity:.9;max-width:42ch;margin-bottom:26px;}
+.th-hero-img{position:relative;align-self:stretch;min-height:300px;overflow:hidden;background:#241a0e;}
+.th-hero-img img{width:100%;height:100%;object-fit:cover;}
+.th-hero-img .th-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+.th-hero-img .th-hero-slide.on{opacity:1;}
+.th-hero-img .th-hero-slide img{width:100%;height:100%;object-fit:cover;}
+.th-hero-dots{position:absolute;z-index:3;bottom:18px;right:18px;display:flex;gap:8px;}
+.th-hero-dots button{width:7px;height:7px;border-radius:50%;border:none;background:rgba(255,255,255,.45);padding:0;cursor:pointer;transition:background .3s,transform .3s;}
+.th-hero-dots button.on{background:#fff;transform:scale(1.3);}
+
+.th-nav{position:sticky;top:64px;z-index:250;background:#fff;border-top:1px solid #e0d8cc;border-bottom:1px solid #e0d8cc;}
+.th-nav-in{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1040px;margin:0 auto;padding:0 16px;}
+.th-nav-in::-webkit-scrollbar{display:none;}
+.th-nav a{font-family:var(--sans);font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:19px 22px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .25s,border-color .25s;}
+.th-nav a:hover{color:var(--ink);}
+.th-nav a.on{color:var(--rust);border-bottom-color:var(--rust);}
+.th-nav a:focus-visible{outline:2px solid var(--rust);outline-offset:-4px;}
+
+.th-sec{padding:76px 7%;scroll-margin-top:132px;}
+.th-sec-warm{background:var(--warm);}
+.th-sec-dark{background:#150e07;color:#fff;}
+.th-sec-dark .tj-eyebrow{color:rgba(255,255,255,.5);}
+.th-sec-dark .tj-section-title,.th-sec-dark h3,.th-sec-dark h4{color:#fff;}
+.th-sec-dark .tj-section-lead{color:rgba(255,255,255,.72);}
+.th-lead{font-family:var(--sans);font-size:15px;line-height:2;max-width:860px;margin-bottom:20px;}
+.th-pull{font-family:var(--serif);font-size:clamp(21px,2.9vw,32px);line-height:1.45;max-width:900px;margin:10px 0 28px;font-style:italic;}
+
+/* split: image beside copy */
+.th-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-top:46px;}
+.th-split-img{aspect-ratio:4/3;overflow:hidden;background:#241a0e;}
+.th-split-img img{width:100%;height:100%;object-fit:cover;}
+
+/* promise grid */
+.th-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:#e2d6bd;border:1px solid #e2d6bd;margin-top:46px;}
+.th-cell{background:#fff;padding:30px 26px;}
+.th-sec-warm .th-cell{background:var(--warm);}
+.th-cell svg{color:var(--rust);margin-bottom:15px;}
+.th-cell h4{font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:9px;}
+.th-cell p{font-family:var(--sans);font-size:13px;line-height:1.82;opacity:.86;}
+
+/* theme cards that open */
+.th-themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:46px;}
+.th-card{border:1px solid #e2d6bd;background:#fff;display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .3s ease;}
+.th-card:hover{box-shadow:0 18px 40px -28px rgba(26,18,9,.45);}
+.th-card-img{aspect-ratio:16/10;overflow:hidden;background:#241a0e;}
+.th-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.th-card:hover .th-card-img img{transform:scale(1.05);}
+.th-card-b{padding:26px 24px 24px;display:flex;flex-direction:column;flex:1;}
+.th-card .tag{font-family:var(--sans);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:11px;}
+.th-card h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.24;margin-bottom:11px;}
+.th-card > .th-card-b > p{font-family:var(--sans);font-size:13px;line-height:1.85;opacity:.88;margin-bottom:16px;}
+.th-more{font-family:var(--sans);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--rust);background:none;border:none;border-bottom:1px solid currentColor;padding:0 0 3px;cursor:pointer;align-self:flex-start;margin-top:auto;}
+.th-more:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+.th-detail{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.th-detail-in{padding-top:18px;margin-top:18px;border-top:1px solid #efe6d5;}
+.th-detail p{font-family:var(--sans);font-size:12.5px;line-height:1.85;opacity:.86;margin-bottom:12px;}
+.th-detail ul{list-style:none;margin-top:4px;}
+.th-detail li{font-family:var(--sans);font-size:12.5px;line-height:1.7;padding:6px 0 6px 20px;position:relative;opacity:.86;}
+.th-detail li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:1px;background:var(--rust);}
+
+/* lodge carousel */
+.th-car-wrap{position:relative;margin-top:46px;}
+.th-car{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;}
+.th-car::-webkit-scrollbar{display:none;}
+.th-slide{flex:0 0 clamp(260px,30%,340px);scroll-snap-align:start;border:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;overflow:hidden;background:#1c1409;}
+.th-slide-img{aspect-ratio:4/3;overflow:hidden;background:#241a0e;}
+.th-slide-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.th-slide:hover .th-slide-img img{transform:scale(1.06);}
+.th-slide-b{padding:22px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.th-slide .loc{font-family:var(--sans);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:#c9a86a;margin-bottom:9px;}
+.th-slide h4{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.22;margin-bottom:10px;color:#fff;}
+.th-slide p{font-family:var(--sans);font-size:12.5px;line-height:1.8;color:rgba(255,255,255,.74);margin-bottom:16px;flex:1;}
+.th-slide a{font-family:var(--sans);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#c9a86a;border-bottom:1px solid currentColor;padding-bottom:3px;align-self:flex-start;}
+/* the same carousel on a light section */
+.th-car-light .th-slide{border-color:#e2d6bd;background:#fff;}
+.th-car-light .th-slide .loc{color:var(--rust);}
+.th-car-light .th-slide h4{color:var(--ink);}
+.th-car-light .th-slide p{color:var(--ink);opacity:.86;}
+.th-car-light .th-slide .route{font-size:11.5px;line-height:1.7;opacity:.62;margin-top:-8px;}
+.th-car-light .th-slide a{color:var(--rust);}
+.th-sec-warm .th-arrow{border-color:#ded0b6;color:var(--ink);}
+.th-sec-warm .th-arrow:hover:not(:disabled){background:var(--ink);color:#fff;border-color:var(--ink);}
+.th-sec-warm .th-dot{background:#ded0b6;}
+.th-sec-warm .th-dot.on{background:var(--rust);}
+.th-car-ctrl{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;}
+.th-dots{display:flex;gap:8px;}
+.th-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.28);cursor:pointer;padding:0;transition:background .25s,transform .25s;}
+.th-dot.on{background:#c9a86a;transform:scale(1.3);}
+.th-dot:focus-visible{outline:2px solid #c9a86a;outline-offset:3px;}
+.th-arrows{display:flex;gap:9px;}
+.th-arrow{width:42px;height:42px;border:1px solid rgba(255,255,255,.34);background:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s;}
+.th-arrow:hover:not(:disabled){background:rgba(255,255,255,.14);}
+.th-arrow:disabled{opacity:.3;cursor:default;}
+.th-arrow:focus-visible{outline:2px solid #c9a86a;outline-offset:3px;}
+
+.th-note{border:1px solid #e2d6bd;border-left:3px solid var(--rust);background:var(--warm);padding:24px 26px;margin-top:44px;display:flex;gap:14px;align-items:flex-start;}
+.th-sec-warm .th-note{background:#fff;}
+.th-note svg{flex-shrink:0;color:var(--rust);margin-top:1px;}
+.th-note p{font-family:var(--sans);font-size:12.5px;line-height:1.85;opacity:.86;margin:0;}
+
+.th-final{position:relative;min-height:380px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#0d0904;}
+.th-final-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.th-final-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,6,3,.55),rgba(9,6,3,.88));}
+.th-final-in{position:relative;z-index:2;padding:74px 8%;max-width:820px;}
+.th-final h2{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(25px,3.8vw,44px);line-height:1.16;margin-bottom:16px;}
+.th-final p{font-family:var(--sans);font-size:15px;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:30px;}
+.th-final-btns{display:flex;flex-wrap:wrap;gap:13px;justify-content:center;}
+
+@media(max-width:900px){
+  .th-hero{grid-template-columns:1fr;padding:0;min-height:0;}
+  .th-hero-copy{order:2;padding:44px 8% 40px;}
+  .th-hero-img{order:1;min-height:clamp(240px,42vh,360px);}
+  .th-sec{padding:56px 8%;scroll-margin-top:118px;}
+  .th-slide{flex:0 0 78%;}
+  .th-arrows{display:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .th-card-img img,.th-slide-img img{transition:none;}
+  .th-detail{transition:none;}
+}
+
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<style>
+/* ══════════════════════════════
+   TAILOR YOUR JOURNEY — page styles
+══════════════════════════════ */
+.tj-hero{position:relative;height:clamp(360px,46vh,480px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.tj-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);}
+.tj-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.30) 0%,rgba(20,12,6,.64) 100%);}
+.tj-hero-inner{position:relative;z-index:2;padding:0 24px;max-width:900px;}
+.tj-hero-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:20px;}
+.tj-hero h1{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(28px,4.2vw,50px);line-height:1.22;margin-bottom:16px;}
+.tj-hero .tj-hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.2vw,25px);color:rgba(255,255,255,.9);margin-bottom:30px;}
+.tj-btn{display:inline-block;font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:15px 32px;border:1px solid currentColor;transition:background .25s,color .25s,border-color .25s;}
+.tj-btn-light{color:#fff;}
+.tj-btn-light:hover{background:#fff;color:var(--ink);}
+.tj-btn-solid{background:var(--rust);border-color:var(--rust);color:#fff;}
+.tj-btn-solid:hover{background:var(--rust-dark);border-color:var(--rust-dark);color:#fff;}
+.tj-btn-ghost{color:var(--ink);border-color:#cdbda6;}
+.tj-btn-ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+.tj-breadcrumb{font-family:var(--sans);font-size:12px;color:var(--muted);padding:26px 15% 0;}
+.tj-breadcrumb a:hover{color:var(--rust);}
+.tj-breadcrumb .sep{margin:0 8px;opacity:.5;}
+.tj-breadcrumb .current{color:var(--ink);}
+
+.tj-intro{padding:40px 15% 64px;}
+.tj-intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.35;color:var(--ink);margin-bottom:26px;max-width:940px;}
+.tj-intro p{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);margin-bottom:18px;max-width:940px;}
+
+.tj-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.tj-section-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.3;color:var(--ink);margin-bottom:14px;max-width:860px;}
+.tj-section-lead{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);max-width:820px;margin-bottom:44px;}
+
+.tj-change{background:var(--warm);padding:72px 15%;}
+.tj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#e2d6bd;border:1px solid #e2d6bd;}
+.tj-cell{background:var(--warm);padding:32px 28px;}
+.tj-cell-num{font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:14px;}
+.tj-cell h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.3;color:var(--ink);margin-bottom:12px;}
+.tj-cell p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink);opacity:.86;}
+
+.tj-steps{padding:72px 15%;}
+.tj-steps-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px;margin-top:8px;}
+.tj-step{border-top:1px solid #e2d6bd;padding-top:22px;}
+.tj-step-n{font-family:var(--serif);font-size:34px;color:var(--rust);opacity:.55;line-height:1;margin-bottom:14px;}
+.tj-step h4{font-family:var(--serif);font-weight:400;font-size:20px;color:var(--ink);margin-bottom:10px;}
+.tj-step p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink);opacity:.86;}
+
+.tj-fixed{background:#1a1209;color:#fff;padding:72px 15%;}
+.tj-fixed .tj-eyebrow{color:rgba(255,255,255,.5);}
+.tj-fixed .tj-section-title{color:#fff;}
+.tj-fixed .tj-section-lead{color:rgba(255,255,255,.72);}
+.tj-fixed-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;}
+.tj-fixed-item{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;}
+.tj-fixed-item h4{font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:10px;color:#fff;}
+.tj-fixed-item p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.66);}
+
+.tj-enquire{padding:80px 15%;background:var(--warm);}
+.tj-enquire-inner{background:#fff;border:1px solid #e2d6bd;padding:56px;display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center;}
+.tj-enquire h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.3;color:var(--ink);margin-bottom:16px;}
+.tj-enquire p{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);opacity:.86;margin-bottom:12px;}
+.tj-enquire-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+.tj-contact{border-left:1px solid #e2d6bd;padding-left:40px;}
+.tj-contact-row{margin-bottom:22px;}
+.tj-contact-row:last-child{margin-bottom:0;}
+.tj-contact-label{font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.tj-contact-value{font-family:var(--serif);font-size:19px;color:var(--ink);}
+.tj-contact-value a:hover{color:var(--rust);}
+.tj-note{font-family:var(--sans);font-size:12px;line-height:1.7;color:var(--muted);margin-top:24px;}
+
+@media(max-width:1024px){
+  .tj-breadcrumb,.tj-intro,.tj-change,.tj-steps,.tj-fixed,.tj-enquire{padding-left:8%;padding-right:8%;}
+}
+@media(max-width:820px){
+  .tj-breadcrumb{padding:22px 24px 0;}
+  .tj-intro{padding:32px 24px 48px;}
+  .tj-change,.tj-steps,.tj-fixed,.tj-enquire{padding:56px 24px;}
+  .tj-enquire-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px;}
+  .tj-contact{border-left:none;border-top:1px solid #e2d6bd;padding-left:0;padding-top:28px;}
+}
+
+</style>
+<body>
+<!--@include mega-menu-panels--><!-- /mega-overlay -->
+
+<!--@include topbar-menu-pages-->
+
+<!-- ══════════════════════════════
+     NAV
+══════════════════════════════ -->
+<!--@include nav-menu-pages-->
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<main id="main">
+<section class="th-hero">
+  <div class="th-hero-copy">
+    <p class="k"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Family Adventures</p>
+    <h1>The years go quickly.<br>Spend some of them together.</h1>
+    <p>A safari is one of the few holidays where a family is genuinely together &mdash; no separate screens, no separate rooms, everyone looking at the same thing at the same time.</p>
+    <a href="#enquire" class="tj-btn tj-btn-ghost">Plan A Family Journey</a>
+  </div>
+  <div class="th-hero-img" id="thHeroCarousel">
+    <div class="th-hero-slide on"><img src="assets/img/family-adventures/hero-1.jpg" alt="A family safari moment" width="1600" height="1000"></div>
+    <div class="th-hero-slide"><img src="assets/img/family-adventures/hero-2.jpg" alt="A family together on safari" width="1600" height="1000"></div>
+    <div class="th-hero-slide"><img src="assets/img/family-adventures/hero-3.jpg" alt="A family exploring together" width="1600" height="1000"></div>
+    <div class="th-hero-dots" id="thHeroDots"></div>
+  </div>
+</section>
+
+<nav class="th-nav" id="thNav" aria-label="Page sections">
+  <div class="th-nav-in">
+    <a href="#overview">Overview</a>
+    <a href="#themes">Travel Themes</a>
+    <a href="#lodges">Family Lodges</a>
+    <a href="#packages">Family Packages</a>
+    <a href="#enquire">Enquire</a>
+  </div>
+</nav>
+
+<p class="tj-breadcrumb"><a href="finders-safaris-homepage.html">Home</a><span class="sep">&rsaquo;</span><span class="current">Family Adventures</span></p>
+
+<section class="th-sec" id="overview">
+  <p class="tj-eyebrow">Overview</p>
+  <h2 class="tj-section-title">Why a safari, and why now.</h2>
+  <p class="th-pull">Children are only the age they are once.</p>
+  <p class="th-lead">Most family holidays are an exercise in parallel activity. Everyone is nominally on the same trip, and then the teenagers are on their phones, the youngest wants the pool, the grandparents want an early night, and the family is together in the same place without ever quite being together.</p>
+  <p class="th-lead">A safari is different for a structural reason: the good hours are fixed. Everybody gets up before light because that is when the animals move, and everybody is in the same vehicle looking at the same thing. There is no signal in most camps and very little to do between the two drives except talk to each other. Families who have not had a proper conversation in months find they have had four by Wednesday.</p>
+  <p class="th-lead">It works across ages in a way that few things do. A six-year-old and a seventy-year-old can both be entirely absorbed by the same lion. The child does not need to understand the conservation politics to be gripped, and the grandparent does not need the adrenaline to find it extraordinary.</p>
+  <p class="th-lead"><strong>Most of our family journeys are tailor-made</strong>, built around how many of you are travelling, what the ages are and what everybody actually wants out of the week. A family of four with young children needs a different route, different driving distances and a different daily rhythm from three generations travelling together, and we would rather build two different journeys than sell the same one twice.</p>
+
+  <div class="th-split">
+    <div class="th-split-img"><img src="assets/img/family-adventures/overview.jpg" alt="A safari vehicle on an open road" loading="lazy" width="1200" height="900"></div>
+    <div>
+      <h3 style="font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.25;margin-bottom:16px;">The practical things that decide whether it works</h3>
+      <p class="th-lead" style="margin-bottom:14px;">The difference between a family safari that lands and one that does not is rarely the wildlife. It is whether the driving days are short enough, whether the rooms connect, whether there is a pool for the middle of the day, and whether the guide can talk to a nine-year-old without talking down to them.</p>
+      <p class="th-lead" style="margin-bottom:14px;">Those are the things we plan around first. The lodges come second, and the itinerary is shaped by the youngest and the oldest person travelling rather than the average of the group.</p>
+    </div>
+  </div>
+
+  <div class="th-grid">
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h4>Built Around Your Numbers</h4><p>A family of four, or fourteen across three generations &mdash; the route, the vehicles and the rooms are sized to the group rather than the other way round.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h4>Shorter Driving Days</h4><p>We break long transfers, or fly them, so nobody spends six hours in a vehicle with a tired child.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><h4>Guides Who Are Good With Children</h4><p>Requested by name. A guide who can hold a child&rsquo;s attention changes the entire week.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg><h4>Malaria-Free Where It Matters</h4><p>For families with young children we can build the whole journey in malaria-free reserves.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><h4>The Trip, Photographed</h4><p>On road journeys your guide carries a camera, so you are in the pictures rather than behind them.</p></div>
+    <div class="th-cell"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><h4>Room To Do Nothing</h4><p>Unstructured afternoons are planned in deliberately. A full itinerary is not the same as a good one.</p></div>
+  </div>
+</section>
+
+<section class="th-sec th-sec-warm" id="themes">
+  <p class="tj-eyebrow">Travel Themes</p>
+  <h2 class="tj-section-title">Five reasons families come to us.</h2>
+  <p class="tj-section-lead">Every one of these is tailor-made around your family. The themes are a starting point for the conversation rather than fixed packages &mdash; tell us which one fits and we will build from there.</p>
+  <div class="th-themes">
+      <article class="th-card">
+        <div class="th-card-img"><img src="assets/img/family-adventures/defining-moments.jpg" alt="A rhino family crossing at golden hour" loading="lazy" width="1200" height="750"></div>
+        <div class="th-card-b">
+          <p class="tag">Milestones</p>
+          <h3>Defining Moments</h3>
+          <p>The trips a family measures time by &mdash; before and after. A retirement, a remission, a fortieth anniversary, a year everyone got through.</p>
+          <a href="defining-moments.html" class="th-more">View Details &rarr;</a>
+          
+        </div>
+      </article>
+      <article class="th-card">
+        <div class="th-card-img"><img src="assets/img/family-adventures/graduation.jpg" alt="Rift Valley landscape at dusk" loading="lazy" width="1200" height="750"></div>
+        <div class="th-card-b">
+          <p class="tag">Celebration</p>
+          <h3>Graduation</h3>
+          <p>The gap between finishing and starting. A trip that marks the end of one thing before the next one takes over.</p>
+          <a href="graduation.html" class="th-more">View Details &rarr;</a>
+          
+        </div>
+      </article>
+      <article class="th-card">
+        <div class="th-card-img"><img src="assets/img/family-adventures/birthday.jpg" alt="A giraffe at golden hour" loading="lazy" width="1200" height="750"></div>
+        <div class="th-card-b">
+          <p class="tag">Celebration</p>
+          <h3>Birthday</h3>
+          <p>A significant birthday spent somewhere that makes the number irrelevant.</p>
+          <a href="birthday.html" class="th-more">View Details &rarr;</a>
+          
+        </div>
+      </article>
+      <article class="th-card">
+        <div class="th-card-img"><img src="assets/img/family-adventures/bucket-list.jpg" alt="A traveller at a mountain summit at sunrise" loading="lazy" width="1200" height="750"></div>
+        <div class="th-card-b">
+          <p class="tag">Once In A Lifetime</p>
+          <h3>Bucket List</h3>
+          <p>The one that has been on the list for twenty years. Gorillas, the migration, the Okavango in flood.</p>
+          <a href="bucket-list.html" class="th-more">View Details &rarr;</a>
+          
+        </div>
+      </article>
+      <article class="th-card">
+        <div class="th-card-img"><img src="assets/img/family-adventures/family-vacation.jpg" alt="Travellers together on a journey" loading="lazy" width="1200" height="750"></div>
+        <div class="th-card-b">
+          <p class="tag">Together</p>
+          <h3>Family Vacation</h3>
+          <p>No occasion at all. Just the family, away, for as long as you can manage.</p>
+          <a href="family-vacation.html" class="th-more">View Details &rarr;</a>
+          
+        </div>
+      </article>
+  </div>
+  <div class="th-note"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p>All family journeys are quoted per family rather than per departure, and are shaped around the number travelling, the ages, the dates and the pace you want. Nothing here is a fixed itinerary.</p></div>
+</section>
+
+<section class="th-sec th-sec-dark" id="lodges">
+  <p class="tj-eyebrow">Family Lodges</p>
+  <h2 class="tj-section-title">Camps that genuinely take families.</h2>
+  <p class="tj-section-lead">Not every excellent lodge is a good one for children. These are the ones we return to &mdash; for family suites, interconnecting rooms, guides who are good with young travellers, and enough space that a restless afternoon is somebody&rsquo;s problem to solve rather than everybody&rsquo;s.</p>
+  <div class="th-car-wrap">
+    <div class="th-car" role="group" aria-label="Family Lodges">
+        <article class="th-slide" aria-roledescription="slide" aria-label="1 of 7: Olonana Lodge">
+          <div class="th-slide-img"><img src="assets/img/lodges/olonana-lodge/2.jpg" alt="Tented suites above a river in the Maasai Mara" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Maasai Mara, Kenya</p>
+            <h4>Olonana Lodge</h4>
+            <p>Fourteen suites on a private bend of the Mara River, three of them with a second bedroom for families.</p>
+            <a href="olonana-lodge.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="2 of 7: Chief&rsquo;s Camp">
+          <div class="th-slide-img"><img src="assets/img/lodges/chiefs-camp-okavango/2.jpg" alt="A camp deck above Okavango floodplain" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Okavango Delta, Botswana</p>
+            <h4>Chief&rsquo;s Camp</h4>
+            <p>On Chief&rsquo;s Island in the Moremi, with family suites and some of the highest game density in the Delta.</p>
+            <a href="chiefs-camp-okavango.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="3 of 7: Angama Mara">
+          <div class="th-slide-img"><img src="assets/img/lodges/angama-mara/1.jpg" alt="A lodge suspended above the Mara triangle" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Maasai Mara, Kenya</p>
+            <h4>Angama Mara</h4>
+            <p>On the Oloololo escarpment with the whole Mara triangle below, and family tents at the quiet end of camp.</p>
+            <a href="angama-mara.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="4 of 7: Ishara Mara">
+          <div class="th-slide-img"><img src="assets/img/lodges/ishara-mara/1.jpg" alt="A contemporary tented camp on the Mara plains" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Maasai Mara, Kenya</p>
+            <h4>Ishara Mara</h4>
+            <p>A newer camp on the Talek River, designed with families in mind and unusually good with teenagers.</p>
+            <a href="ishara-mara.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="5 of 7: Sandibe Okavango Safari Lodge">
+          <div class="th-slide-img"><img src="assets/img/lodges/sandibe-okavango-safari-lodge/2.jpg" alt="A lodge suite among Okavango palms" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Okavango Delta, Botswana</p>
+            <h4>Sandibe Okavango Safari Lodge</h4>
+            <p>Suites raised among the palms beside a Moremi channel, with private plunge pools and a family suite.</p>
+            <a href="sandibe-okavango-safari-lodge.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="6 of 7: Singita Milele">
+          <div class="th-slide-img"><img src="assets/img/lodges/singita-milele/7.jpg" alt="A private villa above the Serengeti plains" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Grumeti, Tanzania</p>
+            <h4>Singita Milele</h4>
+            <p>A private villa taken exclusively, which for a large family removes every negotiation about who sits where.</p>
+            <a href="singita-milele.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="7 of 7: &amp;Beyond Suyian">
+          <div class="th-slide-img"><img src="assets/img/lodges/andbeyond-suyian/2.jpg" alt="Open Laikipia country at golden hour" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">Laikipia, Kenya</p>
+            <h4>&amp;Beyond Suyian</h4>
+            <p>Forty-four thousand acres of Laikipia taken exclusively, with riding, walking and no fixed schedule at all.</p>
+            <a href="andbeyond-suyian.html">View Lodge &rarr;</a>
+          </div>
+        </article>
+    </div>
+    <div class="th-car-ctrl">
+      <div class="th-dots"></div>
+      <div class="th-arrows">
+        <button class="th-arrow" data-dir="-1" type="button" aria-label="Previous lodge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="th-arrow" data-dir="1" type="button" aria-label="Next lodge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="th-sec th-sec-warm" id="packages">
+  <p class="tj-eyebrow">Family Packages</p>
+  <h2 class="tj-section-title">Every journey we publish for families.</h2>
+  <p class="tj-section-lead">These are the published routes carrying our Family Safari designation, plus two more built expressly for families. Each can be taken as it stands or rebuilt around your own numbers, ages and dates.</p>
+  <div class="th-car-wrap">
+    <div class="th-car th-car-light" role="group" aria-label="Family Packages">
+        <article class="th-slide" aria-roledescription="slide" aria-label="1 of 8: Kenya Family Safari: Ol Pejeta &amp; Mount Kenya">
+          <div class="th-slide-img"><img src="assets/img/packages/kenya-family-safari-ol-pejeta-mount-kenya.jpg" alt="Open conservancy country beneath Mount Kenya" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">8 Days &middot; from $39,200 total</p>
+            <h4>Kenya Family Safari: Ol Pejeta &amp; Mount Kenya</h4>
+            <p>Built for families and paced deliberately for them &mdash; conservation work children can take part in, and driving days kept short.</p>
+            <p class="route">Nairobi &middot; Ol Pejeta Conservancy &middot; Mount Kenya</p>
+            <a href="kenya-family-safari-ol-pejeta-mount-kenya.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="2 of 8: The Untamed Sanctuaries">
+          <div class="th-slide-img"><img src="assets/img/packages/untamed-sanctuaries.jpg" alt="Remote Tanzanian wilderness at golden hour" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">14 Days &middot; from $117,000 total</p>
+            <h4>The Untamed Sanctuaries</h4>
+            <p>For families who have already done the Serengeti &mdash; Ruaha, the Selous and chimpanzees at Mahale, well off the usual circuit.</p>
+            <p class="route">Dar es Salaam &middot; Ruaha &middot; Nyerere &middot; Mahale Mountains</p>
+            <a href="untamed-sanctuaries.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="3 of 8: The Apex Reserves &mdash; Sabi Sands &amp; Kruger">
+          <div class="th-slide-img"><img src="assets/img/packages/south-africa-apex-reserves-kruger-sabisands.jpg" alt="Big Five country in the South African lowveld" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">10 Days &middot; from $55,600 total</p>
+            <h4>The Apex Reserves &mdash; Sabi Sands &amp; Kruger</h4>
+            <p>Two of the finest Big Five reserves in Africa, at Singita, with the easy logistics that make South Africa work for families.</p>
+            <p class="route">Johannesburg &middot; Sabi Sand &middot; Kruger National Park</p>
+            <a href="south-africa-apex-reserves-kruger-sabisands.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="4 of 8: The Royal Volcanoes &amp; Primates">
+          <div class="th-slide-img"><img src="assets/img/packages/rwanda-royal-volcanoes-primates.jpg" alt="Volcanic slopes and montane forest in Rwanda" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">10 Days &middot; from $49,600 total</p>
+            <h4>The Royal Volcanoes &amp; Primates</h4>
+            <p>Gorilla trekking from Bisate, with the lakes either side. Minimum trekking age is fifteen, so best for families with teenagers.</p>
+            <p class="route">Kigali &middot; Volcanoes National Park &middot; Twin Lakes</p>
+            <a href="rwanda-royal-volcanoes-primates.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="5 of 8: The Imperial Cities &amp; Shifting Sands">
+          <div class="th-slide-img"><img src="assets/img/packages/morocco-imperial-cities.jpg" alt="Sahara dunes at low sun" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">10 Days &middot; from $34,400 total</p>
+            <h4>The Imperial Cities &amp; Shifting Sands</h4>
+            <p>Medinas, a night under canvas in the Sahara and a camel trek at dusk &mdash; the trip children tend to talk about for years.</p>
+            <p class="route">Casablanca &middot; Fes &middot; Merzouga Sahara &middot; Marrakech</p>
+            <a href="morocco-imperial-cities.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="6 of 8: The Secret Oasis &amp; High Atlas Peaks">
+          <div class="th-slide-img"><img src="assets/img/packages/morocco-secret-oasis-atlas.jpg" alt="Rocky desert and mountains near Marrakech" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">10 Days &middot; from $28,800 total</p>
+            <h4>The Secret Oasis &amp; High Atlas Peaks</h4>
+            <p>Shorter distances than the imperial circuit and a gentler pace, which suits families with younger children.</p>
+            <p class="route">Marrakech &middot; Agafay Desert &middot; Ourika Valley &middot; High Atlas</p>
+            <a href="morocco-secret-oasis-atlas.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="7 of 8: Singapore &amp; Malaysia Family Luxury Experience">
+          <div class="th-slide-img"><img src="assets/img/packages/singapore-malaysia-family.jpg" alt="A city skyline at dusk" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">11 Days &middot; from $13,900 total</p>
+            <h4>Singapore &amp; Malaysia Family Luxury Experience</h4>
+            <p>Every day built around the whole family, including a full day at Universal Studios and a night over the Petronas Towers.</p>
+            <p class="route">Singapore &middot; Sentosa Island &middot; Kuala Lumpur</p>
+            <a href="singapore-malaysia-family.html">View Journey &rarr;</a>
+          </div>
+        </article>
+        <article class="th-slide" aria-roledescription="slide" aria-label="8 of 8: The Red Sands &amp; Malaria-Free Giants">
+          <div class="th-slide-img"><img src="assets/img/packages/south-africa-red-sands-malaria-free-giants.jpg" alt="Red Kalahari sand and open sky" loading="lazy" width="1200" height="900"></div>
+          <div class="th-slide-b">
+            <p class="loc">10 Days &middot; from $13,100 pp</p>
+            <h4>The Red Sands &amp; Malaria-Free Giants</h4>
+            <p>Entirely malaria-free at Madikwe, which makes Big Five country straightforward for families with young children.</p>
+            <p class="route">Johannesburg &middot; Tswalu Kalahari &middot; Madikwe Game Reserve</p>
+            <a href="south-africa-red-sands-malaria-free-giants.html">View Journey &rarr;</a>
+          </div>
+        </article>
+    </div>
+    <div class="th-car-ctrl">
+      <div class="th-dots"></div>
+      <div class="th-arrows">
+        <button class="th-arrow" data-dir="-1" type="button" aria-label="Previous journey"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="th-arrow" data-dir="1" type="button" aria-label="Next journey"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="th-note"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p>Prices shown are guide figures per person sharing at the time of writing, and vary with season, party size and room configuration. Most Family Safari departures carry a minimum of four travellers, and children&rsquo;s rates apply at most properties. Tell us who is travelling and we will quote your family properly.</p></div>
+</section>
+
+<section class="th-sec" id="enquire">
+  <p class="tj-eyebrow">Start The Conversation</p>
+  <h2 class="tj-section-title">How a family journey gets built.</h2>
+  <p class="tj-section-lead">It starts with a conversation rather than a brochure. The more you tell us about who is travelling, the less of your time we waste on routes that were never going to suit.</p>
+  <div class="th-grid">
+    <div class="th-cell"><p class="tag" style="font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:11px;">01</p><h4>Tell us who is coming</h4><p>Ages, numbers and any mobility or dietary considerations. This shapes more of the journey than the destination does.</p></div>
+    <div class="th-cell"><p class="tag" style="font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:11px;">02</p><h4>Tell us the occasion</h4><p>A milestone changes what we plan for. If there is no occasion, that is useful to know too.</p></div>
+    <div class="th-cell"><p class="tag" style="font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:11px;">03</p><h4>We build two options</h4><p>Usually a shorter and a longer version, so you can see what the extra days actually buy.</p></div>
+    <div class="th-cell"><p class="tag" style="font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:11px;">04</p><h4>You change it</h4><p>Nothing is fixed until you say so. Most families move something, and that is the point of building it this way.</p></div>
+  </div>
+  <p style="margin-top:34px;"><a href="tailor-your-journey.html#enquire" class="tj-btn tj-btn-solid">Plan A Family Journey</a></p>
+</section>
+
+<section class="th-final">
+  <div class="th-final-bg" style="background-image:url('assets/img/family-adventures/hero-2.jpg');"></div>
+  <div class="th-final-veil"></div>
+  <div class="th-final-in">
+    <h2>Everyone in the same vehicle, looking at the same thing.</h2>
+    <p>Tell us who is travelling and roughly when, and we will build something around the people rather than the destination.</p>
+    <div class="th-final-btns">
+      <a href="tailor-your-journey.html#enquire" class="tj-btn tj-btn-light">Plan A Family Journey</a>
+      <a href="safari.html" class="tj-btn tj-btn-light">Browse Journeys</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  /* ── ScrollSpy ──
+     Worked out from scroll position rather than an IntersectionObserver band: on a
+     short viewport a tall section can clear a thin band between frames and the tab
+     never updates. Comparing each section's top against a reference line always
+     resolves to exactly one section, whatever the section or window height. */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.th-nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+
+  function spy(){
+    ticking = false;
+    /* Measured against the viewport rather than a scroll offset: body carries
+       overflow-x:hidden, which can make body the scrolling element and leave
+       window.scrollY at 0. Viewport-relative positions are correct either way. */
+    var line = window.innerHeight * 0.35;
+    var current = 0;   /* above the first section, the first tab reads as current */
+    sections.forEach(function(s, i){
+      if (s && s.getBoundingClientRect().top <= line) current = i;
+    });
+    links.forEach(function(a, i){ a.classList.toggle('on', i === current); });
+  }
+
+  function onScroll(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(spy); }
+  }
+  /* capture catches the event whichever element is doing the scrolling */
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', spy);
+  spy();
+
+  /* ── Carousels, advancing on their own. The page has more than one, so each
+        wrapper gets its own independent instance. ── */
+  document.querySelectorAll('.th-car-wrap').forEach(function(wrap){
+    var car = wrap.querySelector('.th-car');
+    if (!car) return;
+    var slides = Array.prototype.slice.call(car.querySelectorAll('.th-slide'));
+    var dots = wrap.querySelector('.th-dots');
+    var prev = wrap.querySelector('.th-arrow[data-dir="-1"]');
+    var next = wrap.querySelector('.th-arrow[data-dir="1"]');
+    var timer = null;
+    if (!slides.length) return;
+
+    slides.forEach(function(s, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'th-dot' + (i ? '' : ' on');
+      b.setAttribute('aria-label', 'Go to item ' + (i + 1));
+      b.addEventListener('click', function(){ car.scrollTo({ left: s.offsetLeft - car.offsetLeft, behavior: 'smooth' }); restart(); });
+      dots.appendChild(b);
+    });
+
+    function sync(){
+      var i = 0, best = Infinity;
+      slides.forEach(function(s, n){
+        var d = Math.abs(s.offsetLeft - car.offsetLeft - car.scrollLeft);
+        if (d < best) { best = d; i = n; }
+      });
+      Array.prototype.forEach.call(dots.children, function(d, n){ d.classList.toggle('on', n === i); });
+      if (prev) prev.disabled = car.scrollLeft <= 2;
+      if (next) next.disabled = car.scrollLeft >= car.scrollWidth - car.clientWidth - 2;
+    }
+    function step(dir){
+      var w = slides[0].getBoundingClientRect().width + 22;
+      var atEnd = car.scrollLeft >= car.scrollWidth - car.clientWidth - 2;
+      if (dir > 0 && atEnd) car.scrollTo({ left: 0, behavior: 'smooth' });
+      else car.scrollBy({ left: dir * w, behavior: 'smooth' });
+    }
+    function restart(){
+      if (timer) clearInterval(timer);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      /* nothing to advance through if every slide already fits */
+      if (car.scrollWidth <= car.clientWidth + 2) return;
+      timer = setInterval(function(){ step(1); }, 5000);
+    }
+
+    if (prev) prev.addEventListener('click', function(){ step(-1); restart(); });
+    if (next) next.addEventListener('click', function(){ step(1); restart(); });
+    car.addEventListener('scroll', function(){ window.requestAnimationFrame(sync); }, { passive: true });
+    car.addEventListener('mouseenter', function(){ if (timer) clearInterval(timer); });
+    car.addEventListener('mouseleave', restart);
+    car.addEventListener('focusin', function(){ if (timer) clearInterval(timer); });
+    window.addEventListener('resize', function(){ sync(); });
+    sync(); restart();
+  });
+})();
+</script>
+
+<!--@include footer-site-->
+
+<!--@include speak-button-->
+
+<!--@include mega-menu-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+<script>
+(function(){
+  var car = document.getElementById("thHeroCarousel");
+  if (!car) return;
+  var slides = car.querySelectorAll(".th-hero-slide");
+  var dotsWrap = document.getElementById("thHeroDots");
+  var i = 0;
+  slides.forEach(function(_, idx){
+    var b = document.createElement("button");
+    if (idx === 0) b.className = "on";
+    b.setAttribute("aria-label", "Show image " + (idx + 1));
+    b.addEventListener("click", function(){ show(idx); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = dotsWrap.querySelectorAll("button");
+  function show(n){
+    slides[i].classList.remove("on");
+    dots[i].classList.remove("on");
+    i = n;
+    slides[i].classList.add("on");
+    dots[i].classList.add("on");
+  }
+  setInterval(function(){ show((i + 1) % slides.length); }, 4500);
+})();
+</script>
+</body>
+</html>

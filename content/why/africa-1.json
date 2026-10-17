@@ -1,0 +1,128 @@
+{
+  "big-five-to-the-indian-ocean": {
+    "lead": "Two Africas in one journey: leopard country on the Sabie River, then the granite islands of the Seychelles, joined by a single transformation day.",
+    "reasons": [
+      { "t": "Bush first, beach second", "d": "Five nights at Lion Sands with twice-daily drives led by FGASA-accredited rangers and Shangaan trackers. The islands are the reward for a proper safari, not a replacement for one." },
+      { "t": "Leopards, unhurried", "d": "Sabi Sand’s habituated leopards give long, close sightings rather than a glimpse, and a guided bush walk lets you read tracks, plants and geology at ground level." },
+      { "t": "Four islands, four moods", "d": "Mahé’s culture, Praslin’s Vallée de Mai, Curieuse Island and La Digue, with stays at AQUA, Constance Lemuria and Six Senses Zil Pasyon." }
+    ],
+    "bestFor": ["Safari first-timers", "Honeymooners", "Bush-then-beach trips"]
+  },
+  "bird-wildlife-quad": {
+    "lead": "A safari for people who look up as well as out: four of Kenya’s richest zones, with a specialist birding guide on every drive.",
+    "reasons": [
+      { "t": "A birder’s guide, always", "d": "A specialist birding guide joins every drive, so the small species others roll past are never missed. Kenya has more than 1,100 recorded bird species." },
+      { "t": "Big game that holds its own", "d": "Amboseli’s elephants beneath Kilimanjaro, Solio Ranch’s rhino sanctuary and the Maasai Mara’s Big Five and cheetah keep non-birders fully absorbed." },
+      { "t": "Flamingos and a dawn balloon", "d": "A boat safari on Lake Nakuru’s flamingo-fringed shore, and a hot air balloon over the Mara at sunrise with a champagne bush breakfast." }
+    ],
+    "bestFor": ["Bird lovers", "Photographers", "Curious travellers"]
+  },
+  "botswana-desert-salt-pans-cultural-circuit": {
+    "lead": "Botswana’s empty quarter: salt flats that run to the horizon, the remote Central Kalahari and guides whose knowledge goes back 20,000 years.",
+    "reasons": [
+      { "t": "Sunrise over the salt pans", "d": "A hot air balloon over the Makgadikgadi Pans, the world’s largest salt flats, then a private helicopter to Kubu Island, an ancient granite outcrop rising from the pan floor." },
+      { "t": "Walking with the San", "d": "Walking safaris with San Bushmen guides share tracking and plant knowledge built over millennia, in an exchange rather than a performance." },
+      { "t": "Five nights deep in the Kalahari", "d": "Tau Pan Lodge in the Central Kalahari Game Reserve, with night drives for bat-eared foxes, aardwolves and porcupines." }
+    ],
+    "bestFor": ["Solo travellers", "Photographers", "Culture seekers"]
+  },
+  "botswana-grand-safari": {
+    "lead": "Fifteen days from elephant country to the Chobe floodplains and Victoria Falls, with the flights and visa fees folded into one price.",
+    "reasons": [
+      { "t": "Elephants at eye level", "d": "Five nights at Mashatu Main Lodge, home to Africa’s largest elephants, plus the Matebole Underground Photo Hide and a horseback safari among ancient baobabs." },
+      { "t": "Water, air and saddle", "d": "A hot air balloon over Chobe’s floodplains at sunrise with a champagne breakfast, and a private river safari along the Chobe among hippos and crocodiles." },
+      { "t": "Victoria Falls, done properly", "d": "A full-day excursion to one of the Seven Natural Wonders with visa fees included, a spa session on your return, and a flexible departure day." }
+    ],
+    "bestFor": ["First Botswana trips", "Photographers", "Special occasions"]
+  },
+  "botswana-water-wilderness-victoria-falls": {
+    "lead": "The Delta, Moremi and Chobe in ten days: Botswana’s water world seen from the air, from a boat and from the edge of Victoria Falls.",
+    "reasons": [
+      { "t": "The Delta from above", "d": "A hot air balloon over the Okavango Delta’s geometric channels at sunrise, then a private helicopter to Tsodilo Hills, Botswana’s only UNESCO World Heritage Site." },
+      { "t": "Camps worth the journey", "d": "Three nights at &Beyond Sandibe, one of Africa’s most celebrated lodge designs, and four nights at Savute Safari Lodge where elephant herds gather by the hundred." },
+      { "t": "On the water", "d": "Motorised boat safaris through papyrus channels in the Delta and Moremi, the way to see sitatunga and red lechwe, and a full-day Victoria Falls excursion with visa included." }
+    ],
+    "bestFor": ["Water lovers", "Photographers", "Return safari-goers"]
+  },
+  "botswana-wilderness-immersion": {
+    "lead": "Fewer moves, more wilderness: fifteen days with a slow rhythm, nine of them in Chobe, and leisure days with nothing scheduled.",
+    "reasons": [
+      { "t": "A journey that isn’t rushed", "d": "Several leisure days are built in, so there is time to watch, breathe and be present rather than race to the next transfer." },
+      { "t": "Nine nights inside Chobe", "d": "Chobe Game Lodge is the only permanent lodge inside Chobe National Park, on the river bank, with a private river safari and a sunrise balloon with champagne breakfast." },
+      { "t": "Hides and walking at Mashatu", "d": "Four nights at Mashatu Main Lodge for walking safaris, the photographic hide at ground level, and full-day drives through the tri-border reserve." }
+    ],
+    "bestFor": ["Slow travellers", "Photographers", "Couples"]
+  },
+  "conservation-royal-circuit": {
+    "lead": "Kenya’s conservation heartland: see the last northern white rhinos, sleep under the stars above Laikipia and learn how the land is protected.",
+    "reasons": [
+      { "t": "The last northern white rhinos", "d": "A visit to the world’s last two northern white rhinos and East Africa’s largest black rhino sanctuary at Ol Pejeta, plus Sweetwaters Chimpanzee Sanctuary, endorsed by the Jane Goodall Institute." },
+      { "t": "Safari on horse, camel and foot", "d": "Horseback and camel safaris and guided walks with armed conservancy rangers, and a balloon over the Lewa plateau with a champagne bush breakfast." },
+      { "t": "Beds under the stars", "d": "Loisaba’s famous raised star beds sit 500 feet above the Laikipia plains, the high point of three conservancies over twelve days." }
+    ],
+    "bestFor": ["Conservation-minded travellers", "Active travellers", "Photographers"]
+  },
+  "east-african-grand-safari": {
+    "lead": "Thirty-one days across Kenya, Uganda, Rwanda and Tanzania, ending on Zanzibar: gorillas, chimpanzees, the Great Migration and Ngorongoro on one unbroken journey.",
+    "reasons": [
+      { "t": "Gorillas and chimpanzees", "d": "An hour with a habituated mountain gorilla family in Bwindi, and chimpanzee tracking in the sunken gorge of Kyambura and again in Nyungwe." },
+      { "t": "The Migration on both sides", "d": "River crossings between July and October in both the Mara and the Serengeti, and a dawn balloon over the Mara with a champagne breakfast." },
+      { "t": "Twelve stays, one plan", "d": "From Hemingways Nairobi to &Beyond Ngorongoro Crater Lodge and One&Only Nyungwe House, with tree-climbing lions in Ishasha and a Kazinga Channel boat safari on the way." }
+    ],
+    "bestFor": ["Once-in-a-lifetime trips", "Primate lovers", "Return safari-goers"]
+  },
+  "etosha-and-mauritius": {
+    "lead": "Namibia’s Etosha by private charter, then Mauritius for Le Morne, Chamarel and two of the island’s best-known resorts.",
+    "reasons": [
+      { "t": "Etosha, up close", "d": "A private charter from Windhoek, three nights at Mokuti Etosha beside the Von Lindequist Gate, and twice-daily drives for lion, leopard, elephant and both white and black rhino." },
+      { "t": "Hai//om guides and a sky dinner", "d": "A morning bush walk with Hai//om guides, descendants of the region’s first hunter-gatherers, and dinner eight metres above the pan at SkyBoma." },
+      { "t": "Then the island", "d": "Le Morne and the southwest, Chamarel and the Black River Gorges, Île aux Cerfs, and stays at Paradis Beachcomber and One&Only Le Saint Géran." }
+    ],
+    "bestFor": ["Safari-and-beach trips", "Honeymooners", "First-time Namibia"]
+  },
+  "ewaso-nyiro-community-conservancies": {
+    "lead": "Northern Kenya’s dry country, where community conservancies, Samburu culture and desert-adapted wildlife take the place of the busy Mara circuit.",
+    "reasons": [
+      { "t": "Walking with Samburu trackers", "d": "Guided walks along the river corridors with an expert Samburu tracker, a hot bush breakfast in a wilderness clearing and sundowners on the banks of the Ewaso Nyiro." },
+      { "t": "Camps with character", "d": "Three nights at Sasaab, a Moroccan-styled camp with thatched cottages and plunge pools, then Saruni Samburu, an eco-lodge on a volcanic rock face above Kalama." },
+      { "t": "Wildlife of the north", "d": "Cheetah and desert antelope tracking in West Gate Conservancy, elephant in Samburu National Reserve, and a horseback trail ride ending in a starlit dinner." }
+    ],
+    "bestFor": ["Off-the-beaten-path travellers", "Walkers", "Photographers"]
+  },
+  "grand-emperor-circle": {
+    "lead": "Five of Kenya’s best-known wildlife areas in twelve days, linked by private flights so the time goes to the animals rather than the road.",
+    "reasons": [
+      { "t": "Kilimanjaro behind the elephants", "d": "Tawi Lodge in Amboseli puts giant elephant herds in front of Mount Kilimanjaro." },
+      { "t": "A suite in the sky", "d": "A glass-fronted suite at Angama Mara, suspended above the Maasai Mara escarpment, with a dawn hot air balloon and champagne breakfast on the plains." },
+      { "t": "Horses and Maasai culture", "d": "A horse-riding safari at Lewa alongside Grevy’s zebra and eland, and an exclusive visit to a local Maasai village." }
+    ],
+    "bestFor": ["First-time Kenya", "Couples", "Active travellers"]
+  },
+  "great-migration-explorer": {
+    "lead": "A week with one purpose: following the Great Migration through the Maasai Mara, with no split destinations and no wasted transfer days.",
+    "reasons": [
+      { "t": "Tracked in real time", "d": "Mara River crossing positions are followed daily across multiple herds with a specialist guide, so you are where the action is rather than guessing." },
+      { "t": "A camp inside the action", "d": "Ishara Mara is an intimate camp on the Talek River, with a private sundowner at the Mara Plains Scenic Overlook and a dawn balloon with champagne breakfast." },
+      { "t": "After dark too", "d": "A night game drive for hyenas, civets and the Mara’s nocturnal predators, a conservancy walking safari and a Maasai cultural immersion." }
+    ],
+    "bestFor": ["Migration seekers", "Photographers", "Short on time"]
+  },
+  "great-tsavo-overland-expedition": {
+    "lead": "Tsavo is Kenya’s wild, less-visited giant: lava flows, natural springs and rhinos, seen from two very different camps.",
+    "reasons": [
+      { "t": "Underwater with hippos", "d": "A guided walk to Mzima Springs and a submerged viewing chamber where hippos glide past at eye level." },
+      { "t": "Volcanic landscapes", "d": "The black Shetani Lava Flow and the underground Leviathan Cave on foot, and a night drive with spotlights tracking leopards through the acacia." },
+      { "t": "Two camps, two Tsavos", "d": "Five nights at Finch Hattons beside a spring fed by the Chyulu Hills, then four nights at Satao Camp with a private viewing tower over a waterhole and a visit to the Ngulia Rhino Sanctuary." }
+    ],
+    "bestFor": ["Adventurous travellers", "Solo travellers", "Landscape lovers"]
+  },
+  "kenya-family-safari-ol-pejeta-mount-kenya": {
+    "lead": "A first family safari that pairs the world’s last two northern white rhinos with chimpanzees, a balloon flight and a horseback morning on Mount Kenya.",
+    "reasons": [
+      { "t": "Meet Najin and Fatu", "d": "A guided visit to the last two northern white rhinos in existence, on Ol Pejeta’s 90,000 acres of Big Five, Grevy’s zebra, cheetah and endangered wild dog." },
+      { "t": "Chimps, balloons and bush lunch", "d": "Sweetwaters Chimpanzee Sanctuary, a dawn balloon over Laikipia with a champagne breakfast, and a chef-prepared bush lunch under an acacia." },
+      { "t": "Mount Kenya, gently", "d": "Stay at the Fairmont Mount Kenya Safari Club, with a horseback safari, breakfast with the bongos and easy walks in the foothills." }
+    ],
+    "bestFor": ["Families", "Multi-generation trips", "First safaris"]
+  }
+}

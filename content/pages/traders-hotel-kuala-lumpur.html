@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traders Hotel Kuala Lumpur — KLCC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --ivory-deep: #E0D3B8;
+    --ink: #232019;
+    --accent: #2E5C4A;
+    --accent-dark: #1F4636;
+    --jade: #8B6B3E;
+    --gold: #D8B978;
+    --seal: #A8342A;
+    --paper-card: #FFFFFF;
+    --line: rgba(35,32,25,0.12);
+    --shadow: 0 30px 60px -30px rgba(35,32,25,0.18);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--ink); font-family:'Noto Sans SC','EB Garamond', sans-serif; font-weight:400; line-height:1.7; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Noto Serif SC','EB Garamond', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:0.18em; font-size:0.7rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.2; fill:none; }
+  .elevation-rule path.wash{ stroke: var(--accent); stroke-width:0.8; opacity:0.5; }
+
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--ivory-deep); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/traders-hotel-kuala-lumpur/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/traders-hotel-kuala-lumpur/2.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(250,248,243,0) 38%, rgba(250,248,243,0.94) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--ink); }
+  .brandmark{ font-family:'Noto Serif SC', serif; font-size:1.1rem; letter-spacing:0.04em; }
+  .brandmark span{ color: var(--accent); }
+  .hero-coords{ font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.06em; text-align:right; line-height:1.7; opacity:0.75; color: var(--ink); }
+  .hero-seal{ position:absolute; top: clamp(20px,4vw,44px); right: clamp(20px,6vw,80px); z-index:5; width:46px; height:46px; }
+  .hero-seal-inner{ width:100%; height:100%; background: var(--seal); border-radius:3px; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 16px rgba(168,52,42,0.35); }
+  .hero-seal-inner svg{ width:26px; height:26px; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--accent-dark); } .hero-headline .eyebrow::before{ background: var(--accent-dark); }
+  .hero-headline h1{ color: var(--ink); font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height:1.05; margin-top:18px; }
+  .hero-headline p{ color: rgba(35,32,25,0.72); max-width:460px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(255,255,255,0.6); border:1px solid rgba(35,32,25,0.16); backdrop-filter: blur(6px); color: var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(255,255,255,0.9); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(35,32,25,0.2); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'JetBrains Mono', monospace; font-size:0.7rem; color: var(--ink); letter-spacing:0.06em; }
+
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'JetBrains Mono', monospace; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(35,32,25,0.45); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--ink); } .tab.active{ color: var(--accent-dark); } .tab.active::after{ transform: scaleX(1); }
+
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(35,32,25,0.68); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Noto Serif SC', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent-dark); }
+  .stat .label{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(35,32,25,0.55); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+
+  .lodges-note{ background: var(--paper-card); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(35,32,25,0.78); box-shadow: var(--shadow); }
+  .lodges-note strong{ color: var(--accent-dark); font-family:'Noto Serif SC',serif; font-weight:500; font-style:italic; }
+
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/traders-hotel-kuala-lumpur/2.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(255,255,255,0.15), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Noto Serif SC', serif; color: var(--accent-dark); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Noto Serif SC',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(35,32,25,0.66); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--paper-card); }
+  .exp-card .exp-tag{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--jade); }
+  .exp-card h3{ font-size:1.22rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.66); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'JetBrains Mono', monospace; font-size:0.68rem; color: var(--accent-dark); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/traders-hotel-kuala-lumpur/1.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(35,32,25,0.75); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent-dark); font-family:'Noto Serif SC',serif; }
+  .loc-map{ background: var(--ivory-deep); border:1px solid var(--line); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'JetBrains Mono', monospace; color: var(--accent-dark); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.68); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+
+  .offer-bar{ background: var(--ink); color: #EDE3CE; padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: #EDE3CE; font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(250,248,243,0.7); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: #EDE3CE; padding:16px 30px; text-decoration:none; font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; color: rgba(35,32,25,0.45); background: var(--ivory); }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">TRADERS <span>KUALA LUMPUR</span></div>
+    <div class="hero-coords">03&deg;09'N 101&deg;43'E<br>KLCC, GOLDEN TRIANGLE</div>
+  </div>
+  <div class="hero-seal"><div class="hero-seal-inner"><svg viewBox="0 0 24 24" fill="none" stroke="#EDE3CE" stroke-width="1.4"><path d="M12 3 L12 21 M4 8 L20 8 M6 13 L18 13 M4 18 L20 18"/></svg></div></div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Urban Hotel — Kuala Lumpur City Centre</span>
+    <h1>The Twin Towers,<br>From The SkyBar Pool</h1>
+    <p>571 rooms directly across from the Petronas Twin Towers, connected to Suria KLCC by covered walkway, with an infinity-edge rooftop pool and bar framing one of the most photographed views in Southeast Asia.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 02</div>
+</div>
+
+<!--@include lodge-tabbar-->
+
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Face to Face<br>with the Twin Towers</h2></div>
+    <p class="lede">Standing directly opposite the Petronas Twin Towers in the heart of KLCC, Traders Hotel Kuala Lumpur is best known for one thing above all: its rooftop SkyBar infinity pool, angled to put the Towers squarely in your line of sight from the water.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(35,32,25,0.78); font-size:1.02rem;">A Shangri-La Group hotel with a more relaxed, contemporary feel than its five-star neighbours, Traders trades old-world formality for clean, functional design and unbeatable positioning — every guest is a short covered walk from Suria KLCC, the Kuala Lumpur Convention Centre and the base of the Towers themselves. Rooms are efficient and comfortable rather than opulent, with floor-to-ceiling windows in the higher categories that frame the skyline directly from bed. It's the hotel regulars return to specifically for the SkyBar view, and for how easy everything else in the Golden Triangle is to reach on foot.</p>
+  <div class="lodges-note"><strong>Book a Twin Tower View Room.</strong> Only a portion of rooms face the Towers directly — request this category at booking, as it makes a meaningful difference to the experience and is often the entire reason guests choose this address.</div>
+  <div class="stat-row"><div class="stat"><div class="num">571</div><div class="label">Rooms &amp; Suites</div></div><div class="stat"><div class="num">33</div><div class="label">Storeys</div></div><div class="stat"><div class="num">L33</div><div class="label">SkyBar Level</div></div><div class="stat"><div class="num">3min</div><div class="label">Walk to Suria KLCC</div></div></div>
+</section>
+
+<!--@include elevation-divider-5-->
+
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Rooms</span><h2>Floor-to-Ceiling<br>Views, By Category</h2></div>
+    <p class="lede">Room categories are organised primarily by view — city skyline, KLCC Park, or the Petronas Twin Towers themselves — with the Towers view rooms the most requested by far.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Deluxe Room — Petronas Towers View</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Deluxe City View Rooms</strong><span>Compact and efficient, with floor-to-ceiling windows over the surrounding Golden Triangle skyline.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Deluxe Twin Tower View Rooms</strong><span>The hotel's signature booking — positioned specifically to frame the Petronas Twin Towers from the window and, in many rooms, from the bed itself.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Club Rooms</strong><span>Access to the Traders Club Lounge on the upper floors, with complimentary breakfast, evening cocktails and a quieter check-in experience.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>Suites</strong><span>A separate living area and the hotel's largest Twin Tower views, suited to longer stays or a touch more space for families.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-6-->
+
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>The SkyBar,<br>and the Towers Beyond</h2></div>
+    <p class="lede">Traders' address does the heavy lifting — everything in KLCC's Golden Triangle is reachable on foot, with the hotel's own rooftop the best vantage point of all.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Signature</span><h3>SkyBar Infinity Pool</h3><p>A 33rd-floor infinity-edge pool and bar angled directly at the Petronas Twin Towers — one of the most photographed views in Kuala Lumpur, especially at sunset.</p></div></div><div class="exp-card"><div><span class="exp-tag">Iconic</span><h3>Petronas Twin Towers</h3><p>The Towers and their skybridge stand directly across from the hotel, reachable in minutes on foot.</p></div></div><div class="exp-card"><div><span class="exp-tag">Nature</span><h3>KLCC Park</h3><p>A landscaped park with a musical fountain and jogging track sits between the hotel and the Towers, a pleasant walk either way.</p></div></div><div class="exp-card"><div><span class="exp-tag">Shopping</span><h3>Suria KLCC &amp; Pavilion KL</h3><p>Connected by a covered walkway, Suria KLCC and, a little further on foot, Pavilion Kuala Lumpur's Bukit Bintang shopping strip.</p></div></div><div class="exp-card"><div><span class="exp-tag">Wellness</span><h3>Amrita Spa</h3><p>A Shangri-La Group spa offering traditional Malay and pan-Asian treatments a short lift ride from the pool deck.</p></div></div><div class="exp-card"><div><span class="exp-tag">Business</span><h3>KL Convention Centre</h3><p>Directly adjoining the hotel, making Traders a favoured base for conference and business travellers alongside leisure guests.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-7-->
+
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">SkyBar,<br>33 Floors Above KLCC</h2>
+      <p class="lede" style="margin-top:24px;">Dining leans casual and view-driven, from all-day favourites to the rooftop bar guests come back for again and again.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>SkyBar, for cocktails and small plates beside the infinity pool, facing the Towers</span></div><div class="venue"><span class="n">02</span><span>Manja, for all-day Malaysian and international dining</span></div><div class="venue"><span class="n">03</span><span>Manja Deli, for grab-and-go pastries and coffee</span></div><div class="venue"><span class="n">04</span><span>The Lounge, for lobby-level light bites and afternoon tea</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">SkyBar — Infinity Pool Facing The Towers</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-8-->
+
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>KLCC,<br>Opposite the Towers</h2></div>
+    <p class="lede">Traders sits in the Golden Triangle district directly across from the Petronas Twin Towers, connected to Suria KLCC and the Kuala Lumpur Convention Centre.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>Located on Jalan Binjai, KLCC, directly facing the Petronas Twin Towers across KLCC Park.</li><li>A covered walkway connects the hotel to Suria KLCC Shopping Centre and the Convention Centre.</li><li>Roughly 15 minutes' walk to Pavilion Kuala Lumpur and the Bukit Bintang nightlife district.</li><li>KLCC LRT station is a short walk from the hotel.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#E0D3B8"/>
+        <path d="M0 230 Q80 190 160 220 T320 210 T400 225 L400 340 L0 340 Z" fill="#E7E0CF" opacity="0.9"/>
+        <path d="M0 260 Q100 230 200 255 T400 250 L400 340 L0 340 Z" fill="#EDE7D8"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#1F4636" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#1F4636"/>
+        <text x="72" y="150" fill="#232019" font-family="Noto Serif SC, serif" font-size="11" letter-spacing="1">TRADERS KL</text>
+        <text x="72" y="166" fill="#1F4636" font-family="JetBrains Mono, monospace" font-size="9">KLCC</text>
+        <text x="72" y="182" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">GOLDEN TRIANGLE DISTRICT</text>
+        <text x="150" y="300" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">KUALA LUMPUR, MALAYSIA</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Kuala Lumpur International Airport (KLIA) is roughly 45 minutes from the hotel by car.</p></div><div class="journey-step"><span class="k">Rail</span><p>KLCC LRT station is a short walk from the hotel's Suria KLCC-facing entrance.</p></div><div class="journey-step"><span class="k">Explore</span><p>The Petronas Twin Towers, Suria KLCC and KLCC Park are all reachable on foot.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Opposite the Towers</span>
+      <h2>The View Every Guest Comes For</h2>
+      <p>Few hotels put you as close to the Petronas Twin Towers, or reward you with as memorable a rooftop pool view, as Traders Kuala Lumpur.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>TRADERS HOTEL KUALA LUMPUR &middot; KLCC &middot; KUALA LUMPUR, MALAYSIA</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

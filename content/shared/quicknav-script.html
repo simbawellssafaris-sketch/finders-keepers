@@ -1,0 +1,12 @@
+<script>
+  (function(){
+    var backLink = document.getElementById('fsBackLink');
+    var ref = document.referrer;
+    var sameSite = ref && ref.indexOf(location.hostname) !== -1;
+    if (sameSite) {
+      backLink.setAttribute('href', ref);
+    } else {
+      backLink.setAttribute('href', 'finders-safaris-homepage.html');
+    }
+  })();
+</script>

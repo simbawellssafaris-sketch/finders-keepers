@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 1923 — A Safari From Another Time | {{brand}}</title>
+<meta name="description" content="A 7-day private expedition into the history of safari itself, anchored at Cottar's 1920s Camp in the Maasai Mara's Olderkesi Conservancy. Vintage-era elegance, a physical Expedition Journal, and the authenticity of early safari, reimagined for today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#EDE3CE;
+    --tan:#E0D3B8;
+    --ink:#2C2A26;
+    --ink-soft:#5C5750;
+    --terracotta:#B5572F;
+    --terracotta-dark:#9C4926;
+    --line:#CFC1A3;
+    --white:#FFFFFF;
+    --olive:#6B7257;
+    --maxw:1376px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--terracotta);font-weight:600;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 28px;border:1px solid var(--ink);
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;
+  }
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{
+    background:var(--terracotta);color:var(--white);border-color:var(--terracotta);
+  }
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+
+  /* ============ TOP UTILITY BAR ============ */
+  .topbar{
+    background:var(--terracotta);color:var(--white);
+    font-size:13px;letter-spacing:.04em;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 40px;
+  }
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;letter-spacing:.12em;}
+
+  /* ============ MAIN NAV ============ */
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;
+  }
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{
+    font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:600;
+  }
+  .mainnav .navright{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .burger{display:none;font-size:22px;border:none;background:none;cursor:pointer;}
+
+  /* ============ SPLIT HERO ============ */
+  .hero1923{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:660px;}
+  .hero1923-media{position:relative;overflow:hidden;height:100%;background:#1c1a16;}
+  .h23-track{position:absolute;inset:0;}
+  .h23-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+  .h23-slide.active{opacity:1;}
+  .h23-media-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 55%,rgba(0,0,0,.5) 100%);z-index:1;}
+  .h23-dots{position:absolute;bottom:26px;left:32px;display:flex;gap:8px;z-index:3;}
+  .h23-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer;transition:.2s;display:block;}
+  .h23-dots span.active{background:#fff;width:24px;border-radius:5px;}
+  .h23-arrows{position:absolute;bottom:20px;right:32px;display:flex;gap:8px;z-index:3;}
+  .h23-arrow{width:36px;height:36px;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.28);color:#fff;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .h23-arrow:hover{background:rgba(0,0,0,.55);}
+  .h23-caption{position:absolute;top:28px;left:32px;z-index:3;color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.32);padding:8px 14px;}
+  .hero1923-info{background:var(--ink);color:var(--cream);display:flex;align-items:center;}
+  .hero1923-info-in{padding:70px 60px;max-width:600px;}
+  .hero1923-info .eyebrow{color:var(--terracotta);display:block;margin-bottom:16px;}
+  .hero1923-info h1{color:var(--cream);font-size:56px;line-height:1.05;margin-bottom:22px;}
+  .hero1923-lede{font-size:16px;line-height:1.85;color:rgba(246,241,231,.82);margin:0 0 34px;}
+  .hero1923-stats{display:flex;gap:38px;margin-bottom:36px;border-top:1px solid rgba(246,241,231,.18);border-bottom:1px solid rgba(246,241,231,.18);padding:22px 0;}
+  .h23-stat{display:flex;flex-direction:column;}
+  .h23-num{font-family:'Fraunces',serif;font-size:32px;}
+  .h23-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,231,.6);margin-top:4px;}
+  .hero1923-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero1923-info .btn{border-color:rgba(246,241,231,.7);color:var(--cream);}
+  .hero1923-info .btn:hover{background:var(--cream);color:var(--ink);}
+  .hero1923-info .btn-solid{background:var(--terracotta);border-color:var(--terracotta);color:#fff;}
+  .hero1923-info .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+
+  /* ============ CTA BAND ============ */
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{
+    margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);
+  }
+  .ctaband .btn{background:var(--cream);border-color:var(--ink);}
+  .ctaband .btn:hover{background:var(--ink);color:var(--cream);}
+
+  /* ============ STICKY TAB NAV ============ */
+  .tabnav{
+    background:var(--cream);border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .tabnav .wrap{
+    display:flex;align-items:center;gap:40px;padding:0 40px;
+    overflow-x:auto;white-space:nowrap;
+  }
+  .tabnav .backtotop{
+    display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;
+    padding:22px 0;color:var(--ink);cursor:pointer;border-right:1px solid var(--line);
+    padding-right:30px;margin-right:-10px;
+  }
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{
+    display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);
+    border-bottom:2px solid transparent;font-weight:500;
+  }
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+
+  /* floating bottom-right enquiry card */
+  .floatcard{
+    position:fixed;right:24px;bottom:24px;z-index:60;
+    display:flex;align-items:stretch;background:var(--white);
+    box-shadow:0 6px 24px rgba(0,0,0,.12);
+  }
+  .floatcard .info{
+    display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;
+  }
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  .floatcard .btn-solid{border:none;padding:0 26px;}
+
+  /* ============ SECTION GENERIC ============ */
+  section{padding:80px 0;}
+  section.tight{padding-top:60px;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+
+  /* ---- overview ---- */
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{
+    font-family:'Fraunces',serif;font-size:26px;line-height:1.5;color:var(--ink);
+  }
+  .overview-grid p.lead .eyebrow{margin-right:14px;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+
+  .highlights{
+    margin-top:50px;display:grid;grid-template-columns:1fr 1fr;
+    column-gap:60px;border-top:1px solid var(--line);
+  }
+  .highlight{
+    display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);
+  }
+  .highlight .spark{font-size:20px;flex-shrink:0;color:var(--ink);}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+
+  /* why choose */
+  .why{background:var(--cream);padding:80px 0;text-align:center;}
+  .why h3{font-size:14px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:60px;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 80px;max-width:880px;margin:0 auto;}
+  .why-item{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .why-item .icon{
+    width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  }
+  .why-item .icon svg{width:42px;height:42px;}
+  .why-item p{margin:0;font-size:16px;max-width:300px;}
+
+  /* ============ ITINERARY ============ */
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;}
+  .map-sticky{
+    position:sticky;top:65px;height:calc(100vh - 65px);
+    background:var(--tan);
+    display:flex;align-items:center;justify-content:center;
+    border-right:1px solid var(--line);
+    overflow:hidden;
+  }
+  .map-placeholder{
+    text-align:center;color:var(--ink-soft);padding:40px;
+  }
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-controls{
+    position:absolute;top:24px;left:24px;display:flex;flex-direction:column;
+    border:1px solid var(--line);background:var(--white);
+  }
+  .map-controls span{
+    width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+    font-size:18px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .map-controls span:last-child{border-bottom:none;}
+  .map-route{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+  }
+
+  .days-col{padding:60px 40px 60px 60px;}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+
+  .location-tag{
+    display:inline-flex;align-items:center;gap:8px;background:var(--tan);
+    padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    margin-bottom:24px;color:var(--terracotta-dark);
+  }
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:26px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{
+    font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;
+  }
+  .day-body.clamped p{
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{
+    border:none;background:none;cursor:pointer;color:var(--terracotta);
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;
+  }
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-meta .icon{font-size:16px;}
+
+  .private-cta{
+    margin-top:50px;background:var(--tan);display:flex;align-items:stretch;
+  }
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;height:100%;}
+
+  /* ---- final story ---- */
+  .final-story{background:var(--ink);color:var(--cream);padding:100px 40px;text-align:center;}
+  .final-story .fs-eyebrow{color:var(--terracotta);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;}
+  .final-story h3{font-size:34px;color:var(--cream);margin:0 auto 36px;max-width:720px;line-height:1.3;}
+  .final-story p{font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.85;color:rgba(246,241,231,.85);max-width:640px;margin:0 auto 16px;}
+  .final-story p.fs-tight{margin-bottom:4px;}
+  .final-story .fs-close{margin-top:34px;font-style:normal;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);}
+
+  /* ============ STAYS ============ */
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:760px;margin:0 auto;
+  }
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:220px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{
+    position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-weight:600;
+  }
+  .stay-card .body{padding:20px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .stay-card h4{font-size:21px;margin-bottom:18px;min-height:54px;}
+  .stay-card .btn{width:100%;margin-top:auto;}
+
+
+  /* ============ PRICING & INCLUSIONS ============ */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{
+    display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+
+  .price-card{background:var(--tan);padding:40px;}
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{
+    cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    padding:16px 0;border-top:1px solid var(--line);
+  }
+  .inclusion-list[open] summary{border-bottom:none;}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);
+    display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:'Jost',sans-serif;font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  /* ============ JOURNEY DETAILS ============ */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:30px;
+    border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;
+  }
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{
+    border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);
+    border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;
+  }
+  .jd-panel{
+    display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;
+    line-height:1.7;color:var(--ink-soft);
+  }
+  .jd-panel.open{display:block;}
+
+  .general-info{margin-top:50px;}
+  .general-info-panel{
+    display:none;max-width:760px;margin:24px auto 0;background:var(--cream);
+    padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);
+  }
+  .general-info-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+
+  /* ============ MORE PACKAGES ============ */
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.06);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:16px 0 0;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:17px;margin-bottom:6px;line-height:1.3;}
+  .package-card .meta{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 16px;}
+  .package-card .it-list{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;}
+  .package-card .it-list b{color:var(--ink);font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.14em;display:block;margin-bottom:6px;}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:24px;}
+  .package-card .price span{font-family:'Jost',sans-serif;font-size:12px;color:var(--ink-soft);display:block;}
+
+  /* ============ FOOTER ============ */
+  footer{background:#231F1B;color:#E9E3D6;padding:80px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;}
+  .foot-form input{
+    width:100%;background:transparent;border:1px solid #4A453C;color:#fff;padding:14px;
+    margin-bottom:14px;font-family:'Jost',sans-serif;font-size:14px;
+  }
+  .foot-form input::placeholder{color:#A39E92;}
+  .foot-form .btn{border-color:#fff;color:#fff;}
+  .foot-form .btn:hover{background:#fff;color:#231F1B;}
+  .foot-form-note{font-family:'Jost',sans-serif;font-size:11.5px;line-height:1.6;color:#A39E92;margin-top:10px;}
+  .foot-form input.fs-err{border-color:#c0524a;}
+  footer h5{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;color:#A39E92;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;font-size:15px;}
+  .foot-bottom{
+    margin-top:70px;padding-top:30px;border-top:1px solid #4A453C;text-align:center;
+    font-size:13px;color:#A39E92;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .wrap{padding:0 24px;}
+    .hero1923{grid-template-columns:1fr;}
+    .hero1923-media{height:420px;}
+    .hero1923-info-in{padding:50px 24px;max-width:none;}
+    .hero1923-info h1{font-size:40px;}
+    .overview-grid, .pricing-grid, .itinerary-layout, .why-grid{grid-template-columns:1fr;}
+    .overview-img{position:relative;top:0;}
+    .highlights{grid-template-columns:1fr;}
+    .map-sticky{position:relative;height:340px;}
+    .days-col{padding:50px 24px;}
+    .more-grid{grid-template-columns:repeat(2,1fr);}
+    .stays-grid{grid-template-columns:repeat(2,1fr);}
+    .jd-grid{grid-template-columns:repeat(2,1fr);}
+    .jd-grid .jd-item:last-child{grid-column:1 / -1;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .floatcard{left:24px;right:24px;justify-content:center;}
+    .floatcard .info{flex:1;}
+    .tabnav .wrap{gap:24px;}
+    .mainnav .navlinks{display:none;}
+    .burger{display:block;}
+  }
+  @media (max-width:640px){
+    .hero1923-media{height:320px;}
+    .hero1923-info h1{font-size:32px;}
+    .more-grid, .stays-grid, .foot-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+    .jd-grid{grid-template-columns:1fr;}
+    .private-cta{flex-direction:column;}
+    .private-cta img{width:100%;height:200px;}
+    .final-story{padding:70px 24px;}
+    .final-story h3{font-size:26px;}
+  }
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:0700000000"><i class="fs-ico fs-ico-phone" aria-hidden="true"></i> SPEAK TO US | {{phone}}</a>
+    <div class="right">
+      <a href="#" class="js-fs-subscribe">Subscribe</a>
+      <a href="brochures.html">Brochures</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN NAV ============ -->
+<div class="mainnav">
+  <div class="wrap">
+    <button class="burger"><i class="fs-ico fs-ico-menu" aria-hidden="true"></i></button>
+    <div class="navlinks">
+      <a href="destinations.html">Destinations</a>
+      <a href="journey-finder.html">Our Journeys</a>
+    </div>
+    <a href="finders-safaris-homepage.html" class="logo" style="text-decoration:none;">{{brand}}</a>
+    <div class="navright"><i class="fs-ico fs-ico-search" aria-hidden="true"></i> Find Your Journey</div>
+  </div>
+</div>
+
+<!-- ============ SPLIT HERO ============ -->
+<div class="hero1923" id="top">
+  <div class="hero1923-media">
+    <div class="h23-caption">The 1923 Expedition</div>
+    <div class="h23-track" id="h23Track">
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/1.jpg')"></div>
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/2.jpg')"></div>
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/3.jpg')"></div>
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/4.jpg')"></div>
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/5.jpg')"></div>
+      <div class="h23-slide" style="background-image:url('assets/img/cottars/1923-hero/6.jpg')"></div>
+    </div>
+    <div class="h23-media-shade"></div>
+    <div class="h23-dots" id="h23Dots"></div>
+    <div class="h23-arrows">
+      <button type="button" class="h23-arrow" data-dir="prev" aria-label="Previous image">&#10094;</button>
+      <button type="button" class="h23-arrow" data-dir="next" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+  <div class="hero1923-info">
+    <div class="hero1923-info-in">
+      <span class="eyebrow">A Safari From Another Time</span>
+      <h1>The 1923</h1>
+      <p class="hero1923-lede">Before safari became a holiday, it was an expedition. No crowds. No hurried schedules. No screens demanding attention — only canvas beneath the African sky, a field journal in hand, and a guide reading tracks in the dust. The 1923 recreates that spirit: a journey into the history of safari itself, reimagined through modern Kenya, its wildlife, its people, and its conservation story. This is not a recreation of colonialism. It is a journey into the history of safari.</p>
+      <div class="hero1923-stats">
+        <div class="h23-stat"><span class="h23-num">7</span><span class="h23-label">Days</span></div>
+        <div class="h23-stat"><span class="h23-num">6</span><span class="h23-label">Nights</span></div>
+        <div class="h23-stat"><span class="h23-num">1</span><span class="h23-label">Private Camp</span></div>
+      </div>
+      <div class="hero1923-cta">
+        <a href="#itinerary" class="btn btn-solid">View The Itinerary</a>
+        <a href="#" class="btn js-fs-enquire" data-fs-package="The 1923">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CTA BAND ============ -->
+<div class="ctaband">
+  <p>A private, tailor-made expedition — priced honestly around your dates</p>
+  <a href="#pricing" class="btn">See Pricing &amp; Inclusions ↓</a>
+</div>
+
+<!-- ============ STICKY TAB NAV ============ -->
+<div class="tabnav" id="tabnav">
+  <div class="wrap">
+    <span class="backtotop" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">↑ Back to Top</span>
+    <a href="#overview" class="tab">Overview</a>
+    <a href="#itinerary" class="tab">Itinerary</a>
+    <a href="#stays" class="tab">The Camp</a>
+    <a href="#why-journey" class="tab">Why This Journey</a>
+    <a href="#pricing" class="tab">Pricing &amp; Inclusions</a>
+    <a href="#details" class="tab">Journey Details</a>
+  </div>
+</div>
+
+<!-- ============ FLOATING ENQUIRY CARD ============ -->
+<div class="floatcard"><div class="info"><span>7 Days</span><div class="div"></div><span>Private</span><div class="div"></div><span class="fc-price">Price On Request</span></div></div>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;›&nbsp; <a href="journey-finder.html">Safaris</a> &nbsp;›&nbsp; <a href="finders-safaris-kenya.html">Kenya</a> &nbsp;›&nbsp; <span class="current">The 1923</span></div>
+
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>This itinerary is not simply a safari. It is a journey into the history of safari itself — a carefully crafted expedition that recreates the romance, craftsmanship and slower rhythm of early safari, reimagined through modern Kenya, its wildlife, its people and its conservation story. Guests are anchored at Cottar's 1920s Camp in the private Olderkesi Conservancy, deliberately created around the elegance and character of early safari, with vintage 1920s luxury, eleven tented suites and an Explorers Tent.</p>
+
+        <div class="highlights">
+          <div class="highlight"><span class="spark">✦</span><p>Route: Nairobi (Hemingways Nairobi) → Maasai Mara, Olderkesi Conservancy (Cottar's 1920s Camp) → Nairobi</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Fly by light aircraft from Wilson Airport direct to Cottar's private airstrip — the flight itself is part of the expedition</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>A beautifully designed physical Expedition Journal — map, wildlife checklist, historical notes and the story of The 1923 — yours to keep</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Learn to read animal tracks, identify birds and understand predator behaviour from an expert naturalist guide</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>A 1923 Bush Picnic, a guided walking safari, a respectful Maasai cultural visit and a private conservation briefing</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>The Great Mara Expedition — a full day with no fixed timetable, ending in a farewell dinner around the fire</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>VIP meet-and-greet handling at every airport, with private luxury vehicle transfers throughout</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Anchored at Hemingways Nairobi and Cottar's 1920s Camp — vintage-era elegance with today's standards of comfort and conservation</p></div>
+        </div>
+      </div>
+
+      <div class="overview-img">
+        <img src="assets/img/cottars/1923-hero/2.jpg" alt="Cottar's 1920s Camp in the Olderkesi Conservancy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<div class="why">
+  <div class="wrap">
+    <h3>Why The 1923 Is Different</h3>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="10" width="36" height="24" rx="2"/><path d="M14 34v4M34 34v4M6 18h36"/><circle cx="24" cy="14" r="2"/></svg>
+        </div>
+        <p>A private, guide-led expedition — not a shared game-drive itinerary</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M8 38l8-26h8l8 26M24 22h-1M40 38V18l-8-6v26z"/></svg>
+        </div>
+        <p>Anchored at Cottar's 1920s Camp — vintage-era elegance with today's comfort and conservation standards</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4l6 12 13 2-9.5 9 2.2 13L24 34l-11.7 6 2.2-13L5 18l13-2z"/></svg>
+        </div>
+        <p>A physical Expedition Journal, yours to keep, with maps, checklists and the story of The 1923</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="14" width="36" height="22" rx="2"/><circle cx="16" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><path d="M6 22h36M14 14V8h8v6"/></svg>
+        </div>
+        <p>No fixed timetable on the signature Great Mara Expedition day — your guide follows the wilderness</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 4"/></svg>
+        </div>
+        <p>A guided walking safari and a respectful Maasai cultural visit included, not offered as an optional extra</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4C13 14 8 22 8 29a16 16 0 0032 0c0-7-5-15-16-25z"/></svg>
+        </div>
+        <p>Every date, pace and detail reshaped around you — this is private travel, not a group departure</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ITINERARY ============ -->
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Route Map</div>
+        <div class="map-controls"><span>+</span><span>–</span></div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Map space reserved — Nairobi (Hemingways Nairobi) → Wilson Airport → Maasai Mara, Olderkesi Conservancy (Cottar's 1920s Camp) → Nairobi (JKIA). Interactive map to be added here, with day-by-day scrollspy markers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+
+      <!-- DAY 1 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Nairobi</div>
+      <div class="day-block">
+        <h3>Day 1 | The Expedition Begins</h3>
+        <div class="day-body">
+          <p>Upon your arrival at Jomo Kenyatta International Airport (NBO), you will be met by your private F&amp;K representative and transferred to Hemingways Nairobi in Karen. You will look forward to the drive into Karen, which begins the transition from international traveller to safari guest. The leafy suburbs and the elegant architecture of Hemingways set the tone for the journey ahead.</p>
+          <p>At Hemingways Nairobi, you will check in and settle into the hotel. You will look forward to time to relax after your international flight, enjoy the hotel gardens, have lunch or afternoon tea, swim or enjoy the spa, and recover from jet lag. The hotel's serene atmosphere and beautiful gardens provide the perfect introduction to Kenya.</p>
+          <p>In the late afternoon, you will be introduced to your F&amp;K safari host and guide. Rather than giving you a generic welcome briefing, this becomes the beginning of the story. You will receive The 1923 Expedition Journal, a beautifully designed physical journal containing a Kenya safari map, expedition notes, wildlife checklist, space for observations, historical notes, places for photographs, and F&amp;K's story of The 1923.</p>
+          <p>In the evening, you will enjoy a private dinner at Hemingways Nairobi. The evening is deliberately relaxed. You will be told: "Tomorrow, Nairobi disappears behind you."</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="hemingways-nairobi.html">Hemingways Nairobi</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Maasai Mara, Olderkesi Conservancy</div>
+      <div class="day-block">
+        <h3>Day 2 | Leaving The Modern World</h3>
+        <div class="day-body">
+          <p>You will wake at Hemingways and enjoy breakfast. Then your private vehicle will transfer you to Wilson Airport. You will look forward to Wilson Airport, the gateway to Kenya's safari country, where the flight itself forms part of the experience.</p>
+          <p>You will board a small safari aircraft. As Nairobi disappears beneath you, the landscape changes: city, farms, Rift Valley, savannah, Mara. This is the moment the expedition truly begins. You will look forward to the spectacular aerial views of the Great Rift Valley, with its dramatic escarpments and volcanic lakes, before the vast savannah plains of the Maasai Mara unfold beneath you.</p>
+          <p>You will land at Cottar's private airstrip, and a short transfer takes you to camp. You will look forward to the arrival at Cottar's 1920s Camp, where the concept comes alive — vintage 1920s luxury, with eleven tented suites, an Explorers Tent, authentic safari pieces, historic photography, and original explorer equipment.</p>
+          <p>You will be welcomed into camp and enjoy lunch, then settle into your tent, with its vintage furnishings, canvas walls, and the sounds of the African bush surrounding you. In the afternoon, you will embark on your first gentle game drive — not a "Big Five hunt", the objective is simply: welcome to the wilderness.</p>
+          <p>At sunset, you will stop somewhere overlooking the Mara for your first 1923 Sundowner. In the evening, you will return to camp for dinner around the fire, where your guide introduces the history of safari — from early expeditions to today's conservation-focused safari.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="cottars-1920s-camp.html">Cottar's 1920s Camp</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-block">
+        <h3>Day 3 | The Classic Safari</h3>
+        <div class="day-body">
+          <p>You will wake before sunrise. The camp is quiet. You will look forward to coffee and a light breakfast before departing. This is the first full expedition. The philosophy is: slow down, observe, understand. You will learn how to read animal tracks, identify birds, understand predator behaviour, read the landscape, recognise different ecosystems, and follow animal movements — rather than simply ticking animals off a list, your guide teaches you how to see the bush.</p>
+          <p>Instead of returning to camp, you will stop in a carefully selected wilderness location for The 1923 Bush Picnic — a beautiful expedition-style picnic prepared with canvas, wood, leather and linen, with traditional safari-inspired presentation, but underneath the aesthetic is excellent modern Kenyan cuisine.</p>
+          <p>In the afternoon, you will continue the game drive, with possible sightings of lions, elephants, buffalo, leopards, cheetahs, giraffes, zebra, wildebeest, hippos, and hundreds of bird species. In the evening, you will return to camp for a hot shower or one of Cottar's signature canvas bush baths, followed by cocktails around the fire. Dinner is served under the stars.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="cottars-1920s-camp.html">Cottar's 1920s Camp</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch (1923 Bush Picnic), Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-block">
+        <h3>Day 4 | The Naturalist</h3>
+        <div class="day-body">
+          <p>Today changes the pace. In the morning, where conditions and guiding regulations permit, you will embark on a guided walking safari. Instead of sitting inside a vehicle, you will experience the smaller wilderness — tracks, plants, birds, insects, animal trails, sounds and scents. This is what makes the experience feel like an expedition rather than an ordinary game drive.</p>
+          <p>At midday, you will return to camp for lunch, rest, and pool or spa time. In the afternoon, you will head back into the Mara on a private game drive — your guide will follow current wildlife activity rather than a rigid itinerary.</p>
+          <p>In the evening, you will return to camp and sit with your Expedition Journal, recording species encountered, interesting behaviour, location, weather and personal observations. This becomes one of the souvenirs of The 1923. Dinner will be served beneath the stars.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="cottars-1920s-camp.html">Cottar's 1920s Camp</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="day-block">
+        <h3>Day 5 | The People &amp; The Land</h3>
+        <div class="day-body">
+          <p>The original safari story cannot be told only through wildlife. Today explores the relationship between people, land and wildlife. In the morning, you will visit a local Maasai community through a respectful, community-led experience — learning about traditional pastoralism, cattle, community life, architecture, crafts, beadwork and contemporary Maasai life. The focus is cultural exchange rather than staged entertainment.</p>
+          <p>In the afternoon, you will return towards the conservancy for a conservation experience, learning about wildlife protection, community land, human-wildlife coexistence, conservation economics, habitat protection, and why private conservancies matter — particularly appropriate given Cottar's operates within Olderkesi Conservancy and positions its safari around conservation, culture and community.</p>
+          <p>At sunset, you will find a beautiful location for the 1923 Sundowner — drinks, canapés, savannah and golden light. No rush. In the evening, you will return to camp for dinner around the fireplace.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="cottars-1920s-camp.html">Cottar's 1920s Camp</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 6 -->
+      <div class="day-block">
+        <h3>Day 6 | The Great Mara Expedition</h3>
+        <div class="day-body">
+          <p>This is the signature day of The 1923. You will wake before dawn, enjoy coffee, and depart with your guide for The Great Mara Expedition. You will spend the entire day exploring — no returning to camp for lunch, no rushing, no fixed timetable. The guide follows the wilderness.</p>
+          <p>In the morning, you will look forward to predators, herds, birdlife, elephants and open plains. At midday, you will stop for the Great Expedition Lunch — one of the most visually distinctive moments of the package: a private table in the wilderness, canvas, leather, brass-inspired details, safari chairs and fresh Kenyan cuisine. In the afternoon, you will continue deeper into the ecosystem, spending serious time with whichever wildlife you encounter. If the season coincides with the Great Migration, the itinerary naturally adapts to the movement of the herds.</p>
+          <p>At golden hour, you will look forward to photography, landscape, wildlife silhouettes, and the final drive back towards camp. In the evening, you will return to Cottar's for the 1923 Farewell Dinner — lanterns, fire, canvas, linen, storytelling, Kenyan cuisine and champagne. Your guide will share stories of the evolution of safari, from the early expedition era to modern conservation tourism, and you will receive your Expedition Journal as a keepsake.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="cottars-1920s-camp.html">Cottar's 1920s Camp</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch (Great Expedition Lunch), 1923 Farewell Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 7 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Nairobi</div>
+      <div class="day-block">
+        <h3>Day 7 | The Expedition Ends</h3>
+        <div class="day-body">
+          <p>You will wake naturally — no early alarm unless you want one. You will look forward to breakfast at camp, with the sounds of the bush and the gentle morning light. If flight timing allows, you will take one final short game drive. This isn't about adding another animal to the list. It is about saying goodbye.</p>
+          <p>You will return to camp, pack, and transfer to Cottar's private airstrip, boarding the light aircraft back to Wilson Airport as the reverse journey begins: savannah, Rift Valley, farms, Nairobi. Upon arrival in Nairobi, you will be met by your private transfer. Depending on your international flight: Option A — same-day international departure, transfer directly to JKIA; Option B — late departure, lunch or relaxation in Nairobi first; Option C — extension, continue the journey to another Kenyan destination.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <!-- PRIVATE TRAVEL CTA -->
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, add nights, or extend the expedition?</h4>
+          <p>Every {{brand}} itinerary is a starting point, not a fixed departure — the pace, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img src="assets/img/cottars/1923-hero/4.jpg" alt="Savannah landscape from a rocky outcrop">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE FINAL STORY ============ -->
+<div class="final-story">
+  <div class="wrap">
+    <div class="fs-eyebrow">The Final Story</div>
+    <h3>THE 1923<br>A Safari From Another Time</h3>
+    <p class="fs-tight">7 days. 6 nights. One extraordinary journey.</p>
+    <p>Before safari became a holiday, it was an expedition. There were no crowds. No hurried schedules. No screens demanding attention. There was canvas beneath the African sky, a field journal in hand, a guide reading tracks in the dust, a bush breakfast beneath an acacia, and evenings spent around a fire telling stories of the wilderness.</p>
+    <p>The 1923 recreates that spirit. Beginning with an elegant arrival in Nairobi and continuing by light aircraft into the Maasai Mara, the journey culminates at Cottar's 1920s Camp in the private Olderkesi Conservancy — a camp deliberately created around the elegance and character of early safari, but with today's standards of comfort, conservation and responsible travel.</p>
+    <p>This is not a recreation of colonialism. It is a journey into the history of safari. A celebration of the romance, craftsmanship, exploration and slower rhythm of early safari — reimagined through modern Kenya, its wildlife, its people, and its conservation story.</p>
+    <div class="fs-close">THE 1923 — Where The Wilderness Was Still An Expedition</div>
+  </div>
+</div>
+
+<!-- ============ THE CAMP / STAYS ============ -->
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head" style="text-align:center;">
+      <div class="eyebrow" style="margin-bottom:14px;display:block;">Where You Will Stay</div>
+      <h2 style="font-size:42px;">Two Properties, One Story</h2>
+    </div>
+    <div class="stays-grid">
+      <div class="stay-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/lodges/hemingways-nairobi/3.jpg" alt="Colonial-era veranda at Hemingways Nairobi">
+          <span class="badge">Nairobi</span>
+        </div>
+        <div class="body">
+          <div class="loc">Karen, Nairobi</div>
+          <h4>Hemingways Nairobi</h4>
+          <a href="hemingways-nairobi.html" class="btn">View Details</a>
+        </div>
+      </div>
+      <div class="stay-card">
+        <div class="imgwrap">
+          <img src="assets/img/cottars/1923-hero/3.jpg" alt="Tented camp and elephants at a waterhole in the Maasai Mara">
+          <span class="badge">Maasai Mara</span>
+        </div>
+        <div class="body">
+          <div class="loc">Olderkesi Conservancy, Maasai Mara</div>
+          <h4>Cottar's 1920s Camp</h4>
+          <a href="cottars-1920s-camp.html" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<!-- ============ PRICING & INCLUSIONS ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; How This Is Priced</h2>
+
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-compass" aria-hidden="true"></i></div><div><span class="eyebrow">How This Is Priced</span><p class="offer-title">Every 1923 expedition is quoted individually</p><p>Camp availability, the season, your party size and the exact shape of your dates all affect the final figure. Speak to us and we will build an honest, itemised quote around you before you commit to anything.</p></div></div>
+
+        <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>Private F&amp;K representative &amp; VIP meet-and-greet at every airport</li>
+            <li>All accommodation, Full Board, at Hemingways Nairobi &amp; Cottar's 1920s Camp</li>
+            <li>Light aircraft transfer, Wilson Airport to Cottar's private airstrip &amp; return</li>
+            <li>Private vehicle &amp; dedicated expedition guide throughout</li>
+            <li>The 1923 Expedition Journal, yours to keep</li>
+            <li>Guided walking safari</li>
+            <li>Respectful Maasai community visit</li>
+            <li>Olderkesi Conservancy conservation briefing</li>
+            <li>The 1923 Bush Picnic</li>
+            <li>The Great Expedition Lunch</li>
+            <li>1923 Sundowners</li>
+            <li>1923 Farewell Dinner</li>
+            <li>All park &amp; conservancy fees</li>
+            <li>Bottled water</li>
+            <li>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li>
+            <li>Visa application fees</li>
+            <li>Airport transfers</li>
+          </ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights to/from Nairobi</li>
+            <li>Premium imported spirits &amp; Champagne</li>
+            <li>Gratuities for guides &amp; camp staff</li>
+            <li>Items of a personal nature</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="price-card">
+        <h3>Your Private Expedition</h3>
+        <div class="price-row">
+          <span class="label">Pricing</span>
+          <span class="value" style="font-size:22px;">On Request</span>
+        </div>
+        <div class="price-note">ⓘ The 1923 is offered exclusively as a private, tailor-made expedition. Because it is built around your dates, party size and pace, we do not publish a fixed per-person rate — your specialist will provide an itemised quote once we understand what you have in mind.</div>
+        <div class="payment-plan">
+          <h4>Flexible Payment Plan</h4>
+          <div class="payment-steps">
+            <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your dates and hold camp availability.</p></div>
+            <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+            <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-solid js-fs-enquire" data-fs-package="The 1923" style="width:100%;margin-top:24px;">Request Your 1923 Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY DETAILS ============ -->
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><h4>Minimum Age</h4><p>Camp welcomes families; walking safari from 15 years</p><button class="jd-toggle" data-target="age-the1923">View +</button><div class="jd-panel" id="age-the1923"><ul class="gi-list gi-list-compact"><li><strong>Cottar's 1920s Camp</strong> &mdash; welcomes children of all ages on a privately booked vehicle, with the pace and activities of each day shaped around who is travelling.</li><li><strong>Guided walking safari</strong> &mdash; carries a firm minimum of fifteen years, set by the licensing authority and never waived.</li><li><strong>Light aircraft transfer</strong> &mdash; no age restriction, though very young children may find the short domestic flight tiring after a long international journey.</li><li><strong>Talk to us first</strong> &mdash; tell us the ages travelling with you and we will confirm exactly which parts of the expedition apply before you book.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Your Expedition Journal</h4><p>A keepsake journal, map &amp; wildlife checklist</p><button class="jd-toggle" data-target="journal-the1923">View +</button><div class="jd-panel" id="journal-the1923"><ul class="gi-list gi-list-compact"><li><strong>Presented on Day 1</strong> &mdash; at Hemingways Nairobi, as the formal beginning of the expedition rather than a standard welcome briefing.</li><li><strong>What is inside it</strong> &mdash; a Kenya safari map, expedition notes, a wildlife checklist, space for your own observations, historical notes on the story of safari, and pages for photographs.</li><li><strong>Used throughout</strong> &mdash; you will return to it on Day 4 to record species, behaviour and personal notes from your own game drives.</li><li><strong>Yours to keep</strong> &mdash; presented back to you as a keepsake at the 1923 Farewell Dinner on Day 6.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Packing &amp; Kit</h4><p>Soft duffel bag &mdash; 15 kg limit on light aircraft</p><button class="jd-toggle" data-target="kit-the1923">View +</button><div class="jd-panel" id="kit-the1923"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; a soft-sided bag, sized for the 15 kg limit on the light aircraft between Wilson Airport and Cottar's private airstrip. Rigid suitcases cannot be carried on this flight.</li><li><strong>Packing around it</strong> &mdash; soft luggage, neutral colours and layers. Laundry is included at camp, which is why 15 kg goes further than it sounds.</li><li><strong>What to bring</strong> &mdash; a hat, sturdy walking shoes for the guided bush walk, layers for cold dawn starts, and a camera for the Bush Picnic and Great Expedition Lunch.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Kenya eTA required before arrival</p><button class="jd-toggle" data-target="docs-the1923">View +</button><div class="jd-panel" id="docs-the1923"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; valid for at least six months beyond your arrival date, with at least two blank pages for stamps.</li><li><strong>Kenya eTA</strong> &mdash; Kenya replaced its tourist visa with an Electronic Travel Authorisation in January 2024. Apply online before you fly &mdash; approval normally lands within 48 to 72 hours, but allow a week.</li><li><strong>African passport holders</strong> &mdash; citizens of almost every African country now enter Kenya without an eTA. East African Community nationals may stay up to six months; other African nationals up to two.</li><li><strong>Yellow fever</strong> &mdash; a vaccination certificate is required if you are arriving from, or have transited, a country with yellow fever risk.</li><li><strong>We file it for you</strong> &mdash; we complete and submit your application on your behalf and carry the confirmations in your travel pack.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Private Departures</h4><p>No group minimum &mdash; built for your party alone</p><button class="jd-toggle" data-target="dep-the1923">View +</button><div class="jd-panel" id="dep-the1923"><ul class="gi-list gi-list-compact"><li><strong>Private, always</strong> &mdash; The 1923 is not a scheduled group departure. It runs for your party alone, on the dates you choose.</li><li><strong>What confirms it</strong> &mdash; once your deposit is received and camp availability is secured, your dates are locked in.</li><li><strong>Extending the expedition</strong> &mdash; happy to add nights at Cottar's, or continue on to another Kenyan destination from Nairobi on Day 7.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-the1923" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-the1923"><ul class="gi-list"><li><strong>Visas</strong> &mdash; we prepare and submit your visa application on your behalf. Please note that the granting of a visa rests solely with the immigration authority of the country concerned, and is never guaranteed by us.</li><li><strong>Medication</strong> &mdash; we arrange malaria prophylaxis, together with anti-nausea and anti-anxiety tablets, for your journey. Any prescription medicine should be confirmed with your own doctor before you travel.</li><li><strong>Africa is not always hot</strong> &mdash; mornings at altitude can be genuinely cold, especially before dawn game drives and the walking safari. Pack a warm layer.</li><li><strong>Dietary requirements</strong> &mdash; if you have strict dietary needs, please tell us at the time of booking, including the Bush Picnic and Great Expedition Lunch.</li><li><strong>Travel insurance</strong> &mdash; we facilitate travel insurance for our clients. If you are already covered, please say so during booking so we can take it into account in your final quote.</li><li><strong>Tailoring your quote</strong> &mdash; if any part of this itinerary is not what you want, point it out and we will adjust your final offer accordingly.</li><li><strong>What to pack</strong> &mdash; neutral colours are the rule on safari: khaki, olive, stone and brown. Avoid black and dark blue, which draw tsetse flies, and leave camouflage at home entirely &mdash; it is reserved for the military and illegal for civilians in several African countries. Bring layers for cold dawn starts, closed walking shoes for the guided bush walk, a sun hat and sunglasses. Camp dinners are smart-casual; nothing formal is needed.</li><li><strong>Your duffel &amp; kit</strong> &mdash; used for the light aircraft flight into the Mara, where luggage is limited to 15&nbsp;kg per person.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- ============ MORE PACKAGES ============ -->
+<section>
+  <div class="wrap">
+    <div class="more-head">
+      <h2>More Kenya Journeys</h2>
+    </div>
+    <div class="more-grid">
+      <div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/sovereign-mara-conservancies.jpg" alt="The Sovereign Mara Conservancies">
+          <div class="tags"><span class="tag">SMALL GROUP JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Sovereign Mara Conservancies</h3>
+          <div class="meta">10 Days &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Nairobi → Ol Kinyei Conservancy → Mara Naboisho Conservancy → Olare Motorogi Conservancy → Hell's Gate → Nairobi
+          </div>
+          <div class="footer-row">
+            <div class="price">$8,800 <span>per person</span></div>
+            <a href="sovereign-mara-conservancies.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div>
+      <div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/ultimate-mara-lodge-hopper.jpg" alt="The Ultimate Mara Lodge Hopper">
+          <div class="tags"><span class="tag">SMALL GROUP JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Ultimate Mara Lodge Hopper</h3>
+          <div class="meta">7 Days &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Nairobi → Wilson Airport → Angama Mara (Days 2–5) → JW Marriott Mara Lodge (Days 6–7) → Mara Airstrip → Nairobi
+          </div>
+          <div class="footer-row">
+            <div class="price">$10,100 <span>per person</span></div>
+            <a href="ultimate-mara-lodge-hopper.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div>
+      <div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/kenya-family-safari-ol-pejeta-mount-kenya.jpg" alt="Kenya Family Safari: Ol Pejeta &amp; Mount Kenya">
+          <div class="tags"><span class="tag">FAMILY SAFARI</span></div>
+        </div>
+        <div class="body">
+          <h3>Kenya Family Safari: Ol Pejeta &amp; Mount Kenya</h3>
+          <div class="meta">8 Days &middot; Private &middot; Family</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Nairobi → Ol Pejeta Conservancy → Mount Kenya → Nairobi
+          </div>
+          <div class="footer-row">
+            <div class="price">$39,200 <span>total</span></div>
+            <a href="kenya-family-safari-ol-pejeta-mount-kenya.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div>
+      <div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/the-monarchs-untamed-mara.jpg" alt="The Monarch's Untamed Mara">
+          <div class="tags"><span class="tag">SMALL GROUP JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Monarch's Untamed Mara</h3>
+          <div class="meta">10 Days &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Nairobi → Ol Kinyei → Mara Naboisho → Maasai Mara National Reserve → Hell's Gate → Nairobi
+          </div>
+          <div class="footer-row">
+            <div class="price">$9,750 <span>per person</span></div>
+            <a href="the-monarchs-untamed-mara.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>Stay In Touch</h5>
+        <form class="foot-form" id="footSubForm" novalidate>
+          <input type="text" id="footFirstName" placeholder="First Name*" required>
+          <input type="text" id="footLastName" placeholder="Last Name*" required>
+          <input type="email" id="footEmail" placeholder="E-mail Address*" required>
+          <button type="submit" class="btn">Subscribe</button>
+          <p class="foot-form-note" id="footFormNote"></p>
+        </form>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="#" class="js-fs-enquire">Contact Us</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 {{brand}}. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // sticky tab nav "back to top" toggle
+  const tabnav = document.getElementById('tabnav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) tabnav.classList.add('stuck');
+    else tabnav.classList.remove('stuck');
+  });
+
+  // scrollspy for tabs
+  const tabs = document.querySelectorAll('.tabnav a.tab');
+  const sections = [...tabs].map(t => document.querySelector(t.getAttribute('href')));
+  function onScroll(){
+    let current = sections[0];
+    const scrollPos = window.scrollY + 150;
+    sections.forEach(function(sec){ if (sec && sec.offsetTop <= scrollPos) current = sec; });
+    tabs.forEach(function(t){ t.classList.toggle('active', document.querySelector(t.getAttribute('href')) === current); });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // journey details panel toggles
+  document.querySelectorAll('.jd-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.dataset.target);
+      panel.classList.toggle('open');
+      const isOpen = panel.classList.contains('open');
+      btn.textContent = btn.textContent.replace(/[+\-]$/, '').trim() + (isOpen ? ' -' : ' +');
+    });
+  });
+</script>
+
+<!-- ============ HERO CAROUSEL ============ -->
+<script>
+(function(){
+  var track = document.getElementById('h23Track');
+  if(!track) return;
+  var slides = track.querySelectorAll('.h23-slide');
+  var dotsWrap = document.getElementById('h23Dots');
+  var idx = 0;
+  slides.forEach(function(s,i){
+    var d = document.createElement('span');
+    if(i===0) d.classList.add('active');
+    d.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = dotsWrap.querySelectorAll('span');
+  slides[0].classList.add('active');
+  function go(i){
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = (i + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  document.querySelectorAll('.h23-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      go(idx + (btn.dataset.dir === 'next' ? 1 : -1));
+    });
+  });
+  var timer = setInterval(function(){ go(idx + 1); }, 5500);
+  var media = track.closest('.hero1923-media');
+  if(media){
+    media.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  /* Collapse an expanded day, keeping the page visually still when the
+     block already sits above the viewport (avoids a jump on scroll-past). */
+  function collapse(body, btn){
+    if(!body.classList.contains('expanded')) return;
+    var above  = body.getBoundingClientRect().top < 0;
+    var before = document.documentElement.scrollHeight;
+    body.classList.remove('expanded');
+    btn.textContent = 'Read more';
+    if(above){
+      var delta = before - document.documentElement.scrollHeight;
+      if(delta) window.scrollTo(0, window.scrollY - delta);
+    }
+  }
+
+  /* Once a day block has scrolled entirely out of view, fold it back up so
+     the reader always returns to a clean, uniform itinerary. */
+  var observer = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) return;
+      var t = entry.target;
+      if(t.__fsBody && t.__fsBtn) collapse(t.__fsBody, t.__fsBtn);
+    });
+  }, {threshold:0}) : null;
+
+  function setupReadMore(){
+    document.querySelectorAll('.day-body').forEach(function(body){
+      var btn = body.nextElementSibling;
+      if(!btn || !btn.classList.contains('read-more')) return;
+      body.classList.add('clamped');
+      btn.style.display = 'none';
+      var p = body.querySelector('p');
+      if(!p) return;
+      var hasMore = body.querySelectorAll('p').length > 1;
+      if(hasMore){
+        btn.style.display = '';
+      } else {
+        requestAnimationFrame(function(){
+          if(p.scrollHeight > p.clientHeight + 2){
+            btn.style.display = '';
+          } else {
+            body.classList.remove('clamped');
+            body.classList.remove('expanded');
+            btn.textContent = 'Read more';
+          }
+        });
+      }
+      if(body.dataset.rmWired) return;
+      body.dataset.rmWired = '1';
+      btn.addEventListener('click', function(){
+        body.classList.toggle('expanded');
+        btn.textContent = body.classList.contains('expanded') ? 'Read less' : 'Read more';
+      });
+      if(observer){
+        var block = body.closest('.day-block') || body;
+        block.__fsBody = body;
+        block.__fsBtn  = btn;
+        observer.observe(block);
+      }
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setupReadMore);
+  } else {
+    setupReadMore();
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(window.__rmResizeT);
+    window.__rmResizeT = setTimeout(setupReadMore, 200);
+  });
+})();
+</script>
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"africa","focus":"KEN","stops":[["Nairobi",-1.286,36.817],["Maasai Mara, Olderkesi Conservancy",-1.53,35.24]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+
+<!-- FS-ENQ-MODAL:START -->
+
+<style>
+/* ── Enquiry modal (self-contained brand colors — works on every page theme) ── */
+#enqFab{position:fixed;bottom:24px;right:24px;z-index:850;background:#8B3A2A;color:#fff;border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:background .25s,transform .25s;}
+#enqFab:hover{background:#6B2D1F;}
+#enqOverlay{position:fixed;inset:0;z-index:9500;background:rgba(15,10,6,.6);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .28s ease;}
+#enqOverlay.enq-show{opacity:1;}
+body.enq-lock{overflow:hidden;}
+.enq-modal{background:#fff;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 30px 90px rgba(10,7,4,.4);transform:translateY(22px) scale(.97);opacity:0;transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .32s ease;}
+#enqOverlay.enq-show .enq-modal{transform:translateY(0) scale(1);opacity:1;}
+.enq-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:none;background:transparent;cursor:pointer;color:#1a1209;display:flex;align-items:center;justify-content:center;transition:opacity .2s;opacity:.6;}
+.enq-close:hover{opacity:1;}
+.enq-head{padding:44px 44px 6px;}
+.enq-eyebrow{font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#8B3A2A;margin:0 0 14px;}
+.enq-head h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(23px,3.2vw,30px);color:#1a1209;margin:0 0 10px;line-height:1.22;}
+.enq-head p{font-family:'Raleway',sans-serif;font-size:13.5px;line-height:1.85;color:#5a4d3c;margin:0;}
+.enq-package{display:inline-block;font-family:'Raleway',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:#8B3A2A;background:#faf3ee;border:1px solid #e2c7bd;padding:7px 14px;margin-top:16px !important;}
+.enq-package[hidden]{display:none;}
+.enq-form{padding:22px 44px 0;}
+.enq-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.enq-f{display:flex;flex-direction:column;}
+.enq-f label{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.04em;color:#1a1209;margin-bottom:7px;}
+.enq-f .enq-req{color:#8B3A2A;}
+.enq-f input,.enq-f select,.enq-f textarea{font-family:'Raleway',sans-serif;font-size:13.5px;color:#1a1209;background:#fdfbf6;border:1px solid #e2d6bd;padding:12px 13px;width:100%;box-sizing:border-box;transition:border-color .2s,background .2s;}
+.enq-f textarea{min-height:76px;resize:vertical;}
+.enq-f input:focus,.enq-f select:focus,.enq-f textarea:focus{outline:none;border-color:#8B3A2A;background:#fff;}
+.enq-f input::placeholder,.enq-f textarea::placeholder{color:#a89a86;}
+.enq-actions{padding:26px 44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1px solid #efe6d5;margin-top:14px;}
+.enq-act-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8a7a68;margin:0 0 13px;}
+.enq-btn-solid{width:100%;background:#8B3A2A;color:#fff;border:none;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.enq-btn-solid:hover{background:#6B2D1F;}
+.enq-btn-outline{width:100%;background:transparent;color:#1a1209;border:1px solid #1a1209;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;box-sizing:border-box;}
+.enq-btn-outline:hover{background:#1a1209;color:#fff;}
+.enq-quick{display:flex;gap:9px;}
+.enq-quick[hidden]{display:none;}
+.enq-quick-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid #1a1209;color:#1a1209;padding:12px 8px;font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;box-sizing:border-box;}
+.enq-quick-btn:hover{background:#1a1209;color:#fff;}
+.enq-quick-btn svg{flex-shrink:0;}
+.enq-note{padding:0 44px 34px;margin:0;font-family:'Raleway',sans-serif;font-size:11px;line-height:1.7;color:#a89a86;}
+@media(max-width:600px){
+  .enq-head{padding:40px 26px 6px;}
+  .enq-form{padding:20px 26px 0;}
+  .enq-actions{padding:24px 26px 36px;grid-template-columns:1fr;gap:24px;}
+  .enq-note{padding:0 26px 28px;}
+  .enq-row{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){#enqOverlay,.enq-modal{transition:none;}}
+</style>
+
+<button type="button" id="enqFab" hidden>SPEAK TO US</button>
+<div id="enqOverlay" aria-hidden="true">
+  <div class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enqTitle">
+    <button type="button" class="enq-close" id="enqCloseBtn" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="enq-head">
+      <p class="enq-eyebrow">Enquire</p>
+      <h2 id="enqTitle">Let&rsquo;s Plan Your Journey</h2>
+      <p>Send us the outline and we&rsquo;ll come back with a routing and a price &mdash; or skip straight to a conversation on the right.</p>
+      <p class="enq-package" id="enqPackageNote" hidden></p>
+    </div>
+    <form id="enqForm" novalidate>
+      <div class="enq-form">
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-name">Full name <span class="enq-req">*</span></label><input id="enq-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="enq-f"><label for="enq-phone">WhatsApp / Phone <span class="enq-req">*</span></label><input id="enq-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
+          <div class="enq-f"><label for="enq-travellers">Number Of Travellers</label><input id="enq-travellers" name="travellers" type="number" min="1" max="20" placeholder="e.g. 2"></div>
+        </div>
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-dates">Preferred Travel Date</label><input id="enq-dates" name="dates" type="date"></div>
+          <div class="enq-f"><label for="enq-interest">What are you interested in</label>
+            <select id="enq-interest" name="interest">
+              <option>Not sure yet &mdash; advise me</option>
+              <option>Safari</option>
+              <option>Beach</option>
+              <option>Family Adventure</option>
+              <option>Couples Escape</option>
+              <option>Private Jet</option>
+              <option>Helicopter Tour</option>
+              <option>Tailor-Made Journey</option>
+            </select>
+          </div>
+        </div>
+        <div class="enq-row" style="grid-template-columns:1fr;">
+          <div class="enq-f"><label for="enq-notes">Tell Us About Your Travel Plans</label><textarea id="enq-notes" name="notes" placeholder="Destinations in mind, an occasion, anything else that would help us plan..."></textarea></div>
+        </div>
+      </div>
+      <div class="enq-actions">
+        <div>
+          <p class="enq-act-label">Ready To Go</p>
+          <button type="submit" class="enq-btn-solid" id="enqReadyToggle">Request A Quote</button>
+          <div class="enq-quick" id="enqReadyQuick" hidden>
+            <a href="https://wa.me/254768886836?text=Hi%20{{brandUrl}}%2C%20I'd%20like%20to%20speak%20to%20someone%20about%20a%20trip." target="_blank" rel="noopener" class="enq-quick-btn" id="enqReadyWA"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.33-1.93 1.4-.53.08-1 .28-3.38-.7-2.86-1.18-4.7-4.1-4.84-4.29-.14-.19-1.16-1.55-1.16-2.95s.73-2.09.99-2.38c.26-.29.56-.36.75-.36l.53.01c.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.63-.13.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>WhatsApp</a>
+            <a href="mailto:{{email}}?subject=Enquiry%20from%20the%20website" class="enq-quick-btn" id="enqReadyMail"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+          </div>
+        </div>
+        <div>
+          <p class="enq-act-label">Or Speak To Us</p>
+          <button type="button" class="enq-btn-outline" id="enqSpeakToggle">Speak To Us</button>
+          <div class="enq-quick" id="enqQuick" hidden>
+            <a href="https://wa.me/254768886836?text=Hi%20{{brandUrl}}%2C%20I'd%20like%20to%20speak%20to%20someone%20about%20a%20trip." target="_blank" rel="noopener" class="enq-quick-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.33-1.93 1.4-.53.08-1 .28-3.38-.7-2.86-1.18-4.7-4.1-4.84-4.29-.14-.19-1.16-1.55-1.16-2.95s.73-2.09.99-2.38c.26-.29.56-.36.75-.36l.53.01c.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.63-.13.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>WhatsApp</a>
+            <a href="mailto:{{email}}?subject=Enquiry%20from%20the%20website" class="enq-quick-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p class="enq-note">Your details are filled in either way &mdash; choose WhatsApp or email and nothing leaves your device until you press send there.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  if (window.__fsEnquiryInit) return;
+  window.__fsEnquiryInit = true;
+  var WA_NUMBER = '254768886836';
+  var EMAIL_ADDR = '{{email}}';
+  var overlay = document.getElementById('enqOverlay');
+  var modal = overlay ? overlay.querySelector('.enq-modal') : null;
+  var closeBtn = document.getElementById('enqCloseBtn');
+  var form = document.getElementById('enqForm');
+  var lastFocus = null;
+
+  var fab = document.getElementById('enqFab');
+  var existingSpeakBtn = document.querySelector('.speak-btn:not(#enqFab)');
+  if (fab && !existingSpeakBtn) fab.hidden = false;
+
+  var triggers = document.querySelectorAll('.speak-btn, #enqFab, .js-fs-enquire, [data-fs-enquire]');
+  var packageNote = document.getElementById('enqPackageNote');
+  var currentPackage = null;
+
+  function openModal(pkg){
+    if (!overlay) return;
+    currentPackage = pkg || null;
+    if (packageNote) {
+      if (currentPackage) { packageNote.textContent = 'Enquiring about: ' + currentPackage; packageNote.hidden = false; }
+      else { packageNote.hidden = true; }
+    }
+    lastFocus = document.activeElement;
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('enq-lock');
+    requestAnimationFrame(function(){ overlay.classList.add('enq-show'); });
+    var first = document.getElementById('enq-name');
+    if (first) setTimeout(function(){ first.focus(); }, 260);
+  }
+  function closeModal(){
+    if (!overlay) return;
+    overlay.classList.remove('enq-show');
+    document.body.classList.remove('enq-lock');
+    overlay.setAttribute('aria-hidden', 'true');
+    setTimeout(function(){
+      overlay.style.display = 'none';
+      var speakToggle = document.getElementById('enqSpeakToggle');
+      var quick = document.getElementById('enqQuick');
+      if (speakToggle) speakToggle.hidden = false;
+      if (quick) quick.hidden = true;
+      var readyToggle = document.getElementById('enqReadyToggle');
+      var readyQuick = document.getElementById('enqReadyQuick');
+      if (readyToggle) readyToggle.hidden = false;
+      if (readyQuick) readyQuick.hidden = true;
+      if (form) form.reset();
+      currentPackage = null;
+      if (packageNote) packageNote.hidden = true;
+    }, 280);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  triggers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(t.getAttribute('data-fs-package'));
+    });
+  });
+
+  var speakToggle = document.getElementById('enqSpeakToggle');
+  var quick = document.getElementById('enqQuick');
+  if (speakToggle && quick) {
+    speakToggle.addEventListener('click', function(){
+      speakToggle.hidden = true;
+      quick.hidden = false;
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('enq-show')) closeModal();
+  });
+
+  var readyToggle = document.getElementById('enqReadyToggle');
+  var readyQuick = document.getElementById('enqReadyQuick');
+  var readyWA = document.getElementById('enqReadyWA');
+  var readyMail = document.getElementById('enqReadyMail');
+
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = null;
+      ['enq-name','enq-phone'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (!el.value.trim()) { el.style.borderColor = '#c0524a'; if (!bad) bad = el; }
+        else { el.style.borderColor = ''; }
+      });
+      if (bad) { bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); bad.focus(); return; }
+
+      var name = document.getElementById('enq-name').value.trim();
+      var phone = document.getElementById('enq-phone').value.trim();
+      var email = document.getElementById('enq-email').value.trim();
+      var travellers = document.getElementById('enq-travellers').value.trim();
+      var datesRaw = document.getElementById('enq-dates').value.trim();
+      var dates = '';
+      if (datesRaw) {
+        var dp = datesRaw.split('-');
+        dates = dp.length === 3 ? (dp[1] + '/' + dp[2] + '/' + dp[0]) : datesRaw;
+      }
+      var interest = document.getElementById('enq-interest').value;
+      var notes = document.getElementById('enq-notes').value.trim();
+
+      var lines = [
+        currentPackage ? ('Hi {{brand}}, I\'d like to book ' + currentPackage + '.') : 'Hi {{brand}}, I\'d like a quote.'
+      ];
+      if (currentPackage) lines.push('Package: ' + currentPackage);
+      lines.push('Name: ' + name);
+      lines.push('Phone: ' + phone);
+      if (email) lines.push('Email: ' + email);
+      if (travellers) lines.push('Travellers: ' + travellers);
+      if (dates) lines.push('Preferred date: ' + dates);
+      lines.push('Interested in: ' + interest);
+      if (notes) lines.push('Travel plans: ' + notes);
+      var bodyText = lines.join('\n');
+      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(bodyText);
+      var mailSubject = currentPackage ? ('Booking Enquiry: ' + currentPackage) : ('Quote Request from ' + name);
+      var mailUrl = 'mailto:' + EMAIL_ADDR + '?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(bodyText);
+
+      if (readyWA) readyWA.setAttribute('href', waUrl);
+      if (readyMail) readyMail.setAttribute('href', mailUrl);
+      if (readyToggle && readyQuick) { readyToggle.hidden = true; readyQuick.hidden = false; }
+    });
+  }
+})();
+</script>
+<!-- FS-ENQ-MODAL:END -->
+<!-- FS-FLOATCARD-DOCK:START -->
+<style>#enqFab.fs-fc-adjacent{transition:right .15s ease,bottom .15s ease;}.floatcard.fs-fc-shifted{transition:right .15s ease;}</style>
+<script>
+(function(){
+  var floatcard = document.querySelector('.floatcard');
+  var fab = document.getElementById('enqFab');
+  var hero = document.getElementById('top') || document.querySelector('.hero1923');
+  if (!floatcard || !fab || !hero) return;
+  fab.classList.add('fs-fc-adjacent');
+  floatcard.classList.add('fs-fc-shifted');
+  var gap = 12;
+
+  function positionWide(){
+    fab.style.right = '';
+    fab.style.bottom = '';
+    floatcard.style.left = '';
+    floatcard.style.right = (24 + fab.offsetWidth + gap) + 'px';
+  }
+  function positionNarrow(){
+    floatcard.style.right = '';
+    floatcard.style.left = '';
+    var fcRect = floatcard.getBoundingClientRect();
+    fab.style.right = (window.innerWidth - fcRect.right) + 'px';
+    fab.style.bottom = (window.innerHeight - fcRect.top + gap) + 'px';
+  }
+  function positionDock(){
+    if (window.innerWidth <= 900) positionNarrow();
+    else positionWide();
+  }
+  function reset(){
+    fab.style.right = '';
+    fab.style.bottom = '';
+    floatcard.style.right = '';
+  }
+  function update(){
+    var pastHero = hero.getBoundingClientRect().bottom <= 0;
+    if (pastHero) { fab.hidden = false; positionDock(); }
+    else { fab.hidden = true; reset(); }
+  }
+  var ticking = false;
+  function onScroll(){
+    if (!ticking) { ticking = true; requestAnimationFrame(function(){ update(); ticking = false; }); }
+  }
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+<!-- FS-FLOATCARD-DOCK:END -->
+<!-- FS-PRINT:START -->
+<style>
+@media print {
+  .topbar, .mainnav, .nav, header, nav, footer,
+  #enqFab, .speak-btn, #enqOverlay, #megaOverlay, .mega-overlay,
+  .tabnav, .dest-subnav, .dest-subnav-wrap, .ways-explore, .expert-cta,
+  .floatcard, .more-grid, .more-head, .jf-rail, .jf-toggle, .jf-bar, .jf-chips,
+  .aj-filters, .all-journeys-header, .all-journeys-results, .all-journeys-tag,
+  .stays-car-nav, .stays-carousel-arrow, .th-car-ctrl, .ts-car-ctrl, .ts-arrows,
+  .carousel-arrow, .map-controls, .map-section, .tj-breadcrumb, .aj-loadmore,
+  .download-row, .ways-tabs,
+  button, input, select, video
+  { display: none !important; }
+
+  .th-detail, .offer-detail, .jd-panel, .general-info-panel, .enq-detail, .aj-detail
+  { max-height: none !important; overflow: visible !important; }
+
+  * { box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important; }
+  html, body { background: #fff !important; }
+  body { font-size: 11pt; color: #1a1209; }
+  a { color: #1a1209 !important; text-decoration: none !important; }
+  .hero1923, [class*="-hero"] { min-height: auto !important; page-break-inside: avoid; }
+  .itinerary-section, .day-card, .price-card, .pricing-grid { page-break-inside: avoid; }
+
+  body::before {
+    content: "{{BRAND}}";
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16pt;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 10pt 0 12pt;
+    border-bottom: 2pt solid #8B3A2A;
+    margin-bottom: 18pt;
+  }
+  @page { margin: 1.6cm; }
+}
+</style>
+
+<!-- FS-PRINT:END -->
+<!--@include subscribe-modal-->
+<!-- FS-FOOT-SUB:START -->
+<script>
+(function(){
+  var form = document.getElementById('footSubForm');
+  if (!form) return;
+  var fn = document.getElementById('footFirstName');
+  var ln = document.getElementById('footLastName');
+  var em = document.getElementById('footEmail');
+  var note = document.getElementById('footFormNote');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    [fn, ln, em].forEach(function(f){ f.classList.remove('fs-err'); });
+    var bad = null;
+    if (!fn.value.trim()) bad = fn;
+    else if (!ln.value.trim()) bad = ln;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) bad = em;
+    if (bad) {
+      bad.classList.add('fs-err');
+      note.textContent = 'Please fill in your first name, last name and a valid email address.';
+      bad.focus();
+      return;
+    }
+    var body = 'First Name: ' + fn.value.trim() + '\nLast Name: ' + ln.value.trim() + '\nEmail: ' + em.value.trim() + '\n\nPlease add me to the mailing list.';
+    var mailto = 'mailto:{{email}}?subject=' + encodeURIComponent('Newsletter Signup') + '&body=' + encodeURIComponent(body);
+    window.open(mailto, '_blank');
+    form.reset();
+    note.textContent = 'We\'ve opened your email client with your details ready to send — just hit send.';
+  });
+})();
+</script>
+<!-- FS-FOOT-SUB:END -->
+</body>
+</html>

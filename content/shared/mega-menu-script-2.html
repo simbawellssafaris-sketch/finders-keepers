@@ -1,0 +1,342 @@
+<script>
+var REGION_DATA = {
+  'africa':       { label:'All African Destinations',    cards:[['Kenya','mc2bg1','assets/img/destinations/kenya.jpg'],['Tanzania','mc2bg2','assets/img/destinations/tanzania.jpg']], countries:['Botswana','Egypt','Kenya','Morocco','Namibia','Rwanda','South Africa','Tanzania','Uganda','Zimbabwe'] },
+  'indian-ocean': { label:'All Indian Ocean Destinations',cards:[['Maldives','mc2bg3','assets/img/destinations/maldives.jpg'],['Zanzibar','mc2bg4','assets/img/destinations/zanzibar.jpg']], countries:['Maldives','Mauritius','Seychelles','Sri Lanka','Zanzibar'] },
+  'asia':         { label:'All Asian Destinations',      cards:[['Japan','mc2bg5','assets/img/destinations/japan.jpg'],['Thailand','mc2bg6','assets/img/destinations/thailand.jpg']],    countries:['Cambodia','China','Indonesia','Japan','Malaysia','Philippines','Singapore','Thailand','Vietnam'] },
+  'europe':       { label:'All European Destinations',   cards:[['Italy','mc2bg1','assets/img/destinations/italy.jpg'],['France','mc2bg2','assets/img/destinations/france.jpg']],   countries:['Croatia','France','Greece','Italy','Netherlands','Spain','Switzerland','Turkey'] },
+  'middle-east':  { label:'All Middle East Destinations',cards:[['Dubai','mc2bg3','assets/img/destinations/dubai.jpg']],    countries:['Dubai'] },
+  'oceania':      { label:'All Oceania Destinations',    cards:[['New Zealand','mc2bg4','assets/img/destinations/new-zealand.jpg'],['Fiordland','mc2bg6',null]], countries:['New Zealand'] }
+};
+
+var P2_DATA = {
+  destinations: { cards:[['Maasai Mara','mc2bg1',null],['Serengeti','mc2bg2',null]], allLabel:'ALL DESTINATIONS', showRegions:true },
+  journeys:     { cards:[['Tailor-Made','mc2bg3','assets/img/travel-style/tailor-made/1.jpg'],['Group Journeys','mc2bg4','assets/img/travel-style/small-group/1.jpg']], allLabel:'ALL JOURNEYS', showRegions:false, items:['Tailor-Made Safaris','Small Group Journeys','Honeymoon Safaris','Family Safaris','Solo Travel'] },
+  lodges:       { cards:[['City Hotels','mc2bg5','assets/img/lodges/hemingways-nairobi/1.jpg'],['Luxury Camps','mc2bg6','assets/img/lodges/jw-marriott-mara-lodge/1.jpg']], allLabel:'ALL ACCOMMODATIONS', showRegions:false, regionsKind:'lodges', items:['Nimali Tarangire','Grumeti River Lodge'] }
+};
+
+function openMegaMenu() {
+  var overlay = document.getElementById('megaOverlay');
+  var p1      = document.getElementById('mpanel1');
+  if (!overlay || !p1) return;
+  // 1. Make overlay visible
+  overlay.style.display = 'block';
+  // 2. After one frame, trigger transitions
+  requestAnimationFrame(function() {
+    overlay.classList.add('open');
+    p1.classList.add('visible');
+  });
+  document.body.style.overflow = 'hidden';
+  document.body.classList.add('mega-open');
+  var btn = document.getElementById('menuOpen');
+  if (btn) btn.setAttribute('aria-expanded','true');
+}
+
+function closeMegaMenu() {
+  var overlay = document.getElementById('megaOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  ['mpanel1','mpanel2','mpanel3'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('visible');
+  });
+  document.body.classList.remove('mega-open');
+  document.body.style.overflow = '';
+  var btn = document.getElementById('menuOpen');
+  if (btn) btn.setAttribute('aria-expanded','false');
+  document.querySelectorAll('.mp1-nav li').forEach(function(li) { li.classList.remove('active-item'); });
+  // After slide-out transition, hide completely
+  setTimeout(function() {
+    if (!overlay.classList.contains('open')) overlay.style.display = 'none';
+  }, 450);
+}
+
+function openP2(key) {
+  var data = P2_DATA[key];
+  if (!data) return false;
+
+  var p2 = document.getElementById('mpanel2');
+  var p3 = document.getElementById('mpanel3');
+  if (!p2) return false;
+
+  // Update feature cards at top
+  var cards = p2.querySelectorAll('.mp2-card');
+  data.cards.forEach(function(c, i) {
+    if (cards[i]) {
+      var bg = cards[i].querySelector('.mp2-card-bg');
+      bg.className = 'mp2-card-bg ' + c[1];
+      bg.style.backgroundImage = c[2] ? "url('" + c[2] + "')" : '';
+      cards[i].querySelector('.mp2-card-label').textContent = c[0];
+    }
+  });
+
+  // Update all-btn
+  var allBtn = p2.querySelector('.mp2-all-btn');
+  if (allBtn) {
+    allBtn.textContent = data.allLabel;
+    var p2Hrefs = { destinations: 'destinations.html', journeys: 'journey-finder.html', lodges: 'lodges.html' };
+    allBtn.href = p2Hrefs[key] || '#';
+  }
+
+  // Update regions/items list
+  var list = p2.querySelector('.mp2-regions');
+  if (list) {
+    list.innerHTML = '';
+    if (data.regionsKind === 'lodges') {
+      var lodgeRegions = [
+        {key:'africa',       label:'Africa'},
+        {key:'indian-ocean', label:'Indian Ocean'},
+        {key:'asia',         label:'Asia'},
+        {key:'europe',       label:'Europe'},
+        {key:'oceania',      label:'Oceania'}
+      ];
+      lodgeRegions.forEach(function(r) {
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = 'lodges-' + r.key + '.html';
+        a.innerHTML = r.label + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>';
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    } else if (data.showRegions) {
+      var regions = [
+        {key:'africa',       label:'Africa'},
+        {key:'indian-ocean', label:'Indian Ocean'},
+        {key:'asia',         label:'Asia'},
+        {key:'europe',       label:'Europe'},
+        {key:'middle-east',  label:'Middle East'},
+        {key:'oceania',      label:'Oceania'}
+      ];
+      regions.forEach(function(r) {
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = '#';
+        a.setAttribute('data-region', r.key);
+        a.innerHTML = r.label + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>';
+        a.onclick = (function(rk) { return function(e) { e.preventDefault(); openP3(rk); return false; }; })(r.key);
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    } else {
+      (data.items || []).forEach(function(item) {
+        var li = document.createElement('li');
+        var ITEM_HREFS = {
+        'Tailor-Made Safaris': 'tailor-made-safaris.html',
+        'Small Group Journeys': 'small-group-journeys.html',
+        'Honeymoon Safaris': 'couples-escapes.html',
+        'Family Safaris': 'family-adventures.html',
+        'Solo Travel': 'solo-travel.html',
+        'Nimali Tarangire': 'nimali-tarangire.html',
+        'Grumeti River Lodge': 'andbeyond-grumeti-river-lodge.html'
+      };
+      li.innerHTML = '<a href="' + (ITEM_HREFS[item] || '#') + '">' + item + '</a>';
+        list.appendChild(li);
+      });
+    }
+  }
+
+  // Highlight active p1 item
+  document.querySelectorAll('.mp1-nav li').forEach(function(li) { li.classList.remove('active-item'); });
+  var activeEl = document.getElementById('mp1-' + key);
+  if (activeEl) activeEl.classList.add('active-item');
+
+  // Show p2, hide p3
+  p2.classList.add('visible');
+  if (p3) p3.classList.remove('visible');
+
+  return false;
+}
+
+function openP3(region) {
+  var data = REGION_DATA[region];
+  if (!data) return false;
+
+  var p3 = document.getElementById('mpanel3');
+  var p2 = document.getElementById('mpanel2');
+  if (!p3) return false;
+
+  // Update cards
+  var cards = p3.querySelectorAll('.mp3-card');
+  data.cards.forEach(function(c, i) {
+    if (cards[i]) {
+      var bg = cards[i].querySelector('.mp3-card-bg');
+      bg.className = 'mp3-card-bg ' + c[1];
+      bg.style.backgroundImage = c[2] ? "url('" + c[2] + "')" : '';
+      cards[i].querySelector('.mp3-card-label').textContent = c[0];
+    }
+  });
+
+  // All-btn
+  var allBtn = p3.querySelector('.mp3-all-btn');
+  if (allBtn) {
+    allBtn.textContent = data.label.toUpperCase();
+    var p3Hrefs = { africa: 'destinations-africa.html', 'indian-ocean': 'destinations-indian-ocean.html', asia: 'destinations-asia.html', europe: 'destinations-europe.html', oceania: 'destinations-oceania.html', 'middle-east': 'destinations-middle-east.html' };
+    allBtn.href = p3Hrefs[region] || 'destinations.html';
+  }
+
+  // Countries
+  var ul = p3.querySelector('.mp3-countries');
+  if (ul) {
+    ul.innerHTML = '';
+    var COUNTRY_LINKS = {
+      'Botswana': 'finders-safaris-botswana.html',
+      'Egypt': 'finders-safaris-egypt.html',
+      'Kenya': 'finders-safaris-kenya.html',
+      'Morocco': 'finders-safaris-morocco.html',
+      'Namibia': 'finders-safaris-namibia.html',
+      'Rwanda': 'finders-safaris-rwanda.html',
+      'Seychelles': 'finders-safaris-seychelles.html',
+      'Maldives': 'finders-safaris-maldives.html',
+      'Mauritius': 'finders-safaris-mauritius.html',
+      'Sri Lanka': 'finders-safaris-sri-lanka.html',
+      'Zanzibar': 'finders-safaris-zanzibar.html',
+      'Croatia': 'finders-safaris-croatia.html',
+      'France': 'finders-safaris-france.html',
+      'Greece': 'finders-safaris-greece.html',
+      'Italy': 'finders-safaris-italy.html',
+      'Netherlands': 'finders-safaris-netherlands.html',
+      'Spain': 'finders-safaris-spain.html',
+      'Switzerland': 'finders-safaris-switzerland.html',
+      'Turkey': 'finders-safaris-turkey.html',
+      'New Zealand': 'finders-safaris-new-zealand.html',
+      'South Africa': 'finders-safaris-south-africa.html',
+      'Tanzania': 'finders-safaris-tanzania.html',
+      'Uganda': 'finders-safaris-uganda.html',
+      'Zimbabwe': 'finders-safaris-zimbabwe.html',
+      'Cambodia': 'finders-safaris-cambodia.html',
+      'China': 'finders-safaris-china.html',
+      'Indonesia': 'finders-safaris-indonesia.html',
+      'Japan': 'finders-safaris-japan.html',
+      'Malaysia': 'finders-safaris-malaysia.html',
+      'Philippines': 'finders-safaris-philippines.html',
+      'Singapore': 'finders-safaris-singapore.html',
+      'Thailand': 'finders-safaris-thailand.html',
+      'Vietnam': 'finders-safaris-vietnam.html',
+      'Dubai': 'finders-safaris-dubai.html'
+      // Add other country page filenames here as they are built
+    };
+    data.countries.forEach(function(c) {
+      var li = document.createElement('li');
+      var href = COUNTRY_LINKS[c] || '#';
+      li.innerHTML = '<a href="' + href + '">' + c + '</a>';
+      ul.appendChild(li);
+    });
+  }
+
+  // Mark active region
+  if (p2) {
+    p2.querySelectorAll('.mp2-regions a').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-region') === region);
+    });
+  }
+
+  // Show p3
+  p3.classList.add('visible');
+  return false;
+}
+
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Wire up hamburger, close, backdrop
+  var hamburger = document.getElementById('menuOpen');
+  var closeBtn  = document.getElementById('megaClose');
+  var backdrop  = document.getElementById('megaBackdrop');
+  if (hamburger) hamburger.addEventListener('click', openMegaMenu);
+  if (closeBtn)  closeBtn.addEventListener('click', closeMegaMenu);
+  if (backdrop)  backdrop.addEventListener('click', closeMegaMenu);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMegaMenu(); });
+
+  // ══ SECONDARY STICKY NAV — pin on scroll ══
+  var subnav = document.getElementById('destSubnav');
+  var spacer = document.getElementById('destSubnavSpacer');
+  var subnavNaturalTop = null;
+
+  function updateSubnavPin() {
+    if (!subnav || !spacer) return;
+    if (subnavNaturalTop === null) {
+      var r = subnav.getBoundingClientRect();
+      subnavNaturalTop = r.top + window.scrollY;
+    }
+    var shouldPin = window.scrollY >= subnavNaturalTop;
+    if (shouldPin && !subnav.classList.contains('is-pinned')) {
+      spacer.style.height = subnav.offsetHeight + 'px';
+      subnav.classList.add('is-pinned');
+    } else if (!shouldPin && subnav.classList.contains('is-pinned')) {
+      subnav.classList.remove('is-pinned');
+      spacer.style.height = '0px';
+    }
+  }
+  window.addEventListener('scroll', updateSubnavPin, { passive: true });
+  window.addEventListener('resize', function() {
+    subnavNaturalTop = null;
+    if (subnav.classList.contains('is-pinned')) {
+      subnav.classList.remove('is-pinned');
+      spacer.style.height = '0px';
+    }
+    updateSubnavPin();
+  });
+  setTimeout(updateSubnavPin, 100);
+
+  // Smooth scroll + active state for subnav links
+  var subnavLinks = subnav ? subnav.querySelectorAll('a[data-target]') : [];
+  subnavLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = link.dataset.target;
+      if (target === 'top') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      var section = document.getElementById(target);
+      if (section) {
+        e.preventDefault();
+        var offset = (subnav ? subnav.offsetHeight : 0) + 64 + 8;
+        var top = section.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Scrollspy for subnav
+  var sections = ['journeys','experiences','accommodations','explore','map','all']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  window.addEventListener('scroll', function() {
+    var offset = (subnav ? subnav.offsetHeight : 0) + 64 + 80;
+    var current = null;
+    sections.forEach(function(sec) {
+      var r = sec.getBoundingClientRect();
+      if (r.top <= offset) current = sec.id;
+    });
+    if (current) {
+      subnavLinks.forEach(function(l) {
+        l.classList.toggle('active', l.dataset.target === current);
+      });
+    }
+  }, { passive: true });
+
+  // ══ ACCOMMODATIONS CAROUSEL ══
+  var accCarousel = document.getElementById('accCarousel');
+  var accPrev = document.getElementById('accPrev');
+  var accNext = document.getElementById('accNext');
+  if (accCarousel && accPrev && accNext) {
+    var scrollAmount = 488; // card width + gap
+    accNext.addEventListener('click', function() {
+      accCarousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+    accPrev.addEventListener('click', function() {
+      accCarousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+
+  // ══ SCROLL REVEAL ══
+  var ro = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+}); // end DOMContentLoaded
+</script>

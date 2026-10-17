@@ -1,0 +1,92 @@
+{
+  "egypt-mediterranean-pearl-palaces": {
+    "lead": "Egypt beyond the Pyramids: Cairo’s Islamic heart, Alexandria’s Mediterranean shore and a Nile sail to Luxor.",
+    "reasons": [
+      { "t": "Cairo on foot with an expert", "d": "Private architectural walks through Coptic Cairo and Saladin’s 12th-century Citadel, and an Al-Azhar Hill sundowner of Egyptian wines over a thousand minarets." },
+      { "t": "Alexandria, by the sea", "d": "A stay at the Four Seasons San Stefano, a private after-hours visit to the Roman Catacombs of Kom El Shoqafa, and a seafood dinner on a private pier." },
+      { "t": "A dawn flight and a Nile sail", "d": "A dawn helicopter or balloon loop over the Alexandria coast landing for a champagne brunch in the Montaza Palace gardens, then the temples of Luxor and a sail aboard the Mövenpick Royal Lily." }
+    ],
+    "bestFor": ["Culture lovers", "Solo travellers", "Food lovers"]
+  },
+  "egypt-pharaonic-kingdoms": {
+    "lead": "The classic Pharaonic route done without queues: VIP arrivals, after-hours museum access and a balloon over the Valley of the Kings.",
+    "reasons": [
+      { "t": "Pyramids and a museum, privately", "d": "A crowd-free Egyptologist tour of the Great Pyramid and Sphinx, and after-hours VIP access to the Grand Egyptian Museum, including the complete Tutankhamun collection." },
+      { "t": "A desert tent at sunset", "d": "A champagne sundowner from a private desert majlis tent facing the Pyramids as the sun sets behind them." },
+      { "t": "Tombs, temples and the Nile", "d": "A dawn balloon over the Valley of the Kings, private entry to the tombs of Tutankhamun and Seti I, the Temple of Hatshepsut, and a stay aboard The Oberoi Zahra." }
+    ],
+    "bestFor": ["First Egypt trips", "History lovers", "Special occasions"]
+  },
+  "egypt-secret-oasis-hidden-tombs": {
+    "lead": "The Egypt most visitors miss: newly excavated tombs at Saqqara and a private flight to the salt-rock lodge at Siwa Oasis.",
+    "reasons": [
+      { "t": "Tombs closed to the public", "d": "Private access to newly excavated noble tombs at Saqqara, then single malt whisky at sunset on a platform overlooking the Step Pyramid of Djoser." },
+      { "t": "Siwa, by private charter", "d": "A charter flight deep into the Western Desert to Adrère Amellal Eco-Lodge, a float in a hyper-saline desert lake, the Oracle Temple of Alexander the Great and a dawn balloon over the salt pans." },
+      { "t": "Then the Nile", "d": "Luxor, Kom Ombo and Aswan, sailing aboard the Sonesta Star Goddess." }
+    ],
+    "bestFor": ["Return Egypt visitors", "History lovers", "Adventurous travellers"]
+  },
+  "morocco-imperial-cities": {
+    "lead": "Four imperial cities and the Sahara in ten days, with a private flight that replaces a nine-hour desert road journey.",
+    "reasons": [
+      { "t": "Fes, privately", "d": "A sunset tour of the 14th-century Merenid Tombs above the medina, and the Chouara Tannery seen from a private viewing balcony." },
+      { "t": "The Sahara at sunrise", "d": "A balloon over Erg Chebbi as the sands turn from purple to orange, then a white-linen champagne breakfast atop a 300-metre dune prepared by your private chef." },
+      { "t": "Kasbahs and the Atlas", "d": "Todra Gorge’s 300-metre limestone walls, Aït Benhaddou on the Road of a Thousand Kasbahs, the Tizi n’Tichka Pass, and a finish at the Royal Mansour in Marrakech." }
+    ],
+    "bestFor": ["Families", "First Morocco trips", "Photographers"]
+  },
+  "morocco-mediterranean-pearl": {
+    "lead": "Morocco’s northern and Atlantic coasts, a different country from the desert circuit: Tangier, the Blue City, Rabat and Essaouira.",
+    "reasons": [
+      { "t": "Where two seas meet", "d": "A private yacht sail where the Mediterranean meets the Atlantic at the Strait of Gibraltar, with Spain in view, and a Cape Spartel sundowner with Moroccan sparkling wine." },
+      { "t": "Chefchaouen, crowd-free", "d": "A private walk with an architectural historian through the blue-washed streets of the old Andalusian quarter." },
+      { "t": "Rabat, and the coast from above", "d": "Hassan Tower and the Kasbah of the Udayas with a seafood bonfire dinner, a dawn balloon or helicopter over the Atlantic coast, and a hammam in Essaouira." }
+    ],
+    "bestFor": ["Couples", "Art and history lovers", "Return Morocco visitors"]
+  },
+  "morocco-rif-saharan-oases": {
+    "lead": "Off Morocco’s main circuit: the Rif mountains, Roman Volubilis after hours, a hidden oasis retreat and the red arches of Legzira.",
+    "reasons": [
+      { "t": "Roman ruins after hours", "d": "Volubilis to yourselves, with a vintage wine tasting on white linen between the basilica’s pillars, and Tetouan’s White Dove medina without the crowds." },
+      { "t": "Lake, gorges and a balloon", "d": "A speedboat through deep red rock gorges on Lake Bin El Ouidane, then a balloon over the lake and Atlas foothills with a champagne brunch on a quiet peninsula." },
+      { "t": "Dar Ahlam and Legzira", "d": "A hidden retreat in the Skoura Oasis among 1,000 palm trees with a theatrical kasbah dinner, and a private charter to Mirleft to walk beneath the Legzira sandstone sea arches." }
+    ],
+    "bestFor": ["Return Morocco visitors", "Photographers", "Couples"]
+  },
+  "morocco-secret-oasis-atlas": {
+    "lead": "A Marrakech-based escape into the Atlas: camel safaris, lantern-lit canyon dinners and Kasbah Tamadot.",
+    "reasons": [
+      { "t": "Agafay at sunset", "d": "A private camel safari across the Agafay plains with the snow-capped Atlas on the horizon, then an open-air dinner in a stone canyon lit by hundreds of floating lanterns." },
+      { "t": "A balloon in the foothills", "d": "A sunrise balloon over the Atlas foothills with a farm-to-table breakfast in a mountain meadow, and the hidden Ourika Valley waterfalls with a naturalist and Barbary macaques." },
+      { "t": "A mountain fortress", "d": "Kasbah Tamadot has a heated infinity pool and Atlas panoramas, plus an argan and rose oil hammam, after nights at Royal Mansour and Inara Camp." }
+    ],
+    "bestFor": ["Families", "Couples", "Spa lovers"]
+  },
+  "dubai-grand-luxury-experience": {
+    "lead": "Ten days in Dubai with VIP handling at every border and a private chauffeur throughout, from the Burj Khalifa to a desert camp under the stars.",
+    "reasons": [
+      { "t": "VIP from the moment you land", "d": "A VIP meet-and-greet at every entry point with fast-tracked customs, and a private chauffeur for the whole journey." },
+      { "t": "Dubai from every angle", "d": "A scenic helicopter flight over Palm Jumeirah, Atlantis and the coast, then the Burj Khalifa and the Dubai Fountain from above." },
+      { "t": "Desert and old city", "d": "Dune bashing, sandboarding and a premium desert camp dinner, Old Dubai’s soul, and nine nights at the Fairmont Dubai on Sheikh Zayed Road." }
+    ],
+    "bestFor": ["City-break lovers", "Families", "Special occasions"]
+  },
+  "new-zealand-and-fiji": {
+    "lead": "Mountains, then islands: Queenstown’s adventure country and Milford Sound, finishing barefoot on Malolo Island in Fiji.",
+    "reasons": [
+      { "t": "Queenstown, your way", "d": "Four nights at The Rees on Lake Wakatipu beneath the Remarkables, with a jet boat, bungy, zipline, skydive or rafting if you want them, and the Onsen Hot Pools if you don’t." },
+      { "t": "The Alps from a helicopter", "d": "A private scenic helicopter flight over the Southern Alps with an alpine landing, then Fiordland National Park and a cruise through Milford Sound." },
+      { "t": "A Six Senses finish", "d": "Fly to Fiji’s Mamanuca Islands for the final nights at Six Senses on Malolo Island." }
+    ],
+    "bestFor": ["Honeymooners", "Adventure seekers", "Mountain-and-island trips"]
+  },
+  "new-zealand-grand-adventure": {
+    "lead": "New Zealand end to end: Auckland’s volcanic cones, Māori culture and geysers in Rotorua, Queenstown and the fiords.",
+    "reasons": [
+      { "t": "Rotorua’s living culture", "d": "A Māori cultural performance in a carved meeting house, a hāngi cooked beneath the earth, and the New Zealand Māori Arts and Crafts Institute at Te Puia." },
+      { "t": "Geothermal wonders", "d": "The Pōhutu Geyser, the Champagne Pool, the Artist’s Palette and the Devil’s Bath, with two nights at Huka Lodge on the Waikato River." },
+      { "t": "Alps and fiords", "d": "Queenstown and the Southern Alps, the cruise through Milford Sound from Fiordland Lodge, and a finish at The George in Christchurch." }
+    ],
+    "bestFor": ["First New Zealand trips", "Culture lovers", "Families"]
+  }
+}

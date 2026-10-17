@@ -1,0 +1,10 @@
+<script>
+  document.querySelectorAll('.jd-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.dataset.target);
+      panel.classList.toggle('open');
+      const isOpen = panel.classList.contains('open');
+      btn.textContent = btn.textContent.replace(/[+\-]$/, '').trim() + (isOpen ? ' -' : ' +');
+    });
+  });
+</script>

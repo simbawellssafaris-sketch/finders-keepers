@@ -1,0 +1,101 @@
+{
+  "bali-cultural-peaks-royal-palaces": {
+    "lead": "Bali’s royal and sacred side: palaces, water temples and a clifftop Kecak dance, with a private superyacht transfer to the south.",
+    "reasons": [
+      { "t": "Palaces and sacred water", "d": "A private historian tour of Ubud Palace, whose 16th-century pavilions still house the royal family, then the purification pools of Tirta Empul and the royal water palace of Tirta Gangga." },
+      { "t": "A floating temple and bamboo design", "d": "Pura Ulun Danu Beratan’s multi-tiered shrines reflected in a volcanic lake, and an architectural tour of the handcrafted bamboo villa at Hideout Flow." },
+      { "t": "By superyacht to Uluwatu", "d": "A private superyacht to the Bukit Peninsula with Uluwatu Temple on its 70-metre cliff in view, a Kecak Fire Dance at sunset, and a candlelit dinner on Jimbaran Bay." }
+    ],
+    "bestFor": ["Culture lovers", "Couples", "First Bali trips"]
+  },
+  "bali-island-jungle-romance": {
+    "lead": "Ubud’s river gorges and waterfalls, a bamboo villa over a volcanic river and a seaplane to Bawah Reserve’s overwater bungalows.",
+    "reasons": [
+      { "t": "Jungle and waterfalls", "d": "A private guided visit to Tegenungan Waterfall with sunset cocktails on a draped daybed at Omma Ubud, and Cretya Ubud’s infinity pools above the Ayung River gorge and UNESCO rice terraces." },
+      { "t": "Breakfast above Bali’s tallest cascade", "d": "A white-linen hot breakfast at the Sekumpul Hanging Restaurant, then an exclusive-use bamboo villa flowing over a rushing volcanic river, with a lantern dinner on the bank." },
+      { "t": "A seaplane to Bawah", "d": "A private seaplane into Bawah Reserve, six private islands and three turquoise lagoons, and an overwater bungalow with the reef visible through the floor." }
+    ],
+    "bestFor": ["Honeymooners", "Couples", "Beach-and-jungle trips"]
+  },
+  "bali-secrets-volcanic-canyons": {
+    "lead": "Bali for people who like to move: white-water rafting, hidden waterfalls and a canyon trek to the island’s tallest cascade.",
+    "reasons": [
+      { "t": "Rapids and a giant swing", "d": "Private white-water rafting on the Ayung River through class II–III rapids, and a giant swing high over the palm forest at Cretya Ubud." },
+      { "t": "Waterfalls, each different", "d": "The Banyumala Twin Waterfalls in a neon-turquoise basin, Tukad Cepung’s sunbeam-lit canyon cavern, and a deep-canyon trek to the base of Sekumpul." },
+      { "t": "Volcano nights", "d": "An exclusive-use bamboo villa in the shadow of Mount Agung at Hideout Flow, and a sunrise on the Bukit Cinta ridge." }
+    ],
+    "bestFor": ["Active travellers", "Waterfall chasers", "Adventurous couples"]
+  },
+  "bali-ultimate-archipelago-secret-falls": {
+    "lead": "Secret waterfalls on Bali, then a private speedboat to Nusa Penida’s T-Rex cliff and Diamond Beach.",
+    "reasons": [
+      { "t": "Hidden waterfalls", "d": "Tukad Cepung’s light beams through a narrow canyon, the single elegant column of Leke Leke hidden among ferns, and a Sekumpul Hanging Restaurant breakfast basket." },
+      { "t": "Nusa Penida by speedboat", "d": "Kelingking Beach’s T-Rex-shaped limestone cliff, Diamond Beach’s rock pillars, Angel’s Billabong and the sacred blue stairs of Peguyangan Waterfall, with a stay at Maua Nusa Penida." },
+      { "t": "A bamboo sanctuary", "d": "An exclusive-use bamboo villa built over a flowing river, with Mount Agung rising in the distance." }
+    ],
+    "bestFor": ["Photographers", "Active travellers", "Couples"]
+  },
+  "cambodia-cardamom-jungle-island-frontiers": {
+    "lead": "Arrive by zipline at Shinta Mani Wild in the Cardamom Mountains, join anti-poaching rangers, then take a helicopter to Song Saa Private Island.",
+    "reasons": [
+      { "t": "A zipline arrival", "d": "A 400-metre private zipline glide above the waterfalls straight into camp, then kayaking the Tmor Rung rapids with an elite naturalist and single malts at a rocky ledge beside a crashing waterfall." },
+      { "t": "Beside the rangers", "d": "An anti-poaching patrol trek with the armed rangers of the Wildlife Alliance, tracking wild elephants and seeing conservation work in the field." },
+      { "t": "A helicopter to a private island", "d": "Song Saa Private Island has an overwater villa on stilts above a protected coral reef, a champagne brunch overlooking the marine reserve, and a bioluminescent night snorkel." }
+    ],
+    "bestFor": ["Conservation-minded travellers", "Adventurous couples", "Island seekers"]
+  },
+  "cambodia-khmer-empires-secret-lagoons": {
+    "lead": "Angkor from the former guest villa of King Sihanouk, with dawn at Angkor Wat, Ta Prohm’s roots and a candlelit boat on Angkor Thom’s moat.",
+    "reasons": [
+      { "t": "Angkor Wat before the crowd", "d": "Dawn behind the five towers reflected in the lotus pond, then the longest continuous bas-relief carvings in the world with a private historian." },
+      { "t": "Faces and roots", "d": "The 216 serene stone faces of Bayon, Ta Prohm’s silk-cotton roots wrapped around collapsed doorways, and remote Beng Mealea." },
+      { "t": "A royal stay, a moat at sunset", "d": "Amansara, once King Norodom Sihanouk’s guest villa, with a private lotus pond, and sunset champagne on a private wooden boat along Angkor Thom’s moat." }
+    ],
+    "bestFor": ["First Cambodia trips", "History lovers", "Photographers"]
+  },
+  "cambodia-lost-citadels-northern-canyons": {
+    "lead": "The Cambodia beyond Angkor: a seven-tiered jungle pyramid, a temple on a 525-metre cliff and brick sanctuaries few visitors reach.",
+    "reasons": [
+      { "t": "A pyramid in the jungle", "d": "Koh Ker’s 36-metre, seven-tiered sandstone step pyramid, rising from dense forest as if lost to time." },
+      { "t": "Wine on a cliff edge", "d": "The ancient sanctuaries of Preah Vihear on the edge of a 525-metre cliff, with vintage wines on the cliff edge as the sun sets over the plains." },
+      { "t": "Temples to yourself", "d": "UNESCO-listed Sambor Prei Kuk’s pre-Angkorian brick temples, the remote Preah Khan of Kompong Svay with a hot bento breakfast before anyone else arrives, and a stone-carving masterclass." }
+    ],
+    "bestFor": ["Return Cambodia visitors", "History lovers", "Adventurous travellers"]
+  },
+  "cambodia-mekong-capitals-coastal-palaces": {
+    "lead": "Phnom Penh’s palaces from a Mekong suite, then Cambodia’s southern coast: Kep, Kampot pepper and a 7th-century temple inside a cave.",
+    "reasons": [
+      { "t": "A river-view capital", "d": "A Mekong Suite at Rosewood overlooking the confluence of the Mekong and Tonle Sap, the Royal Palace and Silver Pagoda with its 5,000 silver floor tiles, and a private yacht on the Mekong at sunset." },
+      { "t": "A temple inside a mountain", "d": "Phnom Chhnork’s complete 7th-century brick temple standing intact in a limestone cavern." },
+      { "t": "Coast, pepper and a ghost town", "d": "A Kampot pepper plantation and culinary masterclass, the abandoned buildings of Bokor Mountain, and beachfront villas and a mangrove spa at Samanea Wellness Resort." }
+    ],
+    "bestFor": ["Culture lovers", "Food lovers", "Wellness seekers"]
+  },
+  "china-ancient-silk-road-floating-peaks": {
+    "lead": "From the Silk Road’s desert caves to the sandstone pillars of Zhangjiajie and the lights of Chongqing: three very different Chinas.",
+    "reasons": [
+      { "t": "1,500 years of murals", "d": "A private historian-led morning at the UNESCO-listed Mogao Caves, then a camel ride across the singing sands of Mingsha to Crescent Moon Lake." },
+      { "t": "The Avatar mountains", "d": "The glass-fronted Bailong Elevator up a 326-metre cliff, the First Bridge Under Heaven among the sandstone pillars that inspired Avatar, and the Glass Bridge over Zhangjiajie Grand Canyon." },
+      { "t": "A city lit up", "d": "A fast train to Chongqing for the Hongyadong lights, its train through a building, and a sunset at the Southwind Cliff Bistro." }
+    ],
+    "bestFor": ["First China trips", "Photographers", "Adventurous travellers"]
+  },
+  "china-deep-heritage-rice-terraces": {
+    "lead": "The Terracotta Army and Xi’an’s city wall by bike, a lantern-lit village, the Li River and the Dragon’s Backbone rice terraces.",
+    "reasons": [
+      { "t": "Soldiers and a wall", "d": "A private guided morning with the Terracotta Army, the 14-kilometre Xi’an City Wall cycled in full, and a Tang Dynasty music and dance performance in period costume." },
+      { "t": "A village of lanterns", "d": "An evening boat ride along Gexian Village’s waterways beneath red silk lanterns, and a Taoist sanctuary hike." },
+      { "t": "Karst peaks and terraces", "d": "A four-hour luxury Li River cruise to Yangshuo past dramatic karst peaks, the Dragon’s Backbone rice terraces at Longji, and a finish at The Peninsula Shanghai." }
+    ],
+    "bestFor": ["First China trips", "Culture lovers", "Photographers"]
+  },
+  "china-modern-icons-mystic-valleys": {
+    "lead": "Shanghai’s skyline from The Peninsula, then a lantern village, a cliffside cabin in Wangxian Valley and a private boat on West Lake.",
+    "reasons": [
+      { "t": "Shanghai from above", "d": "Three nights at The Peninsula with the Pudong skyline across the Huangpu, a private high-speed elevator up the Shanghai Tower for a 360-degree view, and the French Concession and Yu Garden." },
+      { "t": "Fairy villages and cliff cabins", "d": "A Hanfu dress-up evening in Gexian Fairy Village with water, laser and drone shows, a cable car into misty Taoist peaks with a tea-pouring ceremony, and a night in a cliffside cabin at Wangxian Valley." },
+      { "t": "West Lake, slowly", "d": "A private wooden boat across UNESCO-listed West Lake past islands and pagodas, then Longjing tea plantations and bamboo forests, from the Four Seasons Hangzhou." }
+    ],
+    "bestFor": ["Couples", "City-and-nature travellers", "First China trips"]
+  }
+}

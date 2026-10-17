@@ -1,0 +1,92 @@
+<div class="mega-overlay" id="megaOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="mega-backdrop" id="megaBackdrop" onclick="closeMegaMenu()"></div>
+  <div class="mega-panels" id="megaPanels">
+
+    <!-- ── PANEL 1: Main links ── -->
+    <div class="mpanel mpanel-1" id="mpanel1">
+      <div class="mp1-inner">
+        <div class="mp-close-row">
+          <button class="mp-close" id="megaClose" aria-label="Close menu" onclick="closeMegaMenu()">&times;</button>
+        </div>
+
+        <!-- 3 primary nav items with › arrows -->
+        <ul class="mp1-nav" id="mp1Nav">
+          <li id="mp1-destinations">
+            <a href="#" onclick="return openP2('destinations')">
+              Destinations
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+          </li>
+          <li id="mp1-journeys">
+            <a href="#" onclick="return openP2('journeys')">
+              Our Journeys
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+          </li>
+          <li id="mp1-lodges">
+            <a href="#" onclick="return openP2('lodges')">
+              Accommodations
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <div class="mp1-divider"></div>
+        <p class="mp1-popular-label">POPULAR</p>
+
+        <ul class="mp1-secondary">
+          <li><a href="the-1923.html">The 1923</a></li>
+          <li><a href="short-safaris.html">Short Safaris</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="environmental-impact.html">Environmental Impact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── PANEL 2: Region list (shown when a panel-1 item is hovered) ── -->
+    <div class="mpanel mpanel-2" id="mpanel2">
+      <div class="mp2-inner">
+
+        <!-- Featured cards at top of panel 2 — 2 placeholder cards -->
+        <div class="mp2-cards">
+          <div class="mp2-card"><div class="mp2-card-bg mc2bg1" style="background-image:url('assets/img/destinations/kenya.jpg')"></div><div class="mp2-card-overlay"></div><span class="mp2-card-label" id="mp2card1">Kenya</span></div>
+          <div class="mp2-card"><div class="mp2-card-bg mc2bg2" style="background-image:url('assets/img/destinations/tanzania.jpg')"></div><div class="mp2-card-overlay"></div><span class="mp2-card-label" id="mp2card2">Tanzania</span></div>
+        </div>
+
+        <!-- All destinations link -->
+        <a href="#" class="mp2-all-btn" id="mp2AllBtn">ALL DESTINATIONS</a>
+
+        <!-- Regions list — your 5 regions per spec -->
+        <ul class="mp2-regions" id="mp2Regions">
+          <li><a href="#" onclick="return openP3('africa')">Africa <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+          <li><a href="#" onclick="return openP3('indian-ocean')">Indian Ocean <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+          <li><a href="#" onclick="return openP3('asia')">Asia <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+          <li><a href="#" onclick="return openP3('europe')">Europe <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+          <li><a href="#" onclick="return openP3('middle-east')">Middle East <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+          <li><a href="#" onclick="return openP3('oceania')">Oceania <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- ── PANEL 3: Country list (shown when a region is hovered) ── -->
+    <div class="mpanel mpanel-3" id="mpanel3">
+      <div class="mp3-inner">
+
+        <!-- Featured country cards -->
+        <div class="mp3-cards">
+          <div class="mp3-card"><div class="mp3-card-bg mc2bg3" style="background-image:url('assets/img/destinations/kenya.jpg')"></div><div class="mp3-card-overlay"></div><span class="mp3-card-label" id="mp3card1">Kenya</span></div>
+          <div class="mp3-card"><div class="mp3-card-bg mc2bg4" style="background-image:url('assets/img/destinations/tanzania.jpg')"></div><div class="mp3-card-overlay"></div><span class="mp3-card-label" id="mp3card2">Tanzania</span></div>
+        </div>
+
+        <!-- All region link -->
+        <a href="#" class="mp3-all-btn" id="mp3AllBtn">ALL AFRICAN DESTINATIONS</a>
+
+        <!-- Country list — populated dynamically by JS -->
+        <ul class="mp3-countries" id="mp3Countries"></ul>
+
+      </div>
+    </div>
+
+  </div><!-- /mega-panels -->
+</div>

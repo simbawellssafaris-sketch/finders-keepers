@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>The Central & Coral Coast Loop | {{brand}}</title><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"><style>
+  :root{
+    --cream:#EDE3CE;--tan:#E0D3B8;--ink:#2C2A26;--ink-soft:#5C5750;
+    --terracotta:#B5572F;--terracotta-dark:#9C4926;--line:#CFC1A3;
+    --white:#FFFFFF;--olive:#6B7257;--maxw:1376px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;font-family:'Jost',sans-serif;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+  /* TOP BAR */
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;letter-spacing:.04em;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{color:var(--white);font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;letter-spacing:.12em;}
+  /* MAIN NAV */
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .mainnav .navright{font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
+  /* HERO */
+  .hero{position:relative;height:640px;width:100%;overflow:hidden;background-size:cover;background-position:center 40%;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.65) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;z-index:2;margin-bottom:18px;}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero h1{font-size:56px;color:var(--white);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:16px;letter-spacing:.05em;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+  /* STAT STRIP */
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  /* CTA BAND */
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  /* STICKY TAB NAV */
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;color:var(--ink);cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+  /* FLOATING CARD */
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  .floatcard .btn-solid{border:none;padding:0 26px;border-radius:0;}
+  /* SECTIONS */
+  section{padding:80px 0;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+  /* OVERVIEW */
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:26px;line-height:1.5;color:var(--ink);}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .download-row{margin-top:40px;}
+  /* WHY */
+  .why{background:var(--cream);padding:80px 0;text-align:center;}
+  .why h3{font-size:14px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:60px;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 80px;max-width:880px;margin:0 auto;}
+  .why-item{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .why-item .icon{font-size:36px;}
+  .why-item p{margin:0;font-size:16px;max-width:300px;}
+  /* ITINERARY */
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);overflow:hidden;}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-controls{position:absolute;top:24px;left:24px;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--white);}
+  .map-controls span{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border-bottom:1px solid var(--line);cursor:pointer;}
+  .map-controls span:last-child{border-bottom:none;}
+  .days-col{padding:60px 40px 60px 60px;}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:26px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;font-family:'Jost',sans-serif;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-meta .icon{font-size:16px;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;}
+  /* STAYS */
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:220px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-weight:600;}
+  .stay-card .body{padding:20px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .stay-card h4{font-size:21px;margin-bottom:18px;min-height:54px;}
+  .stay-card .btn{width:100%;margin-top:auto;}
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .offer-card a{font-size:13px;text-decoration:underline;font-weight:600;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);font-family:'Jost',sans-serif;}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+  /* JOURNEY DETAILS */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;border-bottom:1px solid var(--line);padding-bottom:50px;}
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;font-family:'Jost',sans-serif;}
+  .jd-panel{display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-soft);}
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  /* MORE PACKAGES */
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:22px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:22px;}
+  .package-card .price span{font-size:14px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:14px;}
+  footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  footer a:hover{opacity:1;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+  @media(max-width:900px){
+    .overview-grid,.itinerary-layout,.pricing-grid,.test-grid,.foot-grid{grid-template-columns:1fr;}
+    .map-sticky{height:320px;position:relative;top:0;}
+    .highlights,.stays-grid,.more-grid{grid-template-columns:1fr 1fr;}
+    .jd-grid{grid-template-columns:1fr 1fr;}
+    .private-cta{flex-direction:column;}
+    .private-cta img{width:100%;height:200px;}
+    .hero h1{font-size:36px;}
+    .wrap{padding:0 24px;}
+    .days-col{padding:40px 24px;}
+    .why-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:600px){
+    .highlights,.stays-grid,.more-grid,.jd-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:28px;}
+    .wrap{padding:0 20px;}
+    .inclusion-list ul{grid-template-columns:1fr;}
+  }
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head><body><!--@include topbar-detail-pages--><!--@include nav-detail-pages-->
+<div class="hero" id="top" style="background-image:url('assets/img/packages/malaysia-central-coral-coast-loop.jpg');background-position:center 45%">
+  <div class="hero-content">
+    <div><div class="hero-tags"><span class="tag offer">SMALL GROUP JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+    <div class="hero-title-row"><h1>The Central & Coral Coast Loop</h1><div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span><div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div></div></div></div>
+    
+  </div>
+</div>
+<!--@include package-stat-strip-->
+<div class="ctaband"><p>The Petronas Skybridge at 170m, Batu Caves' golden giant, a private charter to Redang's coral kingdom, and the hidden Setiu Wetland lagoons</p><a href="#pricing" class="btn">See Pricing &amp; Inclusions ↓</a></div>
+<!--@include package-tabnav-->
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Small Group</span><div class="div"></div><span class="fc-price">from $8,650 pp</span></div></div>
+<section id="overview"><div class="wrap">
+  <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> › <a href="finders-safaris-malaysia.html">Malaysia</a> › <span class="current">The Central & Coral Coast Loop</span></div>
+  <div class="overview-grid">
+    <div><p class="lead"><span class="eyebrow">Overview</span>Designed for luxury travellers who want to explore the modern skyline and ancient limestone temples of Malaysia's capital before escaping to the pristine coral atolls of the East Coast. This itinerary connects the iconic Petronas Twin Towers and the monumental Batu Caves with the untouched coral gardens of Redang Marine Park and the hidden mangrove lagoons of the Setiu Wetlands. A private charter flight from Subang Airport and luxury yacht transfer deliver guests to Redang Island — one of Malaysia's finest marine sanctuaries. High-end highlights include a private excursion to the hidden Setiu Wetlands, a guided reef-walk at low tide, and an exclusive cultural encounter with Terengganu master weavers creating Songket silk with real gold threads.</p>
+    <div class="highlights"><div class="highlight"><span class="spark">✦</span><p>Petronas Twin Towers double-decker Skybridge at 170 metres: suspended between two of Asia's most iconic glass-and-steel towers</p></div><div class="highlight"><span class="spark">✦</span><p>Batu Caves: 272 vibrant colourful steps to the monumental 42-metre-high golden statue of Lord Murugan at the limestone entrance</p></div><div class="highlight"><span class="spark">✦</span><p>Rooftop helipad lounge sundowner: hand-crafted cocktails watching the Kuala Lumpur skyline transform as the sun drops behind the towers</p></div><div class="highlight"><span class="spark">✦</span><p>Private charter flight and luxury yacht to Redang Island: one of Malaysia's finest marine sanctuaries with untouched coral and sea turtles</p></div><div class="highlight"><span class="spark">✦</span><p>Redang Marine Park: world-class snorkelling with giant green sea turtles and shimmering schools of neon damsels in pristine waters</p></div><div class="highlight"><span class="spark">✦</span><p>Setiu Wetlands hidden gem: crimson mangrove roots, calm lagoons, river terrapins, and an elevated wooden platform breakfast</p></div><div class="highlight"><span class="spark">✦</span><p>Pulau Lima outer reef drop-off: dramatic deep-water snorkel along one of Malaysia's finest East Coast underwater walls</p></div><div class="highlight"><span class="spark">✦</span><p>Terengganu Songket silk private masterclass: hand-looming royal fabric with real gold threads and ancient brasssmith wax-moulding</p></div></div>
+    <div class="download-row"><a href="assets/itineraries/malaysia-central-coral-coast-loop.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a></div></div>
+    <div class="overview-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/2.jpg" alt="The Central & Coral Coast Loop"></div>
+  </div>
+</div></section>
+<div class="why"><div class="wrap"><h3>Why Choose the Central & Coral Coast Loop</h3><div class="why-grid"><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-building-2" aria-hidden="true"></i></div><p>Petronas Twin Towers Skybridge: the most recognisable architectural experience in all of Southeast Asia</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-landmark" aria-hidden="true"></i></div><p>Batu Caves: the most dramatic Hindu temple complex in Malaysia — 272 steps and a 42-metre golden guardian statue</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-plane" aria-hidden="true"></i></div><p>Private charter Subang→Kuala Terengganu then luxury yacht to Redang: the finest way to reach Malaysia's East Coast paradise</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-turtle" aria-hidden="true"></i></div><p>Redang Marine Park sea turtles: one of Malaysia's most protected and biodiverse marine sanctuaries</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i></div><p>Setiu Wetlands hidden gem: the finest and least visited mangrove lagoon ecosystem on the East Coast of Malaysia</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-spool" aria-hidden="true"></i></div><p>Terengganu Songket silk: Malaysia's most prestigious royal textile, handloomed with real gold threads in a private workshop</p></div></div></div></div>
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+    <div class="map-col"><div class="map-sticky"><div class="map-controls"><span>+</span><span>−</span></div>
+      <div class="map-placeholder"><span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span><h4>Malaysia</h4><p>Kuala Lumpur · Batu Caves · Redang Island · Setiu Wetlands · Pulau Lima</p></div>
+    </div></div>
+    <div class="days-col">
+    <div class="it-head"><span class="eyebrow">Day by Day</span><h2>Your Itinerary</h2></div>
+      <div class="day-block">
+        <h3>Day 1 | Arrival in the Capital Sky — Four Seasons KLCC</h3>
+        <div class="day-body">
+          <p>VIP tarmac greeting at Kuala Lumpur International Airport. Private luxury SUV to the Four Seasons Hotel Kuala Lumpur in the Club Premier Park View Suite — a modern skyscraper suite directly overlooking the lush green gardens of KLCC Park and the iconic Petronas Twin Towers. Early arrivals explore Kuala Lumpur's vibrant streets, bustling markets, and modern architecture. Welcome dinner at the hotel.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/1.jpg" alt="Arrival in the Capital Sky — Four Seasons KLCC">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-kuala-lumpur.html">Four Seasons Hotel KL, Club Premier Park View Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 2 | Petronas Skybridge, Batu Caves & Rooftop Helipad Sundowner</h3>
+        <div class="day-body">
+          <p>Walking across the famous double-decker Skybridge of the Petronas Twin Towers — suspended 170 metres above the ground with glass-and-steel towers rising above. Afternoon: the 272 vibrant colourful steps of the monumental Batu Caves with the massive 42-metre-high golden statue of Lord Murugan. Hand-crafted cocktails from a private rooftop helipad lounge watching the sun set behind the glass-and-steel skyscrapers of the capital.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/2.jpg" alt="Petronas Skybridge, Batu Caves & Rooftop Helipad Sundowner">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-kuala-lumpur.html">Four Seasons Hotel KL, Club Premier Park View Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 3 | Blue Mosque, Merdeka Square & Royal Architecture Walk</h3>
+        <div class="day-body">
+          <p>Exploring the beautiful architecture of the Blue Mosque (Sultan Salahuddin Abdul Aziz Mosque) — massive blue dome and four minarets, one of the largest mosques in Southeast Asia. Then Merdeka Square: the historic site where Malaysia's independence was declared in 1957. The beautiful Sultan Abdul Samad Building colonial architecture and the lush green lawn of the historic square.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/3.jpg" alt="Blue Mosque, Merdeka Square & Royal Architecture Walk">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-kuala-lumpur.html">Four Seasons Hotel KL, Club Premier Park View Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Redang Island</div>
+      <div class="day-block">
+        <h3>Day 4 | Private Charter Flight to the Coral Kingdom — Redang Island</h3>
+        <div class="day-body">
+          <p>Private charter flight from Subang Airport northeast to Kuala Terengganu, followed by a luxury yacht transfer to Redang Island. Spectacular aerial views of the Malaysian countryside and the turquoise East Coast waters. Check-in at The Taaras Beach & Spa Resort in the Cliff Three-Bedroom Suite. Elegant multi-course lantern dinner on a private stretch of powder-white sand warmed by a roaring fire pit.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/4.jpg" alt="Private Charter Flight to the Coral Kingdom — Redang Island">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 5 | Redang Marine Atoll Coral Snorkelling — Sea Turtle Encounters</h3>
+        <div class="day-body">
+          <p>Stepping directly from the resort's private beach into a private speedboat for world-class snorkelling inside the Redang Marine Park — untouched coral gardens, giant green sea turtles, and shimmering schools of neon damsels in pristine protected waters. Your guide leads the finest snorkelling spots in this world-class marine sanctuary.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/5.jpg" alt="Redang Marine Atoll Coral Snorkelling — Sea Turtle Encounters">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 6 | Hidden Gem — The Wetland Lagoons of Setiu</h3>
+        <div class="day-body">
+          <p>Private boat excursion to the hidden gem of the Setiu Wetlands — crowd-free morning navigating a maze of crimson mangrove roots and calm lagoons, viewing traditional fishermen and spotting rare river terrapins. A hot white-linen breakfast set up on an elevated wooden viewing platform directly overlooking the quiet wetland channels — dining in absolute tranquillity and total privacy.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/6.jpg" alt="Hidden Gem — The Wetland Lagoons of Setiu">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 7 | Deep Reef Wall Walking & Pulau Lima Snorkel Drop-Off</h3>
+        <div class="day-body">
+          <p>Specialised marine water shoes for a guided reef-walk at low tide — giant blue clams and coloured anemones visible in shallow pools. Guide explains the reef ecology and conservation importance. Afternoon: deep-water snorkel along the dramatic outer reef drop-off of Pulau Lima with vibrant coral formations, schools of tropical fish, and the extraordinary underwater depth.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/7.jpg" alt="Deep Reef Wall Walking & Pulau Lima Snorkel Drop-Off">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 8 | Cliffside Spa — Virgin Coconut Oil Massage Over the Turquoise Cove</h3>
+        <div class="day-body">
+          <p>A peaceful day enjoying the resort's world-class amenities — stunning turquoise water views, the white-sand beach, and the lush tropical vegetation. Traditional massage at the cliffside spa utilising local virgin coconut oil, looking out over the turquoise cove. One of the finest spa environments in all of Malaysia.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/1.jpg" alt="Cliffside Spa — Virgin Coconut Oil Massage Over the Turquoise Cove">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 9 | Exclusive Terengganu Songket Silk & Brasssmith Heritage Tour</h3>
+        <div class="day-body">
+          <p>Travel to a historic coastal estate interacting privately with indigenous master weavers and brasssmiths. The deep history of hand-looming traditional Songket silk fabric woven with real gold threads — worn on royal occasions. Ancient wax-moulding brass crafting techniques. A private performance of historic folk string music and oral storytelling. Farewell multi-course dinner at The Taaras.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/2.jpg" alt="Exclusive Terengganu Songket Silk & Brasssmith Heritage Tour">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 10 | Return to Kuala Lumpur & Complementary Spa Day</h3>
+        <div class="day-body">
+          <p>Relaxed luxury breakfast watching the turquoise waves. Smooth yacht and private charter flight transfer back to Kuala Lumpur. Complementary spa session at your city hotel. Private Kuala Lumpur tour — Petronas Twin Towers, vibrant markets, and historic landmarks — if missed on Day 1. International departure the following day.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/3.jpg" alt="Return to Kuala Lumpur & Complementary Spa Day">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-taaras-redang.html">The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/4.jpg" alt="Tailor this journey with {{brand}}">
+      </div>
+    </div>
+  </div>
+</section>
+<section id="stays"><div class="wrap">
+  <div class="stays-head"><span class="eyebrow">Your Accommodation</span><h2 style="font-size:42px;margin-top:12px">Two Exceptional Properties Across Malaysia's Urban and Marine Highlights</h2></div>
+  <div class="stays-grid"><div class="stay-card"><div class="imgwrap"><img src="assets/img/lodges/four-seasons-kuala-lumpur/2.jpg" loading="lazy"><div class="badge">NIGHTS 1–3</div></div><div class="body"><div class="loc">Kuala Lumpur · Nights 1–3</div><h4>Four Seasons Hotel KL, Club Premier Park View Suite</h4><div style="font-size:13px;color:var(--ink-soft);margin-bottom:10px">★★★★★ — Modern skyscraper suite directly overlooking KLCC Park and the iconic Petronas Twin Towers</div><a href="four-seasons-kuala-lumpur.html" class="btn">View Details</a></div></div><div class="stay-card"><div class="imgwrap"><img src="assets/img/lodges/the-taaras-redang/4.jpg" loading="lazy"><div class="badge">NIGHTS 4–9</div></div><div class="body"><div class="loc">Redang Island · Nights 4–9</div><h4>The Taaras Beach & Spa Resort, Cliff Three-Bedroom Suite</h4><a href="the-taaras-redang.html" class="btn">View Details</a></div></div></div>
+</div></section>
+<!--@why-journey-->
+<section id="pricing"><div class="wrap"><div class="pricing-grid">
+  <div><h2>Inclusions &amp; Pricing</h2>
+    <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><div><span class="eyebrow">Solo Travellers</span><p class="offer-title">30% off the single supplement</p><p>Travelling on your own? We cut the single traveller supplement by 30% across selected 2027 departures.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The supplement covers the sole-occupancy cost a camp charges when a room sleeps one rather than two.</li><li>Available on selected camps and dates &mdash; your specialist will tell you which of your nights qualify before you commit.</li><li>Nothing changes about the journey itself: same guide, same vehicle, same rooms.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><div><span class="eyebrow">Group Offer</span><p class="offer-title">Bring three, the fourth travels free</p><p>Book four guests on a 2027 group departure and the fourth guest&rsquo;s safari cost is on us.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The waiver covers the land portion &mdash; camps, meals, guiding and game drives.</li><li>International flights, visas, gorilla and chimpanzee permits and personal spending are excluded, as those are paid to third parties per head.</li><li>All four guests must travel on the same departure date and book together.</li></ul></div></div></div>
+      <details class="inclusion-list" open><summary>What's Included</summary><ul><li><span class="ic">&#10003;</span>VIP meet and greet at all Malaysian airports</li><li><span class="ic">&#10003;</span>All private luxury SUV chauffeur transfers throughout</li><li><span class="ic">&#10003;</span>Luxury hotel and resort accommodation throughout</li><li><span class="ic">&#10003;</span>All meals as specified — breakfast, lunch and dinner</li><li><span class="ic">&#10003;</span>All private guided tours, boat excursions, and activities</li><li><span class="ic">&#10003;</span>All park and marine reserve fees</li><li><span class="ic">&#10003;</span>Complementary spa session on final day</li><li><span class="ic">&#10003;</span>Private guide and historian throughout</li><li><span class="ic">&#10003;</span>Petronas Twin Towers Skybridge private visit</li><li><span class="ic">&#10003;</span>Batu Caves guided tour with private transport</li><li><span class="ic">&#10003;</span>Rooftop helipad lounge sundowner with hand-crafted cocktails</li><li><span class="ic">&#10003;</span>Private charter flight Subang→Kuala Terengganu</li><li><span class="ic">&#10003;</span>Luxury yacht transfer to Redang Island</li><li><span class="ic">&#10003;</span>Redang Marine Park private snorkelling excursion</li><li><span class="ic">&#10003;</span>Setiu Wetlands private boat with elevated platform breakfast</li><li><span class="ic">&#10003;</span>Pulau Lima outer reef drop-off deep snorkel</li><li><span class="ic">&#10003;</span>Guided reef-walk at low tide with marine water shoes</li><li><span class="ic">&#10003;</span>Cliffside spa with local virgin coconut oil treatment</li><li><span class="ic">&#10003;</span>Terengganu Songket silk and brasssmith private heritage encounter</li><li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li></ul></details><details class="inclusion-list"><summary>What's Not Included</summary><ul><li><span class="ic">&#10007;</span>International flights to/from Malaysia</li><li><span class="ic">&#10007;</span>Travel insurance (strongly recommended)</li><li><span class="ic">&#10007;</span>Personal shopping and souvenirs</li><li><span class="ic">&#10007;</span>Premium alcohol beyond inclusions</li><li><span class="ic">&#10007;</span>Optional activities not listed</li><li><span class="ic">&#10007;</span>Tips and gratuities</li><li><span class="ic">&#10007;</span>Malaysia visa (most nationalities visa-free for 30–90 days)</li></ul></details>
+  </div>
+  <div class="price-card"><h3>Package Pricing</h3><div class="price-row"><span class="label">Per Person Sharing</span><span class="value">$9,100</span></div><div class="price-row"><span class="label">Single Traveller Supplement</span><span class="value">On Request</span></div>
+    <div class="price-note">ⓘ Price per person based on two guests sharing. All accommodation, meals, private charter flight, yacht transfer, and activities included. International flights to Kuala Lumpur not included.</div>
+    
+    <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jan &ndash; May</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Warm and mostly dry across the peninsula</span></div><span class="season-price">$9,100</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">May &ndash; Sep</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Southwest monsoon on the west coast</span></div><span class="season-price">$8,650</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Sep &ndash; Dec</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Dry season on the east coast &amp; islands</span></div><span class="season-price">$9,850</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+    <a href="mailto:{{email}}" class="btn btn-solid js-fs-enquire" data-fs-package="The Central &amp; Coral Coast Loop" style="width:100%;margin-top:24px;">Speak To Us</a>
+  </div>
+</div></div></section>
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Duffel, sun hat, rain shell and day pack</p><button class="jd-toggle" data-target="kit-malaysiacent">View +</button><div class="jd-panel" id="kit-malaysiacent"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; A soft-sided {{brand}} duffel, sized for domestic flights and easier than a hard case on train platforms, ferry jetties and old-town lanes.</li><li><strong>What is inside it</strong> &mdash; A wide-brim sun hat, a lightweight packable rain shell for tropical downpours, and a foldable day pack for temple mornings and market afternoons.</li><li><strong>Yours to keep</strong> &mdash; The bag and everything in it is a gift, not a loan.</li><li><strong>Packing around it</strong> &mdash; Slip-on shoes save time at temples, where you remove them repeatedly, and one set of clothing covering shoulders and knees is essential for religious sites.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Itineraries often blend city, coast and rainforest</p><button class="jd-toggle" data-target="note-malaysiacent">View +</button><div class="jd-panel" id="note-malaysiacent"><p>Multi-region itineraries may involve internal flights or long drives between Peninsular Malaysia and Borneo — please confirm connection times with your specialist.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected from your hotel.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, reach out and we will tailor it for you.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Visa-free for most nationalities</p><button class="jd-toggle" data-target="docs-malaysiacent">View +</button><div class="jd-panel" id="docs-malaysiacent"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least six months beyond your arrival date, with at least two blank pages for stamps.</li><li><strong>Visa</strong> &mdash; Visa-free for up to 90 days for UK, EU, US, Canadian and Australian passport holders, and 30 days for Chinese and Indian nationals.</li><li><strong>Digital Arrival Card</strong> &mdash; The MDAC must be submitted online no more than three days before you land. It is free and takes a few minutes.</li><li><strong>Sabah and Sarawak</strong> &mdash; Both states run their own immigration. You clear passport control again on arrival from Peninsular Malaysia even on a domestic flight, so keep your passport in hand luggage.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Where you must appear in person</strong> &mdash; A few consulates insist on biometrics or a short interview that nobody can sit on your behalf &mdash; China requires fingerprinting for some nationalities, as do European and United States visas. We still prepare the entire file; we simply book you a single appointment and brief you beforehand so one visit settles it.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates, or join a small group</p><button class="jd-toggle" data-target="dep-malaysiacent">View +</button><div class="jd-panel" id="dep-malaysiacent"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-malaysiacent" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-malaysiacent"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored — extend a stay, add a destination, or adjust the pace to suit you. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Light layers and slip-on shoes, which you will take off repeatedly at temples, shrines and traditional inns. Shoulders and knees must be covered to enter most religious sites, so pack at least one modest set you can throw on. A light rain shell handles the tropical downpours, and the highlands and northern cities run far cooler than the coast &mdash; bring a proper warm layer if your route climbs.</li></ul></div>
+  </div>
+</div></section>
+<section><div class="wrap"><div class="more-head"><h2>More Journeys</h2></div><div class="more-grid"><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/malaysia-great-western-spice-route.jpg" loading="lazy"><div class="tags"><span class="tag">PENANG & LANGKAWI</span></div></div><div class="body"><h3>The Great Western Spice Route</h3><div class="meta">10 Days · Penang & Langkawi</div><div class="it-list"><b>Route</b>Penang · George Town · Langkawi · Kilim Geopark · Datai Bay</div><div class="footer-row"><div class="price">From USD 8,500 pp</div><a href="malaysia-great-western-spice-route.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/malaysia-southern-heritage-rainforest-arc.jpg" loading="lazy"><div class="tags"><span class="tag">MALACCA & JOHOR</span></div></div><div class="body"><h3>The Southern Heritage & Rainforest Arc</h3><div class="meta">10 Days · Malacca & Johor</div><div class="it-list"><b>Route</b>Malacca · Desaru Coast · Panti Forest · Lebam Firefly River · Endau-Rompin</div><div class="footer-row"><div class="price">From USD 8,200 pp</div><a href="malaysia-southern-heritage-rainforest-arc.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/malaysia-ancient-jungle-island-frontier.jpg" loading="lazy"><div class="tags"><span class="tag">BORNEO</span></div></div><div class="body"><h3>The Ancient Jungle & Island Frontier</h3><div class="meta">10 Days · Malaysian Borneo</div><div class="it-list"><b>Route</b>Kota Kinabalu · Tunku Marine Park · Sepilok · Danum Valley · Pygmy Elephants</div><div class="footer-row"><div class="price">From USD 11,500 pp</div><a href="malaysia-ancient-jungle-island-frontier.html" class="btn">View Journey</a></div></div></div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/mauritius-ultimate-romance-secret-lagoons.jpg" alt="The Ultimate Romance &amp; Secret Lagoons">
+          <div class="tags"><span class="tag">MAURITIUS</span></div>
+        </div>
+        <div class="body">
+          <h3>The Ultimate Romance &amp; Secret Lagoons</h3>
+          <div class="meta">10 Days · Private</div>
+          <div class="it-list">
+            <b>Route</b>
+            Le Morne · Riambel Beach · Ile aux Benitiers · Ilot Gabriel
+          </div>
+          <div class="footer-row">
+            <div class="price">$9,800 per couple <span>pp</span></div>
+            <a href="mauritius-ultimate-romance-secret-lagoons.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div></div></div></section><!--@include footer-newsletter--><!--@include itinerary-expand-script-->
+<!--@include package-tabnav-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"asia","focus":"MYS","stops":[["Redang Island",5.78,103.01]],"overviewLabel":"Redang Island","title":"Location"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":9100,"seasons":[9100,8650,9850],"from":8650,"single":"On Request"},"2027":{"headline":8600,"seasons":[8600,8200,9350],"from":8200,"single":"On Request"}}};</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body></html>

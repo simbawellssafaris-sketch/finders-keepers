@@ -1,0 +1,254 @@
+<!-- FS-ENQ-MODAL:START -->
+
+<style>
+/* ── Enquiry modal (self-contained brand colors — works on every page theme) ── */
+#enqFab{position:fixed;bottom:24px;right:24px;z-index:850;background:#8B3A2A;color:#fff;border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:background .25s,transform .25s;}
+#enqFab:hover{background:#6B2D1F;}
+#enqOverlay{position:fixed;inset:0;z-index:9500;background:rgba(15,10,6,.6);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .28s ease;}
+#enqOverlay.enq-show{opacity:1;}
+body.enq-lock{overflow:hidden;}
+.enq-modal{background:#fff;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 30px 90px rgba(10,7,4,.4);transform:translateY(22px) scale(.97);opacity:0;transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .32s ease;}
+#enqOverlay.enq-show .enq-modal{transform:translateY(0) scale(1);opacity:1;}
+.enq-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:none;background:transparent;cursor:pointer;color:#1a1209;display:flex;align-items:center;justify-content:center;transition:opacity .2s;opacity:.6;}
+.enq-close:hover{opacity:1;}
+.enq-head{padding:44px 44px 6px;}
+.enq-eyebrow{font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#8B3A2A;margin:0 0 14px;}
+.enq-head h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(23px,3.2vw,30px);color:#1a1209;margin:0 0 10px;line-height:1.22;}
+.enq-head p{font-family:'Raleway',sans-serif;font-size:13.5px;line-height:1.85;color:#5a4d3c;margin:0;}
+.enq-package{display:inline-block;font-family:'Raleway',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:#8B3A2A;background:#faf3ee;border:1px solid #e2c7bd;padding:7px 14px;margin-top:16px !important;}
+.enq-package[hidden]{display:none;}
+.enq-form{padding:22px 44px 0;}
+.enq-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.enq-f{display:flex;flex-direction:column;}
+.enq-f label{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.04em;color:#1a1209;margin-bottom:7px;}
+.enq-f .enq-req{color:#8B3A2A;}
+.enq-f input,.enq-f select,.enq-f textarea{font-family:'Raleway',sans-serif;font-size:13.5px;color:#1a1209;background:#fdfbf6;border:1px solid #e2d6bd;padding:12px 13px;width:100%;box-sizing:border-box;transition:border-color .2s,background .2s;}
+.enq-f textarea{min-height:76px;resize:vertical;}
+.enq-f input:focus,.enq-f select:focus,.enq-f textarea:focus{outline:none;border-color:#8B3A2A;background:#fff;}
+.enq-f input::placeholder,.enq-f textarea::placeholder{color:#a89a86;}
+.enq-actions{padding:26px 44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1px solid #efe6d5;margin-top:14px;}
+.enq-act-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8a7a68;margin:0 0 13px;}
+.enq-btn-solid{width:100%;background:#8B3A2A;color:#fff;border:none;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.enq-btn-solid:hover{background:#6B2D1F;}
+.enq-btn-outline{width:100%;background:transparent;color:#1a1209;border:1px solid #1a1209;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;box-sizing:border-box;}
+.enq-btn-outline:hover{background:#1a1209;color:#fff;}
+.enq-quick{display:flex;gap:9px;}
+.enq-quick[hidden]{display:none;}
+.enq-quick-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid #1a1209;color:#1a1209;padding:12px 8px;font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;box-sizing:border-box;}
+.enq-quick-btn:hover{background:#1a1209;color:#fff;}
+.enq-quick-btn svg{flex-shrink:0;}
+.enq-note{padding:0 44px 34px;margin:0;font-family:'Raleway',sans-serif;font-size:11px;line-height:1.7;color:#a89a86;}
+@media(max-width:600px){
+  .enq-head{padding:40px 26px 6px;}
+  .enq-form{padding:20px 26px 0;}
+  .enq-actions{padding:24px 26px 36px;grid-template-columns:1fr;gap:24px;}
+  .enq-note{padding:0 26px 28px;}
+  .enq-row{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){#enqOverlay,.enq-modal{transition:none;}}
+</style>
+
+<button type="button" id="enqFab" hidden>SPEAK TO US</button>
+<div id="enqOverlay" aria-hidden="true">
+  <div class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enqTitle">
+    <button type="button" class="enq-close" id="enqCloseBtn" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="enq-head">
+      <p class="enq-eyebrow">Enquire</p>
+      <h2 id="enqTitle">Let&rsquo;s Plan Your Journey</h2>
+      <p>Send us the outline and we&rsquo;ll come back with a routing and a price &mdash; or skip straight to a conversation on the right.</p>
+      <p class="enq-package" id="enqPackageNote" hidden></p>
+    </div>
+    <form id="enqForm" novalidate>
+      <div class="enq-form">
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-name">Full name <span class="enq-req">*</span></label><input id="enq-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="enq-f"><label for="enq-phone">WhatsApp / Phone <span class="enq-req">*</span></label><input id="enq-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
+          <div class="enq-f"><label for="enq-travellers">Number Of Travellers</label><input id="enq-travellers" name="travellers" type="number" min="1" max="20" placeholder="e.g. 2"></div>
+        </div>
+        <div class="enq-row">
+          <div class="enq-f"><label for="enq-dates">Preferred Travel Date</label><input id="enq-dates" name="dates" type="date"></div>
+          <div class="enq-f"><label for="enq-interest">What are you interested in</label>
+            <select id="enq-interest" name="interest">
+              <option>Not sure yet &mdash; advise me</option>
+              <option>Safari</option>
+              <option>Beach</option>
+              <option>Family Adventure</option>
+              <option>Couples Escape</option>
+              <option>Private Jet</option>
+              <option>Helicopter Tour</option>
+              <option>Tailor-Made Journey</option>
+            </select>
+          </div>
+        </div>
+        <div class="enq-row" style="grid-template-columns:1fr;">
+          <div class="enq-f"><label for="enq-notes">Tell Us About Your Travel Plans</label><textarea id="enq-notes" name="notes" placeholder="Destinations in mind, an occasion, anything else that would help us plan..."></textarea></div>
+        </div>
+      </div>
+      <div class="enq-actions">
+        <div>
+          <p class="enq-act-label">Ready To Go</p>
+          <button type="submit" class="enq-btn-solid" id="enqReadyToggle">Request A Quote</button>
+          <div class="enq-quick" id="enqReadyQuick" hidden>
+            <a href="https://wa.me/{{whatsapp}}?text=Hi%20{{brandUrl}}%2C%20I'd%20like%20to%20speak%20to%20someone%20about%20a%20trip." target="_blank" rel="noopener" class="enq-quick-btn" id="enqReadyWA"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.33-1.93 1.4-.53.08-1 .28-3.38-.7-2.86-1.18-4.7-4.1-4.84-4.29-.14-.19-1.16-1.55-1.16-2.95s.73-2.09.99-2.38c.26-.29.56-.36.75-.36l.53.01c.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.63-.13.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>WhatsApp</a>
+            <a href="mailto:{{email}}?subject=Enquiry%20from%20the%20website" class="enq-quick-btn" id="enqReadyMail"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+          </div>
+        </div>
+        <div>
+          <p class="enq-act-label">Or Speak To Us</p>
+          <button type="button" class="enq-btn-outline" id="enqSpeakToggle">Speak To Us</button>
+          <div class="enq-quick" id="enqQuick" hidden>
+            <a href="https://wa.me/{{whatsapp}}?text=Hi%20{{brandUrl}}%2C%20I'd%20like%20to%20speak%20to%20someone%20about%20a%20trip." target="_blank" rel="noopener" class="enq-quick-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.33-1.93 1.4-.53.08-1 .28-3.38-.7-2.86-1.18-4.7-4.1-4.84-4.29-.14-.19-1.16-1.55-1.16-2.95s.73-2.09.99-2.38c.26-.29.56-.36.75-.36l.53.01c.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.63-.13.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>WhatsApp</a>
+            <a href="mailto:{{email}}?subject=Enquiry%20from%20the%20website" class="enq-quick-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p class="enq-note">Your details are filled in either way &mdash; choose WhatsApp or email and nothing leaves your device until you press send there.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  if (window.__fsEnquiryInit) return;
+  window.__fsEnquiryInit = true;
+  var WA_NUMBER = '{{whatsapp}}';
+  var EMAIL_ADDR = '{{email}}';
+  var overlay = document.getElementById('enqOverlay');
+  var modal = overlay ? overlay.querySelector('.enq-modal') : null;
+  var closeBtn = document.getElementById('enqCloseBtn');
+  var form = document.getElementById('enqForm');
+  var lastFocus = null;
+
+  /* Only about a third of pages already carry a floating "speak-btn" (the
+     newer destination/journey pages). Everywhere else, show the fallback
+     fab this snippet ships with so every page gets one trigger. */
+  var fab = document.getElementById('enqFab');
+  var existingSpeakBtn = document.querySelector('.speak-btn:not(#enqFab)');
+  if (fab && !existingSpeakBtn) fab.hidden = false;
+
+  /* Every trigger on the page that should open this modal: the floating
+     button (existing .speak-btn on older pages, or the injected #enqFab
+     fallback), plus any in-page "Enquire" / "Speak to us" links
+     already on the page that were never wired to anything. */
+  var triggers = document.querySelectorAll('.speak-btn, #enqFab, .js-fs-enquire, [data-fs-enquire]');
+  var packageNote = document.getElementById('enqPackageNote');
+  var currentPackage = null;
+
+  function openModal(pkg){
+    if (!overlay) return;
+    currentPackage = pkg || null;
+    if (packageNote) {
+      if (currentPackage) { packageNote.textContent = 'Enquiring about: ' + currentPackage; packageNote.hidden = false; }
+      else { packageNote.hidden = true; }
+    }
+    lastFocus = document.activeElement;
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('enq-lock');
+    requestAnimationFrame(function(){ overlay.classList.add('enq-show'); });
+    var first = document.getElementById('enq-name');
+    if (first) setTimeout(function(){ first.focus(); }, 260);
+  }
+  function closeModal(){
+    if (!overlay) return;
+    overlay.classList.remove('enq-show');
+    document.body.classList.remove('enq-lock');
+    overlay.setAttribute('aria-hidden', 'true');
+    setTimeout(function(){
+      overlay.style.display = 'none';
+      /* reset both reveals and the form so the modal re-opens fresh next time */
+      var speakToggle = document.getElementById('enqSpeakToggle');
+      var quick = document.getElementById('enqQuick');
+      if (speakToggle) speakToggle.hidden = false;
+      if (quick) quick.hidden = true;
+      var readyToggle = document.getElementById('enqReadyToggle');
+      var readyQuick = document.getElementById('enqReadyQuick');
+      if (readyToggle) readyToggle.hidden = false;
+      if (readyQuick) readyQuick.hidden = true;
+      if (form) form.reset();
+      currentPackage = null;
+      if (packageNote) packageNote.hidden = true;
+    }, 280);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  triggers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(t.getAttribute('data-fs-package'));
+    });
+  });
+
+  var speakToggle = document.getElementById('enqSpeakToggle');
+  var quick = document.getElementById('enqQuick');
+  if (speakToggle && quick) {
+    speakToggle.addEventListener('click', function(){
+      speakToggle.hidden = true;
+      quick.hidden = false;
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (overlay) overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay && overlay.classList.contains('enq-show')) closeModal();
+  });
+
+  var readyToggle = document.getElementById('enqReadyToggle');
+  var readyQuick = document.getElementById('enqReadyQuick');
+  var readyWA = document.getElementById('enqReadyWA');
+  var readyMail = document.getElementById('enqReadyMail');
+
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = null;
+      ['enq-name','enq-phone'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (!el.value.trim()) { el.style.borderColor = '#c0524a'; if (!bad) bad = el; }
+        else { el.style.borderColor = ''; }
+      });
+      if (bad) { bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); bad.focus(); return; }
+
+      var name = document.getElementById('enq-name').value.trim();
+      var phone = document.getElementById('enq-phone').value.trim();
+      var email = document.getElementById('enq-email').value.trim();
+      var travellers = document.getElementById('enq-travellers').value.trim();
+      var datesRaw = document.getElementById('enq-dates').value.trim();
+      var dates = '';
+      if (datesRaw) {
+        var dp = datesRaw.split('-'); // input[type=date] value is always YYYY-MM-DD
+        dates = dp.length === 3 ? (dp[1] + '/' + dp[2] + '/' + dp[0]) : datesRaw;
+      }
+      var interest = document.getElementById('enq-interest').value;
+      var notes = document.getElementById('enq-notes').value.trim();
+
+      var lines = [
+        currentPackage ? ('Hi {{brand}}, I\'d like to book ' + currentPackage + '.') : 'Hi {{brand}}, I\'d like a quote.'
+      ];
+      if (currentPackage) lines.push('Package: ' + currentPackage);
+      lines.push('Name: ' + name);
+      lines.push('Phone: ' + phone);
+      if (email) lines.push('Email: ' + email);
+      if (travellers) lines.push('Travellers: ' + travellers);
+      if (dates) lines.push('Preferred date: ' + dates);
+      lines.push('Interested in: ' + interest);
+      if (notes) lines.push('Travel plans: ' + notes);
+      var bodyText = lines.join('\n');
+      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(bodyText);
+      var mailSubject = currentPackage ? ('Booking Enquiry: ' + currentPackage) : ('Quote Request from ' + name);
+      var mailUrl = 'mailto:' + EMAIL_ADDR + '?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(bodyText);
+
+      if (readyWA) readyWA.setAttribute('href', waUrl);
+      if (readyMail) readyMail.setAttribute('href', mailUrl);
+      if (readyToggle && readyQuick) { readyToggle.hidden = true; readyQuick.hidden = false; }
+    });
+  }
+})();
+</script>
+<!-- FS-ENQ-MODAL:END -->

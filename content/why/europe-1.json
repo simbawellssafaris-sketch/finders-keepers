@@ -1,0 +1,137 @@
+{
+  "croatia-adriatic-dreams": {
+    "lead": "Croatia from the capital to the coast: Plitvice’s waterfalls, Diocletian’s Palace and a private boat through the Pakleni Islands, finishing in Dubrovnik.",
+    "reasons": [
+      { "t": "Waterfalls and an Orient Express hotel", "d": "A night at the Esplanade Zagreb, built in 1925 for Orient Express passengers, then Plitvice’s sixteen interconnected emerald lakes and Croatia’s tallest waterfall at 78 metres." },
+      { "t": "A palace that is still a town", "d": "Diocletian’s Palace in Split, a 4th-century imperial retirement complex that is still a living town, and the Cathedral of Saint Domnius, the oldest in use in its original structure." },
+      { "t": "Islands by private boat", "d": "A private boat day through the Pakleni Islands off Hvar, sunset from the Fortica fortress, then Dubrovnik’s Old City, its walls and the Elaphiti Islands." }
+    ],
+    "bestFor": ["First Croatia trips", "Couples", "History lovers"]
+  },
+  "france-and-germany-paris-to-berlin": {
+    "lead": "Paris to Berlin by way of Alsace and Bavaria: the Louvre, half-timbered Strasbourg, Neuschwanstein and the Cold War in Berlin.",
+    "reasons": [
+      { "t": "Paris from the Plaza Athénée", "d": "Three nights on Avenue Montaigne, with the Louvre, the Eiffel Tower, Notre-Dame, a private Seine dinner cruise and a private Montmartre food walk." },
+      { "t": "Alsace in the middle", "d": "Strasbourg’s UNESCO-listed Grande Île and the half-timbered canals of Petite France, with an Alsatian dinner of flammekueche, choucroute, Munster and local white wine." },
+      { "t": "Bavaria, then Berlin", "d": "Munich’s Marienplatz, Glockenspiel and Viktualienmarkt, a day at Neuschwanstein, and Berlin’s history and Cold War story from the Hotel Adlon Kempinski." }
+    ],
+    "bestFor": ["First Europe trips", "History lovers", "Food lovers"]
+  },
+  "france-grand-journey": {
+    "lead": "France end to end: a privately guided Louvre and Versailles, Loire châteaux, Lyon’s food and the Riviera from Nice to Saint-Paul-de-Vence.",
+    "reasons": [
+      { "t": "Paris, privately guided", "d": "The Louvre with its Mona Lisa, Venus de Milo and Winged Victory, Notre-Dame and the Île de la Cité, a Seine dinner cruise and a private food walk, from three nights at the Plaza Athénée." },
+      { "t": "Versailles and the Loire", "d": "The Hall of Mirrors, the King’s Grand Apartments and Le Nôtre’s gardens, then the Loire châteaux from Les Sources de Cheverny." },
+      { "t": "Lyon, then the Riviera", "d": "Lyon from the InterContinental Hôtel-Dieu, then Nice at the Negresco, Monaco, Èze, Cannes, Antibes and Saint-Paul-de-Vence." }
+    ],
+    "bestFor": ["First France trips", "Food and wine lovers", "Couples"]
+  },
+  "greece-aegean-elegance": {
+    "lead": "Athens’ ancient sites, Mykonos’s windmills and Delos, then Santorini’s caldera, in ten private days.",
+    "reasons": [
+      { "t": "Athens beyond the Acropolis", "d": "The Acropolis, Parthenon and Theatre of Dionysus, the Acropolis Museum with glass floors over a live excavation, and a guided Athens food walk." },
+      { "t": "Mykonos and sacred Delos", "d": "Three nights on Elia Beach at Myconian Avaton, Little Venice and the Kato Mili windmills, and Delos, birthplace of Apollo and Artemis." },
+      { "t": "Santorini on the caldera", "d": "Canaves Oia, with fire, sea and the caldera at your door." }
+    ],
+    "bestFor": ["Couples", "First Greece trips", "History lovers"]
+  },
+  "greece-and-turkey-aegean-to-bosphorus": {
+    "lead": "Athens, Santorini’s volcano, the little-visited island of Chios and Istanbul: a journey across the Aegean that ends on two continents.",
+    "reasons": [
+      { "t": "Ancient Athens with a private guide", "d": "The Acropolis, Parthenon and Acropolis Museum, and the Ancient Agora, where Socrates walked and democracy was argued into existence." },
+      { "t": "Santorini by sea and vine", "d": "Three nights at Canaves Oia, built into the caldera wall, a private boat to Nea Kameni’s smoking crater and the hot springs of Palea Kameni, and a private Assyrtiko tasting in the volcanic vineyards." },
+      { "t": "Chios and Istanbul", "d": "Chios’s mastic villages and medieval castle on an island almost no visitor sees, then Istanbul from the Four Seasons at Sultanahmet." }
+    ],
+    "bestFor": ["Culture lovers", "Return Greece visitors", "Couples"]
+  },
+  "italy-and-malta": {
+    "lead": "Rome and Florence for the great art, a Tuscan day, then Malta: Valletta, Mdina and Gozo.",
+    "reasons": [
+      { "t": "Rome and the Vatican", "d": "The Colosseum, Roman Forum and Palatine Hill, and the Vatican Museums, Sistine Chapel and St Peter’s Basilica." },
+      { "t": "Florence, with early entry to David", "d": "The Uffizi and the Accademia with early entry to David, then a Tuscan day through Siena, Chianti and San Gimignano." },
+      { "t": "Malta, beyond Valletta", "d": "Valletta, with 320 monuments in 55 hectares, St John’s Co-Cathedral and Caravaggio’s Beheading of Saint John the Baptist, then Mdina, Rabat, Gozo and Comino, staying at The Phoenicia." }
+    ],
+    "bestFor": ["First Italy trips", "Art lovers", "History lovers"]
+  },
+  "italy-icons": {
+    "lead": "Rome, Florence, a Tuscan wine estate and Venice by gondola: Italy’s great icons, privately guided.",
+    "reasons": [
+      { "t": "Rome, privately", "d": "The Colosseum, Roman Forum and Palatine Hill with a private guide, then the Vatican Museums, the Sistine Chapel and St Peter’s Basilica." },
+      { "t": "The Renaissance in Florence", "d": "Michelangelo’s David at the Accademia, the Uffizi’s Botticelli, Leonardo, Raphael and Caravaggio, and Brunelleschi’s dome and the Gates of Paradise." },
+      { "t": "A Tuscan day, then Venice", "d": "A private day through Siena, a Chianti wine estate and San Gimignano, then Venice from the Danieli, with a gondola and a visit to Murano and Burano." }
+    ],
+    "bestFor": ["First Italy trips", "Art lovers", "Couples"]
+  },
+  "italy-la-dolce-vita": {
+    "lead": "Rome with a rooftop bar and a cooking lesson, then four nights above the Amalfi Coast at Caruso and a day on Capri.",
+    "reasons": [
+      { "t": "Rome, with a kitchen lesson", "d": "Three nights above the Spanish Steps at Hotel de la Ville with its Cielo rooftop bar, and a private Roman cooking lesson ending in dinner of what you have made." },
+      { "t": "A chauffeured Tuscan day", "d": "Siena, a Chianti estate and San Gimignano, with a chauffeur so the wine is part of the day." },
+      { "t": "Caruso, above Ravello", "d": "Four nights in an 11th-century palace with the coast’s most famous infinity pool, then Positano, Amalfi and a day on Capri." }
+    ],
+    "bestFor": ["Honeymooners", "Food lovers", "Couples"]
+  },
+  "netherlands-and-belgium-low-countries": {
+    "lead": "Amsterdam’s canal palaces, windmill villages and Rotterdam’s architecture, then Brussels, Bruges and Ghent.",
+    "reasons": [
+      { "t": "Canal palaces", "d": "Three nights at the Waldorf Astoria Amsterdam, spread across six canal palaces on the Herengracht, plus a private canal cruise and walks through the Jordaan, the Begijnhof and the Nine Streets." },
+      { "t": "Countryside and architecture", "d": "Zaanse Schans, Volendam and Marken in one countryside day, and Rotterdam’s Markthal, Cube Houses and Erasmus Bridge." },
+      { "t": "Belgium’s fairytale cities", "d": "Brussels’ Grand Place, then Bruges from Hotel Dukes’ Palace, and Ghent." }
+    ],
+    "bestFor": ["First Benelux trips", "Art lovers", "Couples"]
+  },
+  "netherlands-dutch-grand-experience": {
+    "lead": "Five nights at the Waldorf Astoria Amsterdam with the Rijksmuseum and Van Gogh, then tulips, Giethoorn and Kinderdijk’s windmills.",
+    "reasons": [
+      { "t": "The Dutch masters", "d": "The Rijksmuseum’s Night Watch and Vermeer, and the Van Gogh Museum’s 200 paintings, 500 drawings and 700 letters." },
+      { "t": "Canals and windmills", "d": "A private cruise through the UNESCO-listed canal ring, working windmills, cheesemaking and a clog workshop at Zaanse Schans, and the windmills of Kinderdijk." },
+      { "t": "Tulips and a car-free village", "d": "The Keukenhof’s tulips in season, the canal-laced village of Giethoorn, then Rotterdam, Delft and The Hague from Hotel Des Indes." }
+    ],
+    "bestFor": ["Art lovers", "Spring travellers", "Couples"]
+  },
+  "spain-and-portugal-iberian-discovery": {
+    "lead": "Madrid, Seville, Lisbon and Porto in ten days: the Prado, the Alcázar, flamenco, Belém and the Douro Valley.",
+    "reasons": [
+      { "t": "Madrid and Seville", "d": "The Prado privately guided, the Royal Alcázar and the climb up the Giralda, and a private flamenco performance with Andalusian cuisine." },
+      { "t": "Lisbon, city of seven hills", "d": "The Four Seasons Ritz Lisbon, Belém Tower and the Jerónimos Monastery, then Sintra and the Atlantic coast." },
+      { "t": "Porto and the Douro", "d": "A stay at The Yeatman in Porto and a day in the Douro Valley." }
+    ],
+    "bestFor": ["Culture lovers", "Food and wine lovers", "First Iberia trips"]
+  },
+  "spain-grand-escape": {
+    "lead": "Madrid’s palaces, Seville’s Alcázar by high-speed train, Barcelona’s Gaudí and a finish on Ibiza by sea.",
+    "reasons": [
+      { "t": "Madrid, at the Ritz", "d": "Two nights at the Mandarin Oriental Ritz, opened in 1910 at the king’s request, with the Prado privately guided and the Royal Palace and Retiro." },
+      { "t": "Seville by AVE", "d": "High-speed rail to Seville at up to 320 km/h, the Royal Alcázar’s layers of Islamic, Gothic and Mudéjar work, and a private flamenco performance." },
+      { "t": "Gaudí, then the island", "d": "Barcelona’s Gaudí from Hotel Arts, then Ibiza by sea, staying at Nobu Hotel Ibiza Bay." }
+    ],
+    "bestFor": ["First Spain trips", "Couples", "Design lovers"]
+  },
+  "switzerland-alpine-grand-tour": {
+    "lead": "Switzerland’s great set pieces in ten days: the Rhine Falls, Lucerne, Mount Pilatus, the Jungfraujoch and Zermatt.",
+    "reasons": [
+      { "t": "Trains and cogwheels", "d": "Mount Pilatus by the Golden Round Trip, with a boat, the world’s steepest cogwheel railway and a cable car, and the GoldenPass panoramic train to Interlaken." },
+      { "t": "The Top of Europe", "d": "The Jungfraujoch, Lauterbrunnen and Grindelwald, from the Victoria-Jungfrau Grand Hotel & Spa, then Zermatt at Mont Cervin Palace." },
+      { "t": "Waterfalls and old bridges", "d": "The Rhine Falls, Europe’s largest waterfall, by boat, medieval Stein am Rhein, and Lucerne’s Chapel Bridge, the oldest covered wooden bridge in Europe, from Baur au Lac, in its own park on Lake Zurich since 1844." }
+    ],
+    "bestFor": ["First Switzerland trips", "Train lovers", "Couples"]
+  },
+  "switzerland-and-germany-alps-to-bavaria": {
+    "lead": "The Swiss Alps then Bavaria and Berlin: Mount Pilatus, Munich, Neuschwanstein and a Cold War day in Berlin.",
+    "reasons": [
+      { "t": "Switzerland’s classics", "d": "Two nights at Baur au Lac, the Rhine Falls by boat, medieval Stein am Rhein, Lucerne’s Chapel Bridge and Lion Monument, and Mount Pilatus by the Golden Round Trip." },
+      { "t": "A table in Lucerne", "d": "The Mandarin Oriental Palace puts three Michelin-starred restaurants under one roof." },
+      { "t": "Munich, a castle and Berlin", "d": "Marienplatz, the Glockenspiel and the Viktualienmarkt, a day at Neuschwanstein, then Berlin’s history from the Hotel Adlon Kempinski." }
+    ],
+    "bestFor": ["First Europe trips", "History lovers", "Food lovers"]
+  },
+  "turkey-empires-balloons-turquoise-coast": {
+    "lead": "Istanbul’s empires, a sunrise balloon over Cappadocia’s fairy chimneys, Pamukkale, Ephesus and the Turquoise Coast.",
+    "reasons": [
+      { "t": "Imperial Istanbul", "d": "Hagia Sophia, the Blue Mosque, the Hippodrome and the Basilica Cistern, Topkapı Palace, a Bosphorus dinner cruise between two continents and a street-food journey through the Spice Bazaar." },
+      { "t": "The balloon over Cappadocia", "d": "A sunrise hot-air balloon flight over the fairy chimneys, after two nights at the Museum Hotel." },
+      { "t": "Terraces, ruins and the coast", "d": "Pamukkale’s travertine terraces, the ruins of Ephesus and Selçuk, and a finish on the coast at Maxx Royal Belek near Antalya." }
+    ],
+    "bestFor": ["First Turkey trips", "Photographers", "History lovers"]
+  }
+}

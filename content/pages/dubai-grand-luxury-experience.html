@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dubai Grand Luxury Experience | {{brand}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#EDE3CE;
+    --tan:#E0D3B8;
+    --ink:#2C2A26;
+    --ink-soft:#5C5750;
+    --terracotta:#B5572F;
+    --terracotta-dark:#9C4926;
+    --line:#CFC1A3;
+    --white:#FFFFFF;
+    --olive:#6B7257;
+    --maxw:1376px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--terracotta);font-weight:600;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 28px;border:1px solid var(--ink);
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;
+  }
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{
+    background:var(--terracotta);color:var(--white);border-color:var(--terracotta);
+  }
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+
+  /* ============ TOP UTILITY BAR ============ */
+  .topbar{
+    background:var(--terracotta);color:var(--white);
+    font-size:13px;letter-spacing:.04em;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 40px;
+  }
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;letter-spacing:.12em;}
+
+  /* ============ MAIN NAV ============ */
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;
+  }
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{
+    font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:600;
+  }
+  .mainnav .navright{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .burger{display:none;font-size:22px;border:none;background:none;cursor:pointer;}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;height:640px;width:100%;overflow:hidden;
+    background-image:url('assets/img/packages/itinerary/dubai/2.jpg');
+    background-size:cover;background-position:center;
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 35%, rgba(0,0,0,.62) 100%);
+  }
+  .hero-content{
+    position:absolute;left:0;right:0;bottom:36px;
+    padding:0 40px;max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+    color:var(--white);z-index:2;
+  }
+  .hero-tags{display:flex;gap:10px;z-index:2;margin-bottom:18px;}
+  .tag{
+    background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;padding:8px 14px;font-weight:600;
+  }
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero h1{font-size:64px;color:var(--white);line-height:1.05;}
+  .hero-year{
+    font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);
+    border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;
+    display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;
+    user-select:none;
+  }
+  .hero-year .yeardrop{
+    display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);
+    min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);
+  }
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .hero-sub{
+    margin-top:14px;font-size:16px;letter-spacing:.05em;color:rgba(255,255,255,.92);
+  }
+  .hero-stats-card{
+    background:var(--white);color:var(--ink);padding:18px 26px;
+    display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;
+    flex-shrink:0;
+  }
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+
+  /* ============ STAT STRIP ============ */
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{
+    display:flex;justify-content:space-around;text-align:center;
+  }
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{
+    margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+  }
+
+  /* ============ CTA BAND ============ */
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{
+    margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);
+  }
+  .ctaband .btn{background:var(--cream);border-color:var(--ink);}
+  .ctaband .btn:hover{background:var(--ink);color:var(--cream);}
+
+  /* ============ STICKY TAB NAV ============ */
+  .tabnav{
+    background:var(--cream);border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .tabnav .wrap{
+    display:flex;align-items:center;gap:40px;padding:0 40px;
+    overflow-x:auto;white-space:nowrap;
+  }
+  .tabnav .backtotop{
+    display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;
+    padding:22px 0;color:var(--ink);cursor:pointer;border-right:1px solid var(--line);
+    padding-right:30px;margin-right:-10px;
+  }
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{
+    display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);
+    border-bottom:2px solid transparent;font-weight:500;
+  }
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+
+  /* floating bottom-right enquiry card */
+  .floatcard{
+    position:fixed;right:24px;bottom:24px;z-index:60;
+    display:flex;align-items:stretch;background:var(--white);
+    box-shadow:0 6px 24px rgba(0,0,0,.12);
+  }
+  .floatcard .info{
+    display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;
+  }
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  .floatcard .btn-solid{border:none;padding:0 26px;}
+
+  /* ============ SECTION GENERIC ============ */
+  section{padding:80px 0;}
+  section.tight{padding-top:60px;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+
+  /* ---- overview ---- */
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{
+    font-family:'Fraunces',serif;font-size:26px;line-height:1.5;color:var(--ink);
+  }
+  .overview-grid p.lead .eyebrow{margin-right:14px;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+
+  .highlights{
+    margin-top:50px;display:grid;grid-template-columns:1fr 1fr;
+    column-gap:60px;border-top:1px solid var(--line);
+  }
+  .highlight{
+    display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);
+  }
+  .highlight .spark{font-size:20px;flex-shrink:0;color:var(--ink);}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+
+  .download-row{margin-top:40px;}
+
+  /* why choose */
+  .why{background:var(--cream);padding:80px 0;text-align:center;}
+  .why h3{font-size:14px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:60px;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 80px;max-width:880px;margin:0 auto;}
+  .why-item{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .why-item .icon{
+    width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  }
+  .why-item .icon svg{width:42px;height:42px;}
+  .why-item p{margin:0;font-size:16px;max-width:300px;}
+
+  /* ============ ITINERARY ============ */
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;}
+  .map-sticky{
+    position:sticky;top:65px;height:calc(100vh - 65px);
+    background:var(--tan);
+    display:flex;align-items:center;justify-content:center;
+    border-right:1px solid var(--line);
+    overflow:hidden;
+  }
+  .map-placeholder{
+    text-align:center;color:var(--ink-soft);padding:40px;
+  }
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-controls{
+    position:absolute;top:24px;left:24px;display:flex;flex-direction:column;
+    border:1px solid var(--line);background:var(--white);
+  }
+  .map-controls span{
+    width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+    font-size:18px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .map-controls span:last-child{border-bottom:none;}
+  .map-route{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+  }
+
+  .days-col{padding:60px 40px 60px 60px;}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+
+  .location-tag{
+    display:inline-flex;align-items:center;gap:8px;background:var(--tan);
+    padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    margin-bottom:24px;color:var(--terracotta-dark);
+  }
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:26px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{
+    font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;
+  }
+  .day-body.clamped p{
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+  }
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{
+    border:none;background:none;cursor:pointer;color:var(--terracotta);
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;
+  }
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-meta .icon{font-size:16px;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+
+  .private-cta{
+    margin-top:50px;background:var(--tan);display:flex;align-items:stretch;
+  }
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;height:100%;}
+
+  /* ============ STAYS ============ */
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:220px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{
+    position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-weight:600;
+  }
+  .stay-card .body{padding:20px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .stay-card h4{font-size:21px;margin-bottom:18px;min-height:54px;}
+  .stay-card .btn{width:100%;margin-top:auto;}
+
+
+  /* ============ PRICING & INCLUSIONS ============ */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{
+    display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .offer-card a{font-size:13px;text-decoration:underline;font-weight:600;}
+
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{
+    cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    padding:16px 0;border-top:1px solid var(--line);
+  }
+  .inclusion-list[open] summary{border-bottom:none;}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);
+    display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+
+  /* ============ JOURNEY DETAILS ============ */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:30px;
+    border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;
+  }
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{
+    border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);
+    border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;
+  }
+  .jd-panel{
+    display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;
+    line-height:1.7;color:var(--ink-soft);
+  }
+  .jd-panel.open{display:block;}
+  .jd-panel .placeholder{font-style:italic;color:#A39E92;}
+
+  .general-info{margin-top:50px;}
+  .general-info-panel{
+    display:none;max-width:760px;margin:24px auto 0;background:var(--cream);
+    padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);
+  }
+  .general-info-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+
+  /* ============ MORE PACKAGES ============ */
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.06);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:16px 0 0;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:17px;margin-bottom:6px;line-height:1.3;}
+  .package-card .meta{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 16px;}
+  .package-card .it-list{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-bottom:24px;}
+  .package-card .it-list b{color:var(--ink);font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.14em;display:block;margin-bottom:6px;}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:24px;}
+  .package-card .price span{font-family:'Jost',sans-serif;font-size:12px;color:var(--ink-soft);display:block;}
+
+  /* ============ FOOTER ============ */
+  footer{background:#231F1B;color:#E9E3D6;padding:80px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;}
+  .foot-form input{
+    width:100%;background:transparent;border:1px solid #4A453C;color:#fff;padding:14px;
+    margin-bottom:14px;font-family:'Jost',sans-serif;font-size:14px;
+  }
+  .foot-form input::placeholder{color:#A39E92;}
+  .foot-form .btn{border-color:#fff;color:#fff;}
+  .foot-form .btn:hover{background:#fff;color:#231F1B;}
+  .foot-form-note{font-family:'Jost',sans-serif;font-size:11.5px;line-height:1.6;color:#A39E92;margin-top:10px;}
+  .foot-form input.fs-err{border-color:#c0524a;}
+  footer h5{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;color:#A39E92;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;font-size:15px;}
+  .foot-bottom{
+    margin-top:70px;padding-top:30px;border-top:1px solid #4A453C;text-align:center;
+    font-size:13px;color:#A39E92;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .wrap{padding:0 24px;}
+    .hero h1{font-size:42px;}
+    .hero-content{flex-direction:column;align-items:flex-start;gap:30px;}
+    .statstrip .wrap{flex-direction:column;gap:34px;}
+    .overview-grid, .pricing-grid, .itinerary-layout, .why-grid{grid-template-columns:1fr;}
+    .overview-img{position:relative;top:0;}
+    .highlights{grid-template-columns:1fr;}
+    .map-sticky{position:relative;height:340px;}
+    .days-col{padding:50px 24px;}
+    .stays-grid, .more-grid{grid-template-columns:repeat(2,1fr);}
+    .jd-grid{grid-template-columns:repeat(2,1fr);}
+    .jd-grid .jd-item:last-child{grid-column:1 / -1;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .floatcard{left:24px;right:24px;justify-content:center;}
+    .floatcard .info{flex:1;}
+    .tabnav .wrap{gap:24px;}
+    .mainnav .navlinks{display:none;}
+    .burger{display:block;}
+  }
+  @media (max-width:640px){
+    .hero{height:560px;}
+    .hero h1{font-size:32px;}
+    .stays-grid, .more-grid, .foot-grid{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+    .jd-grid{grid-template-columns:1fr;}
+    .private-cta{flex-direction:column;}
+    .private-cta img{width:100%;height:200px;}
+  }
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<!--@include topbar-detail-pages-3-->
+
+<!-- ============ MAIN NAV ============ -->
+<!--@include nav-detail-pages-3-->
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tags"><span class="tag offer">PRIVATE JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+      <div class="hero-title-row">
+        <h1>The Dubai Grand Luxury Experience</h1>
+        <div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span>
+          <div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ STAT STRIP ============ -->
+<div class="statstrip">
+  <div class="wrap">
+    <div class="stat"><div class="num">10</div><div class="label">Days</div></div>
+    <div class="stat"><div class="num">2</div><div class="label">Dubai City &amp; Desert</div></div>
+    <div class="stat"><div class="num">Private</div><div class="label">Throughout</div></div>
+  </div>
+</div>
+
+<!-- ============ CTA BAND ============ -->
+<div class="ctaband">
+  <p>Private, VIP-handled departures available year-round</p>
+  <a href="#pricing" class="btn">See Pricing &amp; Inclusions ↓</a>
+</div>
+
+<!-- ============ STICKY TAB NAV ============ -->
+<!--@include package-tabnav-4-->
+
+<!-- ============ FLOATING ENQUIRY CARD ============ -->
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Private</span><div class="div"></div><span class="fc-price">from $8,900 pp</span></div></div>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;›&nbsp; <a href="journey-finder.html">Safaris</a> &nbsp;›&nbsp; <a href="finders-safaris-dubai.html">Dubai</a> &nbsp;›&nbsp;     <span class="current">The Dubai Grand Luxury Experience</span></div>
+
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>This flagship itinerary is designed for luxury travellers who want to experience the very best of Dubai — from the futuristic skyline of Downtown and the golden dunes of the Arabian desert to the historic heart of Old Dubai and the turquoise waters of the Arabian Gulf. It anchors guests at the Fairmont Dubai, a landmark hotel on Sheikh Zayed Road with panoramic views of the city skyline, for a journey of extraordinary contrasts: the Burj Khalifa by day, a helicopter over Palm Jumeirah, the traditional souks and abra crossings of Old Dubai, and a premium desert camp dinner under the stars.</p>
+
+        <div class="highlights">
+          <div class="highlight"><span class="spark">✦</span><p>Route: Nairobi → Dubai (DXB) → Dubai City &amp; Desert → Nairobi</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>VIP meet-and-greet handling at every entry point, with fast-tracked customs and a private chauffeur throughout</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Nine nights at the Fairmont Dubai on Sheikh Zayed Road, with panoramic skyline views</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>A scenic helicopter flight over Palm Jumeirah, Atlantis and the Dubai coastline</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Ascend the Burj Khalifa and watch the Dubai Fountain dance beneath you</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Dune bashing, sandboarding and a premium desert camp dinner under the stars</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>A sunset yacht cruise past Palm Jumeirah, Atlantis and the Dubai Marina skyline</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Old Dubai on foot and by abra — the Al Fahidi district, Dubai Creek and the traditional souks</p></div>
+        </div>
+
+        <div class="download-row">
+          <a href="#" class="btn js-fs-enquire">Request A Detailed Itinerary <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="overview-img">
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/dubai/1.jpg" alt="The Burj Khalifa rising above Downtown Dubai">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<div class="why">
+  <div class="wrap">
+    <h3>Why Travel With {{brand}}</h3>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="10" width="36" height="24" rx="2"/><path d="M14 34v4M34 34v4M6 18h36"/><circle cx="24" cy="14" r="2"/></svg>
+        </div>
+        <p>VIP meet-and-greet at every airport, with fast-tracked customs and a private chauffeur waiting</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M8 38l8-26h8l8 26M24 22h-1M40 38V18l-8-6v26z"/></svg>
+        </div>
+        <p>Nine nights anchored at one landmark hotel, so nothing is repacked mid-trip</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4l6 12 13 2-9.5 9 2.2 13L24 34l-11.7 6 2.2-13L5 18l13-2z"/></svg>
+        </div>
+        <p>Signature high-end moments — a helicopter flight, a sunset yacht, a private desert camp</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="14" width="36" height="22" rx="2"/><circle cx="16" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><path d="M6 22h36M14 14V8h8v6"/></svg>
+        </div>
+        <p>Private luxury vehicle and driver for every transfer, city day and desert crossing</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 4"/></svg>
+        </div>
+        <p>A deliberate mix of pace — futuristic city days, a slower desert night, a full beach day</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4C13 14 8 22 8 29a16 16 0 0032 0c0-7-5-15-16-25z"/></svg>
+        </div>
+        <p>Breakfast daily and every signature activity in the itinerary fully arranged in advance</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ITINERARY ============ -->
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Route Map</div>
+        <div class="map-controls"><span>+</span><span>–</span></div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Map space reserved — Nairobi (NBO) → Dubai (DXB) → Dubai City &amp; Desert → Dubai (DXB) → Nairobi (NBO). Interactive map to be added here, with day-by-day scrollspy markers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+
+      <!-- DAY 1 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Dubai</div>
+      <div class="day-block">
+        <h3>Day 1 | Departure From Nairobi &amp; Arrival In Dubai</h3>
+        <div class="day-body">
+          <p>Upon your arrival at Jomo Kenyatta International Airport in Nairobi, you will receive VIP handling as you check in for your international flight to the United Arab Emirates. You will board a flight to Dubai International Airport (DXB). Upon arrival, you will receive VIP meet-and-greet handling, expediting you through customs and baggage claim with ease. A private chauffeur will transfer you to Fairmont Dubai, a landmark hotel on Sheikh Zayed Road.</p>
+          <p>You will look forward to the stunning views of the Dubai skyline from your suite, with the iconic Burj Khalifa visible in the distance. If you arrive before 4:00&nbsp;PM, you will be treated to a private guided tour of the area, exploring the vibrant streets of Downtown Dubai. The day culminates in a relaxed welcome drink at the hotel, with leisure time at the rooftop pool or an optional evening drive through Sheikh Zayed Road and Downtown Dubai, the city's neon lights creating a dazzling display.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Welcome Drink</div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-block">
+        <h3>Day 2 | Modern Dubai &amp; The Icons</h3>
+        <div class="day-body">
+          <p>After breakfast, you will begin your introduction to Dubai's extraordinary skyline at the Museum of the Future, one of Dubai's most distinctive architectural and technological landmarks, with its striking torus shape and calligraphy-covered fa&ccedil;ade. In the afternoon, you will continue to Dubai Mall, allowing time for luxury shopping, an optional visit to the Dubai Aquarium &amp; Underwater Zoo, and lunch at one of the mall's premium restaurants.</p>
+          <p>In the late afternoon, you will proceed to the Burj Khalifa for your ascent to the observation levels, with breathtaking panoramic views across Downtown Dubai, Palm Jumeirah, the Arabian Gulf, Dubai Marina and the desert beyond. As the sun sets, you will remain in Downtown for the spectacular Dubai Fountain experience, with dinner served overlooking the display.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Palm Jumeirah</div>
+      <div class="day-block">
+        <h3>Day 3 | Palm Jumeirah From The Sky</h3>
+        <div class="day-body">
+          <p>Today is dedicated to seeing Dubai from above. In the morning, you will be transferred to the helicopter terminal for a scenic flight over Dubai, with spectacular aerial views of Palm Jumeirah, Atlantis, Burj Al Arab, Dubai Marina, the Jumeirah coastline and the skyline unfolding beneath you like a living map.</p>
+          <p>In the afternoon, you will explore Palm Jumeirah by road, stopping for photographs at key viewpoints before continuing towards Atlantis. You will spend the afternoon enjoying the beach — swimming, sunbathing, jet skiing, parasailing, paddleboarding, kayaking, or simply relaxing in a private beach cabana, with the warm waters of the Arabian Gulf and the Dubai skyline as your backdrop. Dinner will be served around Palm Jumeirah or Dubai Marina.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-block">
+        <h3>Day 4 | Atlantis Adventure</h3>
+        <div class="day-body">
+          <p>Today is a full day dedicated to one of Dubai's ultimate resort experiences. You will transfer to Atlantis The Palm and begin with Aquaventure Waterpark, enjoying waterslides, rapids, pools, the beach, the lazy river and a host of aquatic attractions, including the iconic Leap of Faith, which plunges through a shark-filled lagoon.</p>
+          <p>In the afternoon, you will explore The Lost Chambers Aquarium, discovering marine life inspired by the mythology and architecture of Atlantis, including sharks, rays and thousands of colourful fish swimming through ancient ruins-themed exhibits. In the late afternoon, you will relax at the resort and enjoy the Palm coastline, with an optional luxury dinner at Atlantis or Palm Jumeirah available.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch</div>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Old Dubai</div>
+      <div class="day-block">
+        <h3>Day 5 | Old Dubai &amp; The Soul Of The City</h3>
+        <div class="day-body">
+          <p>Today provides a contrast to Dubai's futuristic skyline. You will begin at the Dubai Frame, an architectural landmark providing views towards both historic and modern Dubai, with stunning panoramic views from the glass bridge, Old Dubai on one side and the modern skyline on the other. In the late morning, you will continue into Old Dubai, exploring the Al Fahidi Historical District with its traditional architecture, heritage houses, art galleries and local caf&eacute;s.</p>
+          <p>In the afternoon, you will take a traditional abra ride across Dubai Creek, continuing through the traditional souks — the Gold Souk, the Spice Souk, perfume shops and traditional markets, with the glittering gold, vibrant colours and bustling energy of the creek and its wooden boats. The evening offers an optional dinner at a traditional Emirati restaurant.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch</div>
+        </div>
+      </div>
+
+      <!-- DAY 6 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Arabian Desert</div>
+      <div class="day-block">
+        <h3>Day 6 | Dubai Desert Experience</h3>
+        <div class="day-body">
+          <p>Today you leave the skyscrapers behind. The morning is yours to relax at Fairmont Dubai, with breakfast, pool, spa, shopping or personal leisure. In the afternoon, you will depart for the Dubai desert, experiencing a 4x4 dune drive, dune bashing, sandboarding, desert photography, sunset over the dunes and a camel experience, your skilled driver navigating the towering sand dunes as the sun sets over the golden landscape.</p>
+          <p>In the evening, you will continue to a premium desert camp, experiencing a traditional Arabic welcome with Arabic coffee and dates, henna, falconry, traditional entertainment, an Arabian dinner and stargazing, the stars shining brilliantly above and the sounds of traditional music filling the air. For the luxury version, you may upgrade to a private desert safari and premium dining setup. You will return to Dubai after dinner.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner (Desert Camp)</div>
+        </div>
+      </div>
+
+      <!-- DAY 7 -->
+      <div class="day-block">
+        <h3>Day 7 | Dubai By Hop-On Hop-Off</h3>
+        <div class="day-body">
+          <p>Today is a slower sightseeing day. You will board the Dubai Hop-On Hop-Off sightseeing bus, using the route to experience Dubai's major landmarks without rushing between private transfers — Downtown Dubai, Jumeirah, Dubai Marina, Palm Jumeirah, Burj Al Arab and Jumeirah Beach, with the flexibility of exploring at your own pace.</p>
+          <p>In the afternoon, you will explore Souk Madinat Jumeirah, enjoying Arabian architecture, boutique shopping, restaurants, waterfront views and traditional-style souks with the iconic Burj Al Arab rising in the background. At sunset, you will continue to the Jumeirah coastline for sunset, followed by dinner overlooking the Burj Al Arab.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 8 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Kite Beach</div>
+      <div class="day-block">
+        <h3>Day 8 | The Ultimate Dubai Beach Day</h3>
+        <div class="day-body">
+          <p>Today is intentionally less sightseeing-heavy — the luxury beach escape within the Dubai itinerary. In the morning, you will head towards Jumeirah or Kite Beach, enjoying swimming, sunbathing, paddleboarding, kayaking, beach photography and a beachside breakfast, with the warm waters of the Arabian Gulf, soft white sand and stunning skyline views. An optional Beach Adventure Package is available, including jet ski, parasailing, banana boat, flyboarding, kayaking and paddleboarding.</p>
+          <p>In the afternoon, you will enjoy a private beach club or cabana experience, with lunch beside the Arabian Gulf. In the evening, you will transfer to Dubai Marina, walking along the promenade and enjoying dinner overlooking the yachts and skyline.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <!-- DAY 9 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Dubai Marina</div>
+      <div class="day-block">
+        <h3>Day 9 | Dubai Marina &amp; Sunset Yacht</h3>
+        <div class="day-body">
+          <p>This is the glamorous finale of the trip. The morning is yours to relax at Fairmont Dubai, with an optional spa treatment, rooftop pool, breakfast or shopping. In the afternoon, you will explore Dubai Marina, continuing along the coastline towards Palm Jumeirah.</p>
+          <p>At sunset, you will board a luxury yacht for a sunset cruise, passing Dubai Marina, Bluewaters Island, Ain Dubai, Palm Jumeirah, Atlantis, Burj Al Arab and the Jumeirah coastline, watching Dubai's skyline transform as the sun disappears over the Arabian Gulf. The onboard experience includes welcome drinks, canap&eacute;s, music, sunset photography, a swimming stop where conditions permit, and a premium dinner option. You will return to the marina and transfer back to Fairmont Dubai.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fairmont-dubai.html">Fairmont Dubai</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner (Sunset Yacht Cruise)</div>
+        </div>
+      </div>
+
+      <!-- DAY 10 -->
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Departure</div>
+      <div class="day-block">
+        <h3>Day 10 | Final Dubai Experience &amp; Departure</h3>
+        <div class="day-body">
+          <p>On your final morning, you will enjoy a relaxed breakfast at Fairmont Dubai. Depending on your departure time, you may choose one last taste of Dubai's extraordinary offerings: final luxury shopping at Dubai Mall, a relaxed breakfast and waterfront walk at Dubai Marina, a final beach experience at Jumeirah, or last-minute traditional shopping at the Gold &amp; Spice Souks.</p>
+          <p>You will then be transferred to your hotel for a complimentary spa session to relax and rejuvenate after your incredible journey, with a private guided tour of Dubai offered at your leisure if you were not taken on one on Day 1. You will then be transferred to Dubai International Airport for your connecting international flight back to Nairobi.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <!-- PRIVATE TRAVEL CTA -->
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, add Abu Dhabi, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the hotel, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/dubai/1.jpg" alt="Burj Al Arab and Palm Jumeirah from the air">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAYS ============ -->
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head">
+      <div class="eyebrow" style="margin-bottom:14px;display:block;">Where You Will Stay</div>
+      <h2 style="font-size:42px;">Anchored At One Landmark Address</h2>
+    </div>
+    <div class="stays-grid">
+      <div class="stay-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/lodges/fairmont-dubai/3.jpg" alt="Sheikh Zayed Road, Dubai">
+          <span class="badge">Sheikh Zayed Road</span>
+        </div>
+        <div class="body">
+          <div class="loc">Downtown Dubai, United Arab Emirates</div>
+          <h4>Fairmont Dubai</h4>
+          <a href="fairmont-dubai.html" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<!-- ============ PRICING & INCLUSIONS ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; Offers</h2>
+
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your hotel, transfers and signature activities at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><div><span class="eyebrow">Solo Travellers</span><p class="offer-title">30% off the single supplement</p><p>Travelling on your own? We cut the single traveller supplement by 30% across selected 2027 departures.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The supplement covers the sole-occupancy cost the hotel charges when a room sleeps one rather than two.</li><li>Available on selected dates &mdash; your specialist will confirm before you commit.</li><li>Nothing changes about the journey itself: same chauffeur, same hotel, same activities.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><div><span class="eyebrow">Group Offer</span><p class="offer-title">Bring three, the fourth travels free</p><p>Book four guests on a 2027 departure and the fourth guest&rsquo;s land cost is on us.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The waiver covers the land portion &mdash; the hotel, transfers, guiding and signature activities.</li><li>International flights, UAE entry fees and personal spending are excluded, as those are paid to third parties per head.</li><li>All four guests must travel on the same departure date and book together.</li></ul></div></div></div>
+
+        <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>Nine nights at Fairmont Dubai, breakfast daily</li>
+            <li>VIP meet-and-greet handling at every airport</li>
+            <li>Private chauffeur and luxury vehicle for every transfer</li>
+            <li>Burj Khalifa observation deck tickets</li>
+            <li>Museum of the Future entry</li>
+            <li>Helicopter tour over Palm Jumeirah &amp; the Dubai coastline</li>
+            <li>Full-day Atlantis The Palm — Aquaventure &amp; The Lost Chambers</li>
+            <li>Desert safari with dune bashing, sandboarding and a premium camp dinner</li>
+            <li>Sunset yacht cruise with canap&eacute;s and drinks</li>
+            <li>Dubai Hop-On Hop-Off sightseeing bus pass</li>
+            <li>Old Dubai walking tour, abra crossing &amp; souk visit</li>
+            <li>Beach club or cabana access on your beach day</li>
+            <li>Complimentary spa session on your final day</li>
+            <li>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li>
+          </ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights to/from Nairobi</li>
+            <li>UAE entry visa fees, where applicable to your passport</li>
+            <li>Optional premium dining upgrades noted in the itinerary</li>
+            <li>Gratuities for guides &amp; drivers</li>
+            <li>Items of a personal nature</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="price-card">
+        <h3>Per Person Pricing</h3>
+        <div class="price-row">
+          <span class="label">Per Person Sharing</span>
+          <span class="value">$8,900</span>
+        </div>
+        <div class="price-row">
+          <span class="label">Single Traveller Supplement</span>
+          <span class="value">On Request</span>
+        </div>
+        <div class="price-note">ⓘ Prices are per person and based on double/twin sharing accommodation. Single travellers pay the supplement shown above. Speak to us for current availability and tailor-made options.</div>
+        <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jun &ndash; Sep</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Warmest months — quieter hotels, lower rates</span></div><span class="season-price">$7,500</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Nov &ndash; Mar</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Cooler, sunny days — the classic Dubai window</span></div><span class="season-price">$9,800</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Apr &amp; Oct</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Warm but comfortable, fewer crowds</span></div><span class="season-price">$8,900</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+<a href="#" class="btn btn-solid js-fs-enquire" data-fs-package="The Dubai Grand Luxury Experience" style="width:100%;margin-top:24px;">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY DETAILS ============ -->
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><h4>Minimum Age</h4><p>Varies by activity — desert and helicopter especially</p><button class="jd-toggle" data-target="age-dubaigrand">View +</button><div class="jd-panel" id="age-dubaigrand"><ul class="gi-list gi-list-compact"><li><strong>Dune bashing</strong> &mdash; Most operators accept children from around four years in a shared 4x4, seated with an adult.</li><li><strong>Helicopter tours</strong> &mdash; Generally open to all ages, though very young children may find the noise and motion unsettling.</li><li><strong>Aquaventure Waterpark</strong> &mdash; The larger slides carry height and age minimums set by the park, typically from around twelve years.</li><li><strong>Yacht cruise</strong> &mdash; No formal minimum age, though young children should be confidently supervised on deck.</li><li><strong>Talk to us first</strong> &mdash; Tell us the ages travelling with you and we will flag anything that needs adjusting before you book.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>What To Pack</h4><p>Light layers, modest wear, and one warm layer for the desert night</p><button class="jd-toggle" data-target="kit-dubaigrand">View +</button><div class="jd-panel" id="kit-dubaigrand"><ul class="gi-list gi-list-compact"><li><strong>City days</strong> &mdash; Light, breathable clothing; malls and hotels are heavily air-conditioned, so bring a layer.</li><li><strong>Modest dress</strong> &mdash; Shoulders and knees covered for Old Dubai, the souks and any mosque exteriors.</li><li><strong>The desert camp</strong> &mdash; Days are hot but desert nights turn surprisingly cold — bring a jumper or light jacket.</li><li><strong>Beach &amp; yacht days</strong> &mdash; Swimwear, a cover-up, and reef-safe sunscreen.</li><li><strong>Footwear</strong> &mdash; Comfortable walking shoes for the souks and Old Dubai's uneven lanes.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Best travelled November to March, when temperatures are kindest</p><button class="jd-toggle" data-target="note-dubaigrand">View +</button><div class="jd-panel" id="note-dubaigrand"><p>Dubai is enjoyable year-round, though outdoor activities such as the desert safari and beach days are considerably more comfortable between November and March, when daytime temperatures sit in the pleasant twenties.</p><ul class="gi-list gi-list-compact"><li><strong>Summer travel</strong> &mdash; June to September is very hot; outdoor time is best kept to early morning or evening, and hotel rates are noticeably lower.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, extended to Abu Dhabi, or arranged for a family or group, reach out and we will tailor it for you.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the order of activities in certain circumstances, but everything set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Visa on arrival for most nationalities</p><button class="jd-toggle" data-target="docs-dubaigrand">View +</button><div class="jd-panel" id="docs-dubaigrand"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least six months beyond your arrival date, with at least two blank pages for stamps.</li><li><strong>UAE entry</strong> &mdash; Citizens of Kenya and many other nationalities receive a visa on arrival or visa-free entry to the UAE; requirements vary by passport and can change without much notice.</li><li><strong>We check it for you</strong> &mdash; Your specialist confirms the current entry requirement for every passport in your party at the time of booking, and again before you fly.</li><li><strong>Onward flight</strong> &mdash; Immigration may ask to see your return or onward flight confirmation, which we provide in your travel pack.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates, or join a small group</p><button class="jd-toggle" data-target="dep-dubaigrand">View +</button><div class="jd-panel" id="dep-dubaigrand"><ul class="gi-list gi-list-compact"><li><strong>No group minimum</strong> &mdash; This itinerary is private and tailor-made throughout, so your dates are confirmed the moment your deposit is received.</li><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel or reschedule a confirmed departure for commercial reasons.</li><li><strong>Flexible party size</strong> &mdash; This journey can be arranged for a solo traveller, a couple, a family or a larger private group.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-dubaigrand" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-dubaigrand"><ul class="gi-list"><li><strong>Visas</strong> &mdash; We confirm your entry requirements ahead of travel. Please note that the granting of entry rests solely with UAE immigration authorities, and is never guaranteed by us.</li><li><strong>Alcohol</strong> &mdash; Alcohol is served at hotels, licensed restaurants and on the yacht cruise, but is not sold in ordinary shops. Public intoxication is taken seriously under UAE law.</li><li><strong>Dress &amp; conduct</strong> &mdash; Dubai is cosmopolitan, but modest dress is expected in malls, mosques and Old Dubai, and public displays of affection are best kept low-key.</li><li><strong>Dietary requirements</strong> &mdash; If you have strict dietary needs, please tell us at the time of booking. Halal, vegetarian and vegan options are widely available.</li><li><strong>Travel insurance</strong> &mdash; We facilitate travel insurance for our clients. If you are already covered, please say so during booking so we can take it into account in your final quote.</li><li><strong>Tailoring your quote</strong> &mdash; Some of our inclusions &mdash; the helicopter tour, for example &mdash; may not be what you want. Point these out and we will adjust your final offer accordingly.</li><li><strong>Photography</strong> &mdash; Avoid photographing government buildings, military sites and local people without their consent.</li><li><strong>What to pack</strong> &mdash; Light layers for the city, modest coverage for Old Dubai and the souks, a warm layer for the desert night, and comfortable walking shoes. Smart-casual is expected for hotel dining.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- ============ MORE PACKAGES ============ -->
+<section>
+  <div class="wrap">
+    <div class="more-head">
+      <h2>Journeys Often Paired With Dubai</h2>
+    </div>
+    <div class="more-grid"><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/seychelles-ultimate-couples-romance.jpg" alt="The Ultimate Couples Romance, Seychelles">
+          <div class="tags"><span class="tag">HONEYMOON</span></div>
+        </div>
+        <div class="body">
+          <h3>The Ultimate Couples Romance</h3>
+          <div class="meta">10 Days &middot; Seychelles &middot; Private</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Mah&eacute; → Praslin → La Digue
+          </div>
+          <div class="footer-row">
+            <div class="price">$7,500 <span>pp</span></div>
+            <a href="seychelles-ultimate-couples-romance.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/the-monarchs-untamed-mara.jpg" alt="The Monarch's Untamed Mara">
+          <div class="tags"><span class="tag">SMALL GROUP JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Monarch's Untamed Mara</h3>
+          <div class="meta">10 Days &middot; Kenya &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Nairobi → Ol Kinyei → Mara Naboisho → Maasai Mara → Hell's Gate → Nairobi
+          </div>
+          <div class="footer-row">
+            <div class="price">$8,800 <span>pp</span></div>
+            <a href="the-monarchs-untamed-mara.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/serengeti-grand-migration.jpg" alt="The Serengeti Grand Migration">
+          <div class="tags"><span class="tag">PRIVATE JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Serengeti Grand Migration</h3>
+          <div class="meta">12 Days &middot; Tanzania &middot; Private</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Arusha → Tarangire → Ngorongoro → Serengeti → Arusha
+          </div>
+          <div class="footer-row">
+            <div class="price">$12,800 <span>pp</span></div>
+            <a href="serengeti-grand-migration.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<!--@include footer-newsletter-3-->
+
+<!--@include package-tabnav-script-3-->
+
+<!--@include itinerary-expand-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"indian-ocean","focus":"ARE","stops":[["Nairobi",-1.286,36.817],["Dubai",25.2048,55.2708],["Dubai Desert",24.9,55.55]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":8900,"seasons":[7500,9800,8900],"from":8900,"single":"On Request"},"2027":{"headline":9300,"seasons":[7900,10200,9300],"from":7900,"single":"On Request"}}};</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mövenpick MS Royal Lily — Nile Cruiser</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --charcoal: #241f16;
+    --accent: #2E5C6B;
+    --accent-dark: #214550;
+    --olive: #5C6B47;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(36,31,22,0.14);
+    --shadow: 0 30px 60px -30px rgba(36,31,22,0.35);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--charcoal); font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.6; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.4; fill:none; }
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--charcoal); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/movenpick-royal-lily/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/movenpick-royal-lily/2.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.06; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+  .hero-caption{ position:relative; z-index:2; padding:0 clamp(20px,6vw,80px) 100px; color: var(--tent-cream); max-width:720px; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--tent-cream); }
+  .brandmark{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  .brandmark span{ color: var(--gold); }
+  .hero-coords{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-align:right; line-height:1.7; opacity:0.85; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--gold); } .hero-headline .eyebrow::before{ background: var(--gold); }
+  .hero-headline h1{ color: var(--tent-cream); font-size: clamp(2.5rem, 6.6vw, 4.8rem); line-height:0.98; margin-top:18px; }
+  .hero-headline p{ color: rgba(251,246,234,0.82); max-width:440px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(251,246,234,0.14); border:1px solid rgba(251,246,234,0.4); backdrop-filter: blur(6px); color: var(--tent-cream); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(251,246,234,0.35); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--gold); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'Space Mono', monospace; font-size:0.72rem; color: var(--tent-cream); letter-spacing:0.06em; }
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(36,31,22,0.5); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--charcoal); } .tab.active{ color: var(--accent); } .tab.active::after{ transform: scaleX(1); }
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(36,31,22,0.78); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent); }
+  .stat .label{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(36,31,22,0.6); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+  .lodges-note{ background: var(--tent-cream); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(36,31,22,0.85); }
+  .lodges-note strong{ color: var(--accent); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/movenpick-royal-lily/2.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Fraunces', serif; color: var(--accent); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(36,31,22,0.72); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--olive); }
+  .exp-card h3{ font-size:1.25rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.72); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--accent); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/movenpick-royal-lily/1.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(36,31,22,0.82); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent); font-family:'Fraunces',serif; }
+  .loc-map{ background: var(--charcoal); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'Space Mono', monospace; color: var(--accent); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+  .offer-bar{ background: var(--olive-deep, #3A4130); color: var(--tent-cream); padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: var(--tent-cream); padding:16px 30px; text-decoration:none; font-family:'Space Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; color: rgba(36,31,22,0.5); background: var(--ivory); }
+
+.offer-bar{ background: #3A4130; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">MÖVENPICK <span>ROYAL LILY</span></div>
+    <div class="hero-coords">25°41'N 32°38'E<br>LUXOR &amp; ASWAN, THE NILE</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Nile Cruiser — Swiss Hospitality</span>
+    <h1>Swiss Standards,<br>Egyptian Waters</h1>
+    <p>Mövenpick's signature service afloat, sailing the classic Luxor-to-Aswan route with the same consistency the brand is known for on land.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 02</div>
+</div>
+
+<div class="tabbar-wrap">
+  <nav class="tabbar" id="tabbar">
+    <button class="tab active" data-target="overview">Overview</button>
+    <button class="tab" data-target="suites">Cabins</button>
+    <button class="tab" data-target="experiences">Itinerary</button>
+    <button class="tab" data-target="dining">Dining</button>
+    <button class="tab" data-target="location">The Route</button>
+  </nav>
+</div>
+
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>A Fleet Built<br>on Consistency</h2></div>
+    <p class="lede">The MS Royal Lily belongs to Mövenpick's long-established Nile cruise fleet, bringing the brand's dependable Swiss hospitality standards onto the river itself.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(36,31,22,0.82); font-size:1.02rem;">Cabins and suites lean toward clean, contemporary interiors rather than heavy ornamentation, each fitted with large picture windows for uninterrupted views of the passing riverbank. An open-air pool deck, a lounge bar and a spa give guests places to unwind between shore excursions, while the ship's dining room serves a rotating menu of international and Egyptian dishes. Sailing between Luxor and Aswan, the Royal Lily calls at the same essential stops that have anchored Nile cruising for generations — Esna, Edfu and Kom Ombo among them.</p>
+  <div class="lodges-note"><strong>Part of a wider Mövenpick Nile fleet.</strong> Mövenpick operates several vessels on the Nile alongside the MS Royal Lily, each run to the same consistent service standard the brand is known for worldwide.</div>
+  <div class="stat-row"><div class="stat"><div class="num">Multiple</div><div class="label">Cabin &amp; Suite Categories</div></div><div class="stat"><div class="num">3</div><div class="label">Riverside Temple Stops</div></div><div class="stat"><div class="num">1</div><div class="label">Open-Air Pool Deck</div></div><div class="stat"><div class="num">240km</div><div class="label">Luxor to Aswan</div></div></div>
+</section>
+
+<!--@include elevation-divider-->
+
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Cabins</span><h2>Clean Lines,<br>Wide Windows</h2></div>
+    <p class="lede">Cabins favour a contemporary, understated look, with large windows placing the Nile at the centre of every room.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Deluxe Cabin — River View</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Standard Cabins</strong><span>Comfortable, well-equipped cabins with a large picture window, private bathroom and the brand's familiar attention to service detail.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Suites</strong><span>Additional space and upgraded finishes, some with a private balcony extending the river view directly into the room.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>The Royal Suite</strong><span>The ship's top category, with the most generous floor plan and a dedicated sitting area for entertaining or simply relaxing.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>Daily Housekeeping &amp; Turn-Down</strong><span>Mövenpick's standard hospitality touches carry over from its land-based hotels to every cabin onboard.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>Temples of<br>Upper Egypt</h2></div>
+    <p class="lede">The Royal Lily's shore excursions follow the same essential route travellers have taken along the Nile for well over a century.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Luxor</span><h3>Karnak &amp; Luxor Temples</h3><p>Guided tours through Thebes's grandest temple complex and the riverside temple once linked to it by a processional avenue.</p></div></div><div class="exp-card"><div><span class="exp-tag">West Bank</span><h3>Valley of the Kings</h3><p>A visit to the rock-cut royal tombs on Luxor's West Bank, resting place of many of Egypt's New Kingdom pharaohs.</p></div></div><div class="exp-card"><div><span class="exp-tag">Edfu</span><h3>Temple of Horus</h3><p>A well-preserved Ptolemaic temple reached from the dock by horse-drawn carriage.</p></div></div><div class="exp-card"><div><span class="exp-tag">Kom Ombo</span><h3>The Twin Temple</h3><p>A double dedication to Sobek and Horus the Elder, with ancient surgical instruments carved into its reliefs.</p></div></div><div class="exp-card"><div><span class="exp-tag">Aswan</span><h3>Philae Temple &amp; the High Dam</h3><p>A boat crossing to Agilkia Island for the Temple of Isis, followed by a stop at the dam that reshaped the Nile.</p></div></div><div class="exp-card"><div><span class="exp-tag">Onboard</span><h3>Pool Deck &amp; Evening Entertainment</h3><p>An open-air pool, lounge bar and evening entertainment programme fill the hours spent sailing between temples.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">International Buffet,<br>Egyptian Touches</h2>
+      <p class="lede" style="margin-top:24px;">The Royal Lily's dining room mixes an international buffet with regional specialities, keeping the daily menu varied across a multi-night cruise.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>The main dining room, for breakfast, lunch and dinner</span></div><div class="venue"><span class="n">02</span><span>The pool bar, for light snacks and drinks by the water</span></div><div class="venue"><span class="n">03</span><span>The lounge, for evening entertainment</span></div><div class="venue"><span class="n">04</span><span>Themed dinners on selected nights of longer itineraries</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">The Pool Deck — Open-Air Dining</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>Luxor<br>to Aswan</h2></div>
+    <p class="lede">The Royal Lily sails the Nile's classic route between Luxor and Aswan, calling at Esna, Edfu and Kom Ombo along the way.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>A multi-night route between Luxor and Aswan, covering roughly 240km of river.</li><li>Stops at Esna's lock, Edfu's temple and Kom Ombo's riverside complex punctuate the sailing days.</li><li>Transfers from Luxor and Aswan's airports or hotels are typically arranged as part of the cruise package.</li><li>The route can run in either direction depending on the specific itinerary booked.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#2E5C6B"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">MS ROYAL LILY</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">LUXOR TO ASWAN</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">ESNA · EDFU · KOM OMBO</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">THE NILE, UPPER EGYPT</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Scheduled flights connect Cairo to Luxor and Aswan, close to each embarkation point.</p></div><div class="journey-step"><span class="k">Embark</span><p>Guests are transferred directly to the ship, usually in time for lunch on the first day.</p></div><div class="journey-step"><span class="k">Disembark</span><p>Cruises typically conclude with a final breakfast onboard before onward transfer.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Consistent by Design</span>
+      <h2>The Mövenpick Standard, Afloat</h2>
+      <p>The same reliable service Mövenpick is known for on land carries through to every cabin, meal and excursion aboard the Royal Lily.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Cruise &rarr;</a>
+  </div>
+</div>
+
+<footer>MÖVENPICK MS ROYAL LILY · NILE CRUISER · LUXOR &amp; ASWAN, EGYPT</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

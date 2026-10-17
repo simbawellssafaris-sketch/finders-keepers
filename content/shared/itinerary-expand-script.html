@@ -1,0 +1,74 @@
+<script>
+(function(){
+  /* Collapse an expanded day, keeping the page visually still when the
+     block already sits above the viewport (avoids a jump on scroll-past). */
+  function collapse(body, btn){
+    if(!body.classList.contains('expanded')) return;
+    var above  = body.getBoundingClientRect().top < 0;
+    var before = document.documentElement.scrollHeight;
+    body.classList.remove('expanded');
+    btn.textContent = 'Read more';
+    if(above){
+      var delta = before - document.documentElement.scrollHeight;
+      if(delta) window.scrollTo(0, window.scrollY - delta);
+    }
+  }
+
+  /* Once a day block has scrolled entirely out of view, fold it back up so
+     the reader always returns to a clean, uniform itinerary. */
+  var observer = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting) return;
+      var t = entry.target;
+      if(t.__fsBody && t.__fsBtn) collapse(t.__fsBody, t.__fsBtn);
+    });
+  }, {threshold:0}) : null;
+
+  function setupReadMore(){
+    document.querySelectorAll('.day-body').forEach(function(body){
+      var btn = body.nextElementSibling;
+      if(!btn || !btn.classList.contains('read-more')) return;
+      body.classList.add('clamped');
+      btn.style.display = 'none';
+      var p = body.querySelector('p');
+      if(!p) return;
+      var hasMore = body.querySelectorAll('p').length > 1;
+      if(hasMore){
+        /* more than one paragraph: the button is always needed, no measuring required */
+        btn.style.display = '';
+      } else {
+        requestAnimationFrame(function(){
+          if(p.scrollHeight > p.clientHeight + 2){
+            btn.style.display = '';
+          } else {
+            body.classList.remove('clamped');
+            body.classList.remove('expanded');
+            btn.textContent = 'Read more';
+          }
+        });
+      }
+      if(body.dataset.rmWired) return;
+      body.dataset.rmWired = '1';
+      btn.addEventListener('click', function(){
+        body.classList.toggle('expanded');
+        btn.textContent = body.classList.contains('expanded') ? 'Read less' : 'Read more';
+      });
+      if(observer){
+        var block = body.closest('.day-block') || body;
+        block.__fsBody = body;
+        block.__fsBtn  = btn;
+        observer.observe(block);
+      }
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setupReadMore);
+  } else {
+    setupReadMore();
+  }
+  window.addEventListener('resize', function(){
+    clearTimeout(window.__rmResizeT);
+    window.__rmResizeT = setTimeout(setupReadMore, 200);
+  });
+})();
+</script>

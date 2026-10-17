@@ -1,0 +1,141 @@
+<!-- FS-SEARCH:START -->
+<style>
+[data-fs-search]{cursor:pointer;}
+#fsSearch[hidden]{display:none;}
+#fsSearch{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:flex-start;justify-content:center;padding:max(6vh,24px) 16px 16px;font-family:'Raleway','Jost',system-ui,sans-serif;}
+#fsSearch .fss-backdrop{position:absolute;inset:0;background:rgba(26,18,9,.62);backdrop-filter:blur(3px);}
+#fsSearch .fss-box{position:relative;width:min(720px,100%);max-height:84vh;display:flex;flex-direction:column;background:#EDE3CE;color:#2C2A26;box-shadow:0 30px 80px -20px rgba(0,0,0,.55);}
+#fsSearch .fss-bar{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid #CFC1A3;}
+#fsSearch .fss-bar svg{flex:0 0 auto;color:#B5572F;}
+#fsSearch input{flex:1;min-width:0;border:0;background:transparent;outline:0;font:inherit;font-size:18px;color:#2C2A26;padding:6px 0;}
+#fsSearch input::placeholder{color:#8a8377;}
+#fsSearch .fss-x{border:0;background:none;font-size:26px;line-height:1;color:#5C5750;cursor:pointer;padding:2px 6px;}
+#fsSearch .fss-body{overflow:auto;padding:6px 0 10px;}
+#fsSearch .fss-label{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a8377;padding:14px 20px 8px;}
+#fsSearch .fss-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 20px 14px;}
+#fsSearch .fss-chip{border:1px solid #CFC1A3;background:#fff;color:#2C2A26;font:inherit;font-size:13px;padding:8px 14px;cursor:pointer;}
+#fsSearch .fss-chip:hover{border-color:#B5572F;color:#B5572F;}
+#fsSearch .fss-item{display:grid;grid-template-columns:96px 1fr;gap:2px 14px;padding:11px 20px;text-decoration:none;color:inherit;border-left:3px solid transparent;}
+#fsSearch .fss-item:hover,#fsSearch .fss-item.on{background:#fff;border-left-color:#B5572F;}
+#fsSearch .fss-type{grid-row:1 / span 2;align-self:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#B5572F;font-weight:600;}
+#fsSearch .fss-title{font-family:'Fraunces','EB Garamond',Georgia,serif;font-size:17px;line-height:1.3;}
+#fsSearch .fss-sub{font-size:12.5px;color:#5C5750;line-height:1.45;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+#fsSearch .fss-empty{padding:26px 20px;color:#5C5750;font-size:14px;line-height:1.6;}
+#fsSearch .fss-empty a{color:#B5572F;}
+#fsSearch .fss-foot{border-top:1px solid #CFC1A3;padding:10px 20px;font-size:11.5px;color:#8a8377;display:flex;justify-content:space-between;gap:12px;}
+@media(max-width:560px){#fsSearch .fss-item{grid-template-columns:1fr;}#fsSearch .fss-type{grid-row:auto;}#fsSearch input{font-size:16px;}}
+@media print{#fsSearch{display:none!important;}}
+</style>
+<div id="fsSearch" role="dialog" aria-modal="true" aria-label="Search the site" hidden>
+  <div class="fss-backdrop" data-fss-close></div>
+  <div class="fss-box">
+    <div class="fss-bar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="fssInput" type="search" placeholder="Search destinations, journeys, lodges, experiences…" autocomplete="off" aria-label="Search">
+      <button class="fss-x" type="button" data-fss-close aria-label="Close search">&times;</button>
+    </div>
+    <div class="fss-body" id="fssBody"></div>
+    <div class="fss-foot"><span>Press Esc to close</span><span>{{brand}}</span></div>
+  </div>
+</div>
+<script>
+(function(){
+  var ov=document.getElementById('fsSearch'); if(!ov||ov.dataset.ready) return; ov.dataset.ready='1';
+  var input=document.getElementById('fssInput'), body=document.getElementById('fssBody');
+  var data=null, loading=null, items=[], active=-1, lastTrigger=null;
+  var ORDER={Destination:1,Journey:2,Stay:3,Experience:4,Guide:5,Page:6};
+  var POPULAR=['Kenya','Tanzania','Botswana','South Africa','Maldives','Seychelles','Zanzibar','Honeymoon','Family','Big Five','Beach','Balloon'];
+
+  function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();}
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('search-index.json').then(function(r){if(!r.ok) throw new Error('x');return r.json();}).then(function(d){
+      d.forEach(function(e){e._t=norm(e.t+' '+(e.a||''));e._k=norm(e.k);e._d=norm(e.d);});data=d;return d;}).catch(function(){loading=null;return [];});
+    return loading;
+  }
+  function search(q){
+    var toks=norm(q).split(' ').filter(Boolean); if(!toks.length) return [];
+    var out=[];
+    (data||[]).forEach(function(e){
+      var score=0;
+      for(var i=0;i<toks.length;i++){
+        var t=toks[i], inT=e._t.indexOf(t), inK=e._k.indexOf(t), inD=e._d.indexOf(t), s=0;
+        if(inT>=0) s+= (inT===0||e._t.charAt(inT-1)===' ')?8:4;
+        if(inK>=0) s+=3;
+        if(inD>=0) s+=1;
+        if(!s) return;
+        score+=s;
+      }
+      if(score) out.push({e:e,s:score});
+    });
+    out.sort(function(a,b){return b.s-a.s || (ORDER[a.e.y]||9)-(ORDER[b.e.y]||9) || a.e.t.localeCompare(b.e.t);});
+    return out.slice(0,14).map(function(x){return x.e;});
+  }
+  function el(tag,cls,txt){var n=document.createElement(tag);if(cls)n.className=cls;if(txt!=null)n.textContent=txt;return n;}
+  function showSuggestions(){
+    body.textContent=''; items=[]; active=-1;
+    body.appendChild(el('div','fss-label','Popular searches'));
+    var wrap=el('div','fss-chips');
+    POPULAR.forEach(function(p){var b=el('button','fss-chip',p);b.type='button';b.addEventListener('click',function(){input.value=p;run();input.focus();});wrap.appendChild(b);});
+    body.appendChild(wrap);
+  }
+  function render(list,q){
+    body.textContent=''; items=[]; active=-1;
+    if(!list.length){
+      var d=el('div','fss-empty'); d.appendChild(document.createTextNode('Nothing found for “'+q+'”. Try a country (Kenya), a style (honeymoon, family) or a lodge name. Or '));
+      var a=el('a',null,'speak to us');a.href='#';a.className='js-fs-enquire';a.addEventListener('click',function(){close();});d.appendChild(a);d.appendChild(document.createTextNode(' and we will help you plan.'));
+      body.appendChild(d);return;
+    }
+    list.forEach(function(e){
+      var a=el('a','fss-item');a.href=e.u;
+      a.appendChild(el('span','fss-type',e.y));a.appendChild(el('span','fss-title',e.t));if(e.d)a.appendChild(el('span','fss-sub',e.d));
+      body.appendChild(a);items.push(a);
+    });
+  }
+  function run(){
+    var q=input.value.trim();
+    if(!q){showSuggestions();return;}
+    load().then(function(){ if(input.value.trim()===q) render(search(q),q); });
+  }
+  function setActive(i){
+    if(!items.length) return;
+    active=(i+items.length)%items.length;
+    items.forEach(function(n,idx){n.classList.toggle('on',idx===active);});
+    items[active].scrollIntoView({block:'nearest'});
+  }
+  function open(trigger){
+    lastTrigger=trigger||null;
+    ov.hidden=false; document.documentElement.style.overflow='hidden';
+    showSuggestions(); load();
+    setTimeout(function(){input.focus();input.select();},30);
+  }
+  function close(){
+    ov.hidden=true; document.documentElement.style.overflow='';
+    if(lastTrigger&&lastTrigger.focus) try{lastTrigger.focus();}catch(e){}
+  }
+
+  // The "Find Your Journey" button in every page header opens the search.
+  [].forEach.call(document.querySelectorAll('.nav-search,.navright,.mainnav .wrap > div'),function(n){
+    if(/find your journey/i.test(n.textContent||'')){n.setAttribute('data-fs-search','');n.setAttribute('role','button');n.setAttribute('tabindex','0');}
+  });
+  document.addEventListener('click',function(ev){
+    var t=ev.target.closest&&ev.target.closest('[data-fs-search]');
+    if(t){ev.preventDefault();open(t);return;}
+    if(ev.target.closest&&ev.target.closest('[data-fss-close]')) close();
+  });
+  document.addEventListener('keydown',function(ev){
+    var t=ev.target;
+    if(!ov.hidden){
+      if(ev.key==='Escape'){close();return;}
+      if(ev.key==='ArrowDown'){ev.preventDefault();setActive(active+1);return;}
+      if(ev.key==='ArrowUp'){ev.preventDefault();setActive(active-1);return;}
+      if(ev.key==='Enter'&&t===input){var go=items[active>=0?active:0];if(go){ev.preventDefault();location.href=go.getAttribute('href');}return;}
+      return;
+    }
+    if((ev.key==='Enter'||ev.key===' ')&&t.closest&&t.closest('[data-fs-search]')){ev.preventDefault();open(t);return;}
+    if(ev.key==='/'&&!ev.ctrlKey&&!ev.metaKey&&!ev.altKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.isContentEditable){ev.preventDefault();open(null);}
+  });
+  input.addEventListener('input',run);
+})();
+</script>
+<!-- FS-SEARCH:END -->

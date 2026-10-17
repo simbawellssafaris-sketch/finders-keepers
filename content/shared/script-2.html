@@ -1,0 +1,25 @@
+<script>
+(function(){
+  var car = document.getElementById("tsHeroCarousel");
+  if (!car) return;
+  var slides = car.querySelectorAll(".ts-hero-slide");
+  var dotsWrap = document.getElementById("tsHeroDots");
+  var i = 0;
+  slides.forEach(function(_, idx){
+    var b = document.createElement("button");
+    if (idx === 0) b.className = "on";
+    b.setAttribute("aria-label", "Show image " + (idx + 1));
+    b.addEventListener("click", function(){ show(idx); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = dotsWrap.querySelectorAll("button");
+  function show(n){
+    slides[i].classList.remove("on");
+    dots[i].classList.remove("on");
+    i = n;
+    slides[i].classList.add("on");
+    dots[i].classList.add("on");
+  }
+  setInterval(function(){ show((i + 1) % slides.length); }, 4500);
+})();
+</script>

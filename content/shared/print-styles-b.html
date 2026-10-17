@@ -1,0 +1,43 @@
+<!-- FS-PRINT:START -->
+<style>
+@media print {
+  /* chrome */
+  .topbar, .mainnav, .nav, header, nav, footer,
+  #enqFab, .speak-btn, #enqOverlay, #megaOverlay, .mega-overlay,
+  .tabnav, .dest-subnav, .dest-subnav-wrap, .ways-explore, .expert-cta,
+  .floatcard, .more-grid, .more-head, .jf-rail, .jf-toggle, .jf-bar, .jf-chips,
+  .aj-filters, .all-journeys-header, .all-journeys-results, .all-journeys-tag,
+  .stays-car-nav, .stays-carousel-arrow, .th-car-ctrl, .ts-car-ctrl, .ts-arrows,
+  .carousel-arrow, .map-controls, .map-section, .tj-breadcrumb, .aj-loadmore,
+  .download-row, .ways-tabs,
+  button, input, select, video
+  { display: none !important; }
+
+  /* expand-in-place panels (offers, itinerary day detail, journey info) should
+     print open, not collapsed at max-height:0 the way they sit on screen */
+  .th-detail, .offer-detail, .jd-panel, .general-info-panel, .enq-detail, .aj-detail
+  { max-height: none !important; overflow: visible !important; }
+
+  * { box-shadow: none !important; text-shadow: none !important; animation: none !important; transition: none !important; }
+  html, body { background: #fff !important; }
+  body { font-size: 11pt; color: #1a1209; }
+  a { color: #1a1209 !important; text-decoration: none !important; }
+  .hero, [class*="-hero"] { min-height: auto !important; page-break-inside: avoid; }
+  .itinerary-section, .day-card, .price-card, .pricing-grid { page-break-inside: avoid; }
+
+  body::before {
+    content: "{{BRAND}}";
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16pt;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 10pt 0 12pt;
+    border-bottom: 2pt solid #8B3A2A;
+    margin-bottom: 18pt;
+  }
+  @page { margin: 1.6cm; }
+}
+</style>
+
+<!-- FS-PRINT:END -->

@@ -1,0 +1,110 @@
+{
+  "seychelles-ultra-luxury-island-hopper": {
+    "lead": "Three distinct addresses in ten days, from Eden Island’s superyacht marina to Raffles on Praslin and Anantara Maia, with marine park days in between.",
+    "reasons": [
+      { "t": "Three stays, three moods", "d": "A marina-front suite at Eden Bleu, a panoramic pool villa at Raffles Seychelles, then an all-inclusive villa at Anantara Maia." },
+      { "t": "Ste Anne and St Pierre", "d": "A full-day catamaran cruise through Ste Anne Marine National Park among coral reefs and turtles, a glass-bottom boat, and snorkelling around the granite islet of St Pierre for reef sharks and eagle rays." },
+      { "t": "Beaches and cloud forest", "d": "Anse Lazio, one of the world’s finest beaches, a hidden forest trail to Anse Georgette, and a scenic drive through Morne Seychellois’s cloud forests." }
+    ],
+    "bestFor": ["Couples", "Luxury hotel lovers", "Snorkellers"]
+  },
+  "seychelles-wild-adventure": {
+    "lead": "The Seychelles for people who like to walk, snorkel and fly: granite summit trails, marine parks and five days on Félicité.",
+    "reasons": [
+      { "t": "A granite summit ledge", "d": "The Copolia Trail climbs 180 metres in 1.2 km to a summit ledge above the treeline, past pitcher plants and endemic upland forest in Morne Seychellois National Park." },
+      { "t": "Marine parks for every level", "d": "Sainte Anne’s six islands with Moyenne’s free-roaming tortoises, sheltered Port Launay for first-time snorkellers, diving, and paragliding over Beau Vallon Bay." },
+      { "t": "Five days at Zil Pasyon", "d": "Six Senses Zil Pasyon on the private island of Félicité, with a day of adventure on La Digue." }
+    ],
+    "bestFor": ["Active travellers", "Snorkellers and divers", "Adventurous couples"]
+  },
+  "seychelles-wild-outer-island-explorer": {
+    "lead": "Beyond the main islands: a charter flight to Alphonse Atoll for fly-fishing, diving with mantas and a day on an uninhabited atoll.",
+    "reasons": [
+      { "t": "A remote atoll, by charter", "d": "A one-hour charter flight south to Alphonse, where a sunset beach bonfire briefing with the resident marine biologists begins your stay at Alphonse Island Lodge." },
+      { "t": "World-class flats fishing", "d": "Guided fly-fishing across expansive sand flats for bonefish, milkfish and giant trevally." },
+      { "t": "Mantas and an empty atoll", "d": "Scuba diving Alphonse’s outer reef walls alongside manta rays and hammerhead sharks, and a skiff to uninhabited St François Atoll with a picnic on an open sandbank." }
+    ],
+    "bestFor": ["Fly-fishers", "Divers", "Remote-island seekers"]
+  },
+  "srilanka-ancient-northern-kingdoms-reefs": {
+    "lead": "Sri Lanka’s quieter north: leopards in Wilpattu, 2,000-year-old Anuradhapura, then Jaffna and Delft Island, where wild horses roam the ruins of a Dutch fort.",
+    "reasons": [
+      { "t": "Leopards and sloth bears", "d": "Leopard tracking in Wilpattu National Park, where leopards and sloth bears patrol the natural sand basins, from a private pool villa at Uga Ulagalla." },
+      { "t": "Anuradhapura’s stone empire", "d": "The 2,000-year-old Ruwanwelisaya Stupa and the sacred Bodhi Tree, and a sundowner from a private stone platform overlooking the ancient carvings." },
+      { "t": "Jaffna and Delft Island", "d": "Crossing Elephant Pass to Jaffna and the golden spires of Nallur Kandaswamy, then a private speedboat to Delft Island’s coral-stone Dutch fort and its herds of wild horses." }
+    ],
+    "bestFor": ["Return Sri Lanka visitors", "History lovers", "Off-the-beaten-path travellers"]
+  },
+  "srilanka-cultural-triangle-apex-wilds": {
+    "lead": "Sigiriya, Polonnaruwa and the Minneriya elephant gathering, then the east coast for blue whales.",
+    "reasons": [
+      { "t": "The Sky King’s fortress", "d": "Climbing Sigiriya past the giant carved Lion’s Paws to the 5th-century royal palace and its frescoes, and a dawn balloon over the rock monoliths." },
+      { "t": "Elephants by the hundred", "d": "The Minneriya Gathering, with hundreds of wild Asian elephants around the ancient reservoir, a champagne sundowner from an open-top vehicle, and Polonnaruwa’s Gal Vihara Buddhas carved from a single granite boulder." },
+      { "t": "Whales on the east coast", "d": "A deep-sea blue whale safari from Trincomalee, Pigeon Island Marine Sanctuary, and the clifftop Koneswaram temple." }
+    ],
+    "bestFor": ["First Sri Lanka trips", "Wildlife lovers", "Culture seekers"]
+  },
+  "srilanka-tea-highlands-whales-south": {
+    "lead": "Tea estates in the highlands, the Nine Arch Bridge and blue whales off Mirissa: three Sri Lankas in ten days.",
+    "reasons": [
+      { "t": "Sleep on a tea estate", "d": "Ceylon Tea Trails, a historic colonial-style estate, with a hands-on tea plucking and tasting masterclass and a Castlereagh Lake sundowner of single malts and single-estate Ceylon teas." },
+      { "t": "Kandy and the steam train", "d": "The golden-roofed Temple of the Sacred Tooth Relic in Kandy, and the Nine Arch Bridge at Ella with the historic steam train crossing it." },
+      { "t": "Blue whales and a fort", "d": "A private 55-foot catamaran from Mirissa tracking wild blue whales and pods of spinner dolphins, then Sinharaja’s rainforest and a walk around the UNESCO fort at Galle." }
+    ],
+    "bestFor": ["Tea and food lovers", "Couples", "Whale watchers"]
+  },
+  "zanzibar-island-savannah-romance": {
+    "lead": "Zanzibar’s dolphins and sandbars, then a flight to Kilimanjaro and a wildlife lodge: island romance with a savannah finish.",
+    "reasons": [
+      { "t": "Stone Town by candlelight", "d": "A candle-lit rooftop dinner over the old minarets, from the Sultanate Ocean Suite at Park Hyatt Zanzibar." },
+      { "t": "Dolphins, a sandbar and a sea walk", "d": "A dawn dhow among wild bottlenose and humpback dolphins, a white-linen breakfast on a disappearing sandbar, a walk on the reef floor, and lunch at The Rock restaurant." },
+      { "t": "Then the mainland", "d": "A direct flight to Mount Kilimanjaro and the Serval Wildlife Resort, with free-roaming wildlife and movies under the stars." }
+    ],
+    "bestFor": ["Honeymooners", "Couples", "Beach-and-bush trips"]
+  },
+  "zanzibar-palatial-stone-town-coral-atolls": {
+    "lead": "Stone Town’s history with a private historian, then a private atoll: Mnemba Island with &Beyond.",
+    "reasons": [
+      { "t": "History, privately", "d": "A private historian leads the slave market site and Christ Church Cathedral, followed by Prison Island’s giant Aldabra tortoises, some over 100 years old." },
+      { "t": "From above and from a sandbar", "d": "A dawn helicopter loop over Stone Town’s rooftops and Jozani’s canopy, and a vintage wine sundowner on a private sandbar." },
+      { "t": "Mnemba, entirely", "d": "&Beyond Mnemba Island Lodge is a private atoll with white-sand beaches and clear snorkelling, with a private boat to the marine reserve’s spinner dolphins and coral drop-offs." }
+    ],
+    "bestFor": ["Honeymooners", "History lovers", "Privacy seekers"]
+  },
+  "zanzibar-secret-oases-hidden-sandbars": {
+    "lead": "The quiet south and east of Zanzibar: wild dolphins at dawn, a sacred cave, mangroves and a lunch on a rock in the sea.",
+    "reasons": [
+      { "t": "Dolphins and a sacred cave", "d": "A morning dhow among humpback and bottlenose dolphins, then the Kuza Cave’s limestone pools, used for centuries for spiritual healing, and a carpet-and-majlis sundowner above the valley." },
+      { "t": "Mangroves and sandbars", "d": "A private dhow through Jozani Chwaka Bay’s calm mangrove channels, and a Safari Blue expedition to hidden reefs, a mangrove lagoon swim and a sandbar seafood feast." },
+      { "t": "A lunch on a rock", "d": "A private, crowd-free lunch at The Rock restaurant on its lone coral outcrop, and quiet days on the Michamvi Peninsula." }
+    ],
+    "bestFor": ["Couples", "Snorkellers", "Quiet-beach seekers"]
+  },
+  "zanzibar-southern-marine-dolphin-sanctuary": {
+    "lead": "Stone Town’s history, Jozani’s red colobus monkeys and the southern dolphin coast, with a sea walk on the reef.",
+    "reasons": [
+      { "t": "Stone Town with a historian", "d": "A private historian leads the Old Arab Fort and House of Wonders, followed by a rooftop sundowner as the sun drops behind the old minarets." },
+      { "t": "Monkeys found nowhere else", "d": "Jozani Chwaka Bay National Park, where rare Zanzibar red colobus monkeys leap through the mahogany canopy." },
+      { "t": "Dolphins and a sandbar breakfast", "d": "A dawn dhow to Kizimkazi Bay for wild humpback and bottlenose dolphins, a white-linen breakfast on a disappearing sandbar, and a reef sea walk that needs no diving experience." }
+    ],
+    "bestFor": ["First Zanzibar trips", "Couples", "Snorkellers"]
+  },
+  "zanzibar-spice-coast-ancient-kingdoms": {
+    "lead": "Stone Town’s palaces and a century-old spice estate, then the Nungwi coast by dhow, with turtles and a reef walk.",
+    "reasons": [
+      { "t": "Spices at the source", "d": "A private tour of a century-old spice estate, with cloves, nutmeg, cinnamon and vanilla vines and Zanzibar’s spice trade explained." },
+      { "t": "Stone Town’s sultans", "d": "A private historian leads the Arab Fort, the Sultan’s Palace ruins and the House of Wonders." },
+      { "t": "Dhow, turtles and a reef walk", "d": "A handcrafted private dhow around the Nungwi Peninsula with loggerhead turtles and a champagne brunch in a tidal reef cove, plus a sea walk on the northern outer reef." }
+    ],
+    "bestFor": ["Food lovers", "Couples", "History lovers"]
+  },
+  "zanzibar-ultimate-sultans-archipelago": {
+    "lead": "Zanzibar and Pemba in one journey, ending in a bedroom beneath the sea at The Manta Resort.",
+    "reasons": [
+      { "t": "A bedroom underwater", "d": "The Manta Resort’s Underwater Room has glass bedroom windows looking straight into the ocean, with coral fish and sea turtles drifting past." },
+      { "t": "Pemba’s wild side", "d": "A deep-sea wall walk in the Pemba Channel wearing a diving helmet, and a private hike through the Ngezi Rainforest to see Pemba flying foxes, ending with a rainforest stream breakfast." },
+      { "t": "Zanzibar’s highlights first", "d": "Stone Town’s sultanate palaces, Jozani’s red colobus monkeys, Kuza Cave’s sacred pools and a private lunch at The Rock." }
+    ],
+    "bestFor": ["Honeymooners", "Marine-life lovers", "Return Zanzibar visitors"]
+  }
+}

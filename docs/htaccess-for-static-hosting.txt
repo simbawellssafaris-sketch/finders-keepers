@@ -1,0 +1,44 @@
+# Settings for Hostinger (LiteSpeed/Apache). Upload this file with the site; safe to use as-is.
+
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
+
+# Let /kenya work as well as /kenya.html (existing .html links keep working too)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# Compress text files in transit
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Let visitors' browsers keep images/video/CSS/JS so repeat visits are instant
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType text/html "access plus 10 minutes"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Next.js file names change whenever their content changes, so these can be cached for a year
+  <LocationMatch "^/_next/static/">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </LocationMatch>
+  <FilesMatch "\.(jpg|jpeg|png|webp|svg|ico|mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

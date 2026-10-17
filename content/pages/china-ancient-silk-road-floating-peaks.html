@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ancient Silk Road & Floating Peaks | {{brand}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#EDE3CE;
+    --tan:#E0D3B8;
+    --ink:#2C2A26;
+    --ink-soft:#5C5750;
+    --terracotta:#B5572F;
+    --terracotta-dark:#9C4926;
+    --line:#CFC1A3;
+    --white:#FFFFFF;
+    --olive:#6B7257;
+    --maxw:1376px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+
+  /* PLACEHOLDER IMAGE */
+  .ph-img{width:100%;height:100%;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--tan) 0%,var(--terracotta) 160%);color:var(--white);text-align:center;}
+  .ph-img .ic{font-size:30px;}
+  .ph-img .cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:0 18px;}
+  .ph-avatar{width:48px;height:48px;border-radius:50%;background:var(--terracotta);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;flex-shrink:0;}
+
+  /* TOP BAR */
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;letter-spacing:.04em;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;letter-spacing:.12em;}
+
+  /* MAIN NAV */
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .mainnav .navright{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .burger{display:none;font-size:22px;border:none;background:none;cursor:pointer;}
+
+  /* HERO */
+  .hero{position:relative;height:640px;width:100%;overflow:hidden;background-image:url('assets/img/packages/china-ancient-silk-road-floating-peaks.jpg');background-size:cover;background-position:center;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.62) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;z-index:2;margin-bottom:18px;}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero h1{font-size:58px;color:var(--white);line-height:1.05;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .hero-sub{margin-top:14px;font-size:16px;letter-spacing:.05em;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+
+  /* STAT STRIP */
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+
+  /* CTA BAND */
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  .ctaband .btn{background:var(--cream);border-color:var(--ink);}
+  .ctaband .btn:hover{background:var(--ink);color:var(--cream);}
+
+  /* STICKY TAB NAV */
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;color:var(--ink);cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+
+  /* FLOATING CARD */
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  .floatcard .btn-solid{border:none;padding:0 26px;}
+
+  /* SECTIONS */
+  section{padding:80px 0;}
+  section.tight{padding-top:60px;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+
+  /* OVERVIEW */
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:26px;line-height:1.5;color:var(--ink);}
+  .overview-grid p.lead .eyebrow{margin-right:14px;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img > *{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;color:var(--ink);}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .download-row{margin-top:40px;}
+
+  /* WHY */
+  .why{background:var(--cream);padding:80px 0;text-align:center;}
+  .why h3{font-size:14px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:60px;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 80px;max-width:880px;margin:0 auto;}
+  .why-item{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .why-item .icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+  .why-item .icon svg{width:42px;height:42px;}
+  .why-item p{margin:0;font-size:16px;max-width:300px;}
+
+  /* ITINERARY */
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;;min-width:0}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);overflow:hidden;}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-controls{position:absolute;top:24px;left:24px;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--white);}
+  .map-controls span{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border-bottom:1px solid var(--line);cursor:pointer;}
+  .map-controls span:last-child{border-bottom:none;}
+  .map-route{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;text-align:center;padding:0 30px;}
+  .days-col{padding:60px 40px 60px 60px;;min-width:0}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:26px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-meta .icon{font-size:16px;}
+  .day-img{margin-top:24px;height:240px;}
+  .day-img > *{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta .imgcol{width:280px;flex-shrink:0;}
+  .private-cta .imgcol > *{width:100%;height:100%;object-fit:cover;}
+
+  /* STAYS */
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:220px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap > img, .stay-card .imgwrap > .ph-img{width:100%;height:100%;object-fit:cover;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-weight:600;}
+  .stay-card .body{padding:20px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .stay-card h4{font-size:21px;margin-bottom:18px;min-height:54px;}
+  .stay-card .btn{width:100%;margin-top:auto;}
+
+
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .offer-card a{font-size:13px;text-decoration:underline;font-weight:600;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);}
+  .inclusion-list[open] summary{border-bottom:none;}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+
+  /* JOURNEY DETAILS */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;}
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;}
+  .jd-panel{display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-soft);}
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  .jd-panel .placeholder{font-style:italic;color:#A39E92;}
+  .general-info{margin-top:50px;}
+  .general-info-panel{display:none;max-width:760px;margin:24px auto 0;background:var(--cream);padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);}
+  .general-info-panel.open{display:block;}
+
+  /* MORE PACKAGES */
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap > img, .package-card .imgwrap > .ph-img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:22px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:22px;}
+  .package-card .price span{font-size:14px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:14px;}
+  footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  footer a:hover{opacity:1;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+
+  @media(max-width:900px){
+    .overview-grid,.itinerary-layout,.pricing-grid,.test-grid,.foot-grid{grid-template-columns:1fr;}
+    .highlights{grid-template-columns:1fr;}
+    .stays-grid,.more-grid{grid-template-columns:1fr 1fr;}
+    .jd-grid{grid-template-columns:1fr;}
+    .private-cta{flex-direction:column;}
+    .private-cta .imgcol{width:100%;height:200px;}
+    .hero h1{font-size:36px;}
+  }
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:0700000000"><i class="fs-ico fs-ico-phone" aria-hidden="true"></i> SPEAK TO US | {{phone}}</a>
+    <div class="right">
+      <a href="#" class="js-fs-subscribe">Subscribe</a>
+      <a href="brochures.html">Brochures</a>
+      
+    </div>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<!--@include nav-detail-pages-3-->
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tags"><span class="tag offer">SMALL GROUP JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+      <div class="hero-title-row">
+        <h1>The Ancient Silk Road & Floating Peaks</h1>
+        <div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>▾</span>
+          <div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="statstrip">
+  <div class="wrap">
+    <div class="stat"><div class="num">10</div><div class="label">Days</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Destinations</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Flights & Trains</div></div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<!--@include package-cta-band-->
+
+<!-- STICKY TAB NAV -->
+<div class="tabnav" id="tabnav-pkg2">
+  <div class="wrap">
+    <span class="backtotop" onclick="document.getElementById('top').scrollIntoView({behavior:'smooth'})">↑ Back to Top</span>
+    <a href="#overview" class="tab">Overview</a>
+    <a href="#itinerary" class="tab">Itinerary</a>
+    <a href="#stays" class="tab">Stays</a>
+    <a href="#why-journey" class="tab">Why This Journey</a>
+    <a href="#pricing" class="tab">Pricing &amp; Inclusions</a>
+    <a href="#details" class="tab">Journey Details</a>
+  </div>
+</div>
+
+<!-- FLOATING ENQUIRY CARD -->
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Small Group</span><div class="div"></div><span class="fc-price">from $9,200 pp</span></div></div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;›&nbsp; <a href="journey-finder.html">Journeys</a> &nbsp;›&nbsp; <a href="finders-safaris-china.html">China</a> &nbsp;›&nbsp; <span class="current">The Ancient Silk Road & Floating Peaks</span></div>
+
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>This is not merely a sightseeing tour. This is an immersion into the ancient trade routes and gravity-defying landscapes that shaped a civilization — a land of singing sand dunes, Buddhist grottoes carved into cliffs, and karst pillars that inspired a Hollywood blockbuster. Over ten unforgettable days, journey from the Silk Road treasures of Dunhuang to the floating peaks of Zhangjiajie, then to the cyberpunk metropolis of Chongqing. Every domestic flight, every transfer, every signature experience is wrapped into one seamless, all-inclusive price.</p>
+
+        <div class="highlights">
+          <div class="highlight"><span class="spark">✦</span><p>Three nights at The Silk Road Dunhuang Hotel with roof-suite views over the desert and distant dunes</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Private historian-led morning at the UNESCO-listed Mogao Caves, 1,500 years of Buddhist murals and sculpture</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Camel ride across the singing sands of Mingsha Mountain to the Crescent Moon Lake oasis</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Glass-fronted Bailong Elevator ascent up a 326-metre cliff face into Zhangjiajie National Forest Park</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Walk across the First Bridge Under Heaven and stand before the sandstone pillars that inspired Avatar</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Cross the world-famous, transparent Glass Bridge suspended above Zhangjiajie Grand Canyon</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Watch the Liziba Monorail train pass directly through the middle of a 19-storey residential tower</p></div>
+          <div class="highlight"><span class="spark">✦</span><p>Premium terrace dining and cocktails at Southwind Cliff Bistro as Chongqing's neon skyline switches on</p></div>
+        </div>
+
+        <div class="download-row">
+          <a href="assets/itineraries/china-ancient-silk-road-floating-peaks.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="overview-img">
+        <div class="ph-img"><span class="ic"><i class="fs-ico fs-ico-castle" aria-hidden="true"></i></span><span class="cap">Zhangjiajie National Forest Park</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<div class="why">
+  <div class="wrap">
+    <h3>Why Travel With {{brand}}</h3>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="10" width="36" height="24" rx="2"/><path d="M14 34v4M34 34v4M6 18h36"/><circle cx="24" cy="14" r="2"/></svg>
+        </div>
+        <p>All-inclusive luxury hotels and lodges — every meal, transfer and signature activity wrapped in one transparent price</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M8 38l8-26h8l8 26M24 22h-1M40 38V18l-8-6v26z"/></svg>
+        </div>
+        <p>VIP airport handling and private guides throughout — fast-tracked through customs, every time</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4l6 12 13 2-9.5 9 2.2 13L24 34l-11.7 6 2.2-13L5 18l13-2z"/></svg>
+        </div>
+        <p>Authentic encounters shaped by China's finest local guides and cultural specialists</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><rect x="6" y="14" width="36" height="22" rx="2"/><circle cx="16" cy="32" r="3"/><circle cx="32" cy="32" r="3"/><path d="M6 22h36M14 14V8h8v6"/></svg>
+        </div>
+        <p>First Class bullet trains and domestic flights between every destination — seamless, high-speed travel</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 14v10l7 4"/></svg>
+        </div>
+        <p>Thoughtfully paced itinerary balancing iconic landmarks with quiet, unhurried moments</p>
+      </div>
+      <div class="why-item">
+        <div class="icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#2C2A26" stroke-width="1.5"><path d="M24 4C13 14 8 22 8 29a16 16 0 0032 0c0-7-5-15-16-25z"/></svg>
+        </div>
+        <p>All entrance fees, signature experiences and a complimentary spa session — no hidden costs</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Dunhuang → Zhangjiajie → Chongqing</div>
+        <div class="map-controls"><span>+</span><span>–</span></div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Dunhuang → Zhangjiajie → Chongqing. Interactive map to be added here with day-by-day scrollspy markers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Dunhuang</div>
+      <div class="day-block">
+        <h3>Day 1 | Departure from Nairobi & Arrival in Dunhuang</h3>
+        <div class="day-body">
+          <p>Upon your arrival at Jomo Kenyatta International Airport in Nairobi, you will receive VIP handling as you check in for your international flight to China. You will board a flight to Dunhuang Airport (DNH). Upon arrival, you will receive VIP tarmac reception, expediting you through customs and baggage claim with ease. A private guide will transfer you to The Silk Road Dunhuang Hotel (Desert View Roof Suite). You will look forward to the stunning views of the desert landscape and the distant dunes from your suite. If you arrive before 4:00 PM, you will be treated to a private guided tour of the area. You will explore the vibrant Shazhou Night Market, sampling Silk Road spices and local delicacies. The day culminates in a relaxed welcome dinner at the hotel.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="silk-road-dunhuang-hotel.html">The Silk Road Dunhuang Hotel</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 2 | Mogao Caves Treasures & Buddhist Art</h3>
+        <div class="day-body">
+          <p>Today, you will spend the morning exploring the UNESCO-listed Mogao Caves with a specialized historian guide. You will look forward to viewing ancient Buddhist wall murals and towering clay sculptures dating back over 1,500 years. Your guide will explain the history and significance of the caves, which are a treasure trove of Buddhist art. You will also visit the Mogao Digital Exhibition Center to watch immersive structural recreations of the caves. You return to The Silk Road Dunhuang Hotel for a gourmet dinner.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="silk-road-dunhuang-hotel.html">The Silk Road Dunhuang Hotel</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 3 | Mingsha Dunes & Crescent Moon Oasis</h3>
+        <div class="day-body">
+          <p>Today, you will ride camels across the sweeping, singing sands of Mingsha Mountain in the morning. You will look forward to the unique experience of riding a camel across the dunes, with the wind creating a singing sound in the sand. You will walk down to the edges of Yueyaquan (Crescent Moon Lake), a natural spring oasis inside the dunes. You will look forward to the stunning sight of the oasis, with the dunes rising around it. You will watch the desert sun drop below the horizon from the ridge of a giant sand dune — a perfect sundowner moment. Your stay remains at The Silk Road Dunhuang Hotel.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/asia/1.jpg" alt="Mingsha Dunes & Crescent Moon Oasis"></div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="silk-road-dunhuang-hotel.html">The Silk Road Dunhuang Hotel</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Zhangjiajie</div>
+      <div class="day-block">
+        <h3>Day 4 | Fly to Zhangjiajie & Cloud-Piercing Architecture</h3>
+        <div class="day-body">
+          <p>After breakfast, you will take a morning domestic flight from Dunhuang to Zhangjiajie Airport (DYG). You will look forward to the spectacular aerial views of the changing landscapes, from the desert to the karst mountains. Upon arrival, you will check into Nabalie Zhangjiajie Wulingyuan (Mountain View Executive Villa), a luxury mountain resort located right outside the national park gates. You will look forward to the stunning views of the karst peaks from your villa. You will enjoy a relaxed evening walking along the streams of Wulingyuan town. You enjoy a gourmet dinner at the resort.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nabalie-zhangjiajie-wulingyuan.html">Nabalie Zhangjiajie Wulingyuan</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 5 | Avatar Hallelujah Mountains & Bailong Elevator</h3>
+        <div class="day-body">
+          <p>Today, you will enter Zhangjiajie National Forest Park and ride the glass-fronted Bailong Elevator up a 326-meter cliff face. You will look forward to the spectacular views from the elevator, with the karst peaks rising around you. You will explore Yuanjiajie to stand opposite the towering pillars that inspired the movie Avatar. You will look forward to the stunning sight of the sandstone pillars, with their flat tops and vertical sides. You will walk across the First Bridge Under Heaven, a natural rock arch connecting two massive stone spires. You will look forward to the breathtaking views from the bridge. Your stay remains at Nabalie Zhangjiajie Wulingyuan.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nabalie-zhangjiajie-wulingyuan.html">Nabalie Zhangjiajie Wulingyuan</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 6 | Tianzi Mountain & Grand Canyon Glass Bridge</h3>
+        <div class="day-body">
+          <p>Today, you will take a scenic cable car over the needle-like karst peaks of Tianzi Mountain. You will look forward to the panoramic views of the peaks, with the mist and the clouds creating a dramatic landscape. In the afternoon, you will transfer to the Zhangjiajie Grand Canyon area and walk across the world-famous, transparent Glass Bridge suspended high above the canyon floor. You will look forward to the thrilling experience of walking on the glass, with the canyon stretching below you. Your stay remains at Nabalie Zhangjiajie Wulingyuan.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nabalie-zhangjiajie-wulingyuan.html">Nabalie Zhangjiajie Wulingyuan</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Chongqing</div>
+      <div class="day-block">
+        <h3>Day 7 | Fast Train to Chongqing & Hongyadong Lights</h3>
+        <div class="day-body">
+          <p>After breakfast, you will board a morning high-speed train from Zhangjiajie to the mountain metropolis of Chongqing (approx. 5 hours). You will look forward to the comfortable journey through the mountainous landscape. Upon arrival, you will check into The Regent Chongqing (River View Deluxe King Room). You will look forward to the stunning views of the Jialing River and the city skyline from your suite. You will walk through Hongyadong, a multi-level complex of traditional stilt houses hanging over the river. You will look forward to the spectacular views of the buildings illuminated at night. You enjoy a gourmet dinner at the hotel.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="regent-chongqing.html">The Regent Chongqing</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 8 | Cyberpunk Trains & Southwind Cliff Bistro Sunset</h3>
+        <div class="day-body">
+          <p>Today, you will watch the famous Liziba Monorail train pass directly through the middle of a 19-story residential high-rise. You will look forward to the unique sight of the train passing through the building, a symbol of Chongqing's futuristic urban planning. You will explore the narrow, old stone alleys of Ciqikou Ancient Town to try local spicy snacks. You will look forward to the vibrant atmosphere of the old town, with its traditional architecture and bustling markets. In the evening, you will enjoy an outdoor terrace table at the Southwind Cliff Bistro at 7:00 PM for premium dining and cocktails as the city's neon skyscrapers turn on. Your stay remains at The Regent Chongqing.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="regent-chongqing.html">The Regent Chongqing</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 9 | Wulong Karst Three Natural Bridges Day Trip</h3>
+        <div class="day-body">
+          <p>Today, you will take a private day trip out to the spectacular geological formations of Wulong Karst National Park. You will look forward to walking down into the massive sinkholes to view the Three Natural Bridges towering overhead. You will explore the traditional courtyard house featured in classic cinema hidden deep inside the gorge. Your guide will explain the geology and history of the area. You return to The Regent Chongqing for a relaxing evening.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="regent-chongqing.html">The Regent Chongqing</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Chongqing</div>
+      <div class="day-block">
+        <h3>Day 10 | Chongqing Departure & Complementary Spa Day</h3>
+        <div class="day-body">
+          <p>On your final morning, enjoy a relaxed luxury breakfast overlooking the river. You will then check out and be transferred to your city hotel, where you have been booked for a complimentary spa session to relax and rejuvenate after your incredible journey. If you were not taken for a city tour upon arrival on Day 1, this is when you will be offered a private guided tour of Chongqing, exploring the historic landmarks, the vibrant markets, and the unique urban landscape. You will enjoy this time at your leisure as you unwind from the expedition. The following day, you will be transferred back to Chongqing Jiangbei International Airport for your connecting international flight back to Nairobi.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> City Hotel, Chongqing →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <div class="imgcol"><div class="ph-img"><span class="ic"><i class="fs-ico fs-ico-sparkles" aria-hidden="true"></i></span><span class="cap">Private Journey</span></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STAYS -->
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head">
+      <span class="eyebrow">Your Accommodation</span>
+      <h2 style="font-size:42px;margin-top:12px;">Three Extraordinary Stays</h2>
+    </div>
+    <div class="stays-grid">
+      <div class="stay-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/lodges/nabalie-zhangjiajie-wulingyuan/2.jpg" alt="The Silk Road Dunhuang Hotel">
+          <div class="badge">NIGHTS 1–3</div>
+        </div>
+        <div class="body">
+          <div class="loc">Dunhuang, China</div>
+          <h4>The Silk Road Dunhuang Hotel</h4>
+          <a href="silk-road-dunhuang-hotel.html" class="btn">View Details</a>
+        </div>
+      </div>
+      <div class="stay-card">
+        <div class="imgwrap">
+          <div class="ph-img"><span class="ic"><i class="fs-ico fs-ico-hotel" aria-hidden="true"></i></span><span class="cap">Zhangjiajie, China</span></div>
+          <div class="badge">NIGHTS 4–6</div>
+        </div>
+        <div class="body">
+          <div class="loc">Zhangjiajie, China</div>
+          <h4>Nabalie Zhangjiajie Wulingyuan</h4>
+          <a href="nabalie-zhangjiajie-wulingyuan.html" class="btn">View Details</a>
+        </div>
+      </div>
+      <div class="stay-card">
+        <div class="imgwrap">
+          <div class="ph-img"><span class="ic"><i class="fs-ico fs-ico-hotel" aria-hidden="true"></i></span><span class="cap">Chongqing, China</span></div>
+          <div class="badge">NIGHTS 7–9</div>
+        </div>
+        <div class="body">
+          <div class="loc">Chongqing, China</div>
+          <h4>The Regent Chongqing</h4>
+          <a href="regent-chongqing.html" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; Offers</h2>
+
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><div><span class="eyebrow">Solo Travellers</span><p class="offer-title">30% off the single supplement</p><p>Travelling on your own? We cut the single traveller supplement by 30% across selected 2027 departures.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The supplement covers the sole-occupancy cost a camp charges when a room sleeps one rather than two.</li><li>Available on selected camps and dates &mdash; your specialist will tell you which of your nights qualify before you commit.</li><li>Nothing changes about the journey itself: same guide, same vehicle, same rooms.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><div><span class="eyebrow">Group Offer</span><p class="offer-title">Bring three, the fourth travels free</p><p>Book four guests on a 2027 group departure and the fourth guest&rsquo;s safari cost is on us.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The waiver covers the land portion &mdash; camps, meals, guiding and game drives.</li><li>International flights, visas, gorilla and chimpanzee permits and personal spending are excluded, as those are paid to third parties per head.</li><li>All four guests must travel on the same departure date and book together.</li></ul></div></div></div>
+      <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>All accommodation, Full Board</li>
+            <li>All domestic flights & high-speed train</li>
+            <li>VIP airport meet-and-greet & private guide</li>
+            <li>Mogao Caves historian-guided tour</li>
+            <li>Camel ride, Mingsha Dunes & Crescent Lake</li>
+            <li>Bailong Elevator & Zhangjiajie Glass Bridge</li>
+            <li>Southwind Cliff Bistro premium dining</li>
+            <li>All entrance fees & signature activities</li>
+            <li>Complimentary spa session, Chongqing</li>
+            <li>Airport transfers (all)</li>
+            <li>Private guide throughout</li>
+          <li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li></ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights to/from Dunhuang & Chongqing</li>
+            <li>Gratuities for guides & hotel staff</li>
+            <li>Additional spa sessions beyond the complimentary one</li>
+            <li>Items of a personal nature</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="price-card">
+        <h3>Per Person Pricing</h3>
+        <div class="price-row">
+          <span class="label">Per Person Sharing</span>
+          <span class="value">$9,400</span>
+        </div>
+        <div class="price-row">
+          <span class="label">Single Traveller Supplement</span>
+          <span class="value">$2,850</span>
+        </div>
+        <div class="price-note">ⓘ Prices are per person based on double/twin sharing. Single travellers pay the supplement above. All optional activities and signature experiences are included. Speak to us for availability and group rates.</div>
+        <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jan &ndash; May</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Spring blossom, comfortable touring weather</span></div><span class="season-price">$9,850</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">May &ndash; Sep</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Summer heat and holiday crowds</span></div><span class="season-price">$9,200</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Sep &ndash; Dec</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Autumn colour, ideal touring conditions</span></div><span class="season-price">$10,350</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+<a href="#" class="btn btn-solid js-fs-enquire" data-fs-package="The Ancient Silk Road &amp; Floating Peaks" style="width:100%;margin-top:24px;">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY DETAILS -->
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Duffel, sun hat, rain shell and day pack</p><button class="jd-toggle" data-target="kit-chinaancient">View +</button><div class="jd-panel" id="kit-chinaancient"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; A soft-sided {{brand}} duffel, sized for domestic flights and easier than a hard case on train platforms, ferry jetties and old-town lanes.</li><li><strong>What is inside it</strong> &mdash; A wide-brim sun hat, a lightweight packable rain shell for tropical downpours, and a foldable day pack for temple mornings and market afternoons.</li><li><strong>Yours to keep</strong> &mdash; The bag and everything in it is a gift, not a loan.</li><li><strong>Packing around it</strong> &mdash; Slip-on shoes save time at temples, where you remove them repeatedly, and one set of clothing covering shoulders and knees is essential for religious sites.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Some regions require additional internal permits</p><button class="jd-toggle" data-target="note-chinaancient">View +</button><div class="jd-panel" id="note-chinaancient"><p>Travel to certain border or minority regions may require additional permits arranged in advance by your guide. Air quality can vary in major cities — pack accordingly if sensitive.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected from your hotel.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, reach out and we will tailor it for you.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Visa required in advance for most nationalities</p><button class="jd-toggle" data-target="docs-chinaancient">View +</button><div class="jd-panel" id="docs-chinaancient"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least six months beyond your arrival date, with at least two blank pages for stamps.</li><li><strong>Visa-free entry</strong> &mdash; China&rsquo;s unilateral visa-free scheme covers most EU member states plus the UK, Australia, Canada, New Zealand and around fifty countries in total, for stays of up to 30 days, and has been extended to the end of 2026. US passport holders still require a visa.</li><li><strong>Visa-free transit</strong> &mdash; Separately, a 240-hour visa-free transit applies at many ports of entry where you hold an onward ticket to a third country.</li><li><strong>Police registration</strong> &mdash; Every foreign visitor must be registered with the local police within 24 hours of arrival. Hotels do this for you automatically; a private home or apartment stay means registering in person.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Where you must appear in person</strong> &mdash; A few consulates insist on biometrics or a short interview that nobody can sit on your behalf &mdash; China requires fingerprinting for some nationalities, as do European and United States visas. We still prepare the entire file; we simply book you a single appointment and brief you beforehand so one visit settles it.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates, or join a small group</p><button class="jd-toggle" data-target="dep-chinaancient">View +</button><div class="jd-panel" id="dep-chinaancient"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-chinaancient" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-chinaancient"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored — extend a stay, add a destination, or adjust the pace to suit you. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Light layers and slip-on shoes, which you will take off repeatedly at temples, shrines and traditional inns. Shoulders and knees must be covered to enter most religious sites, so pack at least one modest set you can throw on. A light rain shell handles the tropical downpours, and the highlands and northern cities run far cooler than the coast &mdash; bring a proper warm layer if your route climbs.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- MORE PACKAGES -->
+<section>
+  <div class="wrap">
+    <div class="more-head">
+      <h2>More China Journeys</h2>
+    </div>
+    <div class="more-grid"><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/china-modern-icons-mystic-valleys.jpg" alt="The Modern Icons & Mystic Valleys">
+          <div class="tags"><span class="tag">CULTURAL LUXURY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Modern Icons & Mystic Valleys</h3>
+          <div class="meta">10 Days · Private &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Shanghai → Jiangxi → Hangzhou → Shanghai
+          </div>
+          <div class="footer-row">
+            <div class="price">$8,900 <span>per person</span></div>
+            <a href="china-modern-icons-mystic-valleys.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div><div class="package-card">
+        <div class="imgwrap">
+          <div class="ph-img"><span class="ic"><i class="fs-ico fs-ico-map" aria-hidden="true"></i></span><span class="cap">HERITAGE</span></div>
+          <div class="tags"><span class="tag">HERITAGE</span></div>
+        </div>
+        <div class="body">
+          <h3>Deep Heritage & Rice Terraces</h3>
+          <div class="meta">10 Days · Private &middot; Min 4</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Xi'an → Jiangxi → Guilin → Shanghai
+          </div>
+          <div class="footer-row">
+            <div class="price">$9,800 <span>per person</span></div>
+            <a href="china-deep-heritage-rice-terraces.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/south-africa-red-sands-malaria-free-giants.jpg" alt="The Red Sands & Malaria-Free Giants">
+          <div class="tags"><span class="tag">SMALL GROUP JOURNEY</span></div>
+        </div>
+        <div class="body">
+          <h3>The Red Sands & Malaria-Free Giants</h3>
+          <div class="meta">10 Days &middot; Min 7</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Johannesburg → Tswalu Kalahari Reserve → Madikwe Game Reserve → Johannesburg
+          </div>
+          <div class="footer-row">
+            <div class="price">$14,900 <span>per person</span></div>
+            <a href="south-africa-red-sands-malaria-free-giants.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/morocco-imperial-cities.jpg" alt="The Imperial Cities & Shifting Sands">
+          <div class="tags"><span class="tag">FAMILY SAFARI</span></div>
+        </div>
+        <div class="body">
+          <h3>The Imperial Cities & Shifting Sands</h3>
+          <div class="meta">10 Days &middot; Min 4</div>
+          <div class="it-list">
+            <b>Itinerary</b>
+            Casablanca → Fes → Merzouga Sahara → Ouarzazate → Marrakech
+          </div>
+          <div class="footer-row">
+            <div class="price">$39,200 <span>total</span></div>
+            <a href="morocco-imperial-cities.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!--@include footer-newsletter-3-->
+
+<script>
+  document.getElementById('yearToggle').addEventListener('click', function(){
+    this.classList.toggle('open');
+  });
+
+  const tabnav = document.getElementById('tabnav-pkg2');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) tabnav.classList.add('stuck');
+    else tabnav.classList.remove('stuck');
+  });
+
+  const tabs = document.querySelectorAll('.tabnav a.tab');
+  const sections = [...tabs].map(t => document.querySelector(t.getAttribute('href')));
+  function onScroll(){
+    let current = sections[0];
+    const scrollPos = window.scrollY + 150;
+    sections.forEach(function(sec){ if (sec && sec.offsetTop <= scrollPos) current = sec; });
+    tabs.forEach(function(t){ t.classList.toggle('active', document.querySelector(t.getAttribute('href')) === current); });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  document.querySelectorAll('.jd-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.dataset.target);
+      if(!panel) return;
+      panel.classList.toggle('open');
+      const isOpen = panel.classList.contains('open');
+      btn.textContent = btn.textContent.replace(/[+\-]$/, '').trim() + (isOpen ? ' -' : ' +');
+    });
+  });
+</script>
+
+<!--@include itinerary-expand-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"asia","focus":"CHN","stops":[["Dunhuang",40.14,94.66],["Zhangjiajie",29.12,110.48],["Chongqing",29.56,106.55]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":9400,"seasons":[9850,9200,10350],"from":9200,"single":2850},"2027":{"headline":8900,"seasons":[9350,8700,9800],"from":8700,"single":2700}}};</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body>
+</html>

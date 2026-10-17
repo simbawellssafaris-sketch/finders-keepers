@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Nido Resorts Pangulasian Island — Bacuit Bay, Palawan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --ivory-deep: #E0D3B8;
+    --ink: #232019;
+    --accent: #2E8B6B;
+    --accent-dark: #216550;
+    --jade: #B5873E;
+    --gold: #D8B978;
+    --seal: #A8342A;
+    --paper-card: #FFFFFF;
+    --line: rgba(35,32,25,0.12);
+    --shadow: 0 30px 60px -30px rgba(35,32,25,0.18);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--ink); font-family:'Noto Sans SC','EB Garamond', sans-serif; font-weight:400; line-height:1.7; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Noto Serif SC','EB Garamond', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:0.18em; font-size:0.7rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.2; fill:none; }
+  .elevation-rule path.wash{ stroke: var(--accent); stroke-width:0.8; opacity:0.5; }
+
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--ivory-deep); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/el-nido-pangulasian-island/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/el-nido-pangulasian-island/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/el-nido-pangulasian-island/3.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(250,248,243,0) 38%, rgba(250,248,243,0.94) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--ink); }
+  .brandmark{ font-family:'Noto Serif SC', serif; font-size:1.1rem; letter-spacing:0.04em; }
+  .brandmark span{ color: var(--accent); }
+  .hero-coords{ font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.06em; text-align:right; line-height:1.7; opacity:0.75; color: var(--ink); }
+  .hero-seal{ position:absolute; top: clamp(20px,4vw,44px); right: clamp(20px,6vw,80px); z-index:5; width:46px; height:46px; }
+  .hero-seal-inner{ width:100%; height:100%; background: var(--seal); border-radius:3px; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 16px rgba(168,52,42,0.35); }
+  .hero-seal-inner svg{ width:26px; height:26px; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--accent-dark); } .hero-headline .eyebrow::before{ background: var(--accent-dark); }
+  .hero-headline h1{ color: var(--ink); font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height:1.05; margin-top:18px; }
+  .hero-headline p{ color: rgba(35,32,25,0.72); max-width:460px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(255,255,255,0.6); border:1px solid rgba(35,32,25,0.16); backdrop-filter: blur(6px); color: var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(255,255,255,0.9); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(35,32,25,0.2); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'JetBrains Mono', monospace; font-size:0.7rem; color: var(--ink); letter-spacing:0.06em; }
+
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'JetBrains Mono', monospace; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(35,32,25,0.45); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--ink); } .tab.active{ color: var(--accent-dark); } .tab.active::after{ transform: scaleX(1); }
+
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(35,32,25,0.68); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Noto Serif SC', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent-dark); }
+  .stat .label{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(35,32,25,0.55); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+
+  .lodges-note{ background: var(--paper-card); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(35,32,25,0.78); box-shadow: var(--shadow); }
+  .lodges-note strong{ color: var(--accent-dark); font-family:'Noto Serif SC',serif; font-weight:500; font-style:italic; }
+
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/el-nido-pangulasian-island/3.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(255,255,255,0.15), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Noto Serif SC', serif; color: var(--accent-dark); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Noto Serif SC',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(35,32,25,0.66); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--paper-card); }
+  .exp-card .exp-tag{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--jade); }
+  .exp-card h3{ font-size:1.22rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.66); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'JetBrains Mono', monospace; font-size:0.68rem; color: var(--accent-dark); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/el-nido-pangulasian-island/2.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(35,32,25,0.75); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent-dark); font-family:'Noto Serif SC',serif; }
+  .loc-map{ background: var(--ivory-deep); border:1px solid var(--line); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'JetBrains Mono', monospace; color: var(--accent-dark); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.68); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+
+  .offer-bar{ background: var(--ink); color: #EDE3CE; padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: #EDE3CE; font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(250,248,243,0.7); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: #EDE3CE; padding:16px 30px; text-decoration:none; font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; color: rgba(35,32,25,0.45); background: var(--ivory); }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">PANGULASIAN <span>ISLAND</span></div>
+    <div class="hero-coords">11°10'N 119°23'E<br>BACUIT BAY, EL NIDO</div>
+  </div>
+  <div class="hero-seal"><div class="hero-seal-inner"><svg viewBox="0 0 24 24" fill="none" stroke="#EDE3CE" stroke-width="1.4"><path d="M12 3 L12 21 M4 8 L20 8 M6 13 L18 13 M4 18 L20 18"/></svg></div></div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Private Island Resort — Bacuit Bay, Palawan</span>
+    <h1>The Island<br>of the Sun</h1>
+    <p>Forty-two thatched villas on a private island framed by limestone cliffs, with a 750-metre beach facing both sunrise and sunset — the only resort island in El Nido offering both.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 03</div>
+</div>
+
+<!--@include lodge-tabbar-2-->
+
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Where Sunrise<br>Meets Sunset</h2></div>
+    <p class="lede">Known as the Island of the Sun, Pangulasian is the only El Nido Resorts island offering unobstructed views of both sunrise and sunset, its 750-metre white sand beach backed by tropical forest and Bacuit Bay's dramatic limestone cliffs.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(35,32,25,0.78); font-size:1.02rem;">Opened in December 2012, Pangulasian holds just 42 villas across contemporary Filipino, cutting-edge 'green' design, perched anywhere from 15 to 59 feet off the ground and reached by buggy or wooden boardwalk. Beach Villas sit directly on the sand near the resort's centre; Pool Villas each hold a 22-square-metre private pool connected to the balcony; and a cluster of four Kalaw Villas shares a secluded cove, pool and sala for intimate gatherings. The island's forest hosts macaques, monitor lizards and hornbills, while more than 20 dive sites and El Nido's famous Big and Small Lagoons sit within easy boat range — all overseen by Ten Knots Development Corporation, whose environmental and social responsibility initiatives have earned repeated industry recognition.</p>
+  <div class="lodges-note"><strong>Part of a three-island family.</strong> Pangulasian shares Bacuit Bay with El Nido Resorts' other two properties, Miniloc Island and Lagen Island, and guests can dine or use facilities across all three during their stay.</div>
+  <div class="stat-row"><div class="stat"><div class="num">42</div><div class="label">Thatched Villas</div></div><div class="stat"><div class="num">750m</div><div class="label">White Sand Beach</div></div><div class="stat"><div class="num">20+</div><div class="label">Dive Sites Nearby</div></div><div class="stat"><div class="num">2012</div><div class="label">Resort Opened</div></div></div>
+</section>
+
+<!--@include elevation-divider-5-->
+
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Villas</span><h2>Beach, Pool<br>or Canopy</h2></div>
+    <p class="lede">Villas are scattered between beachfront, forest canopy and a secluded cove, each built in contemporary Filipino style with a private balcony or patio.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Pool Villa — Private Pool, Bacuit Bay View</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Beach Villas</strong><span>Located near the resort centre with direct access to the pristine beach, complete with umbrella, sun loungers and a hammock just steps from the door.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Pool Villas</strong><span>Each with a 22-square-metre private pool connected to the balcony, set in a more secluded, peaceful location with sweeping views of Bacuit Bay.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Canopy Villas</strong><span>Perched on stilts high among the treetops, these villas offer some of the island's most impressive elevated views.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>The Kalaw Villas</strong><span>A cluster of four villas sharing a secluded cove, a 22-square-metre pool and a sala for private dinners and social gatherings.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-6-->
+
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>Cathedral Caves,<br>Hidden Lagoons</h2></div>
+    <p class="lede">Pangulasian's position in Bacuit Bay puts El Nido's legendary limestone seascape — caves, lagoons and uninhabited islands — within a short boat ride.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Iconic</span><h3>Big &amp; Small Lagoon</h3><p>Guided eco-tours to El Nido's celebrated hidden lagoons, accessible by kayak through narrow limestone gaps.</p></div></div><div class="exp-card"><div><span class="exp-tag">Diving</span><h3>Bacuit Bay's Reefs</h3><p>More than 20 dive sites sit within easy reach, explored through the resort's Scuba Shack and marine sports centre.</p></div></div><div class="exp-card"><div><span class="exp-tag">Exploration</span><h3>Cathedral &amp; Cudugnon Caves</h3><p>Boat excursions to dramatic limestone caves and Snake Island, among the most photographed sights in El Nido.</p></div></div><div class="exp-card"><div><span class="exp-tag">Wildlife</span><h3>Island Nature Walks</h3><p>A hiking trail with a view deck lets guests spot macaques, monitor lizards and hornbills without leaving the island.</p></div></div><div class="exp-card"><div><span class="exp-tag">Sunrise</span><h3>Sunrise Hike</h3><p>Pangulasian is the only resort island in El Nido offering a lookout hike for both sunrise and sunset, a genuine point of distinction.</p></div></div><div class="exp-card"><div><span class="exp-tag">Romance</span><h3>Private Dining on the Sandbar</h3><p>Candlelit dinners arranged on a nearby sandbar or floating raft in a lagoon, among the resort's most requested experiences.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-7-->
+
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">Sustainable Menus,<br>Cocktails on a Raft</h2>
+      <p class="lede" style="margin-top:24px;">The Clubhouse restaurant serves Western and Asian cuisine built on organically grown island produce, with private dining arranged on the beach, a sandbar, or a raft floating inside a nearby lagoon.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>The Clubhouse, for breakfast, lunch and dinner</span></div><div class="venue"><span class="n">02</span><span>The infinity pool bar, for light meals and cocktails</span></div><div class="venue"><span class="n">03</span><span>Private beach dinners and sandbar picnics</span></div><div class="venue"><span class="n">04</span><span>Cocktails on a raft inside a nearby lagoon</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">The Sandbar — Private Beach Dinner</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-8-->
+
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>Bacuit Bay,<br>El Nido's Private Islands</h2></div>
+    <p class="lede">Pangulasian sits in Bacuit Bay, reached by a scheduled flight to Lio Airport in El Nido followed by a boat transfer, part of the same archipelago as El Nido Resorts' Miniloc and Lagen islands.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>Located in Bacuit Bay, among El Nido's 45 islands and islets.</li><li>Accessible via a 55-minute flight from Manila to Lio Airport, followed by a coordinated land and boat transfer.</li><li>Chartered flight options are available from Clark, Cebu and Bohol for a more direct route.</li><li>Close to Miniloc Island and Lagen Island, the other two El Nido Resorts properties in Bacuit Bay.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#E0D3B8"/>
+        <path d="M0 230 Q80 190 160 220 T320 210 T400 225 L400 340 L0 340 Z" fill="#E7E0CF" opacity="0.9"/>
+        <path d="M0 260 Q100 230 200 255 T400 250 L400 340 L0 340 Z" fill="#EDE7D8"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#216550" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#216550"/>
+        <text x="72" y="150" fill="#232019" font-family="Noto Serif SC, serif" font-size="11" letter-spacing="1">EL NIDO PANGULASIAN</text>
+        <text x="72" y="166" fill="#216550" font-family="JetBrains Mono, monospace" font-size="9">BACUIT BAY</text>
+        <text x="72" y="182" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">THE ISLAND OF THE SUN</text>
+        <text x="150" y="300" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">EL NIDO, PALAWAN, PHILIPPINES</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Scheduled flights connect Manila, Clark, Cebu and Bohol to Lio Airport in El Nido.</p></div><div class="journey-step"><span class="k">Transfer</span><p>A coordinated land and boat transfer, included in every stay, completes the journey to Pangulasian.</p></div><div class="journey-step"><span class="k">Combine</span><p>Guests can arrange visits to sister properties Miniloc Island and Lagen Island during their stay.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Sunrise to Sunset</span>
+      <h2>The Only Island Facing Both Directions</h2>
+      <p>Pangulasian remains the only El Nido Resorts island where guests can hike to watch both the sunrise and the sunset from the same vantage point.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>EL NIDO RESORTS PANGULASIAN ISLAND · BACUIT BAY · EL NIDO, PALAWAN, PHILIPPINES</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

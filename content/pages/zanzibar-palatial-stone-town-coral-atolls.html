@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>The Palatial Stone Town & Coral Atolls | {{brand}}</title><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"><style>
+  :root{
+    --cream:#EDE3CE;--tan:#E0D3B8;--ink:#2C2A26;--ink-soft:#5C5750;
+    --terracotta:#B5572F;--terracotta-dark:#9C4926;--line:#CFC1A3;
+    --white:#FFFFFF;--olive:#6B7257;--maxw:1376px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;font-family:'Jost',sans-serif;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+  /* TOP BAR */
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;letter-spacing:.04em;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{color:var(--white);font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;letter-spacing:.12em;}
+  /* MAIN NAV */
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .mainnav .navright{font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
+  /* HERO */
+  .hero{position:relative;height:640px;width:100%;overflow:hidden;background-size:cover;background-position:center 40%;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.65) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;z-index:2;margin-bottom:18px;}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero h1{font-size:56px;color:var(--white);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:16px;letter-spacing:.05em;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+  /* STAT STRIP */
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  /* CTA BAND */
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  /* STICKY TAB NAV */
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;color:var(--ink);cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+  /* FLOATING CARD */
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  .floatcard .btn-solid{border:none;padding:0 26px;border-radius:0;}
+  /* SECTIONS */
+  section{padding:80px 0;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+  /* OVERVIEW */
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:26px;line-height:1.5;color:var(--ink);}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .download-row{margin-top:40px;}
+  /* WHY */
+  .why{background:var(--cream);padding:80px 0;text-align:center;}
+  .why h3{font-size:14px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:60px;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px 80px;max-width:880px;margin:0 auto;}
+  .why-item{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .why-item .icon{font-size:36px;}
+  .why-item p{margin:0;font-size:16px;max-width:300px;}
+  /* ITINERARY */
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);overflow:hidden;}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-controls{position:absolute;top:24px;left:24px;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--white);}
+  .map-controls span{width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border-bottom:1px solid var(--line);cursor:pointer;}
+  .map-controls span:last-child{border-bottom:none;}
+  .days-col{padding:60px 40px 60px 60px;}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:26px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;font-family:'Jost',sans-serif;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-meta .icon{font-size:16px;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;}
+  /* STAYS */
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:220px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;font-weight:600;}
+  .stay-card .body{padding:20px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+  .stay-card h4{font-size:21px;margin-bottom:18px;min-height:54px;}
+  .stay-card .btn{width:100%;margin-top:auto;}
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .offer-card a{font-size:13px;text-decoration:underline;font-weight:600;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);font-family:'Jost',sans-serif;}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+  /* JOURNEY DETAILS */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;border-bottom:1px solid var(--line);padding-bottom:50px;}
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;font-family:'Jost',sans-serif;}
+  .jd-panel{display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;line-height:1.7;color:var(--ink-soft);}
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  /* MORE PACKAGES */
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:22px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:22px;}
+  .package-card .price span{font-size:14px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:14px;}
+  footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  footer a:hover{opacity:1;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+  @media(max-width:900px){
+    .overview-grid,.itinerary-layout,.pricing-grid,.test-grid,.foot-grid{grid-template-columns:1fr;}
+    .map-sticky{height:320px;position:relative;top:0;}
+    .highlights,.stays-grid,.more-grid{grid-template-columns:1fr 1fr;}
+    .jd-grid{grid-template-columns:1fr 1fr;}
+    .private-cta{flex-direction:column;}
+    .private-cta img{width:100%;height:200px;}
+    .hero h1{font-size:36px;}
+    .wrap{padding:0 24px;}
+    .days-col{padding:40px 24px;}
+    .why-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:600px){
+    .highlights,.stays-grid,.more-grid,.jd-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:28px;}
+    .wrap{padding:0 20px;}
+    .inclusion-list ul{grid-template-columns:1fr;}
+  }
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head><body><!--@include topbar-detail-pages--><!--@include nav-detail-pages-->
+<div class="hero" id="top" style="background-image:url('assets/img/packages/zanzibar-palatial-stone-town-coral-atolls.jpg');background-position:center 45%">
+  <div class="hero-content">
+    <div><div class="hero-tags"><span class="tag offer">SMALL GROUP JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+    <div class="hero-title-row"><h1>The Palatial Stone Town & Coral Atolls</h1><div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span><div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div></div></div></div>
+    
+  </div>
+</div>
+<!--@include package-stat-strip-->
+<div class="ctaband"><p>Giant tortoises on Prison Island, a helicopter loop over Stone Town and Jozani, Mnemba Atoll coral drop-offs, and a spinner dolphin marine reserve</p><a href="#pricing" class="btn">See Pricing &amp; Inclusions ↓</a></div>
+<!--@include package-tabnav-->
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Small Group</span><div class="div"></div><span class="fc-price">from $9,000 pp</span></div></div>
+<section id="overview"><div class="wrap">
+  <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> › <a href="finders-safaris-zanzibar.html">Zanzibar, Tanzania</a> › <span class="current">The Palatial Stone Town & Coral Atolls</span></div>
+  <div class="overview-grid">
+    <div><p class="lead"><span class="eyebrow">Overview</span>Designed for luxury travellers who crave absolute marine privacy, world-class snorkelling, and high-altitude aerial scenery. This package integrates a private helicopter loop over the island with elite coral atoll preservation tracking. It highlights the historic architecture of Stone Town and its deeply moving slave market history, the giant Aldabra tortoises of Prison Island, and the pristine coral drop-offs of Mnemba Atoll Marine Reserve. High-end highlights include a private helicopter loop over Stone Town and Jozani Forest, a private ocean sandbar sundowner in the middle of the Indian Ocean, a private island beach barbecue bonfire, and an exclusive Swahili Ukili weaver cultural encounter.</p>
+    <div class="highlights"><div class="highlight"><span class="spark">✦</span><p>Private historian leads the slave market site and Christ Church Cathedral — one of the most moving historical experiences in East Africa</p></div><div class="highlight"><span class="spark">✦</span><p>Prison Island private speedboat: feeding giant Aldabra tortoises over 100 years old and exploring the historic island ruins</p></div><div class="highlight"><span class="spark">✦</span><p>Private ocean sandbar vintage wine sundowner as the water turns gold — a setup in the middle of the Indian Ocean</p></div><div class="highlight"><span class="spark">✦</span><p>Dawn helicopter loop over Stone Town's coral-stone rooftops and Jozani's green canopy — breathtaking aerial views of both</p></div><div class="highlight"><span class="spark">✦</span><p>Mnemba Island: a private atoll with absolute privacy, white-sand beaches, and crystal-clear snorkelling in turquoise lagoons</p></div><div class="highlight"><span class="spark">✦</span><p>Mnemba Atoll Marine Reserve private boat: spinner dolphins, blue-fin trevally, and coral drop-offs in pristine waters</p></div><div class="highlight"><span class="spark">✦</span><p>Kuza Cave sacred subterranean pools: crystalline freshwater cavern used for centuries of Zanzibar spiritual healing</p></div><div class="highlight"><span class="spark">✦</span><p>Helicopter return from lodge lawn to Stone Town: the finest final transfer experience in all of Zanzibar</p></div></div>
+    <div class="download-row"><a href="assets/itineraries/zanzibar-palatial-stone-town-coral-atolls.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a></div></div>
+    <div class="overview-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/4.jpg" alt="The Palatial Stone Town & Coral Atolls"></div>
+  </div>
+</div></section>
+<div class="why"><div class="wrap"><h3>Why Choose the Palatial Stone Town & Coral Atolls</h3><div class="why-grid"><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-plane" aria-hidden="true"></i></div><p>Helicopter loop over Stone Town and Jozani: the only way to appreciate the full scale and beauty of both landmarks at once</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-turtle" aria-hidden="true"></i></div><p>Prison Island Aldabra tortoises: feeding creatures over 100 years old on a private island — a deeply memorable encounter</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-waves" aria-hidden="true"></i></div><p>Mnemba Atoll Marine Reserve: one of the finest coral dive and snorkel destinations in the entire Indian Ocean</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-tree-palm" aria-hidden="true"></i></div><p>Mnemba private island: absolute seclusion, white-sand beaches, and crystal-clear turquoise water with no other guests</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-landmark" aria-hidden="true"></i></div><p>Slave market and Christ Church Cathedral: the most important and moving historical experience available in East Africa</p></div><div class="why-item"><div class="icon"><i class="fs-ico fs-ico-plane" aria-hidden="true"></i></div><p>Helicopter departure from the lodge lawn: an extraordinary and exclusive final transfer back to Stone Town</p></div></div></div></div>
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+    <div class="map-col"><div class="map-sticky"><div class="map-controls"><span>+</span><span>−</span></div>
+      <div class="map-placeholder"><span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span><h4>Zanzibar, Tanzania</h4><p>Stone Town · Prison Island · Jozani Chwaka Bay · Mnemba Island Atoll</p></div>
+    </div></div>
+    <div class="days-col">
+    <div class="it-head"><span class="eyebrow">Day by Day</span><h2>Your Itinerary</h2></div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Stone Town</div>
+      <div class="day-block">
+        <h3>Day 1 | Arrival in Stone Town — Sultan Suite Elegance</h3>
+        <div class="day-body">
+          <p>VIP tarmac greeting at Abeid Amani Karume Airport. Private luxury SUV into the heart of the historic capital. Check-in at Park Hyatt Zanzibar in the Sultan Suite — elegant oceanfront palace blending Swahili architecture with modern luxury. Indian Ocean views, coral-stone architecture, and the serene historic harbour. Early arrivals explore Stone Town's narrow winding streets, carved wooden doors, and historic waterfront. Welcome dinner at the hotel.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/1.jpg" alt="Arrival in Stone Town — Sultan Suite Elegance">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-zanzibar.html">Park Hyatt Zanzibar, Sultan Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 2 | Slave Market Site & Christ Church Cathedral — Private Historian</h3>
+        <div class="day-body">
+          <p>Private historian leads exploration of the old slave market site and Christ Church Cathedral — once one of the largest slave markets in East Africa. History of the market, the abolition movement, and the role of the Anglican Church in ending the trade. The Christ Church Cathedral built in the 19th century on the former slave market site with striking Gothic architecture and stained glass windows. The nearby Slave Chambers where enslaved people were held — a deeply moving and educational experience.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Slave Market Site & Christ Church Cathedral — Private Historian">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-zanzibar.html">Park Hyatt Zanzibar, Sultan Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 3 | Prison Island Giant Tortoises & Private Ocean Sandbar Sundowner</h3>
+        <div class="day-body">
+          <p>Private luxury speedboat to Prison Island (Changuu) — historic 19th-century prison architecture never used for its intended purpose and the giant Aldabra tortoises that inhabit the island. Feeding these magnificent creatures, some over 100 years old. Exploring the island's beautiful beaches and historic ruins. Late afternoon: private sandbar in the middle of the ocean. Premium vintage wines from a private sandbar setup as the water turns gold at sunset — a truly unforgettable sundowner.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/3.jpg" alt="Prison Island Giant Tortoises & Private Ocean Sandbar Sundowner">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-zanzibar.html">Park Hyatt Zanzibar, Sultan Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Mnemba Atoll</div>
+      <div class="day-block">
+        <h3>Day 4 | Helicopter Island Loop — Jozani Forest & Mnemba Check-In</h3>
+        <div class="day-body">
+          <p>Rising at dawn for a private helicopter flight looping over the historic coral-stone rooftops of Stone Town and the dense green canopy of Jozani Chwaka Bay National Park — breathtaking aerial views of the maze of narrow streets and lush forests below. Landing at Jozani for a private walking tour: Red Colobus Monkeys leaping through the canopy. Drive to the northeast coast. Check-in at Mnemba Island Lodge (AndBeyond) — a luxury private island resort.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/4.jpg" alt="Helicopter Island Loop — Jozani Forest & Mnemba Check-In">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 5 | Mnemba Island — The Private Atoll</h3>
+        <div class="day-body">
+          <p>A full day of absolute relaxation on Mnemba Island — a private atoll surrounded by crystal-clear waters. The stunning turquoise lagoon, white-sand beaches, and lush tropical vegetation. Swimming in the warm clear water, snorkelling along the shore, or relaxing on the beach. Absolute privacy and seclusion with no other tourists in sight. The afternoon yours to enjoy the resort's exceptional amenities.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/1.jpg" alt="Mnemba Island — The Private Atoll">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 6 | Mnemba Atoll Marine Reserve — Coral Drop-Offs & Sandbar Breakfast</h3>
+        <div class="day-body">
+          <p>Private boat charter to Mnemba Atoll Marine Reserve for elite snorkelling — magnificent coral drop-offs, spinner dolphins, and schools of blue-fin trevally in crystal-clear water. The best snorkelling spots selected by your guide: sea turtles, reef sharks, and a dazzling array of tropical fish. A luxury breakfast served on a private sandbar or secluded beach within the reserve — dining in absolute privacy with turquoise water stretching around you.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Mnemba Atoll Marine Reserve — Coral Drop-Offs & Sandbar Breakfast">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 7 | The Sacred Caves of Kuza — Subterranean Swimming</h3>
+        <div class="day-body">
+          <p>Afternoon excursion to Kuza Cave in Jambiani — walking down stone steps into a prehistoric limestone cavern. Cool humid air, echoing dripping water, and a mystical atmosphere in one of Zanzibar's most sacred natural sites. Swimming in the crystalline subterranean freshwater pools traditionally revered by locals for their healing properties. The cultural significance of the cave for centuries of spiritual ceremonies and healing rituals explained.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/3.jpg" alt="The Sacred Caves of Kuza — Subterranean Swimming">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 8 | Oceanfront Serenity & Beachside Lantern Bonfire</h3>
+        <div class="day-body">
+          <p>A relaxed day enjoying the private oceanfront plunge pool with stunning turquoise water views, the gentle sea breeze, and the peaceful serenity of your private island retreat. Optional swimming, snorkelling, or premium spa therapy using local oils. The day culminates in a dramatic beachside seafood barbecue bonfire dinner served under hanging lanterns — warmed by a roaring central bonfire pit with the sound of the waves providing a soothing soundtrack.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/4.jpg" alt="Oceanfront Serenity & Beachside Lantern Bonfire">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 9 | Exclusive Swahili Ukili Weaver Heritage Tour</h3>
+        <div class="day-body">
+          <p>Travel to a coastal village to interact privately with indigenous Swahili women weavers. The deep history of hand-weaving traditional Ukili palm fronds into intricate floor mats and sultanate-style baskets — passed down through generations. Watching the entire process: harvesting and preparing palm fronds to intricate weaving patterns. Private performance of traditional oral storytelling and music. Farewell multi-course dinner at Mnemba Island Lodge paired with vintage wines.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/1.jpg" alt="Exclusive Swahili Ukili Weaver Heritage Tour">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mnemba-island-lodge.html">&amp;Beyond Mnemba Island Lodge</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div>
+        </div>
+      </div>
+      <div class="day-block">
+        <h3>Day 10 | Helicopter Return to Stone Town & Complementary Spa Day</h3>
+        <div class="day-body">
+          <p>Relaxed luxury breakfast watching the turquoise water. Private helicopter transfer from the lodge lawn directly back to Stone Town — the most efficient and spectacular final transfer in Zanzibar. Complementary spa session at your city hotel. Private Stone Town tour if missed on Day 1. International departure the following day.</p>
+        </div>
+        <button class="read-more">Read more</button>
+        <div class="day-img">
+          <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Helicopter Return to Stone Town & Complementary Spa Day">
+        </div>
+        <div class="day-meta">
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-zanzibar.html">Park Hyatt Zanzibar, Sultan Suite</a> →</div>
+          <div class="row"><span class="icon"><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div>
+        </div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Tailor this journey with {{brand}}">
+      </div>
+    </div>
+  </div>
+</section>
+<section id="stays"><div class="wrap">
+  <div class="stays-head"><span class="eyebrow">Your Accommodation</span><h2 style="font-size:42px;margin-top:12px">Two Exceptional Properties Across Zanzibar's History and Marine Heritage</h2></div>
+  <div class="stays-grid"><div class="stay-card"><div class="imgwrap"><img src="assets/img/lodges/park-hyatt-zanzibar/2.jpg" loading="lazy"><div class="badge">NIGHTS 1–3</div></div><div class="body"><div class="loc">Stone Town · Nights 1–3</div><h4>Park Hyatt Zanzibar, Sultan Suite</h4><div style="font-size:13px;color:var(--ink-soft);margin-bottom:10px">★★★★★ — Elegant oceanfront palace in the historic harbour with the finest ocean views in Stone Town</div><a href="park-hyatt-zanzibar.html" class="btn">View Details</a></div></div><div class="stay-card"><div class="imgwrap"><img src="assets/img/lodges/mnemba-island-lodge/5.jpg" loading="lazy"><div class="badge">NIGHTS 4–9</div></div><div class="body"><div class="loc">Mnemba Atoll · Nights 4–9</div><h4>&Beyond Mnemba Island Lodge</h4><div style="font-size:13px;color:var(--ink-soft);margin-bottom:10px">★★★★★ — Ultra-exclusive private island resort with the finest coral snorkelling in the Zanzibar Archipelago</div><a href="mnemba-island-lodge.html" class="btn">View Details</a></div></div></div>
+</div></section>
+<!--@why-journey-->
+<section id="pricing"><div class="wrap"><div class="pricing-grid">
+  <div><h2>Inclusions &amp; Pricing</h2>
+    <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-user-round" aria-hidden="true"></i></div><div><span class="eyebrow">Solo Travellers</span><p class="offer-title">30% off the single supplement</p><p>Travelling on your own? We cut the single traveller supplement by 30% across selected 2027 departures.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The supplement covers the sole-occupancy cost a camp charges when a room sleeps one rather than two.</li><li>Available on selected camps and dates &mdash; your specialist will tell you which of your nights qualify before you commit.</li><li>Nothing changes about the journey itself: same guide, same vehicle, same rooms.</li></ul></div></div></div><div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><div><span class="eyebrow">Group Offer</span><p class="offer-title">Bring three, the fourth travels free</p><p>Book four guests on a 2027 group departure and the fourth guest&rsquo;s safari cost is on us.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>The waiver covers the land portion &mdash; camps, meals, guiding and game drives.</li><li>International flights, visas, gorilla and chimpanzee permits and personal spending are excluded, as those are paid to third parties per head.</li><li>All four guests must travel on the same departure date and book together.</li></ul></div></div></div>
+      <details class="inclusion-list" open><summary>What's Included</summary><ul><li><span class="ic">&#10003;</span>VIP meet and greet at Abeid Amani Karume International Airport, Zanzibar</li><li><span class="ic">&#10003;</span>All private luxury SUV chauffeur transfers throughout</li><li><span class="ic">&#10003;</span>Luxury hotel and resort accommodation throughout</li><li><span class="ic">&#10003;</span>All meals as specified — breakfast, lunch and dinner</li><li><span class="ic">&#10003;</span>All private guided dhow, speedboat, and catamaran charters</li><li><span class="ic">&#10003;</span>All park fees and marine reserve permits</li><li><span class="ic">&#10003;</span>All private guided tours and cultural encounters</li><li><span class="ic">&#10003;</span>Complementary spa session on final day</li><li><span class="ic">&#10003;</span>Private guide and historian throughout</li><li><span class="ic">&#10003;</span>Private historian slave market and Christ Church Cathedral tour</li><li><span class="ic">&#10003;</span>Prison Island private speedboat with giant tortoise feeding</li><li><span class="ic">&#10003;</span>Private ocean sandbar vintage wine sundowner setup</li><li><span class="ic">&#10003;</span>Dawn private helicopter loop over Stone Town and Jozani Forest</li><li><span class="ic">&#10003;</span>Jozani Red Colobus Monkey private walking tour</li><li><span class="ic">&#10003;</span>Mnemba Atoll Marine Reserve private snorkelling boat charter</li><li><span class="ic">&#10003;</span>Kuza Cave sacred pool swimming excursion</li><li><span class="ic">&#10003;</span>Beachside seafood barbecue bonfire under hanging lanterns</li><li><span class="ic">&#10003;</span>Exclusive Swahili Ukili weaver cultural encounter</li><li><span class="ic">&#10003;</span>Helicopter return transfer from lodge lawn to Stone Town</li><li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li></ul></details><details class="inclusion-list"><summary>What's Not Included</summary><ul><li><span class="ic">&#10007;</span>International flights to/from Zanzibar</li><li><span class="ic">&#10007;</span>Travel insurance (strongly recommended)</li><li><span class="ic">&#10007;</span>Personal shopping and souvenirs</li><li><span class="ic">&#10007;</span>Premium alcohol beyond inclusions</li><li><span class="ic">&#10007;</span>Optional activities not listed</li><li><span class="ic">&#10007;</span>Tips and gratuities</li><li><span class="ic">&#10007;</span>Tanzania visa fees (USD 50 on arrival for most nationalities)</li></ul></details>
+  </div>
+  <div class="price-card"><h3>Package Pricing</h3><div class="price-row"><span class="label">Per Person Sharing</span><span class="value">$9,500</span></div><div class="price-row"><span class="label">Single Traveller Supplement</span><span class="value">On Request</span></div>
+    <div class="price-note">ⓘ Price per person based on two guests sharing. All helicopter transfers, speedboat, private island accommodation, Mnemba boat charter, meals, and activities included. International flights to Zanzibar not included.</div>
+    
+    <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jan &ndash; May</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Warm with occasional rain, excellent value</span></div><span class="season-price">$9,000</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">May &ndash; Sep</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Dry, cool trade winds — peak beach season</span></div><span class="season-price">$10,450</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Sep &ndash; Dec</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Short rains easing, dry season returns</span></div><span class="season-price">$9,700</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+    <a href="mailto:{{email}}" class="btn btn-solid js-fs-enquire" data-fs-package="The Palatial Stone Town &amp; Coral Atolls" style="width:100%;margin-top:24px;">Speak To Us</a>
+  </div>
+</div></div></section>
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Duffel, sun hat, reef-safe sun cream and dry bag</p><button class="jd-toggle" data-target="kit-zanzibarpala">View +</button><div class="jd-panel" id="kit-zanzibarpala"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; A soft-sided {{brand}} duffel, sized for the luggage limits on seaplane and inter-island transfers, where 20 kg per person is common and hard cases are often refused.</li><li><strong>What is inside it</strong> &mdash; A wide-brim sun hat, a reef-safe sun cream that meets the marine park rules across the region, and a roll-top dry bag for boat days and sandbank picnics.</li><li><strong>Yours to keep</strong> &mdash; The bag and everything in it is a gift, not a loan.</li><li><strong>Packing around it</strong> &mdash; Light, breathable layers, and one modest set covering shoulders and knees for Stone Town, villages, temples and local islands.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Tides govern the best beach and water experiences</p><button class="jd-toggle" data-target="note-zanzibarpala">View +</button><div class="jd-panel" id="note-zanzibarpala"><p>Zanzibar's beaches are tidal — swimming conditions vary significantly between high and low tide depending on which coast you're staying on. Your specialist will recommend the best-suited beach for your priorities.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected from your hotel.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, reach out and we will tailor it for you.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Visa on arrival or e-Visa, from $50</p><button class="jd-toggle" data-target="docs-zanzibarpala">View +</button><div class="jd-panel" id="docs-zanzibarpala"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least six months beyond your arrival date, with at least two blank pages for stamps.</li><li><strong>Visa</strong> &mdash; Zanzibar is part of Tanzania, so the Tanzanian eVisa or visa on arrival covers you. Single entry is US$50; US passport holders are issued the US$100 multiple-entry visa.</li><li><strong>Compulsory island insurance</strong> &mdash; Since October 2024 every non-resident visitor must hold Zanzibar&rsquo;s own inbound travel policy, sold only by the Zanzibar Insurance Corporation at US$44 per person for 92 days &mdash; half price for ages 3 to 17, free under 3. Your own international policy does not replace it, and the QR code is checked at the airport. We arrange this for you.</li><li><strong>Dress away from the beach</strong> &mdash; Stone Town and the fishing villages are conservative. Shoulders and knees covered once you leave the resort grounds.</li><li><strong>Yellow fever</strong> &mdash; A vaccination certificate is required if you are arriving from, or have transited, a country with yellow fever risk.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Where you must appear in person</strong> &mdash; A few consulates insist on biometrics or a short interview that nobody can sit on your behalf &mdash; China requires fingerprinting for some nationalities, as do European and United States visas. We still prepare the entire file; we simply book you a single appointment and brief you beforehand so one visit settles it.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates, or join a small group</p><button class="jd-toggle" data-target="dep-zanzibarpala">View +</button><div class="jd-panel" id="dep-zanzibarpala"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-zanzibarpala" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-zanzibarpala"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored — extend a stay, add a destination, or adjust the pace to suit you. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Light, breathable fabrics, and more swimwear than you think you need. Away from the resort, cover shoulders and knees &mdash; Stone Town, the fishing villages and any temple will expect it. Bring reef-safe sun cream, which the marine parks require, a rash vest for long snorkelling days, and one smart-casual set for dinner.</li></ul></div>
+  </div>
+</div></section>
+<section><div class="wrap"><div class="more-head"><h2>More Journeys</h2></div><div class="more-grid"><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/zanzibar-southern-marine-dolphin-sanctuary.jpg" loading="lazy"><div class="tags"><span class="tag">MARINE</span></div></div><div class="body"><h3>The Southern Marine & Dolphin Sanctuary</h3><div class="meta">10 Days · Dhow & Catamaran &middot; Min 7</div><div class="it-list"><b>Route</b>Stone Town · Jozani Forest · Kizimkazi · Michamvi · Pingwe</div><div class="footer-row"><div class="price">From USD 7,800 pp</div><a href="zanzibar-southern-marine-dolphin-sanctuary.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/zanzibar-spice-coast-ancient-kingdoms.jpg" loading="lazy"><div class="tags"><span class="tag">CULTURAL</span></div></div><div class="body"><h3>The Spice Coast & Ancient Kingdoms</h3><div class="meta">10 Days · Dhow Charter &middot; Min 4</div><div class="it-list"><b>Route</b>Stone Town · Nungwi · Jozani · Pingwe</div><div class="footer-row"><div class="price">From USD 7,200 pp</div><a href="zanzibar-spice-coast-ancient-kingdoms.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/zanzibar-secret-oases-hidden-sandbars.jpg" loading="lazy"><div class="tags"><span class="tag">HIDDEN GEMS</span></div></div><div class="body"><h3>The Secret Oases & Hidden Sandbars</h3><div class="meta">10 Days · Dhow & Speedboat &middot; Min 7</div><div class="it-list"><b>Route</b>Kizimkazi · Kuza Cave · Michamvi · Jozani · Pingwe · Stone Town</div><div class="footer-row"><div class="price">From USD 7,500 pp</div><a href="zanzibar-secret-oases-hidden-sandbars.html" class="btn">View Journey</a></div></div></div><div class="package-card">
+        <div class="imgwrap">
+          <img loading="lazy" decoding="async" src="assets/img/packages/mauritius-ultimate-romance-secret-lagoons.jpg" alt="The Ultimate Romance &amp; Secret Lagoons">
+          <div class="tags"><span class="tag">MAURITIUS</span></div>
+        </div>
+        <div class="body">
+          <h3>The Ultimate Romance &amp; Secret Lagoons</h3>
+          <div class="meta">10 Days · Private</div>
+          <div class="it-list">
+            <b>Route</b>
+            Le Morne · Riambel Beach · Ile aux Benitiers · Ilot Gabriel
+          </div>
+          <div class="footer-row">
+            <div class="price">$9,800 per couple <span>pp</span></div>
+            <a href="mauritius-ultimate-romance-secret-lagoons.html" class="btn">View Journey</a>
+          </div>
+        </div>
+      </div></div></div></section><!--@include footer-newsletter--><!--@include itinerary-expand-script-->
+<!--@include package-tabnav-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"africa","focus":"TZA","stops":[["Stone Town",-6.16,39.19],["Mnemba Atoll",-5.82,39.38]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":9500,"seasons":[9000,10450,9700],"from":9000,"single":"On Request"},"2027":{"headline":9000,"seasons":[8550,9900,9200],"from":8550,"single":"On Request"}}};</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body></html>

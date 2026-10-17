@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The East African Grand Safari | {{brand}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#EDE3CE;--tan:#E0D3B8;--ink:#2C2A26;--ink-soft:#5C5750;--terracotta:#B5572F;--terracotta-dark:#9C4926;--line:#CFC1A3;--white:#FFFFFF;--maxw:1376px;}
+  *{box-sizing:border-box;}html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;}
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .hero{position:relative;height:640px;overflow:hidden;background-image:url('assets/img/packages/east-african-grand-safari.jpg');background-size:cover;background-position:center;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 32%,rgba(0,0,0,.65) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;margin-bottom:18px;}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero h1{font-size:50px;color:var(--white);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:15px;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  section{padding:80px 0;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:25px;line-height:1.5;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .facts-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:14px;}
+  .facts-table tr{border-bottom:1px solid var(--line);}
+  .facts-table td{padding:14px 0;}
+  .facts-table td:first-child{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);width:35%;}
+  .download-row{margin-top:40px;}
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;;min-width:0}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-route{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;}
+  .days-col{padding:60px 40px 60px 60px;;min-width:0}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:25px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;}
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stays-carousel-wrap{position:relative;}
+  .stays-grid.carousel{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:24px;padding-bottom:10px;scrollbar-width:none;-ms-overflow-style:none;}
+  .stays-grid.carousel::-webkit-scrollbar{display:none;}
+  .stays-grid.carousel .stay-card{flex:0 0 calc(25% - 18px);scroll-snap-align:start;min-width:230px;}
+  .stays-carousel-arrow{position:absolute;top:38%;transform:translateY(-50%);background:#fff;border:1px solid rgba(0,0,0,0.12);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.12);z-index:5;font-size:16px;color:#1a1209;transition:background .2s ease;}
+  .stays-carousel-arrow:hover{background:#f2ede2;}
+  .stays-carousel-arrow.prev{left:-18px;}
+  .stays-carousel-arrow.next{right:-18px;}
+  @media (max-width:900px){.stays-grid.carousel .stay-card{flex:0 0 calc(50% - 12px);}}
+  @media (max-width:600px){.stays-grid.carousel .stay-card{flex:0 0 82%;} .stays-carousel-arrow{display:none;}}
+
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:200px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;font-weight:600;}
+  .stay-card .body{padding:16px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .btn{margin-top:auto;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .stay-card h4{font-size:17px;margin-bottom:14px;min-height:44px;}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:20px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:20px;}
+  .package-card .price span{font-size:13px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}footer li{margin-bottom:14px;}footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+  @media(max-width:900px){.overview-grid,.itinerary-layout,.pricing-grid,.foot-grid{grid-template-columns:1fr;}.highlights{grid-template-columns:1fr;}.stays-grid,.more-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:32px;}}
+
+  /* ============ JOURNEY DETAILS ============ */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:30px;
+    border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;
+  }
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{
+    border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);
+    border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;
+  }
+  .jd-panel{
+    display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;
+    line-height:1.7;color:var(--ink-soft);
+  }
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  .jd-panel .placeholder{font-style:italic;color:#A39E92;}
+
+  .general-info{margin-top:50px;}
+  .general-info-panel{
+    display:none;max-width:760px;margin:24px auto 0;background:var(--cream);
+    padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);
+  }
+  .general-info-panel.open{display:block;}
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+<!--@include topbar-detail-pages-->
+<!--@include nav-detail-pages-2-->
+
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tags"><span class="tag offer">FLAGSHIP JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+      <div class="hero-title-row"><h1>The East African<br>Grand Safari</h1><div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span><div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="statstrip"><div class="wrap">
+  <div class="stat"><div class="num">31</div><div class="label">Days</div></div>
+  <div class="stat"><div class="num">5</div><div class="label">Countries &amp; Territories</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">Great Ape Treks</div></div>
+  <div class="stat"><div class="num">9</div><div class="label">National Parks</div></div>
+</div></div>
+
+<div class="ctaband"><p>Rhinos at Nakuru, a balloon over the Mara, gorillas in Bwindi, chimpanzees in Nyungwe, the Crater, the Serengeti and Zanzibar</p><a href="#pricing" class="btn">See Pricing &amp; Inclusions &darr;</a></div>
+
+<!--@include package-tabnav-2-->
+
+<div class="floatcard"><div class="info"><span>31 Days</span><div class="div"></div><span>Private Guided</span><div class="div"></div><span class="fc-price">from $58,500 pp</span></div></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;&rsaquo;&nbsp; <a href="journey-finder.html">Journeys</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-kenya.html">Kenya</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-uganda.html">Uganda</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-rwanda.html">Rwanda</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-tanzania.html">Tanzania</a> &nbsp;&rsaquo;&nbsp; <span class="current">The East African Grand Safari</span></div>
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>A thirty-one day odyssey across the very best of East Africa. It begins in Kenya&rsquo;s Rift Valley and the Maasai Mara, crosses into Uganda for mountain gorillas and chimpanzees, works through Rwanda&rsquo;s savannah, rainforest and tea country, drops into Tanzania for Manyara, the Ngorongoro Crater and the northern Serengeti, and ends on the spice island of Zanzibar. It is the most ambitious journey we run.</p>
+        <table class="facts-table">
+          <tr><td>Best For</td><td>Travellers with the time to do East Africa properly, once, and completely</td></tr>
+          <tr><td>Duration</td><td>31 Days / 30 Nights</td></tr>
+          <tr><td>Route</td><td>Kenya &rarr; Uganda &rarr; Rwanda &rarr; Tanzania &rarr; Zanzibar &rarr; Kenya</td></tr>
+          <tr><td>Group Size</td><td>Private or small group &mdash; guided throughout</td></tr>
+          <tr><td>Price From</td><td>$58,500 per person sharing</td></tr>
+        </table>
+        <div class="highlights">
+          <div class="highlight"><span class="spark">&#10022;</span><p>Black and white rhino at Lake Nakuru, and a boat safari on the lake itself</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>A dawn hot-air balloon over the Maasai Mara, with a champagne bush breakfast</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Great Migration river crossings, July to October, in both the Mara and the Serengeti</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>An hour with a habituated mountain gorilla family in Bwindi Impenetrable Forest</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Chimpanzee tracking in the sunken gorge of Kyambura, and again in Nyungwe</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Tree-climbing lions in the Ishasha sector, and a Kazinga Channel boat safari</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Kigali Genocide Memorial, and the King&rsquo;s Palace at Nyanza with its Inyambo cattle</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Helicopter transfers across Rwanda&rsquo;s Land of a Thousand Hills</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Ngorongoro Crater floor &mdash; the most reliable black rhino sighting in Africa</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Four nights in the northern Serengeti on the Mara River, then Stone Town and a sunset dhow</p></div>
+        </div>
+        <div class="download-row"><a href="assets/itineraries/east-african-grand-safari.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a></div>
+      </div>
+      <div class="overview-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/2.jpg" alt="The East African Grand Safari"></div>
+    </div>
+  </div>
+</section>
+
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Route Map</div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Nairobi &rarr; Lake Nakuru &rarr; Maasai Mara &rarr; Bwindi &rarr; Queen Elizabeth NP &rarr; Kigali &rarr; Akagera &rarr; Nyungwe &rarr; Lake Kivu &rarr; Lake Manyara &rarr; Ngorongoro &rarr; Serengeti &rarr; Zanzibar. Day-by-day scrollspy markers to follow.</p>
+        </div>
+      </div>
+    </div>
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Nairobi, Kenya</div>
+      <div class="day-block">
+        <h3>Day 1 | Arrival in Nairobi</h3>
+        <div class="day-body"><p>Land at Jomo Kenyatta International and transfer to Karen, the leafy suburb well clear of the city&rsquo;s noise. Hemingways Nairobi is a member of Small Luxury Hotels of the World, with butler service and the Ngong Hills filling the view.</p><p>The afternoon is yours to acclimatise. If you would rather move, a private city tour can take in the Karen Blixen Museum or the Giraffe Centre, where you can hand-feed endangered Rothschild&rsquo;s giraffes.</p><p>Dinner is quiet and fine, overlooking the Ngong Hills &mdash; the calm before thirty days of wilderness.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/1.jpg" alt="Day 1 | Arrival in Nairobi"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="hemingways-nairobi.html">Hemingways Nairobi</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Lake Nakuru National Park</div>
+      <div class="day-block">
+        <h3>Day 2 | Flight to the Flamingos</h3>
+        <div class="day-body"><p>A short scenic flight from Wilson Airport into the Rift Valley and Lake Nakuru. The Cliff Nakuru is built along a 100-metre escarpment, and every tented suite has floor-to-ceiling glass looking out over the entire lake basin.</p><p>The first game drive follows. Nakuru is a rhino sanctuary and gives some of the most reliable black and white rhino sightings in Kenya, alongside the flocks of flamingo that turn the shoreline pink.</p><p>As the light goes, your guide sets up a private bar at the Baboon Cliff viewpoint. It is a good place for the first African sundowner.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/2.jpg" alt="Day 2 | Flight to the Flamingos"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-cliff-nakuru.html">The Cliff Nakuru</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 3 | A Boat Safari on the Lake</h3>
+        <div class="day-body"><p>An early Cliff Boat Safari, which is a genuinely unusual perspective and unavailable from the road. You glide past pods of hippo and waterbuck wading through drowned acacia forest &mdash; the lake has risen in recent years and the flooded trees have changed the landscape entirely.</p><p>The rising water also brings you closer to the birdlife than any vehicle can: pelicans, flamingo and a great deal else.</p><p>The rest of the day is the infinity pool, or a guided walk to Makalia Falls at the southern end of the park, followed by an afternoon drive along the shoreline and a sundowner back at the lodge.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-cliff-nakuru.html">The Cliff Nakuru</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Maasai Mara</div>
+      <div class="day-block">
+        <h3>Day 4 | Flight to the Mara</h3>
+        <div class="day-body"><p>A morning drive in the park, then a bush flight to the Maasai Mara. You land on the savannah and transfer to the banks of the Talek River and the JW Marriott Masai Mara Lodge, the brand&rsquo;s first safari lodge and built around wellness as much as wildlife.</p><p>Your suite has a private deck over the river, and a resident elephant herd comes down to drink within sight of it often enough that you should keep the camera close.</p><p>The first afternoon drive is an introduction to rolling grassland and a density of game that takes most people by surprise &mdash; lion, elephant and giraffe against a setting sun.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/3.jpg" alt="Day 4 | Flight to the Mara"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="jw-marriott-mara-lodge.html">JW Marriott Masai Mara Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 5 | A Dawn Balloon Over the Mara</h3>
+        <div class="day-body"><p>Awake before dawn for the quintessential safari experience. The balloon lifts as the sun comes up and you drift silently over the savannah &mdash; wildebeest and zebra moving below, the silhouette of a giraffe, and sometimes a pride starting the morning hunt.</p><p>The landing is traditional and involves champagne, followed by a bush breakfast in the middle of the plains with white-tablecloth service set up on the grass.</p><p>The rest of the day is on game drives, working the wider Mara.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="jw-marriott-mara-lodge.html">JW Marriott Masai Mara Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 6 | A Full Day on the Plains</h3>
+        <div class="day-body"><p>A full day out, reaching the furthest parts of the reserve in a private 4x4 with a guide who knows where the animals were yesterday and what that means for today.</p><p>This is prime Great Migration country, and from July to October you may witness a Mara River crossing &mdash; thousands of wildebeest and zebra going into crocodile water because instinct says to. It is not guaranteed, it is not gentle, and it is unforgettable.</p><p>A picnic lunch in the bush, then a sundowner at a viewpoint as the sun goes down over the grass.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/4.jpg" alt="Day 6 | A Full Day on the Plains"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="jw-marriott-mara-lodge.html">JW Marriott Masai Mara Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 7 | Walking, and a Maasai Welcome</h3>
+        <div class="day-body"><p>On foot this morning, with a resident naturalist and an armed Kenya Wildlife Service ranger. Walking changes the scale of everything &mdash; tracks, medicinal plants, dung, insects, and the small mechanics of an ecosystem a vehicle drives straight past.</p><p>The afternoon includes a visit to a Maasai manyatta, arranged as a genuine exchange rather than a performance: conversation with community elders, a traditional dance, and an honest look at how conservation partnerships actually work here.</p><p>A final Mara drive, then a farewell dinner under the stars.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="jw-marriott-mara-lodge.html">JW Marriott Masai Mara Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Bwindi Impenetrable Forest, Uganda</div>
+      <div class="day-block">
+        <h3>Day 8 | Into the Pearl of Africa</h3>
+        <div class="day-body"><p>A last morning drive, then a bush flight to Entebbe. You clear customs and meet your Ugandan guide.</p><p>The drive southwest towards Bwindi is long and genuinely beautiful, climbing through green hills, tea plantations and busy roadside villages. Uganda looks nothing like the Kenyan savannah you left this morning.</p><p>You arrive on the edge of the Impenetrable Forest as the light goes.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="sanctuary-gorilla-forest-camp.html">Sanctuary Gorilla Forest Camp</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 9 | The Legendary Bwindi Forest</h3>
+        <div class="day-body"><p>Sanctuary Gorilla Forest Camp is the only luxury camp inside Bwindi Impenetrable National Park itself, which matters for two reasons: the atmosphere, and the fact that the trekking briefing centre is a short walk rather than a long drive.</p><p>Your tented suite sits inside the forest canopy, and the soundtrack is entirely birds and primates. There is a deep bathtub with a forest view, which after tomorrow you will be glad of.</p><p>Dinner is served on the raised forest platform with the jungle noise all around.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="sanctuary-gorilla-forest-camp.html">Sanctuary Gorilla Forest Camp</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 10 | The Gorilla Trek</h3>
+        <div class="day-body"><p>The day the whole journey has been building towards. After an early breakfast you head to the park headquarters for a briefing from expert trackers, then walk into the forest.</p><p>The terrain is genuinely demanding &mdash; steep, wet, thick, and the name Impenetrable is not decorative. Trekking can take one hour or six. Then the trackers stop, and a habituated family of mountain gorillas is in front of you, and you have one hour with them as they feed, play, groom and largely ignore you.</p><p>Back at camp, a complimentary massage, and dinner with the day still sitting on everyone.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="sanctuary-gorilla-forest-camp.html">Sanctuary Gorilla Forest Camp</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Queen Elizabeth National Park</div>
+      <div class="day-block">
+        <h3>Day 11 | The Ishasha Plains</h3>
+        <div class="day-body"><p>North into Queen Elizabeth National Park through the Ishasha sector, which is famous for one thing: lions that climb trees and spend the day draped along the branches of ancient fig trees. Nobody fully agrees on why they do it.</p><p>On to the Mweya Peninsula for a private afternoon boat safari on the Kazinga Channel &mdash; enormous pods of hippo, Nile crocodile on the banks, and elephant families coming down to drink at close range.</p><p>Check in at Kyambura Gorge Lodge on the edge of the Rift Valley escarpment.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/5.jpg" alt="Day 11 | The Ishasha Plains"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="kyambura-gorge-lodge.html">Kyambura Gorge Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 12 | Chimpanzees in the Sunken Forest</h3>
+        <div class="day-body"><p>You walk from the lodge directly down into Kyambura Gorge, a sunken strip of tropical forest cut into the savannah, to track wild chimpanzees. It is harder going than a game drive and the reward is a close encounter with our nearest relatives moving through the canopy overhead.</p><p>The afternoon is spent on your private deck, watching the sun go down over the gorge, the savannah plains and, on a clear day, the snow on the Rwenzori Mountains in the distance.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="kyambura-gorge-lodge.html">Kyambura Gorge Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Kigali, Rwanda</div>
+      <div class="day-block">
+        <h3>Day 13 | Uganda &rarr; Rwanda</h3>
+        <div class="day-body"><p>A short drive to the airstrip and a flight into Kigali, where a new guide meets you for the transfer to the Radisson Blu.</p><p>The afternoon is the Kigali Genocide Memorial, and it is an essential part of any visit to this country. It is difficult, it is handled with great care, and without it nothing about modern Rwanda quite makes sense.</p><p>The evening is quiet by design.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="radisson-blu-kigali.html">Radisson Blu Hotel Kigali</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Akagera National Park</div>
+      <div class="day-block">
+        <h3>Day 14 | Helicopter to the Savannah</h3>
+        <div class="day-body"><p>A thirty-minute helicopter flight east from Kigali, landing on the private helipad at Wilderness Magashi in a private concession in northern Akagera &mdash; which is as good an entrance to a national park as exists anywhere.</p><p>Akagera is Rwanda&rsquo;s Big Five country, restored over the past decade from near-collapse into one of the great conservation stories on the continent.</p><p>The late afternoon is a sunset boat cruise on Lake Rwanyakazinga, among enormous pods of hippo and basking Nile crocodile.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/1.jpg" alt="Day 14 | Helicopter to the Savannah"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="wilderness-magashi-camp.html">Wilderness Magashi Camp</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 15 | The Big Five in Akagera</h3>
+        <div class="day-body"><p>With the gorillas behind you, the attention turns to savannah game. A full day on 4x4 drives tracking lion, black and white rhino, leopard and elephant, framed by the hills that make Akagera look unlike any other East African park.</p><p>Large herds of zebra and antelope move across the plains, and the birdlife along the lakes is exceptional.</p><p>Your guide finds a scenic spot for a bush lunch, which is the best possible use of the middle of a hot day.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/2.jpg" alt="Day 15 | The Big Five in Akagera"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="wilderness-magashi-camp.html">Wilderness Magashi Camp</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Nyungwe National Park</div>
+      <div class="day-block">
+        <h3>Day 16 | Across the Land of a Thousand Hills</h3>
+        <div class="day-body"><p>A charter helicopter southwest across Rwanda, and the country earns its nickname from the air more completely than it ever can from the road &mdash; hill after terraced hill to the horizon in every direction.</p><p>You land on the helipad at One&amp;Only Nyungwe House, set inside the working Gisakura tea estate on the edge of one of the oldest rainforests in Africa.</p><p>The afternoon is a curated tea plantation tour with the local cooperative, learning to pick and then tasting what comes of it. The green is relentless and extraordinary.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="one-and-only-nyungwe-house.html">One&amp;Only Nyungwe House</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 17 | The Canopy Walk &amp; the Chimpanzees</h3>
+        <div class="day-body"><p>Into Nyungwe on foot. The canopy walkway is a suspension bridge strung sixty metres above the forest floor, and it delivers a view of a rainforest almost nobody gets: from the top down.</p><p>The afternoon tracks habituated chimpanzee troops, or the Ruwenzori colobus, which move through the branches in groups that can number in the hundreds.</p><p>Nyungwe holds roughly a fifth of all the primate species in Africa, and it is one of the oldest forests on the continent.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/3.jpg" alt="Day 17 | The Canopy Walk &amp; the Chimpanzees"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="one-and-only-nyungwe-house.html">One&amp;Only Nyungwe House</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Lake Kivu</div>
+      <div class="day-block">
+        <h3>Day 18 | The Road to Lake Kivu</h3>
+        <div class="day-body"><p>A scenic two-hour drive north along the road that skirts the shore of Lake Kivu, one of the African Great Lakes and a total change of register after the rainforest.</p><p>Check in at the Lake Kivu Serena in Rubavu. The afternoon is a white-sand lake beach, a traditional sunset boat ride, and fresh tilapia with a drink in hand.</p><p>After eighteen days this is the first genuinely idle afternoon, and it is deliberate.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="lake-kivu-serena-hotel.html">Lake Kivu Serena Hotel</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Dar es Salaam, Tanzania</div>
+      <div class="day-block">
+        <h3>Day 19 | The King&rsquo;s Palace &amp; Into Tanzania</h3>
+        <div class="day-body"><p>An early scenic drive back towards Kigali by way of Nyanza, Rwanda&rsquo;s historic royal capital, and the King&rsquo;s Palace Museum &mdash; a careful reconstruction of the traditional royal residence.</p><p>The Inyambo cattle are the reason to come: royal cows with enormous, elegantly curved horns, whose keepers still sing to them in the traditional manner. It is one of the strangest and most memorable half-hours in East Africa.</p><p>From Kigali Airport you fly to Dar es Salaam, where your guide transfers you to the Element by Westin for a soft coastal landing before the Tanzanian sector begins.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="element-by-marriott-dar-es-salaam.html">Element by Marriott Dar es Salaam</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Lake Manyara National Park</div>
+      <div class="day-block">
+        <h3>Day 20 | The Tree-Climbing Lions of Manyara</h3>
+        <div class="day-body"><p>A flight from Dar es Salaam to Manyara airstrip. &amp;Beyond Lake Manyara Tree Lodge is the only luxury lodge inside the national park, suspended in the upper branches of a mahogany grove with elephants occasionally wandering underneath.</p><p>The afternoon drive goes looking for Manyara&rsquo;s celebrated tree-climbing lions and works through the park&rsquo;s remarkable range of habitats, from the soda lake to the groundwater forest.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/4.jpg" alt="Day 20 | The Tree-Climbing Lions of Manyara"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="andbeyond-lake-manyara-tree-lodge.html">&amp;Beyond Lake Manyara Tree Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 21 | A Full Day in Manyara</h3>
+        <div class="day-body"><p>A full day across the park&rsquo;s habitats. Manyara is among the most biodiverse safari landscapes in East Africa, and the density of birdlife around the lake is extraordinary.</p><p>The evening brings a night game drive, exclusive to this lodge, and the park after dark belongs to a different cast: bushbabies, civets, genets and, with luck, a leopard on the move.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="andbeyond-lake-manyara-tree-lodge.html">&amp;Beyond Lake Manyara Tree Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Ngorongoro Crater</div>
+      <div class="day-block">
+        <h3>Day 22 | The Eighth Wonder</h3>
+        <div class="day-body"><p>A morning climb up the Great Rift Valley wall to the rim of the Ngorongoro Crater, and check-in at &amp;Beyond Ngorongoro Crater Lodge, whose Versailles-meets-Maasai interiors have to be seen to be believed.</p><p>A full-day floor safari descends into the world&rsquo;s largest unbroken caldera. This is the single most reliable place on Earth to see black rhino, and the Big Five are all present within a space you can see across.</p><p>A private luxury picnic lunch on the crater floor, surrounded by game.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/5.jpg" alt="Day 22 | The Eighth Wonder"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="andbeyond-ngorongoro-crater-lodge.html">&amp;Beyond Ngorongoro Crater Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Northern Serengeti</div>
+      <div class="day-block">
+        <h3>Day 23 | Into the Deep Serengeti</h3>
+        <div class="day-body"><p>Back down to Manyara airstrip and a charter to Kogatende in the far northern Serengeti &mdash; the remote end, and the one worth the extra flying.</p><p>Nomad Lamai Serengeti is built directly into the giant granite boulders of the Kogakuria Kopje, and the rooms are wedged between the rocks rather than placed on them.</p><p>Four nights here gives time to work the Mara River properly. From July to October this is prime positioning for the crossings. An afternoon drive introduces the country.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/1.jpg" alt="Day 23 | Into the Deep Serengeti"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nomad-lamai-serengeti.html">Nomad Lamai Serengeti</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 24 | Serengeti Immersion</h3>
+        <div class="day-body"><p>A full day given entirely to the Serengeti. Morning and evening game drives, guided walking safaris around the kopjes, and a private bush dinner under the stars if you want one.</p><p>The northern Serengeti is vast, remote and very lightly visited compared with the centre. Your guide works to current wildlife movements rather than a fixed route, which is the whole advantage of being here for four nights.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nomad-lamai-serengeti.html">Nomad Lamai Serengeti</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 25 | The Mara River</h3>
+        <div class="day-body"><p>The day is spent along the Mara River, the stage for one of the great spectacles in nature. You position along the banks where the herds are gathering and wait, because that is what everyone does &mdash; the animals decide when.</p><p>In season, a crossing is chaos and courage in equal measure and it takes a while afterwards to say anything sensible about it.</p><p>Bush breakfast and lunch are taken out with you, so that no time is lost coming back.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/2.jpg" alt="Day 25 | The Mara River"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nomad-lamai-serengeti.html">Nomad Lamai Serengeti</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 26 | On Foot, and a Bush Breakfast</h3>
+        <div class="day-body"><p>The final Serengeti day is a walking safari with an armed ranger, working the ground around the kopjes at the pace the details require.</p><p>A bush breakfast in the wilderness follows &mdash; a fitting farewell to the savannah after three weeks of it.</p><p>The evening is an exclusive bonfire dinner under the stars.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="nomad-lamai-serengeti.html">Nomad Lamai Serengeti</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Zanzibar</div>
+      <div class="day-block">
+        <h3>Day 27 | Bush Flight to the Spice Island</h3>
+        <div class="day-body"><p>A flight straight out of the bush from Kogatende to Zanzibar, and a private transfer to Meli&aacute; Zanzibar for the last four nights &mdash; The Level Beach Pavilions or one-bedroom villas, with a private infinity pool and a secluded beach section.</p><p>The rest of the day is white sand and the first swim in the Indian Ocean, which after three weeks of dust is a specific kind of relief.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/3.jpg" alt="Day 27 | Bush Flight to the Spice Island"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="melia-zanzibar.html">Meli&aacute; Zanzibar</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 28 | Stone Town &amp; the Spice Farms</h3>
+        <div class="day-body"><p>A private tour of Stone Town with a dedicated historian, through the labyrinth of alleys to the Old Slave Market, the Sultan&rsquo;s Palace and the coral-stone buildings that give the town its UNESCO listing. It is a complicated history and it deserves a proper guide.</p><p>The afternoon is a working organic spice farm &mdash; clove, nutmeg, cinnamon, vanilla and cardamom, tasted and smelled rather than described. Zanzibar&rsquo;s entire history is in that list.</p><p>Back to the resort for a quiet evening by the sea.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="melia-zanzibar.html">Meli&aacute; Zanzibar</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 29 | The Ocean Day</h3>
+        <div class="day-body"><p>A private boat excursion, to the Menai Bay Conservation Area or the Mnemba Atoll depending on conditions, for dolphins and snorkelling.</p><p>Pods of wild humpback and bottlenose dolphins play in the surf, and the reef snorkelling around Mnemba is among the healthiest in the region.</p><p>A seafood lunch on a secluded beach or aboard, and back to the resort for sunset.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/4.jpg" alt="Day 29 | The Ocean Day"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="melia-zanzibar.html">Meli&aacute; Zanzibar</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 30 | Leisure &amp; a Sunset Dhow</h3>
+        <div class="day-body"><p>The final full day is pure rest &mdash; pool, private beach, spa, at whatever pace you like.</p><p>In the late afternoon you board a traditional wooden dhow for a private sunset cruise along the coast, with a live acoustic Tarab musician aboard, chilled champagne and fresh-grilled seafood skewers as the sun goes into the Indian Ocean.</p><p>It is a romantic and slightly improbable finale to thirty days of Africa.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/5.jpg" alt="Day 30 | Leisure &amp; a Sunset Dhow"></div>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="melia-zanzibar.html">Meli&aacute; Zanzibar</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Nairobi</div>
+      <div class="day-block">
+        <h3>Day 31 | The Journey Home</h3>
+        <div class="day-body"><p>A final island breakfast, then the flight back to Nairobi and a transfer to Hemingways for a last night or a day room, depending on your onward flight.</p><p>The spa here is the right place to sit with thirty-one days of it, with the Ngong Hills back in the window where the journey began. Your driver takes you to Jomo Kenyatta International when you are ready.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="hemingways-nairobi.html">Hemingways Nairobi</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/africa/4.jpg" alt="Tailor this journey with {{brand}}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head"><span class="eyebrow">Your Accommodation</span><h2 style="font-size:42px;margin-top:12px;">Twelve Exceptional Properties</h2></div>
+    <div class="stays-carousel-wrap">
+<div class="stays-grid carousel">
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/hemingways-nairobi/3.jpg" alt="Hemingways Nairobi"><div class="badge">NIGHTS 1, 31</div></div><div class="body"><div class="loc">Karen, Nairobi</div><h4>Hemingways Nairobi</h4><a href="hemingways-nairobi.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/the-cliff-nakuru/2.jpg" alt="The Cliff Nakuru"><div class="badge">NIGHTS 2&ndash;3</div></div><div class="body"><div class="loc">Lake Nakuru National Park</div><h4>The Cliff Nakuru</h4><a href="the-cliff-nakuru.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/jw-marriott-mara-lodge/4.jpg" alt="JW Marriott Masai Mara Lodge"><div class="badge">NIGHTS 4&ndash;7</div></div><div class="body"><div class="loc">Talek River, Maasai Mara</div><h4>JW Marriott Masai Mara Lodge</h4><a href="jw-marriott-mara-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/sanctuary-gorilla-forest-camp/2.jpg" alt="Sanctuary Gorilla Forest Camp"><div class="badge">NIGHTS 8&ndash;10</div></div><div class="body"><div class="loc">Bwindi Impenetrable Forest</div><h4>Sanctuary Gorilla Forest Camp</h4><a href="sanctuary-gorilla-forest-camp.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/kyambura-gorge-lodge/4.jpg" alt="Kyambura Gorge Lodge"><div class="badge">NIGHTS 11&ndash;12</div></div><div class="body"><div class="loc">Queen Elizabeth National Park</div><h4>Kyambura Gorge Lodge</h4><a href="kyambura-gorge-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/radisson-blu-kigali/1.jpg" alt="Radisson Blu Hotel Kigali"><div class="badge">NIGHT 13</div></div><div class="body"><div class="loc">Kigali, Rwanda</div><h4>Radisson Blu Hotel Kigali</h4><a href="radisson-blu-kigali.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/wilderness-magashi-camp/2.jpg" alt="Wilderness Magashi Camp"><div class="badge">NIGHTS 14&ndash;15</div></div><div class="body"><div class="loc">Akagera National Park</div><h4>Wilderness Magashi Camp</h4><a href="wilderness-magashi-camp.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/one-and-only-nyungwe-house/1.jpg" alt="One&amp;Only Nyungwe House"><div class="badge">NIGHTS 16&ndash;17</div></div><div class="body"><div class="loc">Nyungwe National Park</div><h4>One&amp;Only Nyungwe House</h4><a href="one-and-only-nyungwe-house.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/lake-kivu-serena-hotel/7.jpg" alt="Lake Kivu Serena Hotel"><div class="badge">NIGHT 18</div></div><div class="body"><div class="loc">Rubavu, Lake Kivu</div><h4>Lake Kivu Serena Hotel</h4><a href="lake-kivu-serena-hotel.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/andbeyond-lake-manyara-tree-lodge/1.jpg" alt="&amp;Beyond Lake Manyara Tree Lodge"><div class="badge">NIGHTS 20&ndash;21</div></div><div class="body"><div class="loc">Lake Manyara National Park</div><h4>&amp;Beyond Lake Manyara Tree Lodge</h4><a href="andbeyond-lake-manyara-tree-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/andbeyond-ngorongoro-crater-lodge/3.jpg" alt="&amp;Beyond Ngorongoro Crater Lodge"><div class="badge">NIGHT 22</div></div><div class="body"><div class="loc">Ngorongoro Crater Rim</div><h4>&amp;Beyond Ngorongoro Crater Lodge</h4><a href="andbeyond-ngorongoro-crater-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/melia-zanzibar/1.jpg" alt="Meli&aacute; Zanzibar"><div class="badge">NIGHTS 27&ndash;30</div></div><div class="body"><div class="loc">Kiwengwa, Zanzibar</div><h4>Meli&aacute; Zanzibar</h4><a href="melia-zanzibar.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+    </div>
+<button class="stays-carousel-arrow prev" aria-label="Previous">&#8592;</button>
+<button class="stays-carousel-arrow next" aria-label="Next">&#8594;</button>
+</div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; Price</h2>
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div>
+      <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>All internal and regional flights, including bush flights between camps</li>
+            <li>30 nights accommodation across twelve properties</li>
+            <li>Fully inclusive stays at all safari camps &mdash; meals, select drinks and scheduled activities</li>
+            <li>Private guide and 4x4 Land Cruiser throughout the Kenyan and Tanzanian sectors</li>
+            <li>Dedicated Ugandan and Rwandan guides for those countries</li>
+            <li>Twice-daily game drives throughout, plus night drives where permitted</li>
+            <li>Hot-air balloon flight over the Maasai Mara, with champagne bush breakfast</li>
+            <li>Cliff Boat Safari on Lake Nakuru</li>
+            <li>Gorilla trekking permit and briefing at Bwindi Impenetrable National Park</li>
+            <li>Chimpanzee tracking permits at Kyambura Gorge and Nyungwe</li>
+            <li>Kazinga Channel private boat safari</li>
+            <li>Kigali Genocide Memorial guided visit</li>
+            <li>Helicopter transfers Kigali &ndash; Magashi and Magashi &ndash; Nyungwe</li>
+            <li>Nyungwe canopy walkway and tea plantation tour</li>
+            <li>King&rsquo;s Palace Museum at Nyanza</li>
+            <li>Full-day Ngorongoro Crater floor safari with a private picnic lunch</li>
+            <li>Guided walking safaris in the Mara, the Serengeti and Bwindi</li>
+            <li>Maasai manyatta visit</li>
+            <li>Private Stone Town historian-led tour and a spice farm visit</li>
+            <li>Private ocean excursion for dolphins and snorkelling, and a sunset dhow cruise</li>
+            <li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li>
+            <li>Visa and e-visa processing for all four countries</li>
+          </ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights into and out of Nairobi</li>
+            <li>Yellow Fever vaccination and malaria prophylaxis</li>
+            <li>Premium imported wines and spirits</li>
+            <li>Gratuities for guides, trackers, porters and camp staff</li>
+            <li>Gorilla and chimpanzee porter fees, which are paid locally and are worth every shilling</li>
+            <li>Items of a personal nature</li>
+          </ul>
+        </details>
+      </div>
+      <div class="price-card">
+        <h3>Per Person Pricing</h3>
+        <div class="price-row"><span class="label">Per Person Sharing</span><span class="value">$61,500</span></div><div class="price-row"><span class="label">Single Traveller Supplement</span><span class="value">On Request</span></div>
+        <div class="price-note">&#9432; Pricing is an estimate subject to confirmation based on season, room category, and final accommodation selection.</div>
+        <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Mar &ndash; May</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Green season, newborn game, lowest rates</span></div><span class="season-price">$58,500</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jul &ndash; Oct</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Migration river crossings in the Mara and Serengeti</span></div><span class="season-price">$71,800</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Dec &ndash; Feb</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Calving season, clear skies, excellent predator action</span></div><span class="season-price">$64,200</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+<a href="tailor-your-journey.html" class="btn btn-solid js-fs-enquire" data-fs-package="The East African Grand Safari" style="width:100%;margin-top:24px;">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Soft duffel, sun hat and binoculars</p><button class="jd-toggle" data-target="kit-eastafgrand">View +</button><div class="jd-panel" id="kit-eastafgrand"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; A soft-sided {{brand}} duffel, and on this journey it is not a nicety. Bush flights enforce a 15 kg soft-luggage limit per passenger and hard-sided suitcases are simply refused at the airstrip.</li><li><strong>What is inside it</strong> &mdash; A wide-brim sun hat, a pair of compact binoculars, a dry bag and a neutral-toned buff for dust.</li><li><strong>Yours to keep</strong> &mdash; The bag and everything in it is a gift, not a loan.</li><li><strong>Storage for the rest</strong> &mdash; Anything over the limit is stored securely at your first city hotel and returned to you at the end.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Bush flights carry a strict 15 kg soft-bag limit</p><button class="jd-toggle" data-target="note-eastafgrand">View +</button><div class="jd-panel" id="note-eastafgrand"><p>Light aircraft between camps enforce 15 kg per passenger in soft bags, with no exceptions and no hard cases. Game viewing is wild and nothing is guaranteed &mdash; we position you in the right places at the right times of year and let the animals do the rest. Where a river crossing, a migration or a trek is season-dependent, we say so plainly rather than implying it is certain.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, <a href="tailor-your-journey.html">reach out and we will tailor it for you</a>.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Multiple visas and a Yellow Fever certificate</p><button class="jd-toggle" data-target="docs-eastafgrand">View +</button><div class="jd-panel" id="docs-eastafgrand"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least six months beyond your return date, with at least two blank pages per country visited.</li><li><strong>Visas</strong> &mdash; Required for most nationalities in every country on this route. Several are e-visas applied for online in advance; requirements differ by passport and change often.</li><li><strong>Yellow Fever</strong> &mdash; A Yellow Fever certificate is mandatory on this itinerary, and is checked at borders. It must be issued at least ten days before travel.</li><li><strong>Health</strong> &mdash; Routine vaccinations should be current, and malaria prophylaxis is recommended across the route. Speak to your doctor at least six weeks before departure.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates</p><button class="jd-toggle" data-target="dep-eastafgrand">View +</button><div class="jd-panel" id="dep-eastafgrand"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-eastafgrand" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-eastafgrand"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored &mdash; <a href="tailor-your-journey.html">extend a stay, add a destination, or adjust the pace to suit you</a>. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Neutral colours &mdash; khaki, olive, stone &mdash; and no bright shades or black, which attracts tsetse. Long sleeves and trousers for early drives and evenings, a genuinely warm fleece for pre-dawn starts in an open vehicle, closed walking shoes with grip, binoculars, and a camera with more storage than you think you need. Sun protection throughout.</li></ul></div>
+  </div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <div class="more-head"><h2>More Grand African Journeys</h2></div>
+    <div class="more-grid"><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/southern-african-grand-safari.jpg" alt="The Southern African Grand Safari"><div class="tags"><span class="tag">FIVE COUNTRIES</span></div></div><div class="body"><h3>The Southern African Grand Safari</h3><div class="meta">27 Days &middot; Private</div><div class="it-list"><b>Route</b>Okavango &middot; Victoria Falls &middot; South Luangwa &middot; Etosha &middot; Sabi Sand</div><div class="footer-row"><div class="price">$52,400 <span>pp</span></div><a href="southern-african-grand-safari.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/big-five-to-the-indian-ocean.jpg" alt="From the Big Five to the Indian Ocean"><div class="tags"><span class="tag">SAFARI &amp; ISLANDS</span></div></div><div class="body"><h3>From the Big Five to the Indian Ocean</h3><div class="meta">12 Days &middot; Private</div><div class="it-list"><b>Route</b>Sabi Sand &middot; Mah&eacute; &middot; Praslin &middot; La Digue &middot; F&eacute;licit&eacute;</div><div class="footer-row"><div class="price">$18,500 <span>pp</span></div><a href="big-five-to-the-indian-ocean.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/kenya-family-safari-ol-pejeta-mount-kenya.jpg" alt="Kenya Family Safari: Ol Pejeta &amp; Mount Kenya"><div class="tags"><span class="tag">KENYA</span></div></div><div class="body"><h3>Kenya Family Safari: Ol Pejeta &amp; Mount Kenya</h3><div class="meta">8 Days &middot; Private &middot; Family</div><div class="it-list"><b>Route</b>Nairobi &middot; Ol Pejeta &middot; Mount Kenya</div><div class="footer-row"><div class="price">$39,200 <span>total</span></div><a href="kenya-family-safari-ol-pejeta-mount-kenya.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img src="assets/img/packages/malaysia-southern-heritage-rainforest-arc.jpg" loading="lazy"><div class="tags"><span class="tag">MALACCA & JOHOR</span></div></div><div class="body"><h3>The Southern Heritage & Rainforest Arc</h3><div class="meta">10 Days · Malacca & Johor</div><div class="it-list"><b>Route</b>Malacca · Desaru Coast · Panti Forest · Lebam Firefly River · Endau-Rompin</div><div class="footer-row"><div class="price">From USD 8,200 pp</div><a href="malaysia-southern-heritage-rainforest-arc.html" class="btn">View Journey</a></div></div></div></div>
+  </div>
+</section>
+
+<!--@include footer-newsletter-2-->
+
+<!--@include package-tabnav-script-2-->
+<!--@include itinerary-expand-script-->
+<!--@include journey-details-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"africa","focus":null,"stops":[["Nairobi",-1.29,36.82],["Lake Nakuru",-0.37,36.08],["Maasai Mara",-1.49,35.14],["Bwindi",-0.98,29.62],["Queen Elizabeth NP",-0.2,29.9],["Kigali",-1.95,30.06],["Akagera",-1.67,30.72],["Nyungwe",-2.47,29.2],["Lake Kivu",-1.7,29.26],["Lake Manyara",-3.5,35.83],["Ngorongoro",-3.2,35.5],["Serengeti",-1.98,34.82],["Zanzibar",-6.16,39.2]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":61500,"seasons":[58500,71800,64200],"from":58500,"single":"On Request"},"2027":{"headline":58550,"seasons":[55600,68200,61000],"from":55600,"single":"On Request"}}}</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+
+<!--@include script-3-->
+
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body>
+</html>

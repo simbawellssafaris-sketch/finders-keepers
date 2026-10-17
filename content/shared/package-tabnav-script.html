@@ -1,0 +1,25 @@
+<script>
+  const tabnav = document.getElementById('tabnav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) tabnav.classList.add('stuck');
+    else tabnav.classList.remove('stuck');
+  });
+  const tabs = document.querySelectorAll('.tabnav a.tab');
+  const sections = [...tabs].map(t => document.querySelector(t.getAttribute('href')));
+  function onScroll(){
+    let current = sections[0];
+    const scrollPos = window.scrollY + 150;
+    sections.forEach(function(sec){ if (sec && sec.offsetTop <= scrollPos) current = sec; });
+    tabs.forEach(function(t){ t.classList.toggle('active', document.querySelector(t.getAttribute('href')) === current); });
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+  document.querySelectorAll('.jd-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const p = document.getElementById(btn.dataset.target);
+      if(!p) return;
+      p.classList.toggle('open');
+      btn.textContent = btn.textContent.replace(/\s*[+-]$/, '') + (p.classList.contains('open') ? ' -' : ' +');
+    });
+  });
+</script>

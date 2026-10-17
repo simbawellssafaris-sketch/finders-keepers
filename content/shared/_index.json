@@ -1,0 +1,362 @@
+{
+ "enquiry-modal": {
+  "pages": 641,
+  "bytes": 16852,
+  "from": "FS-ENQ-MODAL"
+ },
+ "subscribe-modal": {
+  "pages": 641,
+  "bytes": 7714,
+  "from": "FS-SUB-MODAL"
+ },
+ "print-styles": {
+  "pages": 511,
+  "bytes": 2004,
+  "from": "FS-PRINT"
+ },
+ "quicknav": {
+  "pages": 423,
+  "bytes": 230,
+  "from": "div.fs-quicknav"
+ },
+ "quicknav-script": {
+  "pages": 286,
+  "bytes": 348,
+  "from": "script"
+ },
+ "quicknav-styles": {
+  "pages": 284,
+  "bytes": 784,
+  "from": "style"
+ },
+ "elevation-divider": {
+  "pages": 252,
+  "bytes": 219,
+  "from": "div"
+ },
+ "elevation-divider-2": {
+  "pages": 252,
+  "bytes": 226,
+  "from": "div"
+ },
+ "elevation-divider-3": {
+  "pages": 252,
+  "bytes": 235,
+  "from": "div"
+ },
+ "elevation-divider-4": {
+  "pages": 252,
+  "bytes": 211,
+  "from": "div"
+ },
+ "lodge-hero-script": {
+  "pages": 238,
+  "bytes": 2189,
+  "from": "script"
+ },
+ "lodge-tabbar-3": {
+  "pages": 132,
+  "bytes": 406,
+  "from": "div.tabbar-wrap"
+ },
+ "print-styles-b": {
+  "pages": 130,
+  "bytes": 1779,
+  "from": "FS-PRINT"
+ },
+ "floatcard-dock": {
+  "pages": 130,
+  "bytes": 2135,
+  "from": "FS-FLOATCARD-DOCK"
+ },
+ "itinerary-expand-script": {
+  "pages": 130,
+  "bytes": 2664,
+  "from": "script"
+ },
+ "footer-subscribe-script": {
+  "pages": 129,
+  "bytes": 1347,
+  "from": "FS-FOOT-SUB"
+ },
+ "offers-more-script": {
+  "pages": 128,
+  "bytes": 283,
+  "from": "script"
+ },
+ "year-toggle-script": {
+  "pages": 109,
+  "bytes": 212,
+  "from": "script"
+ },
+ "footer-brand-line": {
+  "pages": 101,
+  "bytes": 82,
+  "from": "footer"
+ },
+ "mega-menu-panels": {
+  "pages": 90,
+  "bytes": 5245,
+  "from": "div.mega-overlay"
+ },
+ "nav-menu-pages": {
+  "pages": 90,
+  "bytes": 787,
+  "from": "nav.nav"
+ },
+ "speak-button": {
+  "pages": 90,
+  "bytes": 46,
+  "from": "button.speak-btn"
+ },
+ "topbar-menu-pages": {
+  "pages": 89,
+  "bytes": 780,
+  "from": "div.topbar"
+ },
+ "lodge-tabbar": {
+  "pages": 88,
+  "bytes": 405,
+  "from": "div.tabbar-wrap"
+ },
+ "footer-site": {
+  "pages": 78,
+  "bytes": 2427,
+  "from": "footer"
+ },
+ "footer-newsletter-2": {
+  "pages": 61,
+  "bytes": 752,
+  "from": "footer"
+ },
+ "nav-detail-pages-2": {
+  "pages": 57,
+  "bytes": 435,
+  "from": "div.mainnav"
+ },
+ "package-tabnav-script-2": {
+  "pages": 57,
+  "bytes": 707,
+  "from": "script"
+ },
+ "journey-details-script": {
+  "pages": 57,
+  "bytes": 386,
+  "from": "script"
+ },
+ "mega-menu-script": {
+  "pages": 55,
+  "bytes": 11083,
+  "from": "script"
+ },
+ "topbar-detail-pages-2": {
+  "pages": 52,
+  "bytes": 296,
+  "from": "div.topbar"
+ },
+ "lodge-hero-script-2": {
+  "pages": 45,
+  "bytes": 2331,
+  "from": "script"
+ },
+ "topbar-detail-pages": {
+  "pages": 40,
+  "bytes": 289,
+  "from": "div.topbar"
+ },
+ "nav-detail-pages": {
+  "pages": 40,
+  "bytes": 382,
+  "from": "div.mainnav"
+ },
+ "footer-brand-line-2": {
+  "pages": 36,
+  "bytes": 89,
+  "from": "footer"
+ },
+ "ways-links-script": {
+  "pages": 34,
+  "bytes": 1241,
+  "from": "FS-WAYS-LINKS"
+ },
+ "elevation-divider-5": {
+  "pages": 32,
+  "bytes": 289,
+  "from": "div"
+ },
+ "elevation-divider-6": {
+  "pages": 32,
+  "bytes": 287,
+  "from": "div"
+ },
+ "elevation-divider-7": {
+  "pages": 32,
+  "bytes": 296,
+  "from": "div"
+ },
+ "elevation-divider-8": {
+  "pages": 32,
+  "bytes": 262,
+  "from": "div"
+ },
+ "package-tabnav": {
+  "pages": 29,
+  "bytes": 485,
+  "from": "div.tabnav#tabnav"
+ },
+ "footer-newsletter": {
+  "pages": 29,
+  "bytes": 807,
+  "from": "footer"
+ },
+ "package-tabnav-script": {
+  "pages": 29,
+  "bytes": 1104,
+  "from": "script"
+ },
+ "package-tabnav-2": {
+  "pages": 28,
+  "bytes": 443,
+  "from": "div.tabnav#tabnav"
+ },
+ "package-stat-strip": {
+  "pages": 27,
+  "bytes": 308,
+  "from": "div.statstrip"
+ },
+ "package-tabnav-5": {
+  "pages": 27,
+  "bytes": 438,
+  "from": "div.tabnav#tabnav"
+ },
+ "footer-newsletter-3": {
+  "pages": 22,
+  "bytes": 822,
+  "from": "footer"
+ },
+ "package-tabnav-4": {
+  "pages": 21,
+  "bytes": 514,
+  "from": "div.tabnav#tabnav"
+ },
+ "topbar-detail-pages-3": {
+  "pages": 19,
+  "bytes": 332,
+  "from": "div.topbar"
+ },
+ "script-5": {
+  "pages": 18,
+  "bytes": 1052,
+  "from": "script"
+ },
+ "script-4": {
+  "pages": 17,
+  "bytes": 1570,
+  "from": "script"
+ },
+ "script-3": {
+  "pages": 16,
+  "bytes": 688,
+  "from": "script"
+ },
+ "package-tabnav-3": {
+  "pages": 15,
+  "bytes": 494,
+  "from": "div.tabnav#tabnav"
+ },
+ "package-tabnav-script-3": {
+  "pages": 15,
+  "bytes": 1417,
+  "from": "script"
+ },
+ "div-dest-subnav-wrap-top-2": {
+  "pages": 15,
+  "bytes": 500,
+  "from": "div.dest-subnav-wrap#top"
+ },
+ "nav-detail-pages-3": {
+  "pages": 14,
+  "bytes": 518,
+  "from": "div.mainnav"
+ },
+ "package-stat-strip-2": {
+  "pages": 11,
+  "bytes": 317,
+  "from": "div.statstrip"
+ },
+ "footer-newsletter-4": {
+  "pages": 11,
+  "bytes": 812,
+  "from": "footer"
+ },
+ "package-tabnav-script-4": {
+  "pages": 11,
+  "bytes": 1020,
+  "from": "script"
+ },
+ "package-cta-band": {
+  "pages": 10,
+  "bytes": 161,
+  "from": "div.ctaband"
+ },
+ "div-dest-subnav-wrap-top": {
+  "pages": 10,
+  "bytes": 635,
+  "from": "div.dest-subnav-wrap#top"
+ },
+ "mega-menu-script-2": {
+  "pages": 10,
+  "bytes": 14727,
+  "from": "script"
+ },
+ "footer-site-2": {
+  "pages": 9,
+  "bytes": 2972,
+  "from": "footer"
+ },
+ "mega-menu-script-3": {
+  "pages": 9,
+  "bytes": 14097,
+  "from": "script"
+ },
+ "div-dest-subnav-wrap-top-3": {
+  "pages": 9,
+  "bytes": 505,
+  "from": "div.dest-subnav-wrap#top"
+ },
+ "mega-menu-script-4": {
+  "pages": 9,
+  "bytes": 14096,
+  "from": "script"
+ },
+ "script-6": {
+  "pages": 9,
+  "bytes": 973,
+  "from": "script"
+ },
+ "lodge-tabbar-4": {
+  "pages": 9,
+  "bytes": 405,
+  "from": "div.tabbar-wrap"
+ },
+ "script": {
+  "pages": 8,
+  "bytes": 2262,
+  "from": "script"
+ },
+ "script-2": {
+  "pages": 8,
+  "bytes": 805,
+  "from": "script"
+ },
+ "lodge-tabbar-2": {
+  "pages": 8,
+  "bytes": 406,
+  "from": "div.tabbar-wrap"
+ },
+ "nav-detail-pages-4": {
+  "pages": 8,
+  "bytes": 520,
+  "from": "div.mainnav"
+ }
+}

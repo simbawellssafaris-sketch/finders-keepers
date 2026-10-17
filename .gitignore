@@ -1,0 +1,40 @@
+# Dependencies / build output (not used today, but safe if tooling is added later)
+node_modules/
+.next/
+out/
+dist/
+.cache/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Archives and exports (these are what bloated the 1GB zip)
+*.zip
+*.7z
+*.rar
+
+# Local preview / logs
+preview.log
+*.log
+npm-debug.log*
+
+# Scratch and backup files
+_*.html
+*.bak
+*.tmp
+~$*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Safety copy of the original pages (before shared parts were extracted)
+.backup/
+
+# One-off scratch scripts (investigation helpers)
+scripts/_*.mjs

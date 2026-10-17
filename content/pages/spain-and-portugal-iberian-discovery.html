@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain &amp; Portugal &mdash; Iberian Discovery | {{brand}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#EDE3CE;--tan:#E0D3B8;--ink:#2C2A26;--ink-soft:#5C5750;--terracotta:#B5572F;--terracotta-dark:#9C4926;--line:#CFC1A3;--white:#FFFFFF;--maxw:1376px;}
+  *{box-sizing:border-box;}html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;}
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .hero{position:relative;height:640px;overflow:hidden;background-image:url('assets/img/packages/spain-and-portugal-iberian-discovery.jpg');background-size:cover;background-position:center;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 32%,rgba(0,0,0,.65) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;margin-bottom:18px;}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero h1{font-size:50px;color:var(--white);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:15px;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  section{padding:80px 0;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:25px;line-height:1.5;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .facts-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:14px;}
+  .facts-table tr{border-bottom:1px solid var(--line);}
+  .facts-table td{padding:14px 0;}
+  .facts-table td:first-child{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);width:35%;}
+  .download-row{margin-top:40px;}
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;;min-width:0}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-route{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;}
+  .days-col{padding:60px 40px 60px 60px;;min-width:0}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:25px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;}
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:200px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;font-weight:600;}
+  .stay-card .body{padding:16px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .btn{margin-top:auto;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .stay-card h4{font-size:17px;margin-bottom:14px;min-height:44px;}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:20px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:20px;}
+  .package-card .price span{font-size:13px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}footer li{margin-bottom:14px;}footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+  @media(max-width:900px){.overview-grid,.itinerary-layout,.pricing-grid,.foot-grid{grid-template-columns:1fr;}.highlights{grid-template-columns:1fr;}.stays-grid,.more-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:32px;}}
+
+  /* ============ JOURNEY DETAILS ============ */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:30px;
+    border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;
+  }
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{
+    border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);
+    border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;
+  }
+  .jd-panel{
+    display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;
+    line-height:1.7;color:var(--ink-soft);
+  }
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  .jd-panel .placeholder{font-style:italic;color:#A39E92;}
+
+  .general-info{margin-top:50px;}
+  .general-info-panel{
+    display:none;max-width:760px;margin:24px auto 0;background:var(--cream);
+    padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);
+  }
+  .general-info-panel.open{display:block;}
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+<!--@include topbar-detail-pages-->
+<!--@include nav-detail-pages-2-->
+
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tags"><span class="tag offer">TWO COUNTRIES</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+      <div class="hero-title-row"><h1>Iberian<br>Discovery</h1><div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span><div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="statstrip"><div class="wrap">
+  <div class="stat"><div class="num">10</div><div class="label">Days</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">Countries</div></div>
+  <div class="stat"><div class="num">4</div><div class="label">UNESCO Sites</div></div>
+  <div class="stat"><div class="num">6</div><div class="label">Wines in the Douro Tasting</div></div>
+</div></div>
+
+<div class="ctaband"><p>The Prado, the Alc&aacute;zar, flamenco, fado, Sintra&rsquo;s palaces and the terraced vineyards of the Douro</p><a href="#pricing" class="btn">See Pricing &amp; Inclusions &darr;</a></div>
+
+<!--@include package-tabnav-2-->
+
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Private Guided</span><div class="div"></div><span class="fc-price">from $13,400 pp</span></div></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;&rsaquo;&nbsp; <a href="journey-finder.html">Journeys</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-spain.html">Spain</a> &nbsp;&rsaquo;&nbsp; <span class="current">Spain &amp; Portugal &mdash; Iberian Discovery</span></div>
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>A grand journey across the Iberian Peninsula &mdash; from the royal elegance of Madrid to the passionate soul of Seville, from the Atlantic light of Lisbon to the terraced vineyards of the Douro. Two countries with a shared history and genuinely distinct identities, and the food and wine that separate them.</p>
+        <table class="facts-table">
+          <tr><td>Best For</td><td>Travellers who want both Iberian countries and the wine that comes with them</td></tr>
+          <tr><td>Duration</td><td>10 Days / 9 Nights</td></tr>
+          <tr><td>Route</td><td>Madrid &rarr; Seville &rarr; Lisbon &rarr; Sintra &rarr; Porto &rarr; the Douro Valley</td></tr>
+          <tr><td>Group Size</td><td>Private or small group &mdash; guided throughout</td></tr>
+          <tr><td>Price From</td><td>$13,400 per person sharing</td></tr>
+        </table>
+        <div class="highlights">
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Mandarin Oriental Ritz, in Madrid&rsquo;s UNESCO-listed Paisaje de la Luz</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Prado &mdash; Vel&aacute;zquez, Goya, El Greco and Rubens, privately guided</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Royal Alc&aacute;zar of Seville and the climb up the Giralda</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>A private flamenco performance with Andalusian cuisine</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Four Seasons Ritz Lisbon, the only Forbes Five-Star hotel in Portugal</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Bel&eacute;m Tower and the Jer&oacute;nimos Monastery &mdash; the Age of Discovery in stone</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>A fado dinner in the Alfama, the oldest quarter in Lisbon</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Sintra&rsquo;s Pena Palace and the tunnels and wells of Quinta da Regaleira</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Cabo da Roca, the westernmost point of mainland Europe</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>A private Douro Valley day: two wineries, six wines and a river cruise</p></div>
+        </div>
+        <div class="download-row"><a href="assets/itineraries/spain-and-portugal-iberian-discovery.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a></div>
+      </div>
+      <div class="overview-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/europe/3.jpg" alt="Spain &amp; Portugal &mdash; Iberian Discovery"></div>
+    </div>
+  </div>
+</section>
+
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Route Map</div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Madrid &rarr; Seville &rarr; Lisbon &rarr; Sintra &rarr; Cascais &rarr; Porto &rarr; the Douro Valley. Day-by-day scrollspy markers to follow.</p>
+        </div>
+      </div>
+    </div>
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Madrid</div>
+      <div class="day-block">
+        <h3>Day 1 | Arrival in Madrid</h3>
+        <div class="day-body"><p>Land at Madrid-Barajas and transfer to the Mandarin Oriental Ritz, a Belle &Eacute;poque palace opened in 1910 at the request of King Alfonso XIII, who wanted the capital to have a hotel the equal of any in Europe. It has been putting up royalty and heads of state ever since.</p><p>The evening begins at the Puerta del Sol, the notional centre of the Iberian peninsula, then the Plaza Mayor &mdash; one of the grandest enclosed squares in Europe &mdash; and the exterior of the Royal Palace.</p><p>The Mercado de San Miguel follows, for the first taste of the country, and then the Gran V&iacute;a. Dinner is tapas, properly: jam&oacute;n ib&eacute;rico, patatas bravas, croquetas, tortilla espa&ntilde;ola, and churros con chocolate to finish.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mandarin-oriental-ritz-madrid.html">Mandarin Oriental Ritz, Madrid</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 2 | Royal Madrid &amp; the Prado</h3>
+        <div class="day-body"><p>A private morning through royal Madrid. The Royal Palace is among the largest in Europe, and the frescoed ceilings and the royal armoury are the parts that surprise people. Then the Almudena Cathedral beside it and the Plaza de Oriente.</p><p>Through the Retiro, the great green lung of the city, past the 18th-century Puerta de Alcal&aacute; that was once the main gate into Madrid.</p><p>The afternoon is the Prado, and it deserves the whole of it: Vel&aacute;zquez, Goya, El Greco and Rubens, with the finest collection of Spanish painting anywhere. Standing in front of Las Meninas, or Goya&rsquo;s Third of May, is the reason people come to Madrid. Dinner is Spanish and unhurried.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="mandarin-oriental-ritz-madrid.html">Mandarin Oriental Ritz, Madrid</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Seville</div>
+      <div class="day-block">
+        <h3>Day 3 | Madrid &rarr; Seville</h3>
+        <div class="day-body"><p>The AVE high-speed train south, about two and a half hours at up to 320 km/h, through central Spain into Andalusia.</p><p>Your transfer takes you to the Hotel Alfonso XIII, built for the 1929 Ibero-American Exposition and blending Andalusian, Moorish and Castilian styles &mdash; the columned courtyard with its orange trees and mosaic fountains is the image of the place.</p><p>The afternoon explores Seville: the Plaza de Espa&ntilde;a, a vast semi-circle built for the same Exposition; the Mar&iacute;a Luisa Park around it; the exterior of the cathedral; and the Santa Cruz quarter, the old Jewish district, whose lanes are narrow enough to touch both walls.</p><p>The evening is flamenco &mdash; a private or premium performance with Andalusian food. Seville is the global centre of the form, and a live performance here is raw and genuinely emotional in a way the tourist versions elsewhere are not.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="hotel-alfonso-xiii.html">Hotel Alfonso XIII</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 4 | Moorish Spain</h3>
+        <div class="day-body"><p>The Royal Alc&aacute;zar first, and it is the single most illuminating building in Andalusia: layer upon layer of Islamic, Gothic, Renaissance and Mud&eacute;jar work, built by Christian kings using Moorish craftsmen, and still in royal use.</p><p>Then the cathedral &mdash; the largest Gothic cathedral in the world &mdash; and the climb up the Giralda, which was the minaret of the mosque that stood here before it, and which is ramped rather than stepped because the muezzin rode up on horseback. The view over the terracotta roofs is worth the climb.</p><p>The afternoon is a Spanish cooking experience or a tapas tour, learning what actually distinguishes Andalusian cooking from the rest of Spain. The evening is free for Seville, which comes alive after dark.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="hotel-alfonso-xiii.html">Hotel Alfonso XIII</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Lisbon</div>
+      <div class="day-block">
+        <h3>Day 5 | Seville &rarr; Lisbon</h3>
+        <div class="day-body"><p>There is no direct train between Spain and Portugal, so the crossing is a short flight &mdash; about an hour, and far the most sensible option.</p><p>Your transfer takes you to the Four Seasons Hotel Ritz Lisbon, the only property in Portugal with a Forbes Five-Star rating for both hotel and spa.</p><p>The afternoon explores Lisbon: the Pra&ccedil;a do Com&eacute;rcio facing the Tagus; the Baixa, rebuilt on a grid after the 1755 earthquake; Rossio; the Chiado and its historic caf&eacute;s; and the Bairro Alto. Dinner is Portuguese &mdash; bacalhau, grilled octopus, regional cheeses, wine from the Douro or the Alentejo, and past&eacute;is de nata.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-ritz-lisbon.html">Four Seasons Hotel Ritz Lisbon</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 6 | Lisbon, the City of Seven Hills</h3>
+        <div class="day-body"><p>A private morning through the Age of Discovery. Bel&eacute;m Tower stands in the river as the fortress that watched the caravels leave; the Jer&oacute;nimos Monastery beside it is Manueline architecture at its most exuberant, paid for with the spice trade. The Monument to the Discoveries completes the set.</p><p>The afternoon is the Alfama, the oldest quarter and the only one to survive the earthquake &mdash; medieval, vertical, and best explored on foot or by the historic trams that grind up through it.</p><p>The evening is fado: a small room, a guitar and a voice. It is the heart of Portuguese culture and the single most affecting hour on the itinerary.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-ritz-lisbon.html">Four Seasons Hotel Ritz Lisbon</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Sintra &amp; Cascais</div>
+      <div class="day-block">
+        <h3>Day 7 | Sintra &amp; the Atlantic Coast</h3>
+        <div class="day-body"><p>A private day to Sintra, a UNESCO World Heritage cultural landscape and one of the first centres of European Romantic architecture. The Pena Palace is the one everyone photographs &mdash; a 19th-century Romanticist fantasy in yellow and red built by Ferdinand II on an old monastery &mdash; and Quinta da Regaleira is the one people remember, a mystical estate of hidden tunnels, symbolic gardens and an inverted initiation well you descend into.</p><p>The afternoon follows the coast road through Estoril to Cascais, a fishing village that became the refuge of aristocrats and artists, with an old town, a marina and an Atlantic waterfront.</p><p>Then Cabo da Roca, the westernmost point of mainland Europe, where the cliffs drop into the ocean and there is nothing beyond but water. Back to Lisbon in the evening.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="four-seasons-ritz-lisbon.html">Four Seasons Hotel Ritz Lisbon</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Porto</div>
+      <div class="day-block">
+        <h3>Day 8 | Lisbon &rarr; Porto</h3>
+        <div class="day-body"><p>North by train, two and a half to three hours up the Tagus valley through the Portuguese countryside.</p><p>Your transfer takes you to The Yeatman in Vila Nova de Gaia &mdash; a wine hotel with panoramic views back across the Douro to Porto, and the only property in the city on the Forbes Travel Guide list.</p><p>The afternoon explores Porto: the Ribeira waterfront with its stacked coloured houses; the Dom Lu&iacute;s I Bridge, iron and double-decked, designed by a student of Eiffel; the cathedral; S&atilde;o Bento station, whose entrance hall carries twenty thousand azulejo tiles of Portuguese history; and the Cl&eacute;rigos Tower for the view. Dinner over the Douro.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-yeatman.html">The Yeatman</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> The Douro Valley</div>
+      <div class="day-block">
+        <h3>Day 9 | The Douro Valley</h3>
+        <div class="day-body"><p>The signature day. Out of Porto along the N222, regularly called the most beautiful road in Portugal, into the Douro &mdash; a UNESCO World Heritage wine region of century-old terraced vineyards cut into impossibly steep slopes.</p><p>Two wineries, with guided tours and a tasting of six wines including port and Douro reds, and a traditional Portuguese lunch at a family estate overlooking the vines.</p><p>The afternoon is a panoramic cruise on the river itself, forty-five minutes to an hour on very calm water with the terraces rising on both sides. Back to Porto for a farewell Portuguese dinner.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-yeatman.html">The Yeatman</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 10 | Departure</h3>
+        <div class="day-body"><p>Breakfast at The Yeatman and, if the flight allows, a last walk along the Ribeira or a final glass of port. Private transfer to Francisco S&aacute; Carneiro Airport.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> </div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/europe/1.jpg" alt="Tailor this journey with {{brand}}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head"><span class="eyebrow">Your Accommodation</span><h2 style="font-size:42px;margin-top:12px;">Four Exceptional Properties</h2></div>
+    <div class="stays-grid">
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/mandarin-oriental-ritz-madrid/2.jpg" alt="Mandarin Oriental Ritz, Madrid"><div class="badge">NIGHTS 1&ndash;2</div></div><div class="body"><div class="loc">Paseo del Prado, Madrid</div><h4>Mandarin Oriental Ritz, Madrid</h4><a href="mandarin-oriental-ritz-madrid.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/hotel-alfonso-xiii/1.jpg" alt="Hotel Alfonso XIII"><div class="badge">NIGHTS 3&ndash;4</div></div><div class="body"><div class="loc">Beside the Cathedral, Seville</div><h4>Hotel Alfonso XIII</h4><a href="hotel-alfonso-xiii.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/four-seasons-ritz-lisbon/1.jpg" alt="Four Seasons Hotel Ritz Lisbon"><div class="badge">NIGHTS 5&ndash;7</div></div><div class="body"><div class="loc">Central Lisbon</div><h4>Four Seasons Hotel Ritz Lisbon</h4><a href="four-seasons-ritz-lisbon.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/the-yeatman/5.jpg" alt="The Yeatman"><div class="badge">NIGHTS 8&ndash;9</div></div><div class="body"><div class="loc">Vila Nova de Gaia, Porto</div><h4>The Yeatman</h4><a href="the-yeatman.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; Price</h2>
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div>
+      <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>Private transfers throughout both countries</li>
+            <li>9 nights accommodation across four properties</li>
+            <li>AVE high-speed rail Madrid &ndash; Seville, and rail Lisbon &ndash; Porto</li>
+            <li>Flight Seville &ndash; Lisbon</li>
+            <li>Daily breakfast, plus meals as detailed in the itinerary</li>
+            <li>Private licensed guides in Madrid, Seville, Lisbon, Sintra and Porto</li>
+            <li>Royal Palace of Madrid and Prado Museum timed entry</li>
+            <li>Royal Alc&aacute;zar and Seville Cathedral entry, including the Giralda</li>
+            <li>Private flamenco performance with Andalusian dinner</li>
+            <li>Bel&eacute;m Tower and Jer&oacute;nimos Monastery entry</li>
+            <li>Fado dinner experience in Lisbon</li>
+            <li>Full-day private Sintra and Cascais excursion, including Pena Palace and Quinta da Regaleira</li>
+            <li>Guided Porto walking tour including S&atilde;o Bento and the Cl&eacute;rigos Tower</li>
+            <li>Full-day private Douro Valley excursion: two wineries, six wines, estate lunch and a river cruise</li>
+            <li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li>
+            <li>Schengen visa preparation and submission</li>
+          </ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights to Madrid and from Porto</li>
+            <li>City tourist taxes, payable at each hotel</li>
+            <li>Additional port wine purchases and shipping</li>
+            <li>Lunches and dinners not listed in the itinerary</li>
+            <li>Gratuities for guides, drivers and hotel staff</li>
+          </ul>
+        </details>
+      </div>
+      <div class="price-card">
+        <h3>Per Person Pricing</h3>
+        <div class="price-row"><span class="label">Per Person Sharing</span><span class="value">$14,100</span></div><div class="price-row"><span class="label">Single Traveller Supplement</span><span class="value">On Request</span></div>
+        <div class="price-note">&#9432; Pricing is an estimate subject to confirmation based on season, room category, and final accommodation selection.</div>
+        <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">Nov &ndash; Mar</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Best Value</span><span class="season-tag">Quiet cities, museums without queues</span></div><span class="season-price">$13,400</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Jun &ndash; Aug</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Long days, warm seas, busy sites</span></div><span class="season-price">$16,600</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Apr &ndash; May, Sep &ndash; Oct</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">The sweet spot &mdash; mild, bright, uncrowded</span></div><span class="season-price">$14,800</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+<a href="tailor-your-journey.html" class="btn btn-solid js-fs-enquire" data-fs-package="Iberian Discovery" style="width:100%;margin-top:24px;">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Travel wallet, city guide and a good pair of walking shoes</p><button class="jd-toggle" data-target="kit-iberian">View +</button><div class="jd-panel" id="kit-iberian"><ul class="gi-list gi-list-compact"><li><strong>Your travel wallet</strong> &mdash; A slim {{brand}} document wallet holding your rail tickets, museum reservations, timed entries and transfer vouchers in the order you will need them.</li><li><strong>What is inside it</strong> &mdash; A printed day-by-day with every reservation time, your specialist&rsquo;s direct number, and a local SIM or eSIM already activated.</li><li><strong>Yours to keep</strong> &mdash; The wallet and everything in it is a gift, not a loan.</li><li><strong>The one thing we insist on</strong> &mdash; Broken-in walking shoes. These cities are cobbled, and this itinerary is walked rather than driven.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>There is no direct rail link between Spain and Portugal</p><button class="jd-toggle" data-target="note-iberian">View +</button><div class="jd-panel" id="note-iberian"><p>Madrid and Lisbon are the only two European capitals not connected by high-speed rail, and a direct line is not expected before 2034. The fastest crossing today is a short flight, and that is how we route it &mdash; we would rather say so than pretend a nine-hour connection is scenic. Everything else on this journey runs on rail.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, <a href="tailor-your-journey.html">reach out and we will tailor it for you</a>.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>Schengen entry requirements apply</p><button class="jd-toggle" data-target="docs-iberian">View +</button><div class="jd-panel" id="docs-iberian"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least three months beyond your intended departure from the Schengen area, issued within the last ten years, with at least two blank pages.</li><li><strong>Schengen visa</strong> &mdash; Required for many nationalities, including Kenyan passport holders. It must be applied for at the consulate of the country where you will spend the most nights.</li><li><strong>ETIAS</strong> &mdash; Visa-exempt nationalities will need an ETIAS travel authorisation once the scheme is live. We confirm the current position for your passport at booking.</li><li><strong>Supporting documents</strong> &mdash; Confirmed accommodation, return flights, travel insurance meeting the Schengen medical cover minimum, and proof of funds. We assemble the full pack for you.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates</p><button class="jd-toggle" data-target="dep-iberian">View +</button><div class="jd-panel" id="dep-iberian"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-iberian" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-iberian"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored &mdash; <a href="tailor-your-journey.html">extend a stay, add a destination, or adjust the pace to suit you</a>. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Layers and walking shoes &mdash; Lisbon is built on seven hills and Porto is worse. Cathedrals require shoulders and knees covered. Sun protection for Andalusia, a light rain layer for the Atlantic coast, and one smart set for dinner.</li></ul></div>
+  </div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <div class="more-head"><h2>More Iberian Journeys</h2></div>
+    <div class="more-grid"><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/spain-grand-escape.jpg" alt="Spain &mdash; The Spanish Grand Escape"><div class="tags"><span class="tag">SPAIN</span></div></div><div class="body"><h3>Spain &mdash; The Spanish Grand Escape</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Madrid &middot; Seville &middot; Barcelona &middot; Ibiza</div><div class="footer-row"><div class="price">$12,900 <span>pp</span></div><a href="spain-grand-escape.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/france-grand-journey.jpg" alt="France &mdash; The French Grand Journey"><div class="tags"><span class="tag">FRANCE</span></div></div><div class="body"><h3>France &mdash; The French Grand Journey</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Paris &middot; Versailles &middot; Loire &middot; Lyon &middot; Nice</div><div class="footer-row"><div class="price">$14,200 <span>pp</span></div><a href="france-grand-journey.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/italy-icons.jpg" alt="Italy Icons"><div class="tags"><span class="tag">ITALY</span></div></div><div class="body"><h3>Italy Icons</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Rome &middot; Florence &middot; Venice &middot; Tuscany</div><div class="footer-row"><div class="price">$11,400 <span>pp</span></div><a href="italy-icons.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/italy-la-dolce-vita.jpg" alt="La Dolce Vita"><div class="tags"><span class="tag">ITALY</span></div></div><div class="body"><h3>La Dolce Vita</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Rome &middot; Florence &middot; Amalfi Coast &middot; Capri</div><div class="footer-row"><div class="price">$16,900 <span>pp</span></div><a href="italy-la-dolce-vita.html" class="btn">View Journey</a></div></div></div></div>
+  </div>
+</section>
+
+<!--@include footer-newsletter-2-->
+
+<!--@include package-tabnav-script-2-->
+<!--@include itinerary-expand-script-->
+<!--@include journey-details-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"europe","focus":null,"stops":[["Madrid",40.42,-3.7],["Seville",37.39,-5.99],["Lisbon",38.72,-9.14],["Sintra",38.8,-9.39],["Porto",41.15,-8.61],["Douro Valley",41.16,-7.79]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":14100,"seasons":[13400,16600,14800],"from":13400,"single":"On Request"},"2027":{"headline":13450,"seasons":[12750,15750,14050],"from":12750,"single":"On Request"}}}</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body>
+</html>

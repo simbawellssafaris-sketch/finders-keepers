@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One&Only Nyungwe House — Among the Tea Fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --ivory-deep: #E0D3B8;
+    --charcoal: #2A2318;
+    --ochre: #A3462B;
+    --ochre-dark: #7E3520;
+    --olive: #545C41;
+    --olive-deep: #3A4130;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(42,35,24,0.14);
+    --shadow: 0 30px 60px -30px rgba(42,35,24,0.35);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .eyebrow{
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    color: var(--ochre);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 22px; height: 1px;
+    background: var(--ochre);
+    display:inline-block;
+  }
+
+  a{ color: inherit; }
+  button{ font-family: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+  }
+
+  .elevation-rule{ width: 100%; height: 46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width: 1.4; fill: none; }
+
+  .hero{ position: relative; height: 100svh; min-height: 560px; width: 100%; overflow: hidden; background: var(--charcoal); }
+  .hero-track{ position: absolute; inset: 0; display: flex; height: 100%; width: 100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position: relative; min-width: 100%; height: 100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/3.jpg'); background-size:cover; background-position:center; }
+  .scene-4{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/4.jpg'); background-size:cover; background-position:center; }
+
+  .scene::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%);
+  }
+  .scene .grain{
+    position:absolute; inset:0;
+    opacity:0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .hero-caption{ position:relative; z-index:2; padding: 0 clamp(20px,6vw,80px) 100px; color: var(--tent-cream); max-width: 720px; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--tent-cream); }
+  .brandmark{ font-family:'Fraunces', serif; font-size: 1.15rem; letter-spacing: 0.02em; }
+  .brandmark span{ color: var(--gold); }
+  .hero-coords{ font-family:'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-align:right; line-height:1.7; opacity:0.85; }
+
+  .hero-headline{ position:absolute; z-index: 2; left: clamp(20px,6vw,80px); bottom: 190px; max-width: 780px; }
+  .hero-headline .eyebrow{ color: var(--gold); }
+  .hero-headline .eyebrow::before{ background: var(--gold); }
+  .hero-headline h1{ color: var(--tent-cream); font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: 0.98; margin-top: 18px; }
+  .hero-headline p{ color: rgba(251,246,234,0.82); max-width: 440px; margin-top: 18px; font-size: 1rem; }
+
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(251,246,234,0.14); border: 1px solid rgba(251,246,234,0.4); backdrop-filter: blur(6px); color: var(--tent-cream); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); }
+  .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+
+  .hero-dots{ position:absolute; bottom: 40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width: 26px; height: 3px; background: rgba(251,246,234,0.35); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom: 40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'Space Mono', monospace; font-size: 0.72rem; color: var(--tent-cream); letter-spacing: 0.06em; }
+
+  .tabbar-wrap{ position: sticky; top: 0; z-index: 40; background: var(--ivory); border-bottom: 1px solid var(--line); }
+  .tabbar{ max-width: 1180px; margin: 0 auto; display:flex; gap: clamp(18px, 3vw, 44px); padding: 0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding: 22px 0 18px; font-family:'Space Mono', monospace; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(42,35,24,0.5); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height: 2px; background: var(--ochre); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--charcoal); }
+  .tab.active{ color: var(--ochre); }
+  .tab.active::after{ transform: scaleX(1); }
+
+  section{ padding: clamp(70px, 9vw, 130px) clamp(20px,6vw,80px); max-width: 1180px; margin: 0 auto; scroll-margin-top: 66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap: 60px; margin-bottom: 56px; }
+  .section-head h2{ font-size: clamp(2rem, 4vw, 3rem); margin-top: 14px; }
+  .section-head .lede{ font-size: 1.05rem; color: rgba(42,35,24,0.78); padding-top: 4px; }
+  @media (max-width: 800px){ .section-head{ grid-template-columns: 1fr; gap: 20px; } }
+
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 50px 0 0; }
+  .stat{ background: var(--ivory); padding: 26px 18px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--ochre); }
+  .stat .label{ font-family:'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(42,35,24,0.6); margin-top: 6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+
+  .lodges-note{ background: var(--tent-cream); border: 1px solid var(--line); border-left: 3px solid var(--ochre); padding: 28px 32px; margin-top: 54px; font-size: 0.98rem; color: rgba(42,35,24,0.85); }
+  .lodges-note strong{ color: var(--ochre); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+
+  .suite-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center; }
+  .suite-visual{ aspect-ratio: 4/5; border-radius: 2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/4.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  .feature-list{ list-style:none; padding:0; margin: 30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding: 18px 0; border-top: 1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .feature-list .mark{ font-family:'Fraunces', serif; color: var(--ochre); font-size: 1rem; font-style: italic; min-width: 32px; }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(42,35,24,0.72); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+
+  .exp-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line); margin-top: 50px; }
+  .exp-card{ background: var(--ivory); padding: 34px 28px; min-height: 230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{ font-family:'Space Mono', monospace; font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--olive); }
+  .exp-card h3{ font-size: 1.25rem; margin-top: 20px; font-style: italic; font-weight: 400; }
+  .exp-card p{ margin-top: 10px; font-size: 0.92rem; color: rgba(42,35,24,0.72); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+
+  .dining-wrap{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items:center; }
+  .venue-list{ margin-top: 32px; display:grid; gap: 14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom: 1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--ochre); }
+  .dining-visual{ aspect-ratio: 3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/one-and-only-nyungwe-house/3.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse;} }
+
+  .loc-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap: 22px; }
+  .loc-bullets li{ padding-left: 26px; position:relative; color: rgba(42,35,24,0.82); }
+  .loc-bullets li::before{ content:"—"; position:absolute; left:0; top:0; color: var(--ochre); font-family:'Fraunces',serif; }
+  .loc-map{ background: var(--charcoal); border-radius: 2px; position:relative; overflow:hidden; min-height: 340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+
+  .journey-strip{ margin-top: 54px; display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding: 26px 22px; }
+  .journey-step .k{ font-family:'Space Mono', monospace; color: var(--ochre); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(42,35,24,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+
+  .offer-bar{ background: var(--olive-deep); color: var(--tent-cream); padding: 60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width: 1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap: 40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); }
+  .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width: 420px; margin-top: 10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--ochre); color: var(--tent-cream); padding: 16px 30px; text-decoration:none; font-family:'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--ochre-dark); }
+
+  footer{ padding: 40px clamp(20px,6vw,80px); text-align:center; font-family:'Space Mono', monospace; font-size: 0.7rem; letter-spacing:0.08em; color: rgba(42,35,24,0.5); background: var(--ivory); }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">ONE&ONLY <span>NYUNGWE HOUSE</span></div>
+    <div class="hero-coords">2°28'S 29°11'E<br>GISAKURA, NYUNGWE FOREST</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-4"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Forest Resort — Nyungwe National Park, Rwanda</span>
+    <h1>Among the<br>Tea Fields</h1>
+    <p>22 suites and villas set inside a working tea plantation on the edge of Nyungwe National Park — one of the oldest rainforests in Africa, and Rwanda's premier ground for chimpanzee trekking.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 04</div>
+</div>
+
+<!-- ============ STICKY SCROLLSPY TABS ============ -->
+<!--@include lodge-tabbar-3-->
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Overview</span>
+      <h2>Where the Rainforest<br>Meets the Tea Fields</h2>
+    </div>
+    <p class="lede">Set within a working tea plantation bordering Nyungwe National Park, One&Only Nyungwe House pairs contemporary One&Only luxury with access to one of Africa's oldest and largest mountain rainforests.</p>
+  </div>
+
+  <p style="max-width:760px; color:rgba(42,35,24,0.82); font-size:1.02rem;">
+    Nyungwe National Park, declared in 2012, protects a vast montane rainforest home to roughly 20% of Africa's primate species — including chimpanzees, Ruwenzori colobus and owl-faced monkeys — alongside orchids, butterflies and hundreds of bird species. One&Only Nyungwe House's 22 suites and villas sit on a hillside within the neighbouring Gisakura tea estate, each with a private terrace looking out over the plantation toward the forested mountains beyond. The resort's homestead building houses all-inclusive dining, a spa using Africology products, and a helipad connecting guests directly to Kigali in around 35 minutes.
+  </p>
+
+  
+
+  <div class="stat-row">
+    <div class="stat"><div class="num">22</div><div class="label">Suites & Villas</div></div>
+    <div class="stat"><div class="num">20%</div><div class="label">Of Africa's Primate Species</div></div>
+    <div class="stat"><div class="num">1,019km²</div><div class="label">Nyungwe National Park</div></div>
+    <div class="stat"><div class="num">35min</div><div class="label">Helicopter to Kigali</div></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-->
+
+<!-- ============ SUITES ============ -->
+<section id="suites">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Suites</span>
+      <h2>Treetop Suites<br>Over the Plantation</h2>
+    </div>
+    <p class="lede">Nyungwe Rooms and Two-Bedroom Forest Suites both open onto private terraces facing the tea fields, each with an open fireplace and a large soaking tub for post-trek recovery.</p>
+  </div>
+
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Suite — Over the Tea Plantation</span></div>
+    <ul class="feature-list">
+      <li>
+        <span class="mark">01</span>
+        <div class="txt"><strong>Open fireplace</strong><span>Every suite includes its own log-burning fireplace, welcome in Nyungwe's cool, misty highland evenings.</span></div>
+      </li>
+      <li>
+        <span class="mark">02</span>
+        <div class="txt"><strong>Private terrace</strong><span>Floor-to-ceiling glass opens onto a private terrace overlooking the rainforest and the working tea plantation below.</span></div>
+      </li>
+      <li>
+        <span class="mark">03</span>
+        <div class="txt"><strong>Large soaking tub</strong><span>A deep soaking tub and wilderness-view shower offer welcome recovery after a day’s chimpanzee trek.</span></div>
+      </li>
+      <li>
+        <span class="mark">04</span>
+        <div class="txt"><strong>Two-Bedroom Forest Suites</strong><span>Larger suites of around 130m² connect two bedrooms for families or groups travelling together.</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+<!-- ============ EXPERIENCES ============ -->
+<section id="experiences">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Experiences</span>
+      <h2>Chimpanzees,<br>Tea and Canopy Walks</h2>
+    </div>
+    <p class="lede">Activities centre on Nyungwe's rainforest and the resort's own tea plantation, arranged through African Parks and the resort's guiding team.</p>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div><span class="exp-tag">Signature</span><h3>Chimpanzee Discovery Trek</h3><p>Track one of Nyungwe's habituated chimpanzee groups deep into the forest with expert local trackers. Permits are arranged via African Parks.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Wildlife</span><h3>Colobus Monkey Trekking</h3><p>Follow troops of black-and-white Ruwenzori colobus through Nyungwe’s forest trails, often numbering in the hundreds.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Adventure</span><h3>Canopy Walkway</h3><p>Cross Nyungwe's suspended canopy walkway for a rare, elevated view over the rainforest treetops.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">On Site</span><h3>Tea Plantation Tour</h3><p>Pick tea leaves on the resort's own working plantation, then taste the finished Gisakura black tea over a guided tasting.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Culture</span><h3>Imigongo Art & Village Visits</h3><p>Learn the history of Imigongo — traditional Rwandan cow-dung artwork — and create a piece of your own, or visit the nearby village of Banda.</p></div>
+    </div>
+    <div class="exp-card">
+      <div><span class="exp-tag">Aerial</span><h3>Helicopter Flights</h3><p>Scenic helicopter flights over the forest and tea plantation offer a dramatic aerial view of Nyungwe's scale.</p></div>
+    </div>
+  </div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+<!-- ============ DINING ============ -->
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">Tea-Infused<br>Dining</h2>
+      <p class="lede" style="margin-top:24px;">All-inclusive dining centres on the homestead, with seasonal, garden-grown ingredients and a signature tea ceremony using the estate’s own harvest.</p>
+      <div class="venue-list">
+        <div class="venue"><span class="n">01</span><span>The homestead dining room, forest views</span></div>
+        <div class="venue"><span class="n">02</span><span>The Tea Lounge Bar, for tea-infused cocktails</span></div>
+        <div class="venue"><span class="n">03</span><span>A private table set among the tea leaves</span></div>
+        <div class="venue"><span class="n">04</span><span>The panoramic terrace, for drinks</span></div>
+        <div class="venue"><span class="n">05</span><span>Poolside, for a light lunch</span></div>
+      </div>
+    </div>
+    <div class="dining-visual"><span class="cap">Dinner — Among the Tea Leaves</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+<!-- ============ LOCATION ============ -->
+<section id="location">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">Location</span>
+      <h2>On the Edge of<br>Nyungwe Forest</h2>
+    </div>
+    <p class="lede">One&Only Nyungwe House sits in Gisakura, southwestern Rwanda, bordering Nyungwe National Park — one of Africa's oldest and largest mountain rainforests.</p>
+  </div>
+
+  <div class="loc-wrap">
+    <ul class="loc-bullets">
+      <li>Nyungwe is home to roughly 20% of all primate species found in Africa, including chimpanzees and several colobus monkey species.</li>
+      <li>The resort sits within its own working tea plantation, one of Rwanda's most scenic and productive tea-growing regions.</li>
+      <li>Chimpanzee trekking permits must be arranged in advance through African Parks and are separate from the resort rate.</li>
+      <li>The minimum age for chimpanzee treks is 15 years old, in line with national park regulations.</li>
+    </ul>
+
+    <div class="loc-map">
+      <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#A3462B"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">ONE&ONLY NYUNGWE HOUSE</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">GISAKURA TEA ESTATE</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">BORDERING NYUNGWE NATIONAL PARK</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">NYUNGWE FOREST</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="journey-strip">
+    <div class="journey-step"><span class="k">Fly</span><p>A helicopter transfer from Kigali reaches the resort's own helipad in around 35 minutes.</p></div>
+    <div class="journey-step"><span class="k">Fly & Drive</span><p>Daily RwandAir flights connect Kigali to Kamembe Airport, followed by a 45-minute drive to the resort.</p></div>
+    <div class="journey-step"><span class="k">Drive</span><p>A direct road transfer from Kigali takes roughly 5 hours, the final 90 minutes through the national park itself.</p></div>
+  </div>
+</section>
+
+<!-- ============ OFFER BAR ============ -->
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Rainforest Offer</span>
+      <h2>Stay 3, Pay 2</h2>
+      <p>Book two nights at One&Only Nyungwe House and receive a third free on selected 2026 dates.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay →</a>
+  </div>
+</div>
+
+<footer>ONE&ONLY NYUNGWE HOUSE · NYUNGWE NATIONAL PARK · RWANDA</footer>
+
+<!--@include lodge-hero-script-2-->
+
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

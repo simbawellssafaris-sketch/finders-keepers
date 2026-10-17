@@ -1,0 +1,92 @@
+{
+  "singapore-malaysia-family": {
+    "lead": "A family trip where every day has something for children and adults alike: Universal Studios, the zoo, a water park and the Supertrees, then a night in Kuala Lumpur.",
+    "reasons": [
+      { "t": "Rides, a zoo and a waterpark", "d": "A full day at Universal Studios Singapore, the Singapore Zoo’s open rainforest habitats, and Adventure Cove Waterpark with wave pools, snorkelling lagoons, lazy rivers and slides." },
+      { "t": "Lights and waterfalls", "d": "Gardens by the Bay’s illuminated Supertree Grove, and Jewel Changi Airport’s indoor waterfall and canopy forest, which delight every age." },
+      { "t": "A Petronas view to finish", "d": "A Kuala Lumpur extension with a night at Traders Hotel looking straight at the Petronas Twin Towers, after beach days on Sentosa." }
+    ],
+    "bestFor": ["Families with children", "Multi-generation trips", "First Asia trips"]
+  },
+  "singapore-solo-escape": {
+    "lead": "Singapore at your own pace: rainforest zoos, island-hopping by private boat, a dinner in a cable car and a Japanese-style onsen day.",
+    "reasons": [
+      { "t": "Nature in a city", "d": "Gardens by the Bay’s Cloud Forest and the Supertree Grove at night, then the Singapore Zoo, River Wonders, Bird Paradise and the Night Safari." },
+      { "t": "Dinner above the harbour", "d": "A multi-course dinner inside a moving cable car gondola, and a Royal Albatross luxury sunset cruise with the skyline across the water." },
+      { "t": "Islands and a reset", "d": "A private boat to the Southern Islands of Lazarus, St John’s and Kusu, and a wellness day at Joya Onsen with Japanese-style baths and Zen gardens." }
+    ],
+    "bestFor": ["Solo travellers", "City-break lovers", "Wellness seekers"]
+  },
+  "thailand-andaman-luxury-escape": {
+    "lead": "Phuket’s jungle sanctuary and Krabi’s Ritz-Carlton Reserve, joined by a private speedboat and a sunrise balloon over Phang Nga Bay.",
+    "reasons": [
+      { "t": "A balloon over the karsts", "d": "A sunrise hot air balloon over Phang Nga Bay, with thousands of vertical limestone karsts rising from the morning mist." },
+      { "t": "Old Town and mangroves", "d": "A private historian tour of Phuket Old Town’s Sino-Portuguese mansions, a private kayak through the mangrove canyons of Ao Thalane, and a longtail to Freedom Beach with a hot breakfast on the sand." },
+      { "t": "Two distinctive stays", "d": "Dinso Resort & Villas, a Wabi-Sabi jungle sanctuary with a private pool villa, then Phulay Bay, a Ritz-Carlton Reserve, with a four-island tour and Railay’s cliffs." }
+    ],
+    "bestFor": ["Couples", "Honeymooners", "Photographers"]
+  },
+  "thailand-cross-border-adrenaline-expedition": {
+    "lead": "Thailand and the Philippines in one trip: Phuket’s heritage, then Cebu’s sardine run, canyoneering and whale sharks, ending in Bangkok.",
+    "reasons": [
+      { "t": "Phuket, then Krabi by speedboat", "d": "A private Old Town tour, a cliff-ridge cocktail at Promthep Cape, and a private speedboat to Krabi’s islands with a champagne brunch at Phra Nang Cave Beach." },
+      { "t": "Cebu’s wild side", "d": "Moalboal’s Sardine Run, with millions of sardines and wild sea turtles, Kawasan Falls canyoneering through a turquoise gorge with rock slides and cliff jumps, and whale sharks at Oslob." },
+      { "t": "A softer landing", "d": "A spa day and a southern Thai cooking masterclass in Phuket, and a finish at the JW Marriott Bangkok." }
+    ],
+    "bestFor": ["Adventure seekers", "Divers and snorkellers", "Active couples"]
+  },
+  "thailand-cultural-coast-royal-escapes": {
+    "lead": "Thailand’s royal and cultural side: Amanpuri’s Ayutthaya-style architecture, a temple to yourself and a 100-foot superyacht to Krabi.",
+    "reasons": [
+      { "t": "Amanpuri", "d": "An architectural masterpiece mirroring the royal Ayutthaya style on a private peninsula." },
+      { "t": "Temples without the crowds", "d": "An exclusive after-hours tour of Wat Chalong, a private historian walk through Phuket Old Town, and vintage wine at sunset on Signal Ridge as the temple spires turn gold." },
+      { "t": "By helicopter and superyacht", "d": "A private dawn helicopter loop over sea temples and coastal fortresses with a champagne brunch in a royal estate, then a private 100-foot superyacht across Phang Nga Bay to Phulay Bay, a Ritz-Carlton Reserve." }
+    ],
+    "bestFor": ["Culture lovers", "Couples", "Special occasions"]
+  },
+  "thailand-gulf-eco-expedition": {
+    "lead": "The Gulf of Thailand by yacht, catamaran and helicopter: Ang Thong’s 42 islands, a sandbar that appears only at low tide and Koh Phangan’s jungle spa.",
+    "reasons": [
+      { "t": "42 uninhabited islands", "d": "A private catamaran through Ang Thong National Marine Park, and a hike to its emerald-green saltwater Blue Lagoon." },
+      { "t": "Sunrise on a tidal sandbar", "d": "A sunrise helicopter breakfast on an isolated sandbar that emerges only at low tide, and a doors-off flight over barrier reefs and tiny jungle islets." },
+      { "t": "Sail and spa", "d": "A private 60-foot sailing yacht sunset cruise with champagne, a pool villa at Four Seasons Koh Samui, and a jungle spa at Anantara Rasananda on Koh Phangan." }
+    ],
+    "bestFor": ["Eco-minded travellers", "Couples", "Island hoppers"]
+  },
+  "thailand-ultimate-islands-jungles-luxury": {
+    "lead": "From Bangkok’s skyline to Koh Chang, Koh Kood, Koh Tao, Khao Sok and the Andaman coast: a long island-and-jungle journey across Thailand.",
+    "reasons": [
+      { "t": "Bangkok from above", "d": "The glass platform of the Mahanakhon SkyWalk, Dinner in the Sky above the glittering city, and the mirrored-mosaic White Temple in Chiang Rai." },
+      { "t": "Quiet islands", "d": "Koh Chang’s hidden beaches and jungle waterfalls, floating breakfasts and flower baths on Koh Kood, and a boat tour of Koh Tao’s coral reefs, cliffs and hidden lagoons." },
+      { "t": "Jungle, then coast", "d": "A stay at Jungle House Resort in Khao Sok before the beaches of Krabi and Phuket." }
+    ],
+    "bestFor": ["Island hoppers", "First Thailand trips", "Nature lovers"]
+  },
+  "vietnam-central-south-coastal-escape": {
+    "lead": "Vietnam’s coast, from Da Nang’s Golden Bridge to Hoi An’s lanterns, Quy Nhon’s quiet beaches, Saigon’s rooftops and Phu Quoc.",
+    "reasons": [
+      { "t": "The Golden Bridge and Hoi An", "d": "The Golden Bridge at Ba Na Hills, held aloft by giant stone hands, and Hoi An Ancient Town by coconut basket boat, with lantern workshops and riverside cafés." },
+      { "t": "Quy Nhon, and the dunes", "d": "Quy Nhon’s untouched beaches, cliffs and fishing villages, and Mui Ne’s red and white sand dunes explored by jeep at sunrise." },
+      { "t": "Saigon, the Mekong and Phu Quoc", "d": "Rooftop bars and French colonial boulevards in Ho Chi Minh City, the Mekong Delta’s floating markets, then Phu Quoc’s beach clubs, island hopping and cable car." }
+    ],
+    "bestFor": ["Beach lovers", "Food lovers", "First Vietnam trips"]
+  },
+  "vietnam-grand-expedition": {
+    "lead": "The whole of Vietnam, north to south: a sleeper train to Sapa, the Ha Giang Loop, Ha Long Bay and a finish on Phu Quoc.",
+    "reasons": [
+      { "t": "A luxury sleeper train", "d": "Private cabins and onboard dining on the overnight train from Hanoi to Sapa, then the rice terraces and Hmong and Dao villages of Muong Hoa Valley from Topas Ecolodge." },
+      { "t": "The mountain road", "d": "The Ha Giang Loop and Ma Pi Leng Pass above deep gorges, and Ban Gioc Waterfalls in Cao Bang, reached by bamboo raft across the border river." },
+      { "t": "Caves, bays and coast", "d": "An overnight cruise through Ha Long Bay’s 1,969 limestone islands, Paradise Cave’s kilometres of chambers in Quang Binh, then Hoi An, Mui Ne and Phu Quoc." }
+    ],
+    "bestFor": ["Once-in-a-lifetime trips", "Adventurous travellers", "Photographers"]
+  },
+  "vietnam-northern-central-discovery": {
+    "lead": "Northern Vietnam’s mountains, waterfalls and karsts, then the Golden Bridge and Hoi An.",
+    "reasons": [
+      { "t": "Ha Giang and Ban Gioc", "d": "The Ha Giang Loop past the Dong Van Karst Plateau, and Ban Gioc Waterfalls, among the largest in Asia, approached by traditional bamboo raft." },
+      { "t": "Ha Long Bay, on land and sea", "d": "A luxury sampan through the UNESCO-listed Trang An landscape of Ninh Binh, often called Ha Long Bay on land, then an overnight Indochine cruise with kayaking and sunset cocktails." },
+      { "t": "Hanoi and Da Nang", "d": "Two nights in Hanoi’s Old Quarter and the Temple of Literature, the Golden Bridge by cable car above the mountains, and a stay at Almanity Hoi An Resort & Spa." }
+    ],
+    "bestFor": ["First Vietnam trips", "Active travellers", "Couples"]
+  }
+}

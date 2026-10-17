@@ -1,0 +1,44 @@
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.ts-nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+  function spy(){
+    var line = window.innerHeight * 0.35, current = 0;
+    sections.forEach(function(s, i){ if (s && s.getBoundingClientRect().top <= line) current = i; });
+    links.forEach(function(a, i){ a.classList.toggle('on', i === current); });
+  }
+  function onScroll(){ if (!ticking) { ticking = true; window.requestAnimationFrame(function(){ spy(); ticking = false; }); } }
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+  window.addEventListener('resize', spy);
+  spy();
+
+  document.querySelectorAll('.ts-car').forEach(function(car){
+    var slides = Array.prototype.slice.call(car.querySelectorAll('.ts-slide'));
+    if (!slides.length) return;
+    var wrap = car.closest('.ts-car-wrap');
+    var dots = wrap.querySelector('.ts-dots');
+    var prev = wrap.querySelector('.ts-arrow[data-dir="-1"]');
+    var next = wrap.querySelector('.ts-arrow[data-dir="1"]');
+    slides.forEach(function(s, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'ts-dot' + (i ? '' : ' on');
+      b.setAttribute('aria-label', 'Go to item ' + (i + 1));
+      b.addEventListener('click', function(){ s.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' }); });
+      dots.appendChild(b);
+    });
+    function step(){ return slides[0].getBoundingClientRect().width + 22; }
+    if (prev) prev.addEventListener('click', function(){ car.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function(){ car.scrollBy({ left: step(), behavior: 'smooth' }); });
+    var ticking2 = false;
+    car.addEventListener('scroll', function(){
+      if (ticking2) return; ticking2 = true;
+      requestAnimationFrame(function(){
+        var idx = Math.max(0, Math.min(slides.length - 1, Math.round(car.scrollLeft / step())));
+        Array.prototype.forEach.call(dots.children, function(d, i){ d.classList.toggle('on', i === idx); });
+        ticking2 = false;
+      });
+    }, { passive: true });
+  });
+})();
+</script>

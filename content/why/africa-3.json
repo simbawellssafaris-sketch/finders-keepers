@@ -1,0 +1,110 @@
+{
+  "serengeti-grand-migration": {
+    "lead": "Twelve days timed around the Great Migration: Tarangire’s baobabs, Ngorongoro’s crater floor and a mobile camp in the Serengeti’s northern crossing zone.",
+    "reasons": [
+      { "t": "Camped in the crossing zone", "d": "Three nights in an exclusive mobile tented camp in the northern Serengeti, the migration’s prime crossing zone, where wildebeest surge across the Mara River in their tens of thousands." },
+      { "t": "The crater and the baobabs", "d": "A full-day descent into the Ngorongoro Crater, a UNESCO World Heritage Site, and Tarangire’s big elephant herds among ancient baobabs." },
+      { "t": "A balloon and night drives", "d": "A sunrise balloon over the Serengeti with a champagne breakfast on the plains, and night game drives for leopards, lions and aardvarks." }
+    ],
+    "bestFor": ["Migration seekers", "First Tanzania trips", "Photographers"]
+  },
+  "serengeti-grandeur": {
+    "lead": "A private 125,000-acre concession with no other vehicles, then the classic central Serengeti, with two charter flights doing the heavy lifting.",
+    "reasons": [
+      { "t": "Just you and the wildlife", "d": "Four nights at Mwiba Lodge in a private concession where there are no other vehicles and no crowds, with the Big Five, cheetah and wild dog." },
+      { "t": "On foot with an armed ranger", "d": "A walking safari tracking predators across the concession, and a dawn balloon over the Serengeti followed by a champagne bush breakfast." },
+      { "t": "The classic Serengeti", "d": "Four nights at Serengeti Explorer Elewana in the central Serengeti, for lion prides at the Simba Kopjes, leopards in the Seronera forest and cheetah with cubs." }
+    ],
+    "bestFor": ["Seclusion seekers", "Couples", "Return Tanzania visitors"]
+  },
+  "south-africa-apex-reserves-kruger-sabisands": {
+    "lead": "Two Singita lodges, one for Sabi Sand’s leopards and one for Kruger’s wide plains, with a photographic safari led by a dedicated lodge photographer.",
+    "reasons": [
+      { "t": "Leopards at close range", "d": "Off-road leopard tracking in the Sabi Sand, with sightings at remarkably close range, after a champagne sundowner beneath ancient weeping boerbean trees." },
+      { "t": "Two architectural lodges", "d": "Singita Boulders in the Sabi Sand, then Singita Lebombo, a glass-and-steel lodge perched on a dramatic rock gorge in Kruger." },
+      { "t": "A real photographic safari", "d": "A dedicated lodge photographer teaches predator light and composition, with a sunrise balloon over the Sabie River valley and a live-cooking breakfast on a granite ridge." }
+    ],
+    "bestFor": ["Photographers", "Leopard enthusiasts", "Families"]
+  },
+  "south-africa-cape-elegance-historic-winelands": {
+    "lead": "Cape Town, the winelands and the Whale Coast in ten days, with private touches at every stop instead of queues.",
+    "reasons": [
+      { "t": "Cape Town, crowd-free", "d": "A private Table Mountain cable car ride, a sparkling wine sundowner on Signal Hill, and Cape Point and Boulders Beach’s penguin colony in a single day." },
+      { "t": "Winelands, properly", "d": "A private cellar tour and masterclass tasting at a Franschhoek estate, and a sunrise balloon over the Berg River Valley’s vineyards with a champagne brunch." },
+      { "t": "Art and whales", "d": "A private tour of the Dylan Lewis Sculpture Garden, with more than 60 bronzes against the Stellenbosch Mountains, then a stay on the Whale Coast at Birkenhead House." }
+    ],
+    "bestFor": ["Wine lovers", "Couples", "Art and design lovers"]
+  },
+  "south-africa-garden-route-ancient-karoo": {
+    "lead": "A scenic journey from Plettenberg Bay to the Little Karoo: ancient forest, a private yacht through Knysna Heads, and caves without the crowds.",
+    "reasons": [
+      { "t": "A yacht through the Heads", "d": "A private luxury yacht through the Knysna Heads, between cliffs over 100 metres high, with fresh oysters, chilled champagne and frequent dolphins and whales." },
+      { "t": "Walking among giants", "d": "800-year-old Outeniqua Yellowwood trees in the Tsitsikamma Forest, and a crossing of the Storms River suspension bridge over its gorge." },
+      { "t": "The Karoo, above and below", "d": "A sunrise balloon over the Little Karoo’s sandstone formations, a private after-hours tour of the Cango Caves, the Swartberg Pass and a night of stargazing." }
+    ],
+    "bestFor": ["Scenic-drive lovers", "Couples", "Nature lovers"]
+  },
+  "south-africa-red-sands-malaria-free-giants": {
+    "lead": "The Kalahari’s red dunes and meerkats at Tswalu, then malaria-free Madikwe for wild dogs and rhino.",
+    "reasons": [
+      { "t": "Tswalu, up close", "d": "South Africa’s largest private reserve, for tracking black-maned lions, pangolins and aardvarks, and sitting beside a habituated meerkat colony at dawn." },
+      { "t": "Dunes, whisky and stars", "d": "A whisky and gin sundowner atop a red Kalahari dune, a night on the star-bed deck beneath the Milky Way, and a sunrise balloon over the ancient dunes." },
+      { "t": "Malaria-free Madikwe", "d": "Molori Safari Lodge in a malaria-free reserve famous for its wild dog packs and large rhino populations, with a look at conservation work behind the scenes." }
+    ],
+    "bestFor": ["Malaria-free families", "Stargazers", "Wildlife enthusiasts"]
+  },
+  "southern-african-grand-safari": {
+    "lead": "Twenty-seven days across Botswana, Zimbabwe, Zambia, Namibia and South Africa: delta, falls, river and desert in one connected journey.",
+    "reasons": [
+      { "t": "Water in every form", "d": "A silent mokoro through the Okavango’s channels, a sunrise balloon over the Delta, Victoria Falls, and a Zambezi sunset cruise along nine miles of private riverfront." },
+      { "t": "On foot where it began", "d": "Walking safaris in South Luangwa, the park that invented them, and Chief’s Camp in Moremi on one of Southern Africa’s finest game-viewing traverses." },
+      { "t": "Desert and bushveld to finish", "d": "Etosha from Mokuti, leopard country at Lion Sands in the Sabi Sand, and a coastal finish at Plettenberg Bay." }
+    ],
+    "bestFor": ["Once-in-a-lifetime trips", "Seasoned safari-goers", "Walkers"]
+  },
+  "southern-wilderness-apex-views": {
+    "lead": "Kilimanjaro views from your suite, Super Tusker elephants and a night drive in the Chyulu Hills, ending in Tsavo’s volcanic country.",
+    "reasons": [
+      { "t": "A suite facing Kilimanjaro", "d": "Two nights at Angama Amboseli, in a luxury suite looking straight at Mount Kilimanjaro, plus a sunrise balloon with a champagne bush breakfast." },
+      { "t": "Super Tuskers at dawn", "d": "Tracking Amboseli’s famous Super Tusker elephants against the backdrop of Africa’s highest peak." },
+      { "t": "The Chyulu Hills, day and night", "d": "A night drive tracking leopard, serval and bushbabies, a high-altitude walking safari through volcanic cloud forest, and a horseback ridge ride." }
+    ],
+    "bestFor": ["Solo travellers", "Elephant lovers", "Active travellers"]
+  },
+  "sovereign-mara-conservancies": {
+    "lead": "Three private Mara conservancies in ten days, with your own 4x4 and driver-guide throughout, so every game drive is yours to direct.",
+    "reasons": [
+      { "t": "Conservancy access", "d": "Exclusive access across Ol Kinyei, Mara Naboisho and Olare Motorogi for pristine wildlife encounters away from the busiest parts of the reserve." },
+      { "t": "Three lodges, three styles", "d": "Porini Ol Kinyei Cottages, Saruni Leopard Hill and Mahali Mzuri, with Hemingways Nairobi’s butler service at either end." },
+      { "t": "Your own vehicle", "d": "A professional driver-guide and a private 4x4 Land Cruiser the whole way, plus a balloon over the Olare Motorogi plains with a champagne breakfast." }
+    ],
+    "bestFor": ["Returning Mara visitors", "Photographers", "Private parties"]
+  },
+  "the-1923": {
+    "lead": "A safari staged as an expedition from 1923: light aircraft to a private airstrip, a printed Expedition Journal and a day with no timetable.",
+    "reasons": [
+      { "t": "Fly in like an explorer", "d": "A light aircraft from Wilson Airport direct to Cottar’s private airstrip, so the flight itself becomes part of the expedition." },
+      { "t": "A journal to keep", "d": "A physical Expedition Journal with a map, wildlife checklist, historical notes and the story of The 1923, to take home." },
+      { "t": "Learn the bush", "d": "An expert naturalist teaches tracks, birds and predator behaviour, with a 1923 bush picnic, a walking safari, a respectful Maasai visit and a Great Mara Expedition day with no fixed timetable, ending in a farewell dinner around the fire." }
+    ],
+    "bestFor": ["History lovers", "Couples", "Short-trip travellers"]
+  },
+  "the-monarchs-untamed-mara": {
+    "lead": "From Ol Kinyei’s hidden valley to Angama Mara’s escarpment, ten days in some of the Mara’s best-protected corners with expert naturalist guides.",
+    "reasons": [
+      { "t": "Conservancies first", "d": "Exclusive access to prime wildlife areas, beginning at Porini Ol Kinyei Cottages and Saruni Leopard Hill in the Mara conservancies." },
+      { "t": "Guides who read the bush", "d": "Expert naturalist guides with deep knowledge of predator tracking and wildlife behaviour on every drive." },
+      { "t": "A VIP start, a sky finish", "d": "JW Marriott Nairobi with VIP customs fast-track and butler service, then a balloon over the Maasai Mara National Reserve with a champagne breakfast and a stay at Angama Mara." }
+    ],
+    "bestFor": ["Couples", "Predator enthusiasts", "First-time Mara"]
+  },
+  "uganda-gorilla-riverine-giants": {
+    "lead": "Tree-climbing lions, a hippo-lined channel and a quiet hour with a gorilla family in Bwindi: Uganda’s wild highlights in ten days.",
+    "reasons": [
+      { "t": "An hour in the mist", "d": "A quiet hour face to face with a silverback family in Bwindi, followed by a white-linen gourmet breakfast in an open forest clearing." },
+      { "t": "Lions in fig trees", "d": "The tree-climbing lions of Ishasha, and a private boat cruise on the Kazinga Channel past hundreds of hippos, drinking elephants and fish eagles." },
+      { "t": "Forest, fire and the Batwa", "d": "A torch-lit bonfire dinner on a deck over Bwindi’s canopy, and a walk with Batwa forest people sharing traditional hunting techniques and medicinal plant knowledge." }
+    ],
+    "bestFor": ["Gorilla seekers", "Photographers", "Culture seekers"]
+  }
+}

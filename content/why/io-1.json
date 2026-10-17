@@ -1,0 +1,110 @@
+{
+  "maldives-centara-grand-lagoon": {
+    "lead": "One overwater villa, a private sandbank and a reef full of manta rays: the Maldives distilled into ten unhurried days.",
+    "reasons": [
+      { "t": "A villa with its own lagoon", "d": "An overwater villa with direct lagoon access and a private sun deck, where breakfast arrives floating in your villa pool, with fruit, pastries and champagne." },
+      { "t": "A sandbank for two", "d": "A private picnic on a deserted sandbar in the middle of the ocean, with white linen and champagne and no other island in sight, plus a dolphin sunset cruise." },
+      { "t": "Reef and spa", "d": "A guided snorkelling safari over coral gardens with manta rays, turtles and reef sharks, and a luxury spa treatment in an overwater room." }
+    ],
+    "bestFor": ["Honeymooners", "Snorkellers", "Unhurried escapes"]
+  },
+  "maldives-cocoon-collection": {
+    "lead": "A boutique Maldives escape that gets beyond the resort: seaplane arrival, local island visits and a reef with a marine guide.",
+    "reasons": [
+      { "t": "Arrive by seaplane", "d": "A seaplane transfer over the atoll, with scattered islands, turquoise lagoons and overwater villas below before you land." },
+      { "t": "Beyond the resort", "d": "Island hopping to authentic local Maldivian islands, with fishing villages, traditional markets and fresh seafood." },
+      { "t": "Yacht, reef and spa", "d": "A luxury yacht sunset cruise past untouched sandbanks, a coral reef exploration with a professional marine guide, and an overwater spa room open to the lagoon." }
+    ],
+    "bestFor": ["Couples", "Curious travellers", "Snorkellers"]
+  },
+  "mauritius-grand-island-discovery": {
+    "lead": "Mauritius beyond the beach: Port Louis, the island’s oldest botanical garden and a private yacht, ending at One&Only Le Saint Géran.",
+    "reasons": [
+      { "t": "Port Louis, toured and tasted", "d": "The Caudan Waterfront, the Central Market and the UNESCO-listed Aapravasi Ghat, with street food from dholl puri to gateaux piments." },
+      { "t": "A garden from 1770", "d": "The SSR Botanical Garden at Pamplemousses, the oldest in the southern hemisphere, with giant water lilies, 85 varieties of palm and a spice garden." },
+      { "t": "Yacht, sacred lake and sea", "d": "A full-day private yacht through the northern islands with a secluded beach lunch, the sacred crater lake of Grand Bassin, and four nights at LUX* Grand Baie before Le Saint Géran." }
+    ],
+    "bestFor": ["First Mauritius trips", "Culture lovers", "Food lovers"]
+  },
+  "mauritius-historic-west-marine-wilderness": {
+    "lead": "A villa-based journey on Mauritius’s sunset coast, with sperm whales offshore, seven-coloured earth inland and a canopy walk above rare birds.",
+    "reasons": [
+      { "t": "Whales from Tamarin Bay", "d": "A deep ocean safari to track the resident sperm whales and pods of pilot whales off the west coast." },
+      { "t": "Volcanic colour and canopy", "d": "Chamarel’s Seven Coloured Earths, and the Ebony Forest Reserve’s canopy walkway, 70 metres above the forest floor among rare endemic birds." },
+      { "t": "A private-pool villa", "d": "Maradiva is an all-villa sanctuary where each villa has its own pool, with a private gin tasting at Sublime Point and a yacht charter to Île aux Bénitiers ending in a bonfire dinner." }
+    ],
+    "bestFor": ["Solo travellers", "Nature lovers", "Couples"]
+  },
+  "mauritius-indian-ocean-escape": {
+    "lead": "A romantic, slow Mauritius: five nights on a private peninsula at One&Only Le Saint Géran, then Grand Baie and a dolphin cruise.",
+    "reasons": [
+      { "t": "A private peninsula", "d": "Five nights at One&Only Le Saint Géran, on a private peninsula with more than a mile of white sand." },
+      { "t": "Romance, specifically", "d": "A private yacht day to Île aux Cerfs with a picnic prepared by the crew, a wooden cabana with muslin drapes and chilled rosé at La Pointe, and dinner at PRIME in a 16th-century chapel." },
+      { "t": "Seabed and sky", "d": "An underwater walk at three metres on the Belle Mare seabed, no swimming skills required, plus a helicopter over the island’s underwater waterfall and a dolphin catamaran cruise." }
+    ],
+    "bestFor": ["Honeymooners", "Anniversaries", "Wellness seekers"]
+  },
+  "mauritius-peninsula-royal-splendor": {
+    "lead": "One iconic address and a whole island’s history: based at One&Only Le Saint Géran, with Port Louis, Mahébourg and the botanical garden within reach.",
+    "reasons": [
+      { "t": "A palatial peninsula", "d": "One&Only Le Saint Géran sits on a private peninsula between a turquoise lagoon and the open Indian Ocean, with water-skiing and snorkelling over the Belle Mare reef gardens." },
+      { "t": "History and bazaars", "d": "The Aapravasi Ghat UNESCO ruins, Port Louis’s Central Bazaar, spiced-rum sundowners at Citadel Fort, and Mahébourg, the cradle of Mauritian history." },
+      { "t": "Sky, sandbar and sea", "d": "A helicopter island loop ending with breakfast on a disappearing sandbar, a barrier reef deep-sea walk, and a catamaran to Île aux Cerfs with a bonfire dinner." }
+    ],
+    "bestFor": ["Solo travellers", "History lovers", "Resort lovers"]
+  },
+  "mauritius-ultimate-romance-secret-lagoons": {
+    "lead": "Private sunset suites beneath Le Morne Brabant, with a catamaran, horses and a helicopter for the lagoons below.",
+    "reasons": [
+      { "t": "Beneath a 550-metre monolith", "d": "LUX Le Morne’s sunset suites sit directly beneath Le Morne Brabant, with a trek up the UNESCO mountain to the viewpoint over the island’s underwater waterfall illusion." },
+      { "t": "Catamaran, horses, helicopter", "d": "A private catamaran with champagne on the net deck, sunset horse riding on untouched Riambel Beach, and a helicopter over the reefs with a champagne brunch." },
+      { "t": "A full day for two", "d": "A couples’ spa journey in a pavilion among orchids, snorkelling at Île aux Bénitiers, and a beachside bonfire dinner on Ilot Gabriel." }
+    ],
+    "bestFor": ["Honeymooners", "Anniversaries", "Active couples"]
+  },
+  "mauritius-wild-adventure": {
+    "lead": "The Mauritius most visitors skip: a mountain hike, forest trails and a safari park, with nine nights beneath Le Morne.",
+    "reasons": [
+      { "t": "Hike the monolith", "d": "A private guided hike up Le Morne Brabant, 556 metres and UNESCO-listed, taking three to four hours." },
+      { "t": "Forest and waterfalls", "d": "Chamarel Waterfall and the Seven Coloured Earth geopark, Black River Gorges with more than 50 km of trails, and the Macchabée Trail’s view over the island’s largest wilderness." },
+      { "t": "Lions and giraffes", "d": "Casela Nature Parks, with an Eco Rider safari among lions, zebra and giraffe and a walk with lions." }
+    ],
+    "bestFor": ["Active travellers", "Families", "Hikers"]
+  },
+  "mauritius-wild-south-geological-wonders": {
+    "lead": "Mauritius’s rugged south: basalt sea cliffs, a sacred crater lake and rainforest breakfasts beside waterfalls, from a historic estate.",
+    "reasons": [
+      { "t": "Cliffs and a crater lake", "d": "Walking the Gris Gris sea cliffs as waves crash against black basalt, and Grand Bassin, a sacred crater lake beneath 33-metre golden statues of Lord Shiva and Durga Maa." },
+      { "t": "From the air", "d": "A hot air balloon or helicopter flight over the sugar fields and dramatic sea cliffs of the Bel Ombre reserve." },
+      { "t": "Rainforest at your own pace", "d": "Private ridge hikes in Black River Gorges, breakfast on a rock platform beside a waterfall stream, and Rochester Falls’ basalt columns, from the Heritage Le Telfair estate." }
+    ],
+    "bestFor": ["Solo travellers", "Hikers", "Photographers"]
+  },
+  "seychelles-grand-island-discovery": {
+    "lead": "Mahé’s Creole culture and mountain trails, then Praslin, Curieuse and Cousin: the Seychelles as a whole, not just a beach.",
+    "reasons": [
+      { "t": "Creole Mahé", "d": "Victoria’s market, Clock Tower and Botanical Garden with its Aldabra tortoises, the ruins at Mission Lodge, dinner at Marie Antoinette, and a guided trail in Morne Seychellois National Park." },
+      { "t": "Nine suites on a hilltop", "d": "AQUA Boutique Hotel has just nine suites on a Glacis hilltop above the Indian Ocean." },
+      { "t": "Tortoises and a nature reserve", "d": "Vallée de Mai and Anse Lazio on Praslin, Curieuse Island’s giant tortoises, and Cousin Island Special Nature Reserve, with a stay at Constance Lemuria." }
+    ],
+    "bestFor": ["First Seychelles trips", "Nature lovers", "Culture seekers"]
+  },
+  "seychelles-praslin-la-digue-collection": {
+    "lead": "Praslin and La Digue at a gentle pace: Vallée de Mai before the crowds, 250 giant tortoises and two days on a bicycle.",
+    "reasons": [
+      { "t": "Vallée de Mai at opening time", "d": "Walked before nine in the morning, ahead of the crowds, with Anse Lazio, Anse Volbert and exclusive resort access to Anse Georgette from Constance Lemuria." },
+      { "t": "250 tortoises and a nature reserve", "d": "Curieuse Island’s 250 free-ranging Aldabra giant tortoises, and Cousin Island Special Nature Reserve, walked with resident wardens." },
+      { "t": "La Digue by bicycle", "d": "Two full days cycling an island that is practically motor-free, then crystal kayaking and a stay at Six Senses Zil Pasyon on Félicité." }
+    ],
+    "bestFor": ["Active couples", "Honeymooners", "Nature lovers"]
+  },
+  "seychelles-ultimate-couples-romance": {
+    "lead": "A couples’ Seychelles in two villa stays: Raffles on Praslin and Anantara Maia on Mahé, with a helicopter in between.",
+    "reasons": [
+      { "t": "A helicopter between islands", "d": "A private helicopter flight over the coral reefs between Mahé and Praslin." },
+      { "t": "The most photographed beach", "d": "Cycling past vanilla plantations to Anse Source d’Argent, a hidden swim at Anse Marron, and the UNESCO palm forest of Vallée de Mai, home to the Coco de Mer." },
+      { "t": "A sunset sail and a couples’ massage", "d": "A private catamaran sunset cruise with champagne and Creole appetisers, and a signature 90-minute side-by-side massage at a clifftop pavilion." }
+    ],
+    "bestFor": ["Honeymooners", "Couples", "Anniversaries"]
+  }
+}

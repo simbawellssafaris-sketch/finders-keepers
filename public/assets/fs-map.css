@@ -1,0 +1,105 @@
+/* Finders Safaris — route map.
+   Pale atlas cartography: quiet land, a grey directional route, and one
+   terracotta ring marking where you are in the itinerary. */
+.fsm{
+  position:absolute; inset:0;
+  background:#D9E5E7;          /* sea / ground tone — pale blue so a coastline actually reads */
+  overflow:hidden;
+}
+.fsm-svg{ width:100%; height:100%; display:block; }
+
+/* ---- land ---- */
+.fsm-land{
+  fill:#EAE4D5; stroke:#C9BFA6; stroke-width:1;
+  vector-effect:non-scaling-stroke;
+}
+.fsm-country{
+  fill:#F7F4EC; stroke:#B7A67E; stroke-width:1.5;
+  vector-effect:non-scaling-stroke;
+}
+
+/* ---- lakes ---- */
+.fsm-lake{
+  fill:#C7DBDE; stroke:#A9C2C5; stroke-width:0.8;
+  vector-effect:non-scaling-stroke;
+}
+.fsm-countryname{
+  fill:#A9A294; font-family:'Jost', system-ui, sans-serif;
+  font-weight:500; text-transform:uppercase; pointer-events:none;
+}
+
+/* ---- route ---- */
+.fsm-leg{
+  fill:none; stroke:#8E877A; stroke-width:1.4;
+  vector-effect:non-scaling-stroke;
+  transition:stroke .45s ease;
+}
+.fsm-leg.is-return{ stroke-dasharray:5 5; }
+.fsm-leg.is-done{ stroke:#4A4640; }
+
+.fsm-arrow{
+  fill:#8E877A; stroke:none;
+  transition:fill .45s ease;
+}
+.fsm-arrow.is-done{ fill:#4A4640; }
+
+/* ---- pins ---- */
+.fsm-dot{
+  fill:#4A4640; stroke:none;
+  transition:fill .3s ease, stroke .3s ease, stroke-width .3s ease;
+}
+.fsm-pin.is-done .fsm-dot{ fill:#4A4640; }
+.fsm-pin.is-active .fsm-dot{
+  fill:#FFFFFF;
+  stroke:var(--terracotta-dark, #B4471F); stroke-width:2.5;
+  vector-effect:non-scaling-stroke;
+}
+
+.fsm-label{
+  font-family:'Jost', system-ui, sans-serif; font-weight:500;
+  fill:#4A4640; pointer-events:none;
+  paint-order:stroke; stroke:#EFEBE1; stroke-linejoin:round;
+  transition:fill .3s ease;
+}
+.fsm-pin.is-active .fsm-label{ fill:var(--terracotta-dark, #B4471F); font-weight:600; }
+
+/* ---- controls ---- */
+.fsm-controls{
+  position:absolute; top:14px; left:14px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.fsm-btn{
+  width:32px; height:32px; padding:0; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  background:#FFFFFF; color:#4A4640;
+  border:1px solid #D8D1C1; border-radius:2px;
+  font-family:'Jost', system-ui, sans-serif; font-size:17px; line-height:1;
+  transition:background .18s ease, color .18s ease;
+}
+.fsm-btn:hover{ background:#F4F1E8; color:var(--terracotta-dark, #B4471F); }
+.fsm-controls .fsm-btn + .fsm-btn{ margin-top:-8px; }   /* + and − read as one stack */
+.fsm-controls .fsm-btn-fit{ margin-top:0; }
+.fsm-btn-fit svg{ width:16px; height:16px; }
+
+/* ---- caption ---- */
+.fsm-caption{
+  position:absolute; left:18px; bottom:16px; right:18px;
+  font-family:'Jost', system-ui, sans-serif; pointer-events:none;
+}
+.fsm-cap-idx{
+  display:block; font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:#9A9284; margin-bottom:2px; min-height:12px;
+}
+.fsm-cap-name{
+  display:block; font-family:'Fraunces', Georgia, serif; font-size:20px;
+  line-height:1.15; color:#38342E;
+}
+
+@media (max-width:900px){
+  .fsm-caption{ left:14px; right:14px; bottom:12px; }
+  .fsm-cap-name{ font-size:17px; }
+  .fsm-controls{ top:10px; left:10px; }
+}
+
+/* ---- static map on destination pages ---- */
+.fsm-static .fsm-caption{ left:18px; bottom:14px; }

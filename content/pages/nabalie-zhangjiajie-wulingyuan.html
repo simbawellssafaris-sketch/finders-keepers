@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabalie Grand Hotel — Wulingyuan, Zhangjiajie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --ivory-deep: #E0D3B8;
+    --ink: #232019;
+    --accent: #3E7A5C;
+    --accent-dark: #2C5C44;
+    --jade: #6B7A5A;
+    --gold: #C9A667;
+    --seal: #A8342A;
+    --paper-card: #FFFFFF;
+    --line: rgba(35,32,25,0.12);
+    --shadow: 0 30px 60px -30px rgba(35,32,25,0.18);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--ink); font-family:'Noto Sans SC','EB Garamond', sans-serif; font-weight:400; line-height:1.7; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Noto Serif SC','EB Garamond', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:0.18em; font-size:0.7rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.2; fill:none; }
+  .elevation-rule path.wash{ stroke: var(--accent); stroke-width:0.8; opacity:0.5; }
+
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--ivory-deep); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/nabalie-zhangjiajie-wulingyuan/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/nabalie-zhangjiajie-wulingyuan/2.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(250,248,243,0) 38%, rgba(250,248,243,0.94) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--ink); }
+  .brandmark{ font-family:'Noto Serif SC', serif; font-size:1.1rem; letter-spacing:0.04em; }
+  .brandmark span{ color: var(--accent); }
+  .hero-coords{ font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.06em; text-align:right; line-height:1.7; opacity:0.75; color: var(--ink); }
+  .hero-seal{ position:absolute; top: clamp(20px,4vw,44px); right: clamp(20px,6vw,80px); z-index:5; width:46px; height:46px; }
+  .hero-seal-inner{ width:100%; height:100%; background: var(--seal); border-radius:3px; display:flex; align-items:center; justify-content:center; box-shadow: 0 6px 16px rgba(168,52,42,0.35); }
+  .hero-seal-inner svg{ width:26px; height:26px; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--accent-dark); } .hero-headline .eyebrow::before{ background: var(--accent-dark); }
+  .hero-headline h1{ color: var(--ink); font-size: clamp(2.4rem, 6.4vw, 4.6rem); line-height:1.05; margin-top:18px; }
+  .hero-headline p{ color: rgba(35,32,25,0.72); max-width:460px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(255,255,255,0.6); border:1px solid rgba(35,32,25,0.16); backdrop-filter: blur(6px); color: var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(255,255,255,0.9); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(35,32,25,0.2); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'JetBrains Mono', monospace; font-size:0.7rem; color: var(--ink); letter-spacing:0.06em; }
+
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'JetBrains Mono', monospace; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(35,32,25,0.45); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--ink); } .tab.active{ color: var(--accent-dark); } .tab.active::after{ transform: scaleX(1); }
+
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(35,32,25,0.68); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Noto Serif SC', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent-dark); }
+  .stat .label{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(35,32,25,0.55); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+
+  .lodges-note{ background: var(--paper-card); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(35,32,25,0.78); box-shadow: var(--shadow); }
+  .lodges-note strong{ color: var(--accent-dark); font-family:'Noto Serif SC',serif; font-weight:500; font-style:italic; }
+
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/nabalie-zhangjiajie-wulingyuan/2.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(255,255,255,0.15), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Noto Serif SC', serif; color: var(--accent-dark); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Noto Serif SC',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(35,32,25,0.66); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--paper-card); }
+  .exp-card .exp-tag{ font-family:'JetBrains Mono', monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--jade); }
+  .exp-card h3{ font-size:1.22rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.66); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'JetBrains Mono', monospace; font-size:0.68rem; color: var(--accent-dark); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/nabalie-zhangjiajie-wulingyuan/1.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'JetBrains Mono', monospace; font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color: #EDE3CE; }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(35,32,25,0.75); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent-dark); font-family:'Noto Serif SC',serif; }
+  .loc-map{ background: var(--ivory-deep); border:1px solid var(--line); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'JetBrains Mono', monospace; color: var(--accent-dark); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(35,32,25,0.68); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+
+  .offer-bar{ background: var(--ink); color: #EDE3CE; padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: #EDE3CE; font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(250,248,243,0.7); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: #EDE3CE; padding:16px 30px; text-decoration:none; font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; color: rgba(35,32,25,0.45); background: var(--ivory); }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">NABALIE <span>WULINGYUAN</span></div>
+    <div class="hero-coords">29°20'N 110°32'E<br>WULINGYUAN SCENIC AREA</div>
+  </div>
+  <div class="hero-seal"><div class="hero-seal-inner"><svg viewBox="0 0 24 24" fill="none" stroke="#EDE3CE" stroke-width="1.4"><path d="M12 3 L12 21 M4 8 L20 8 M6 13 L18 13 M4 18 L20 18"/></svg></div></div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Resort Hotel — Zhangjiajie, Hunan</span>
+    <h1>Sandstone Pillars,<br>Rising from the Mist</h1>
+    <p>719 rooms in the core of the Wulingyuan Scenic and Historic Interest Area, a UNESCO World Heritage site whose towering sandstone spires inspired the floating mountains of Avatar.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 02</div>
+</div>
+
+<!--@include lodge-tabbar-->
+
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Tujia and Miao,<br>Reimagined</h2></div>
+    <p class="lede">Opened in 2017 inside the core of the Wulingyuan Scenic and Historic Interest Area, this 719-room resort blends modern design with architectural motifs drawn from the region's Tujia and Miao ethnic traditions.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(35,32,25,0.78); font-size:1.02rem;">Spread across roughly 95,000 square metres just five minutes from the Suoxiyu Nature Reserve and Tianzi Mountain, the hotel sits at the doorstep of some of the most photographed scenery in China — the same quartz-sandstone pillars, some rising over 200 metres, that famously inspired the floating Hallelujah Mountains of the film Avatar. Rooms and suites are designed for sightseeing-led stays, many with floor-to-ceiling windows and open balconies that frame the surrounding peaks directly from bed. A poolside bar serving Southeast Asian-style barbecue under the stars and a full-service spa give guests reasons to linger between excursions into the park itself.</p>
+  <div class="lodges-note"><strong>Inside the UNESCO World Heritage boundary.</strong> Wulingyuan was inscribed as a UNESCO World Heritage Site in 1992, its more than 3,000 sandstone pillars and peaks considered one of China's most distinctive natural landscapes.</div>
+  <div class="stat-row"><div class="stat"><div class="num">719</div><div class="label">Rooms &amp; Suites</div></div><div class="stat"><div class="num">95,000m²</div><div class="label">Hotel Grounds</div></div><div class="stat"><div class="num">2017</div><div class="label">Hotel Opened</div></div><div class="stat"><div class="num">5min</div><div class="label">To Tianzi Mountain</div></div></div>
+</section>
+
+<!--@include elevation-divider-5-->
+
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Rooms</span><h2>Floor-to-Ceiling Glass,<br>Open Balconies</h2></div>
+    <p class="lede">Rooms are spacious and elegantly decorated, with floor-to-ceiling windows and open balconies bringing the surrounding peaks directly into view.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Deluxe Room — Peak View Balcony</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Deluxe Rooms</strong><span>Well-appointed rooms with floor-to-ceiling windows and open balconies, many facing directly onto the park's sandstone pillars.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Family &amp; Connecting Rooms</strong><span>Configurations suited to families exploring Wulingyuan together, with easy access to the hotel's recreational facilities.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Suites</strong><span>Additional living space and upgraded views for guests wanting more room after a day of hiking and sightseeing.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>A Design Rooted in Local Culture</strong><span>Architecture throughout the hotel draws on the distinctive building traditions of the Tujia and Miao ethnic groups native to this part of Hunan.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-6-->
+
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>The Avatar<br>Mountains, At the Door</h2></div>
+    <p class="lede">Wulingyuan's dramatic sandstone pillars, glass bridges and cable cars make it one of China's most photographed national parks.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Iconic</span><h3>Yuanjiajie &amp; the Avatar Mountains</h3><p>The park's most famous viewpoint, where the towering pillars said to have inspired Avatar's floating mountains rise from the mist.</p></div></div><div class="exp-card"><div><span class="exp-tag">Adventure</span><h3>Zhangjiajie Grand Canyon Glass Bridge</h3><p>One of the world's longest and highest glass-bottomed bridges, spanning a dramatic canyon a short drive from the hotel.</p></div></div><div class="exp-card"><div><span class="exp-tag">Nature</span><h3>Golden Whip Stream</h3><p>A gentle streamside walk beneath towering peaks, considered one of the most scenic and accessible trails in the park.</p></div></div><div class="exp-card"><div><span class="exp-tag">Boating</span><h3>Baofeng Lake</h3><p>A boat ride across an emerald mountain lake, framed by sheer cliffs on all sides.</p></div></div><div class="exp-card"><div><span class="exp-tag">Culture</span><h3>Tujia &amp; Miao Village Life</h3><p>Cultural performances and craft demonstrations rooted in the ethnic traditions native to this part of Hunan.</p></div></div><div class="exp-card"><div><span class="exp-tag">Underground</span><h3>Huanglong Cave</h3><p>One of Asia's largest karst cave systems, with illuminated chambers and underground rivers a short drive away.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-7-->
+
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">Hunan Spice,<br>Poolside Barbecue</h2>
+      <p class="lede" style="margin-top:24px;">Dining spans Chinese and Western cuisine, with a poolside bar serving Southeast Asian-style barbecue beneath the stars as a particular highlight.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>The main restaurant, for Chinese and Western dining</span></div><div class="venue"><span class="n">02</span><span>The poolside bar, for Southeast Asian barbecue under the stars</span></div><div class="venue"><span class="n">03</span><span>A dedicated Hunan-cuisine dining room</span></div><div class="venue"><span class="n">04</span><span>In-room dining, available throughout the day</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">The Poolside Bar — Barbecue Under the Stars</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-8-->
+
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>The Heart of<br>Wulingyuan</h2></div>
+    <p class="lede">The hotel sits inside the core of the Wulingyuan Scenic and Historic Interest Area, a UNESCO World Heritage Site in northwestern Hunan province.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>Located in the core area of Wulingyuan, a UNESCO World Heritage Site since 1992.</li><li>A five-minute drive from Suoxiyu and Tianzi Mountain Nature Reserve.</li><li>Close to the Wulingyuan shopping centre and the park's main scenic entrances.</li><li>Roughly 33km from Zhangjiajie Hehua International Airport.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#E0D3B8"/>
+        <path d="M0 230 Q80 190 160 220 T320 210 T400 225 L400 340 L0 340 Z" fill="#E7E0CF" opacity="0.9"/>
+        <path d="M0 260 Q100 230 200 255 T400 250 L400 340 L0 340 Z" fill="#EDE7D8"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#2C5C44" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#2C5C44"/>
+        <text x="72" y="150" fill="#232019" font-family="Noto Serif SC, serif" font-size="11" letter-spacing="1">NABALIE WULINGYUAN</text>
+        <text x="72" y="166" fill="#2C5C44" font-family="JetBrains Mono, monospace" font-size="9">WULINGYUAN SCENIC AREA</text>
+        <text x="72" y="182" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">ZHANGJIAJIE NATIONAL FOREST PARK</text>
+        <text x="150" y="300" fill="#6b6455" font-family="JetBrains Mono, monospace" font-size="9">HUNAN PROVINCE, CHINA</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Fly</span><p>Zhangjiajie Hehua International Airport is roughly 33km from the hotel.</p></div><div class="journey-step"><span class="k">Rail</span><p>Zhangjiajie West Railway Station connects to China's high-speed rail network, a short transfer from the hotel.</p></div><div class="journey-step"><span class="k">Explore</span><p>The hotel sits within walking or short-shuttle distance of Wulingyuan's main scenic entrances.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">A UNESCO Landscape</span>
+      <h2>Where Avatar's Mountains Came From</h2>
+      <p>Wulingyuan's sandstone pillars, rising from the mist just outside the hotel, remain one of the most photographed natural landscapes anywhere in China.</p>
+    </div>
+    <a class="cta js-fs-enquire" href="#">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>NABALIE GRAND HOTEL · WULINGYUAN · ZHANGJIAJIE, HUNAN, CHINA</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

@@ -1,0 +1,22 @@
+<script>
+const tabnav=document.getElementById('tabnav');
+window.addEventListener('scroll',()=>{tabnav.classList.toggle('stuck',window.scrollY>600);});
+const tabs=document.querySelectorAll('.tabnav a.tab');
+const sections=[...tabs].map(t=>document.querySelector(t.getAttribute('href')));
+function onScroll(){
+    let current = sections[0];
+    const scrollPos = window.scrollY + 150;
+    sections.forEach(function(sec){ if (sec && sec.offsetTop <= scrollPos) current = sec; });
+    tabs.forEach(function(t){ t.classList.toggle('active', document.querySelector(t.getAttribute('href')) === current); });
+  }
+window.addEventListener('scroll',onScroll);onScroll();
+document.querySelectorAll('.jd-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const panel=document.getElementById(btn.dataset.target);
+    if(!panel)return;
+    panel.classList.toggle('open');
+    const isOpen=panel.classList.contains('open');
+    btn.textContent=btn.textContent.replace(/\s*[+-]$/,'')+(isOpen?' -':' +');
+  });
+});
+</script>

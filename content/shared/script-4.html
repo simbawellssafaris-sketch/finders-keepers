@@ -1,0 +1,35 @@
+<script>
+(function(){
+  /* ── ScrollSpy ──
+     Worked out from scroll position rather than an IntersectionObserver band: on a
+     short viewport a tall section can clear a thin band between frames and the tab
+     never updates. Comparing each section's top against a reference line always
+     resolves to exactly one section, whatever the section or window height. */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.th-nav a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+
+  function spy(){
+    ticking = false;
+    /* Measured against the viewport rather than a scroll offset: body carries
+       overflow-x:hidden, which can make body the scrolling element and leave
+       window.scrollY at 0. Viewport-relative positions are correct either way. */
+    var line = window.innerHeight * 0.35;
+    var current = 0;   /* above the first section, the first tab reads as current */
+    sections.forEach(function(s, i){
+      if (s && s.getBoundingClientRect().top <= line) current = i;
+    });
+    links.forEach(function(a, i){ a.classList.toggle('on', i === current); });
+  }
+
+  function onScroll(){
+    if (!ticking) { ticking = true; window.requestAnimationFrame(spy); }
+  }
+  /* capture catches the event whichever element is doing the scrolling */
+  document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', spy);
+  spy();
+
+})();
+</script>

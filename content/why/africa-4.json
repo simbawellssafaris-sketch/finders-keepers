@@ -1,0 +1,83 @@
+{
+  "uganda-kenya-great-rift": {
+    "lead": "The Mara’s Migration plains and the source of the Nile in one journey, finishing in a suite suspended over the Kalagala Rapids.",
+    "reasons": [
+      { "t": "The Mara at migration time", "d": "A stay at Angama Mara or Mara Plains Camp on the Oloololo Escarpment, with champagne sundowners as the plains turn gold and herds cross the Mara in season." },
+      { "t": "A balloon, then a bush breakfast", "d": "A dawn balloon over the Mara River with hippos, crocodiles and elephants below, followed by a gourmet breakfast in the open savannah." },
+      { "t": "A suite over the rapids", "d": "Lemala Wildwaters Lodge’s suites hang over the Kalagala Rapids on a private rainforest island, with a private speedboat to the historic source of the Nile and rare shoebill storks." }
+    ],
+    "bestFor": ["Honeymooners", "Water lovers", "Two-country trips"]
+  },
+  "uganda-secrets-north-volcanic-lakes": {
+    "lead": "Uganda away from the usual route: Kidepo’s isolated valleys, glittering crater lakes and chimpanzees in the Kibale canopy.",
+    "reasons": [
+      { "t": "Absolute isolation at Kidepo", "d": "Cheetahs, leopards, ostriches and vast buffalo herds with no other visitors, and a rocky-ridge sundowner at Apoka Safari Lodge as lions survey the Narus Valley plains." },
+      { "t": "A balloon over the Narus Valley", "d": "A dawn balloon with the Morungole Mountains rising behind, followed by a farm-to-table breakfast in the open Kidepo savannah." },
+      { "t": "Crater lakes and chimps", "d": "A champagne brunch over turquoise Lake Nyinambuga, chimpanzee tracking in Kibale with an elite primatologist, and shoebill storks at the Bigodi Wetland." }
+    ],
+    "bestFor": ["Off-the-beaten-path travellers", "Primate lovers", "Birders"]
+  },
+  "uganda-source-nile-wildwaters": {
+    "lead": "A river journey: the true source of the Nile by private boat, jet-boating the white water, and a lodge built over the rapids.",
+    "reasons": [
+      { "t": "The source, without the crowd", "d": "A private speedboat to the John Speke monument, crowd-free, at the exact point where the Nile begins." },
+      { "t": "Sleeping over the rapids", "d": "Lemala Wildwaters Lodge’s canvas-and-thatch suites stand on wooden decks over the Kalagala Rapids, with a bonfire dinner on an open deck above the thundering water." },
+      { "t": "Balloon and jet boat", "d": "A dawn balloon over the Victoria Nile basin with a champagne brunch beside a rapid, then a jet-boat safari through white-water channels past shoebill storks and hippos." }
+    ],
+    "bestFor": ["Water lovers", "Couples", "Adventurous travellers"]
+  },
+  "ultimate-mara-lodge-hopper": {
+    "lead": "Seven days, two superb Mara positions: a clifftop lodge above the Mara Triangle, then leopard country on the Talek River.",
+    "reasons": [
+      { "t": "500 feet above the Triangle", "d": "Angama Mara overlooks the Mara Triangle, where strictly managed vehicle numbers and exceptional predator density make for intimate sightings, with sundowners on the Oloololo clifftop." },
+      { "t": "A balloon and a kopje lunch", "d": "A dawn balloon with a champagne breakfast on landing, then a private lunch on the granite kopjes with the reserve spread out below." },
+      { "t": "Then the Talek River", "d": "JW Marriott Mara Lodge, a five-star lodge on the Talek River opening onto central Mara and leopard country, with a night drive and a Maasai cultural immersion." }
+    ],
+    "bestFor": ["Short-trip travellers", "Couples", "Big-cat lovers"]
+  },
+  "ultimate-tanzania-luxury-circuit": {
+    "lead": "Tanzania’s northern circuit in comfort, opened by a morning in Nairobi National Park and closed with four nights at Grumeti River Lodge.",
+    "reasons": [
+      { "t": "A skyline and lions", "d": "A private morning game drive in Nairobi National Park, with the city skyline behind lion and rhino, before you cross into Tanzania." },
+      { "t": "Elephants, tree-climbing lions and the crater", "d": "Three nights at Nimali Tarangire among large elephant herds, Lake Manyara’s tree-climbing lions and flamingo shores, and a full day in the Ngorongoro Crater from &Beyond Ngorongoro Crater Lodge." },
+      { "t": "Fly into the Serengeti", "d": "A scenic bush flight to the Serengeti and four nights at the exclusive Grumeti River Lodge." }
+    ],
+    "bestFor": ["Families", "First Tanzania trips", "Multi-park travellers"]
+  },
+  "untamed-sanctuaries": {
+    "lead": "Southern and western Tanzania, far from the northern crowds: Ruaha’s lion prides, the Rufiji by boat and chimpanzees in the Mahale Mountains.",
+    "reasons": [
+      { "t": "Ruaha, Tanzania’s largest park", "d": "Lion prides of twenty or more, wild dogs, leopards and cheetah, with four nights at Jabali Ridge, eight suites on a rocky kopje in a private concession where night drives are allowed." },
+      { "t": "Walk, float and fly", "d": "A walking safari with an armed ranger in Ruaha, a balloon over the Great Ruaha River at dawn, and a boat safari on the Rufiji River in Nyerere." },
+      { "t": "An hour a day with chimpanzees", "d": "Two full permits in the Mahale Mountains, spending an hour each day with habituated wild chimpanzees from Greystoke Mahale." }
+    ],
+    "bestFor": ["Seclusion seekers", "Primate lovers", "Return Tanzania visitors"]
+  },
+  "zimbabwe-granite-castles-wild-valleys": {
+    "lead": "Matobo’s balancing granite boulders and rhino on foot, then Singita Pamushana’s private 130,000-acre reserve.",
+    "reasons": [
+      { "t": "On foot with white rhino", "d": "Tracking highly protected white rhinos on foot with expert armed rangers, metres away and in safety." },
+      { "t": "Granite and big views", "d": "Breakfast inside a natural granite rock amphitheatre ringed by balancing boulders, and sunset cocktails at World’s View as black eagles soar." },
+      { "t": "Malilangwe, privately", "d": "Singita Pamushana’s 130,000 private acres offer crowd-free Big Five viewing, a pontoon cruise with champagne breakfast and a telescope tour of the night sky." }
+    ],
+    "bestFor": ["Walkers", "Rhino enthusiasts", "Seclusion seekers"]
+  },
+  "zimbabwe-legendary-wildlife-waterfalls": {
+    "lead": "Victoria Falls, Hwange’s elephants at eye level and a canoe on the Zambezi: Zimbabwe’s wild side in ten days.",
+    "reasons": [
+      { "t": "Victoria Falls, crowd-free", "d": "A private walking tour of the Falls, one of the Seven Natural Wonders, and a champagne sunset cruise on the Zambezi among hippos and crossing elephants." },
+      { "t": "Eye to eye with elephants", "d": "An underground photographic bunker at Linkwasha puts you inches from drinking elephant bulls, and a sunrise balloon floats over Hwange’s vlei plains." },
+      { "t": "Predators and paddles", "d": "A private full-day apex predator track in Hwange for wild dogs, lions and leopards, then a canoe safari down the Zambezi’s quiet channels." }
+    ],
+    "bestFor": ["Photographers", "Active travellers", "First Zimbabwe trips"]
+  },
+  "zimbabwe-secret-wilderness-ancient-empires": {
+    "lead": "Great Zimbabwe’s medieval ruins, elephants on their hind legs at Mana Pools and a pontoon through Kariba’s drowned forests.",
+    "reasons": [
+      { "t": "An empire in stone", "d": "A private guided tour of the Great Zimbabwe UNESCO ruins, with the medieval walls turning gold at sunset over vintage wines." },
+      { "t": "Elephants on two legs", "d": "Walking alongside Mana Pools’ elephant bulls as they stand on their hind legs for albida pods, a behaviour unique to the area, with a breakfast cooked over open coals." },
+      { "t": "Water, from the air and the lake", "d": "A doors-off helicopter flight over Mana Pools’ channels, and a sunset pontoon cruise among Lake Kariba’s drowned forests with champagne and canapés." }
+    ],
+    "bestFor": ["Walkers", "History lovers", "Photographers"]
+  }
+}

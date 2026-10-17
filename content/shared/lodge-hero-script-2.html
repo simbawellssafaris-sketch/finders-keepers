@@ -1,0 +1,66 @@
+<script>
+  // ---------------- HERO CAROUSEL ----------------
+  const track = document.getElementById('heroTrack');
+  const slides = track.children.length;
+  const dotsWrap = document.getElementById('heroDots');
+  const sceneCur = document.getElementById('sceneCur');
+  let current = 0;
+  let autoTimer;
+
+  for(let i=0;i<slides;i++){
+    const dot = document.createElement('button');
+    dot.className = 'hero-dot' + (i===0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to image ' + (i+1));
+    dot.addEventListener('click', ()=> goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function render(){
+    track.style.transform = `translateX(-${current*100}%)`;
+    [...dotsWrap.children].forEach((d,i)=> d.classList.toggle('active', i===current));
+    sceneCur.textContent = String(current+1).padStart(2,'0');
+  }
+
+  function goTo(i){
+    current = (i + slides) % slides;
+    render();
+    restartAuto();
+  }
+
+  document.getElementById('prevArrow').addEventListener('click', ()=> goTo(current-1));
+  document.getElementById('nextArrow').addEventListener('click', ()=> goTo(current+1));
+
+  function restartAuto(){
+    clearInterval(autoTimer);
+    autoTimer = setInterval(()=> goTo(current+1), 6500);
+  }
+  restartAuto();
+  document.getElementById('hero').addEventListener('mouseenter', ()=> clearInterval(autoTimer));
+  document.getElementById('hero').addEventListener('mouseleave', restartAuto);
+
+  render();
+
+  // ---------------- SCROLLSPY TABS ----------------
+  const tabs = [...document.querySelectorAll('.tab')];
+  const sections = tabs.map(t => document.getElementById(t.dataset.target));
+
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      const target = document.getElementById(tab.dataset.target);
+      const offset = document.querySelector('.tabbar-wrap').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.target === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(sec => sec && observer.observe(sec));
+</script>

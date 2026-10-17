@@ -1,0 +1,10 @@
+<script>
+document.querySelectorAll('.offer-more').forEach(function(b){
+  b.addEventListener('click', function(){
+    var d = b.nextElementSibling;
+    if(!d) return;
+    var open = d.classList.toggle('open');
+    b.textContent = open ? 'Show less' : 'Learn more';
+  });
+});
+</script>

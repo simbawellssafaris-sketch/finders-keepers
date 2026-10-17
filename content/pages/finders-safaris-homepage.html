@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Marks the page as scripted before first paint. Everything that JavaScript hides
+     or animates is scoped to .js, so without it the content is simply all visible. -->
+<script>document.documentElement.className += ' js';</script>
+<title>{{brand}} — {{tagline}}</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;color:#1a1209;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --rust:#8B3A2A;
+  --rust-dark:#6B2D1F;
+  --warm:#EDE3CE;
+  --ink:#1a1209;
+  --muted:#8a7a68;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Raleway',sans-serif;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar{
+  background:var(--rust);color:#fff;padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;letter-spacing:0.04em;font-family:var(--sans);
+}
+.topbar-left{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.topbar-right a{color:#fff;opacity:0.9;transition:opacity .2s;}
+.topbar-right a:hover{opacity:1;}
+.topbar-dot{opacity:0.35;}
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  background:#fff;border-bottom:1px solid #e8e0d4;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 40px;height:64px;
+}
+.nav-left{display:flex;align-items:center;gap:32px;}
+
+/* Hamburger — 3 bars animate to X */
+.nav-hamburger{
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:5px;
+  padding:4px;position:relative;z-index:600;
+  flex-shrink:0;
+}
+.nav-hamburger .hb{
+  display:block;width:22px;height:1.5px;
+  background:var(--ink);
+  transition:transform .35s ease,opacity .25s ease,top .35s ease;
+  transform-origin:center;
+  position:relative;
+}
+/* Hamburger → X when mega menu open */
+.mega-open .nav-hamburger .hb:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mega-open .nav-hamburger .hb:nth-child(2){opacity:0;transform:scaleX(0);}
+.mega-open .nav-hamburger .hb:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-link{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;transition:color .2s;
+}
+.nav-link:hover{color:var(--rust);}
+.nav-logo{
+  font-family:var(--serif);font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--ink);text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
+.nav-right-area{display:flex;align-items:center;justify-content:flex-end;}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);transition:color .2s;font-family:var(--sans);
+}
+.nav-search:hover{color:var(--rust);}
+
+/* ══════════════════════════════════════════
+   3-LEVEL CASCADING MEGA MENU — FIXED
+══════════════════════════════════════════ */
+
+/* Fullscreen overlay — hidden by default */
+.mega-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9000;
+  display:none;
+}
+.mega-overlay.open{ display:block; }
+
+/* Dark backdrop behind panels */
+.mega-backdrop{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(10,6,2,0.5);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.mega-overlay.open .mega-backdrop{ opacity:1; }
+
+/* Panel row — sits on top of backdrop, left-aligned */
+.mega-panels{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  z-index:1;
+  /* wide enough to hold all 3 panels */
+  width:1180px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.mega-overlay.open .mega-panels{
+  pointer-events:all;
+}
+
+/* Base panel — hidden off left edge */
+.mpanel{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#fff;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-right:1px solid #e0d8cc;
+  /* animate using left position */
+  transition:left .38s cubic-bezier(0.16,1,0.3,1);
+  pointer-events:none;
+}
+.mpanel.visible{
+  pointer-events:all;
+}
+
+/* PANEL 1
+   hidden:  left:-380px (off screen left)
+   visible: left:0
+*/
+.mpanel-1{
+  width:380px;
+  left:-380px;
+}
+.mpanel-1.visible{ left:0; }
+
+/* PANEL 2
+   hidden:  left:-420px (behind panel 1)
+   visible: left:380px (right of panel 1)
+*/
+.mpanel-2{
+  width:420px;
+  left:-420px;
+}
+.mpanel-2.visible{ left:380px; }
+
+/* PANEL 3
+   hidden:  left:-380px (behind panel 2)
+   visible: left:800px (right of panel 2)
+*/
+.mpanel-3{
+  width:380px;
+  left:-380px;
+}
+.mpanel-3.visible{ left:800px; }
+
+/* Panel 1 inner padding */
+.mp1-inner{ padding:32px 36px 40px; }
+
+/* Close × */
+.mp-close-row{ margin-bottom:28px; }
+.mp-close{
+  background:none;border:none;cursor:pointer;
+  font-size:26px;line-height:1;color:var(--ink);
+  padding:0;transition:opacity .2s;font-family:sans-serif;
+}
+.mp-close:hover{ opacity:0.4; }
+
+/* Level 1 main links */
+.mp1-nav{ list-style:none; }
+.mp1-nav li{ border-bottom:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav li:first-child{ border-top:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-size:30px;font-weight:400;
+  color:var(--ink);padding:16px 0;
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.mp1-nav a:hover,
+.mp1-nav li.active-item > a{ color:var(--rust); }
+.mp1-nav a svg{ flex-shrink:0;transition:transform .2s; }
+.mp1-nav li.active-item > a svg{ transform:translateX(4px); }
+
+/* Divider + POPULAR */
+.mp1-divider{
+  height:0.5px;background:rgba(26,18,9,0.12);margin:28px 0 20px;
+}
+.mp1-popular-label{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:#3E6B4E;margin-bottom:16px;
+}
+.mp1-secondary{ list-style:none; }
+.mp1-secondary li{ border-bottom:0.5px solid rgba(26,18,9,0.06); }
+.mp1-secondary a{
+  display:block;font-family:var(--sans);font-size:13px;
+  color:rgba(26,18,9,0.6);padding:9px 0;transition:color .2s;
+}
+.mp1-secondary a:hover{ color:var(--rust); }
+
+/* Panel 2 */
+.mp2-inner{ padding:28px 32px 40px; }
+.mp2-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp2-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp2-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp2-card:hover .mp2-card-bg{ transform:scale(1.05); }
+.mp2-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp2-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mc2bg1{ background:radial-gradient(ellipse at 45% 55%,#1a3010,#060c04); }
+.mc2bg2{ background:radial-gradient(ellipse at 55% 45%,#201808,#0c0a04); }
+.mc2bg3{ background:radial-gradient(ellipse at 40% 60%,#001828,#040810); }
+.mc2bg4{ background:radial-gradient(ellipse at 60% 40%,#1e0800,#0c0400); }
+.mc2bg5{ background:radial-gradient(ellipse at 50% 50%,#180a00,#0a0500); }
+.mc2bg6{ background:radial-gradient(ellipse at 45% 55%,#0a1020,#04060c); }
+.mp2-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp2-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp2-regions{ list-style:none; }
+.mp2-regions li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp2-regions a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:13px 0;cursor:pointer;transition:color .2s;text-decoration:none;
+}
+.mp2-regions a:hover,
+.mp2-regions a.active{ color:var(--rust); }
+.mp2-regions a svg{ flex-shrink:0;opacity:0.3;transition:opacity .2s; }
+.mp2-regions a:hover svg,
+.mp2-regions a.active svg{ opacity:1;color:var(--rust); }
+
+/* Panel 3 */
+.mp3-inner{ padding:28px 32px 40px; }
+.mp3-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp3-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp3-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp3-card:hover .mp3-card-bg{ transform:scale(1.05); }
+.mp3-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp3-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mp3-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp3-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp3-countries{ list-style:none; }
+.mp3-countries li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp3-countries a{
+  display:flex;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:12px 0;transition:color .2s;text-decoration:none;
+}
+.mp3-countries a:hover{ color:var(--rust); }
+
+/* Stagger animations */
+.mega-overlay.open .mp1-nav li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-nav li:nth-child(1){ animation-delay:.05s; }
+.mega-overlay.open .mp1-nav li:nth-child(2){ animation-delay:.10s; }
+.mega-overlay.open .mp1-nav li:nth-child(3){ animation-delay:.15s; }
+.mega-overlay.open .mp1-secondary li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-secondary li:nth-child(1){ animation-delay:.18s; }
+.mega-overlay.open .mp1-secondary li:nth-child(2){ animation-delay:.21s; }
+.mega-overlay.open .mp1-secondary li:nth-child(3){ animation-delay:.24s; }
+.mega-overlay.open .mp1-secondary li:nth-child(4){ animation-delay:.27s; }
+.mega-overlay.open .mp1-secondary li:nth-child(5){ animation-delay:.30s; }
+.mega-overlay.open .mp1-secondary li:nth-child(6){ animation-delay:.33s; }
+@keyframes mpIn{
+  from{ opacity:0; transform:translateX(-12px); }
+  to{   opacity:1; transform:none; }
+}
+
+/* ══════════════════════════════
+   HERO — full-bleed video
+══════════════════════════════ */
+.hero{
+  position:relative;height:calc(100vh - 64px);
+  min-height:560px;overflow:hidden;background:#1a1209;
+}
+.hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-veil{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(10,6,2,0.18) 0%,rgba(10,6,2,0.12) 45%,rgba(10,6,2,0.62) 100%);
+}
+.hero-in{
+  position:absolute;left:48px;bottom:96px;z-index:2;max-width:640px;
+  animation:heroIn .8s ease both;
+}
+@keyframes heroIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.hero-brand-mark{
+  position:absolute;top:16px;left:48px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  animation:heroIn .8s ease both;
+}
+.hero-brand-mark img{width:50px;height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.4));}
+.hero-brand-mark span{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.4em;text-transform:uppercase;
+  color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4);padding-left:0.4em;
+}
+.hero-kicker{font-family:var(--sans);font-size:11px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(255,255,255,0.78);margin-bottom:20px;}
+.hero-in h1{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.8vw,84px);line-height:1.02;color:#fff;margin-bottom:34px;}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  border:1.5px solid rgba(255,255,255,0.7);color:#fff;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:15px 26px;transition:background .25s,border-color .25s;
+}
+.hero-cta:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
+.hero-scroll{
+  position:absolute;right:48px;bottom:44px;z-index:2;
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+}
+.hero-scroll span{
+  width:1px;height:34px;background:rgba(255,255,255,0.4);
+  position:relative;overflow:hidden;
+}
+.hero-scroll span::after{
+  content:'';position:absolute;left:0;top:-100%;width:100%;height:100%;
+  background:#fff;animation:scrollDrop 1.8s ease-in-out infinite;
+}
+@keyframes scrollDrop{0%{top:-100%;}60%{top:100%;}100%{top:100%;}}
+@media(max-width:900px){
+  .hero-in{left:24px;bottom:110px;max-width:88%;}
+  .hero-scroll{display:none;}
+  .hero-brand-mark{top:10px;left:24px;}
+  .hero-brand-mark img{width:38px;}
+  .hero-brand-mark span{font-size:9px;letter-spacing:0.32em;}
+}
+
+/* ══════════════════════════════
+   MANIFESTO
+══════════════════════════════ */
+.manifesto{background:var(--warm);padding:80px 15%;text-align:center;}
+.manifesto p{font-family:var(--serif);font-size:clamp(22px,2.6vw,32px);font-weight:400;line-height:1.55;color:var(--ink);}
+.manifesto em{font-style:italic;}
+
+/* ══════════════════════════════
+   DISCOVERY — sticky tabs
+══════════════════════════════ */
+.discovery{background:#fff;}
+.disc-title{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:400;text-align:center;padding:60px 0 32px;color:var(--ink);}
+/* The tab bar only works with JavaScript, so it is not offered without it. */
+.disc-tabs-wrap{display:none;position:sticky;top:64px;z-index:200;background:#fff;border-bottom:1.5px solid #e0d8cc;}
+.js .disc-tabs-wrap{display:block;}
+.disc-tabs-wrap-spacer{display:none;}
+.disc-tabs{display:flex;justify-content:center;max-width:800px;margin:0 auto;}
+.disc-tab{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);padding:14px 28px;
+  border-bottom:2.5px solid transparent;margin-bottom:-1.5px;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+}
+.disc-tab.active{color:var(--rust);border-bottom-color:var(--rust);}
+.disc-tab:hover:not(.active){color:var(--ink);}
+/* Unscripted: every panel is shown, each under its own heading, and the tab bar
+   is hidden because it cannot do anything. Scripted: normal tabbed behaviour. */
+.disc-panel-label{font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;text-align:center;padding:34px 20px 18px;}
+.js .disc-panel-label{display:none;}
+.js .disc-panel{display:none;}
+.js .disc-panel.active{display:block;}
+.disc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+/* The extra destinations revealed by the View All Destinations button. */
+/* Unscripted: the extra destinations are simply shown and the toggle is hidden,
+   because a button that needs JavaScript to do anything should not be offered. */
+.js .disc-more{display:none;}
+.js .disc-more.open{display:grid;}
+.disc-more-wrap{display:none;justify-content:center;padding:44px 20px 8px;}
+.js .disc-more-wrap{display:flex;}
+.disc-more-btn{font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:#fff;background:#141008;border:1px solid #141008;padding:17px 40px;cursor:pointer;transition:background .25s ease,color .25s ease;}
+.disc-more-btn:hover{background:transparent;color:#141008;}
+.disc-more-btn:focus-visible{outline:2px solid #141008;outline-offset:3px;}
+.dcard{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;}
+.dcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
+.dcard:hover .dcard-bg{transform:scale(1.05);}
+.dcard-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,4,0.78) 0%,rgba(20,12,4,0.0) 55%);}
+/* FS-DESTCARDS:START — written by sync-dest-cards.js; do not edit by hand */
+.dcbg-kenya{background-image:url('assets/img/destinations/kenya.jpg');background-size:cover;background-position:center;}
+.dcbg-tanzania{background-image:url('assets/img/destinations/tanzania.jpg');background-size:cover;background-position:center;}
+.dcbg-botswana{background-image:url('assets/img/destinations/botswana.jpg');background-size:cover;background-position:center;}
+.dcbg-thailand{background-image:url('assets/img/destinations/thailand.jpg');background-size:cover;background-position:center;}
+.dcbg-croatia{background-image:url('assets/img/destinations/croatia.jpg');background-size:cover;background-position:center;}
+.dcbg-italy{background-image:url('assets/img/destinations/italy.jpg');background-size:cover;background-position:center;}
+.dcbg-maldives{background-image:url('assets/img/destinations/maldives.jpg');background-size:cover;background-position:center;}
+.dcbg-mauritius{background-image:url('assets/img/destinations/mauritius.jpg');background-size:cover;background-position:center;}
+.dcbg-new-zealand{background-image:url('assets/img/destinations/new-zealand.jpg');background-size:cover;background-position:center;}
+/* FS-DESTCARDS:END */
+.dcbg1{background:radial-gradient(ellipse at 45% 60%, #1e3010 0%, #060c04 100%);}
+.dcbg2{background:radial-gradient(ellipse at 50% 40%, #201808 0%, #0c0a04 100%);}
+.dcbg3{background:radial-gradient(ellipse at 55% 55%, #001828 0%, #040810 100%);}
+.dcbg4{background-image:url('assets/img/offers/flight-arrangements/1.jpg');background-size:cover;background-position:center;}
+.dcbg5{background-image:url('assets/img/offers/layover-safaris/1.jpg');background-size:cover;background-position:center;}
+.dcbg6{background-image:url('assets/img/offers/airport-fast-track/1.jpg');background-size:cover;background-position:center;}
+.dcbg7{background-image:url('assets/img/offers/flexible-payments/1.jpg');background-size:cover;background-position:center;}
+.dcbg8{background-image:url('assets/img/offers/free-nights/3.jpg');background-size:cover;background-position:center;}
+.dcbg9{background-image:url('assets/img/offers/early-bird/1.jpg');background-size:cover;background-position:center;}
+.dcard-info{position:absolute;bottom:0;left:0;right:0;padding:28px 28px 24px;}
+.dcard-name{font-family:var(--serif);font-size:clamp(26px,3vw,38px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:12px;}
+.dcard-explore{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(255,255,255,0.5);color:#fff;
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:9px 16px;transition:background .25s;
+}
+.dcard:hover .dcard-explore{background:rgba(255,255,255,0.15);}
+
+/* ══════════════════════════════
+   JOURNEY FINDER CAROUSEL (5 cards)
+══════════════════════════════ */
+.finder{background:var(--warm);padding:70px 0;}
+.finder-inner{display:grid;grid-template-columns:260px 1fr;gap:0;align-items:start;padding:0 48px;}
+.finder-left{padding-right:40px;}
+.finder-heading{font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:400;line-height:1.25;color:var(--ink);margin-bottom:24px;}
+.finder-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink);color:#fff;
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 24px;cursor:pointer;border:none;transition:background .25s;
+}
+.finder-btn:hover{background:var(--rust);}
+.carousel-outer{position:relative;overflow:hidden;}
+.carousel-track-wrap{overflow:hidden;}
+.carousel-track{display:flex;gap:16px;transition:transform .5s cubic-bezier(0.25,0.46,0.45,0.94);}
+.fcard-link{display:block;color:inherit;text-decoration:none;}
+.fcard-link:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+.fcard{flex:0 0 calc(33.333% - 11px);position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;}
+.fcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s;}
+.fcard:hover .fcard-bg{transform:scale(1.05);}
+.fcard-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.08) 60%);}
+.fcbg1{background-image:url('assets/img/journey-finder/beach.jpg');background-size:cover;background-position:center;}
+.fcbg2{background:radial-gradient(ellipse at 50% 55%, #1e1008 0%, #0c0804 100%);}
+.fcbg3{background-image:url('assets/img/private-jets/hero.jpg');background-size:cover;background-position:center;}
+.fcbg4{background-image:url('assets/img/journey-finder/safari.jpg');background-size:cover;background-position:center;}
+.fcbg5{background-image:url('assets/img/couples-escapes/hero-1.jpg');background-size:cover;background-position:center;}
+.fcbg6{background-image:url('assets/img/helicopter/page-hero-4.jpg');background-size:cover;background-position:center;}
+.fcard-info{position:absolute;bottom:0;left:0;right:0;padding:20px 18px 18px;}
+.fcard-type{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:8px;font-family:var(--sans);}
+.fcard-name{font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:8px;}
+.fcard-desc{font-size:12px;line-height:1.55;color:rgba(255,255,255,0.62);font-family:var(--sans);}
+.carousel-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:10;
+  background:#fff;border:none;cursor:pointer;width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:background .2s,box-shadow .2s;color:var(--ink);
+}
+.carousel-arrow:hover{background:var(--rust);color:#fff;}
+.carousel-arrow.prev{left:-22px;}
+.carousel-arrow.next{right:-22px;}
+
+/* ══════════════════════════════
+   PROPERTIES
+══════════════════════════════ */
+.properties{background:#fff;padding:80px 48px;}
+.section-title{font-family:var(--serif);font-size:clamp(20px,2vw,26px);font-weight:400;text-align:center;color:var(--ink);line-height:1.5;max-width:800px;margin:0 auto 48px;}
+.section-title em{font-style:italic;}
+.prop-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:720px;margin:0 auto;}
+.pcard{display:block;position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;}
+.pcard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s;}
+.pcard:hover .pcard-bg{transform:scale(1.04);}
+.pcard-overlay{position:absolute;inset:0;background:rgba(20,12,4,0.4);}
+.pcbg1{background-image:url('assets/img/lodges/hemingways-nairobi/1.jpg');background-size:cover;background-position:center;}
+.pcbg2{background-image:url('assets/img/lodges/angama-mara/1.jpg');background-size:cover;background-position:center;}
+.pcard-info{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;}
+.pcard-name{font-family:var(--serif);font-size:32px;font-weight:400;color:#fff;margin-bottom:12px;line-height:1.1;}
+.pcard-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.72);font-family:var(--sans);margin-bottom:20px;}
+.pcard-cta{border:1px solid rgba(255,255,255,0.55);color:#fff;font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:10px 20px;display:inline-flex;align-items:center;gap:8px;transition:background .25s;}
+.pcard:hover .pcard-cta{background:rgba(255,255,255,0.15);}
+
+/* ══════════════════════════════
+   HOW DO YOU WISH TO TRAVEL
+══════════════════════════════ */
+.how-travel{background:#fff;}
+.how-travel-header{padding:70px 48px 40px;display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid #e8e0d4;}
+.how-travel-title{font-family:var(--serif);font-size:clamp(28px,3.2vw,42px);font-weight:400;color:var(--ink);line-height:1.1;}
+.how-travel-sub{font-size:12px;line-height:1.7;color:var(--muted);max-width:380px;text-align:right;font-family:var(--sans);}
+
+/* 3-card editorial grid */
+.editorial{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.ecard{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;}
+.ecard-link{display:block;color:inherit;text-decoration:none;}
+.ecard-link:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+.ecard-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s;}
+.ecard:hover .ecard-bg{transform:scale(1.04);}
+.ecard-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,2,0.84) 0%,rgba(10,6,2,0.08) 60%);}
+.ecbg1{background-image:url('assets/img/travel-style/tailor-made/2.jpg');background-size:cover;background-position:center;}
+.ecbg2{background-image:url('assets/img/travel-style/small-group/1.jpg');background-size:cover;background-position:center;}
+.ecbg3{background-image:url('assets/img/travel-style/solo-travel/2.jpg');background-size:cover;background-position:center;}
+.ecard-content{position:absolute;bottom:0;left:0;right:0;padding:28px 24px 24px;}
+.ecard-name{font-family:var(--serif);font-size:26px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:10px;}
+.ecard-desc{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.65);font-family:var(--sans);}
+
+/* ══════════════════════════════
+   BY ROAD + PRIVATE FLY-INS panels
+   (follows Wildlife & Safari / How do you wish to travel)
+══════════════════════════════ */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.feat-panel{position:relative;min-height:380px;overflow:hidden;cursor:pointer;}
+.feat-panel-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s;}
+.feat-panel:hover .feat-panel-bg{transform:scale(1.04);}
+.feat-panel-overlay{position:absolute;inset:0;background:rgba(10,6,2,0.44);}
+.fpbg1{background-image:url('assets/img/travel-style/by-road/4.jpg');background-size:cover;background-position:center;}
+.fpbg2{background-image:url('assets/img/travel-style/fly-in/5.jpg');background-size:cover;background-position:center;}
+.feat-panel-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;}
+.feat-panel-name{font-family:var(--serif);font-size:38px;font-weight:400;color:#fff;margin-bottom:16px;}
+.feat-panel-desc{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.7);font-family:var(--sans);max-width:280px;margin-bottom:24px;}
+.feat-panel-cta{border:1px solid rgba(255,255,255,0.55);color:#fff;font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:11px 20px;display:inline-flex;align-items:center;gap:8px;transition:background .25s;}
+.feat-panel:hover .feat-panel-cta{background:rgba(255,255,255,0.12);}
+
+/* ══════════════════════════════
+   HERO VIDEO SECTION
+   (sits between "How do you wish to travel" features and "Why {{brand}}")
+══════════════════════════════ */
+.hero-video-section{
+  position:relative;width:100%;height:560px;
+  background:#0d0b08;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-video-bg{position:absolute;inset:0;background:#0d0b08;}
+.hero-video-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-video-overlay{position:absolute;inset:0;background:rgba(10,6,2,0.45);}
+.hero-video-content{position:relative;z-index:2;text-align:center;padding:0 48px;}
+.hero-video-label{font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-family:var(--sans);margin-bottom:20px;}
+.hero-video-title{font-family:var(--serif);font-size:clamp(34px,5vw,64px);font-weight:400;color:#fff;line-height:1.05;margin-bottom:36px;}
+.hero-video-title em{font-style:italic;color:#d4ab68;}
+
+/* ══════════════════════════════
+   WHY {{BRAND}} — horizontal pillars + read more
+══════════════════════════════ */
+.why{position:relative;overflow:hidden;}
+.why-image-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.why-image-bg-grad{background:radial-gradient(ellipse at 50% 40%, #7a2e14 0%, #220a02 100%);}
+.why-overlay{position:absolute;inset:0;background:rgba(50,16,2,0.72);}
+.why-content{position:relative;z-index:2;padding:80px 48px 60px;}
+.why-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;gap:40px;}
+.why-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:var(--sans);margin-bottom:14px;}
+.why-title{font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;color:#fff;line-height:1.1;max-width:440px;margin-bottom:10px;}
+.why-subtitle{font-family:var(--serif);font-style:italic;font-size:16px;color:rgba(255,255,255,0.55);max-width:440px;}
+.why-read-story{display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,0.4);color:#fff;font-family:var(--sans);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 22px;white-space:nowrap;align-self:flex-start;transition:background .25s,border-color .25s;}
+.why-read-story:hover{background:rgba(255,255,255,0.1);border-color:#fff;}
+.why-intro-short{font-family:var(--serif);font-size:16px;font-style:italic;color:rgba(255,255,255,0.6);margin-bottom:40px;border-top:1px solid rgba(255,255,255,0.14);padding-top:28px;}
+/* 4 horizontal pillars */
+.why-pillars-horiz{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:0.5px solid rgba(255,255,255,0.14);}
+.why-pillar{padding:28px 28px 28px 0;border-right:0.5px solid rgba(255,255,255,0.1);}
+.why-pillar:last-child{border-right:none;padding-right:0;}
+.why-pillar:not(:first-child){padding-left:28px;}
+.wp-num{font-family:var(--serif);font-size:40px;font-weight:300;color:rgba(255,255,255,0.18);line-height:1;margin-bottom:14px;}
+.wp-title{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-family:var(--sans);margin-bottom:12px;}
+.wp-body{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.72);font-family:var(--sans);}
+/* Expanded read-more area */
+.why-expanded{display:none;margin-top:40px;border-top:0.5px solid rgba(255,255,255,0.14);padding-top:36px;}
+.why-expanded.open{display:block;}
+.why-expanded-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 60px;}
+.we-title{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#fff;margin-bottom:14px;border-bottom:0.5px solid rgba(255,255,255,0.14);padding-bottom:10px;}
+.we-body{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.65);font-family:var(--sans);}
+.we-body p{margin-bottom:10px;}
+.why-readmore-btn{display:inline-flex;align-items:center;gap:10px;margin-top:36px;background:none;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:12px 24px;cursor:pointer;transition:background .25s,border-color .25s,color .25s;}
+.why-readmore-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.6);color:#fff;}
+.why-readmore-btn svg{transition:transform .3s;}
+.why-readmore-btn.open svg{transform:rotate(180deg);}
+
+/* ══════════════════════════════
+   NEWSLETTER / JOURNAL
+══════════════════════════════ */
+.subscribe-band{position:relative;background:#150e07;overflow:hidden;}
+.sb-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.26;}
+.sb-veil{position:absolute;inset:0;background:linear-gradient(120deg,rgba(21,14,7,.97) 0%,rgba(21,14,7,.9) 50%,rgba(21,14,7,.8) 100%);}
+.sb-in{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center;padding:72px 48px;}
+.sb-label{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#c9a86a;font-family:var(--sans);margin-bottom:14px;}
+.sb-title{font-family:var(--serif);font-size:30px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:14px;}
+.sb-sub{font-family:var(--sans);font-size:14px;line-height:1.85;color:rgba(255,255,255,.72);max-width:48ch;margin-bottom:22px;}
+.sb-points{display:flex;flex-wrap:wrap;gap:12px 24px;}
+.sb-points span{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11.5px;letter-spacing:.02em;color:rgba(255,255,255,.85);}
+.sb-points svg{color:#c9a86a;flex-shrink:0;}
+.sb-form{display:flex;width:100%;}
+.sb-input{flex:1;min-width:0;border:1.5px solid rgba(255,255,255,.28);border-right:none;padding:15px 18px;font-family:var(--sans);font-size:13px;color:#fff;background:rgba(255,255,255,.06);outline:none;transition:border-color .2s,background .2s;}
+.sb-input::placeholder{color:rgba(255,255,255,.5);}
+.sb-input:focus{border-color:#c9a86a;background:rgba(255,255,255,.1);}
+.sb-submit{background:var(--rust);color:#fff;border:none;cursor:pointer;font-family:var(--sans);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:15px 26px;transition:background .25s;white-space:nowrap;}
+.sb-submit:hover{background:var(--rust-dark);}
+.sb-fine{font-family:var(--sans);font-size:10.5px;color:rgba(255,255,255,.45);margin-top:12px;}
+.sb-success{display:none;border:1px solid rgba(201,168,106,.4);background:rgba(201,168,106,.08);padding:20px 22px;}
+.sb-success.on{display:block;}
+.sb-success h4{font-family:var(--serif);font-size:18px;font-weight:400;color:#fff;margin:0 0 6px;}
+.sb-success p{font-family:var(--sans);font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.72);margin:0;}
+@media(max-width:900px){.sb-in{grid-template-columns:1fr;padding:52px 24px;gap:32px;}}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+.footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;letter-spacing:0.04em;margin-bottom:12px;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.33);margin-bottom:24px;}
+.footer-social{display:flex;gap:12px;}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.fsoc:hover{border-color:rgba(255,255,255,0.5);}
+.footer-col-head{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:16px;font-family:var(--sans);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.52);transition:color .2s;font-family:var(--sans);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:10.5px;color:rgba(255,255,255,0.28);transition:color .2s;font-family:var(--sans);}
+.footer-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* Floating speak btn */
+.speak-btn{position:fixed;bottom:24px;right:24px;z-index:300;background:var(--rust);color:#fff;border:none;cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.25);transition:background .25s;}
+.speak-btn:hover{background:var(--rust-dark);}
+
+/* Scroll reveal */
+/* Visible by default; only a scripted page starts them hidden to fade them in. */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.js .reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none;}}
+.reveal-d1{transition-delay:.1s;}
+.reveal-d2{transition-delay:.2s;}
+.reveal-d3{transition-delay:.3s;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .topbar{padding:10px 20px;font-size:10.5px;}
+  .topbar-right{display:none;}
+  .nav{padding:0 20px;}
+  .nav-left .nav-link{display:none;}
+  .nav-logo{font-size:18px;gap:7px;}
+  .nav-logo img{height:24px;}
+  .disc-tabs{overflow-x:auto;justify-content:flex-start;padding:0 16px;}
+  .disc-cards,.editorial,.features{grid-template-columns:1fr;}
+  /* One card per row: a 3/4 portrait becomes taller than the screen and hides its own
+     title below the fold, so go landscape and keep the label in view. */
+  .dcard{aspect-ratio:16/9;}
+  .finder-inner{grid-template-columns:1fr;padding:0 24px;}
+  .finder-left{padding-right:0;margin-bottom:28px;}
+  .fcard{flex:0 0 calc(80% - 8px);}
+  .prop-cards{grid-template-columns:1fr;max-width:400px;}
+  .why-pillars-horiz{grid-template-columns:1fr 1fr;}
+  .why-expanded-grid{grid-template-columns:1fr;}
+  .mpanel-1{width:88vw;max-width:400px;}
+  .mpanel-2{width:88vw;max-width:400px;}
+  .mpanel-3{width:88vw;max-width:380px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .how-travel-header{flex-direction:column;gap:16px;}
+  .how-travel-sub{text-align:left;}
+  .features{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .disc-tab{padding:12px 16px;font-size:10.5px;}
+  .why-pillars-horiz{grid-template-columns:1fr;}
+  .why-top{flex-direction:column;}
+  .footer-top{grid-template-columns:1fr;}
+}
+</style>
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     HAMBURGER MENU OVERLAY
+══════════════════════════════ -->
+<!-- ══════════════════════════════════════════
+     3-LEVEL CASCADING MEGA MENU
+══════════════════════════════════════════ -->
+<!--@include mega-menu-panels--><!-- /mega-overlay -->
+
+<!-- ══════════════════════════════
+     TOP BAR
+══════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-left">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+    <span><strong>SPEAK TO US | {{phone}}</strong> &nbsp;&nbsp; Open Mon–Fri 8am–6pm EAT</span>
+  </div>
+  <div class="topbar-right">
+    <a href="#subscribe">SUBSCRIBE</a><span class="topbar-dot">·</span>
+    <a href="brochures.html">BROCHURES</a><span class="topbar-dot">·</span>
+    
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     NAV
+══════════════════════════════ -->
+<!--@include nav-menu-pages-->
+
+<!-- ══════════════════════════════
+     HERO SLIDESHOW
+══════════════════════════════ -->
+<section class="hero">
+  <video class="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="assets/video/homepage-hero-poster.jpg">
+    <source src="assets/video/homepage-hero-720.mp4" type="video/mp4" media="(max-width:768px)">
+    <source src="assets/video/homepage-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
+  <div class="hero-brand-mark">
+    <img src="assets/img/logo/lion-mark.png" alt="{{brand}}">
+    <span>F &amp; K</span>
+  </div>
+  <div class="hero-in">
+    <p class="hero-kicker">{{brand}}</p>
+    <h1>Africa, Unscripted.</h1>
+    <a href="journey-finder.html" class="hero-cta">EXPLORE JOURNEYS &nbsp;↗</a>
+  </div>
+  <div class="hero-scroll"><span></span>Scroll</div>
+</section>
+<script>(function(){var v=document.querySelector('.hero-bg-video');if(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}})();</script>
+
+<!-- ══════════════════════════════
+     MANIFESTO
+══════════════════════════════ -->
+<section class="manifesto">
+  <p>We&rsquo;re dedicated to crafting out-of-this-world safari experiences, because we believe every journey should be extraordinary &mdash; filled with unforgettable moments, meaningful encounters, and memories that stay with you for years to come. Every experience we create is thoughtfully designed around you, your dreams, and the way you want to experience the world. So, whenever you think of safari, think of us &mdash; because we will be thinking of you.</p>
+</section>
+
+<!-- ══════════════════════════════
+     DISCOVERY — sticky tabs
+══════════════════════════════ -->
+<section class="discovery" id="discovery">
+  <h2 class="disc-title">Where do you want to go?</h2>
+  <div class="disc-tabs-wrap" id="discTabsWrap">
+    <div class="disc-tabs" role="tablist">
+      <button class="disc-tab active" data-tab="tab-dest">Destinations We Love</button>
+      <button class="disc-tab" data-tab="tab-journeys">Add-Ons</button>
+      <button class="disc-tab" data-tab="tab-offers">Exclusive Offers</button>
+      <button class="disc-tab" data-tab="tab-new">Noteworthy</button>
+    </div>
+  </div>
+  <div class="disc-panel active" id="tab-dest">
+    <h3 class="disc-panel-label">Destinations We Love</h3>
+    <div class="disc-cards">
+      <div class="dcard reveal"><div class="dcard-bg dcbg-kenya"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Kenya</h3><a href="finders-safaris-kenya.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard reveal reveal-d1"><div class="dcard-bg dcbg-tanzania"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Tanzania</h3><a href="finders-safaris-tanzania.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard reveal reveal-d2"><div class="dcard-bg dcbg-botswana"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Botswana</h3><a href="finders-safaris-botswana.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+    </div>
+    <!-- Revealed by the View All Destinations button. Placeholder destinations for now. -->
+    <div class="disc-cards disc-more" id="destMore">
+      <div class="dcard"><div class="dcard-bg dcbg-thailand"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Thailand</h3><a href="finders-safaris-thailand.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg-croatia"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Croatia</h3><a href="finders-safaris-croatia.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg-italy"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Italy</h3><a href="finders-safaris-italy.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg-maldives"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Maldives</h3><a href="finders-safaris-maldives.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg-mauritius"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Mauritius</h3><a href="finders-safaris-mauritius.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg-new-zealand"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">New Zealand</h3><a href="finders-safaris-new-zealand.html" class="dcard-explore">EXPLORE ↗</a></div></div>
+    </div>
+    <div class="disc-more-wrap">
+      <button type="button" class="disc-more-btn" id="destMoreBtn" aria-expanded="false" aria-controls="destMore">View All Destinations</button>
+    </div>
+  </div>
+  <div class="disc-panel" id="tab-journeys">
+    <h3 class="disc-panel-label">Add-Ons</h3>
+    <div class="disc-cards">
+      <div class="dcard"><div class="dcard-bg dcbg4"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Flight Arrangements</h3><a href="flight-arrangements.html" class="dcard-explore">LEARN MORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg5"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Layover Tours</h3><a href="layover-safaris.html" class="dcard-explore">LEARN MORE ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg6"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Airport Fast Tracking</h3><a href="airport-fast-track.html" class="dcard-explore">LEARN MORE ↗</a></div></div>
+    </div>
+  </div>
+  <div class="disc-panel" id="tab-offers">
+    <h3 class="disc-panel-label">Exclusive Offers</h3>
+    <div class="disc-cards">
+      <div class="dcard"><div class="dcard-bg dcbg7"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Flexible Payments</h3><a href="flexible-payments.html" class="dcard-explore">VIEW OFFER ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg8"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Free Nights</h3><a href="free-nights.html" class="dcard-explore">VIEW OFFER ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg9"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Early Bird 2027</h3><a href="early-bird-2027.html" class="dcard-explore">VIEW OFFER ↗</a></div></div>
+    </div>
+  </div>
+  <div class="disc-panel" id="tab-new">
+    <h3 class="disc-panel-label">Noteworthy</h3>
+    <div class="disc-cards">
+      <div class="dcard"><div class="dcard-bg dcbg3" style="background-image:url('assets/img/noteworthy/photography/1.jpg');background-size:cover;background-position:center"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Photography</h3><a href="photography.html" class="dcard-explore">DISCOVER ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg1" style="background-image:url('assets/img/noteworthy/stopovers/5.jpg');background-size:cover;background-position:center"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">Stop-Overs</h3><a href="stopovers.html" class="dcard-explore">DISCOVER ↗</a></div></div>
+      <div class="dcard"><div class="dcard-bg dcbg6" style="background-image:url('assets/img/noteworthy/city-tour/5.jpg');background-size:cover;background-position:center"></div><div class="dcard-overlay"></div><div class="dcard-info"><h3 class="dcard-name">City Tours</h3><a href="city-tour.html" class="dcard-explore">DISCOVER ↗</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     JOURNEY FINDER CAROUSEL (5 cards)
+══════════════════════════════ -->
+<section class="finder" id="finder">
+  <div class="finder-inner">
+    <div class="finder-left reveal">
+      <h2 class="finder-heading">What kind of trip are you looking for?</h2>
+      <a class="finder-btn" href="journey-finder.html">JOURNEY FINDER</a>
+    </div>
+    <div style="position:relative;">
+      <button class="carousel-arrow prev" id="carPrev" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carTrack">
+          <a class="fcard fcard-link" href="beach.html"><div class="fcard-bg fcbg1"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">Sand &amp; Sea</p><h3 class="fcard-name">Beach</h3><p class="fcard-desc">Indian Ocean islands and white-sand coastlines — the right way to finish a safari, or a journey in itself.</p></div></a>
+          <a class="fcard fcard-link" href="family-adventures.html"><div class="fcard-bg fcbg2" style="background-image:url('assets/img/family-adventures/hero-3.jpg');background-size:cover;background-position:center"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">Travel Together</p><h3 class="fcard-name">Family Adventures</h3><p class="fcard-desc">Safari experiences crafted for every generation — from first-time explorers to seasoned travellers.</p></div></a>
+          <a class="fcard fcard-link" href="private-jets.html"><div class="fcard-bg fcbg3"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">Travel On Your Own Terms</p><h3 class="fcard-name">Private Jets</h3><p class="fcard-desc">Charter your own aircraft and move between destinations on your schedule rather than an airline's.</p></div></a>
+          <a class="fcard fcard-link" href="safari.html"><div class="fcard-bg fcbg4"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">Front-Row Nature</p><h3 class="fcard-name">Safari</h3><p class="fcard-desc">Front-row seats at nature's greatest wildlife spectacles — the Big Five and beyond.</p></div></a>
+          <a class="fcard fcard-link" href="couples-escapes.html"><div class="fcard-bg fcbg5"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">Just The Two Of You</p><h3 class="fcard-name">Couples Escapes</h3><p class="fcard-desc">Honeymoons, anniversaries and quiet weeks away — designed around two people and nobody else.</p></div></a>
+          <a class="fcard fcard-link" href="helicopter-tours.html"><div class="fcard-bg fcbg6"></div><div class="fcard-overlay"></div><div class="fcard-info"><p class="fcard-type">From The Air</p><h3 class="fcard-name">Helicopter Tours</h3><p class="fcard-desc">Landscapes that only resolve from above — flown low over the country, and landing where no road goes.</p></div></a>
+        </div>
+      </div>
+      <button class="carousel-arrow next" id="carNext" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     PROPERTIES: City Hotels + Luxury Lodges
+══════════════════════════════ -->
+<section class="properties">
+  <p class="section-title reveal"><em>Iconic city hotels and safari lodges</em> — every property in our collection is extraordinary.</p>
+  <div class="prop-cards">
+    <a class="pcard reveal" href="city-hotels.html"><div class="pcard-bg pcbg1"></div><div class="pcard-overlay"></div><div class="pcard-info"><h3 class="pcard-name">City Hotels</h3><p class="pcard-desc">Elegant urban retreats in Nairobi, Arusha, and beyond — the perfect start or end to your safari.</p></div></a>
+    <a class="pcard reveal reveal-d1" href="luxury-lodges.html"><div class="pcard-bg pcbg2"></div><div class="pcard-overlay"></div><div class="pcard-info"><h3 class="pcard-name">Luxury Lodges</h3><p class="pcard-desc">Our curated collection of East Africa's most extraordinary safari properties and private camps.</p></div></a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     HOW DO YOU WISH TO TRAVEL
+     + Wildlife & Safari  (3 editorial cards)
+     + By Road & Private Fly-Ins (2-panel features)
+══════════════════════════════ -->
+<section class="how-travel">
+  <div class="how-travel-header reveal">
+    <h2 class="how-travel-title">How do you wish<br>to travel?</h2>
+    <p class="how-travel-sub">From intimate tailor-made journeys to curated small group adventures — we have a way of travelling that is perfect for you.</p>
+  </div>
+
+  <!-- 3 editorial cards -->
+  <div class="editorial">
+    <a class="ecard reveal ecard-link" href="tailor-made-safaris.html">
+      <div class="ecard-bg ecbg1"></div><div class="ecard-overlay"></div>
+      <div class="ecard-content"><h3 class="ecard-name">Tailor-Made Safaris</h3><p class="ecard-desc">Wherever you want to go, whatever you want to do — our experts craft the adventure of your dreams.</p></div></a>
+    <a class="ecard reveal reveal-d1 ecard-link" href="small-group-journeys.html">
+      <div class="ecard-bg ecbg2"></div><div class="ecard-overlay"></div>
+      <div class="ecard-content"><h3 class="ecard-name">Small Group Journeys</h3><p class="ecard-desc">Our guided itineraries bring together like-minded travellers seeking extraordinary shared experiences.</p></div></a>
+    <a class="ecard reveal reveal-d2 ecard-link" href="solo-travel.html">
+      <div class="ecard-bg ecbg3"></div><div class="ecard-overlay"></div>
+      <div class="ecard-content"><h3 class="ecard-name">Solo Travel</h3><p class="ecard-desc">Journeys crafted around one traveller — private guides, your own pace, and the freedom to change your mind.</p></div></a>
+  </div>
+</section>
+
+<!-- By Road + Private Fly-Ins — directly follow Wildlife & Safari -->
+<section class="features">
+  <div class="feat-panel reveal">
+    <div class="feat-panel-bg fpbg1"></div><div class="feat-panel-overlay"></div>
+    <div class="feat-panel-content">
+      <h3 class="feat-panel-name">By Road</h3>
+      <p class="feat-panel-desc">Journey across East Africa's most spectacular landscapes by private vehicle — the most immersive way to experience the bush.</p>
+      <a href="by-road-safaris.html" class="feat-panel-cta">EXPLORE ROAD SAFARIS ↗</a>
+    </div>
+  </div>
+  <div class="feat-panel reveal reveal-d1">
+    <div class="feat-panel-bg fpbg2"></div><div class="feat-panel-overlay"></div>
+    <div class="feat-panel-content">
+      <h3 class="feat-panel-name">Fly-Ins</h3>
+      <p class="feat-panel-desc">Charter private aircraft to move between sensational wilderness destinations swiftly and in total luxury.</p>
+      <a href="fly-in-safaris.html" class="feat-panel-cta">EXPLORE PRIVATE CHARTERS ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     HERO VIDEO
+     (sits between features and Why {{brand}})
+══════════════════════════════ -->
+<section class="hero-video-section" id="heroVideo">
+  <div class="hero-video-bg">
+    <video class="lazy-hero-video" muted loop playsinline preload="none" poster="assets/video/homepage-hero-2-poster.jpg">
+      <source src="assets/video/homepage-hero-2-720.mp4" type="video/mp4" media="(max-width:768px)">
+      <source src="assets/video/homepage-hero-2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video-overlay"></div>
+  <div class="hero-video-content">
+    <h2 class="hero-video-title">A Life Of <em>Making Memories</em></h2>
+  </div>
+</section>
+<script>(function(){var v=document.querySelector('#heroVideo video');if(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}})();</script>
+
+<!-- ══════════════════════════════
+     WHY {{BRAND}}
+══════════════════════════════ -->
+<section class="why">
+  <div class="why-image-bg why-image-bg-grad"></div>
+  <div class="why-overlay"></div>
+  <div class="why-content">
+
+    <!-- Header row -->
+    <div class="why-top">
+      <div>
+        <p class="why-eyebrow">A LIFE OF MAKING MEMORIES SINCE 2010</p>
+        <h2 class="why-title">Why Journey with {{brand}}?</h2>
+        <p class="why-subtitle">Because a Safari Should Be Many Things. Complicated Should Never Be One of Them.</p>
+      </div>
+      
+    </div>
+
+    <!-- Intro line -->
+    <p class="why-intro-short">You have options. Many options. So why {{brand}}? Let us explain.</p>
+
+    <!-- 4 horizontal pillars (always visible) -->
+    <div class="why-pillars-horiz">
+      <div class="why-pillar">
+        <div class="wp-num">01</div>
+        <p class="wp-title">Value for Money</p>
+        <p class="wp-body">Not the lowest price — the highest return. Everything included, no hidden costs, no surprises. Our guides are naturalists, not drivers.</p>
+      </div>
+      <div class="why-pillar">
+        <div class="wp-num">02</div>
+        <p class="wp-title">Home Away From Home</p>
+        <p class="wp-body">Not a hotel. A family. The guide who remembers your coffee order. The chef who prepares your favourite meal without being asked.</p>
+      </div>
+      <div class="why-pillar">
+        <div class="wp-num">03</div>
+        <p class="wp-title">Environmental Impact</p>
+        <p class="wp-body">Not greenwashing — genuine action. Carbon-neutral journeys, reforestation, anti-poaching support, and community conservation.</p>
+      </div>
+      <div class="why-pillar">
+        <div class="wp-num">04</div>
+        <p class="wp-title">A Time Will Be Had</p>
+        <p class="wp-body">Not just a safari — a celebration. Private dinners on kopjes at sunset. Bush breakfasts beside lion prides. Moments crafted for you.</p>
+      </div>
+    </div>
+
+    <!-- READ MORE button -->
+    <button class="why-readmore-btn" id="whyReadMore" onclick="toggleWhyExpand()">
+      READ MORE
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+
+    <!-- Expanded detail — hidden until Read More pressed -->
+    <div class="why-expanded" id="whyExpanded">
+      <div class="why-expanded-grid">
+
+        <div>
+          <p class="we-title">01 — Value for Money — Not the Lowest Price. The Highest Return.</p>
+          <div class="we-body">
+            <p>Let us be honest with you. {{brand}} is not the cheapest option. We never will be. Cheap safaris cut corners — hidden fees, uncomfortable transfers, mediocre lodges, guides who are just drivers. You arrive home tired, frustrated, and wondering where all your money went.</p>
+            <p>When you book with {{brand}}, the price we quote is the price you pay. No surprises. No hidden costs. No fine print. Everything is included: every meal, every drink, every activity, every park fee, every transfer, every visa, every gratuity, every spa treatment.</p>
+            <p>Our guides are naturalists, historians, trackers, and storytellers — many with decades of experience. They read the bush like a book, interpreting tracks, alarm calls, and the subtle shifts of wind. They know the secret places where vehicles never go.</p>
+            <p>Our lodges are not random. They are curated — chosen because they sit in the best locations, offer the most exclusive access, and employ the most passionate people. We have stayed in every lodge we recommend. That is value. That is {{brand}}.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="we-title">02 — Home Away From Home — Not a Hotel. A Family.</p>
+          <div class="we-body">
+            <p>There is a moment — and it happens on almost every safari — when something shifts. You are sitting around the campfire, the stars emerging above you. A guide is telling a story. Someone laughs. And suddenly, you are not a guest anymore. You are family.</p>
+            <p>At {{brand}}, we believe that luxury is not about marble floors and gold taps. It is about the guide who learns your name on the first day and remembers your coffee order on the last. It is about the camp manager who notices you are tired and arranges a massage without being asked.</p>
+            <p>When you book with us, you are assigned a personal journey architect — a real person who gets to know you. They are available by phone, email, or WhatsApp, any time of day or night. If something goes wrong — a delayed flight, a lost bag — they fix it. Quietly. Efficiently. Without fuss.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="we-title">03 — Environmental Impact — Not Greenwashing. Genuine Action.</p>
+          <div class="we-body">
+            <p>Every year, we contribute a portion of our revenue directly to the land that sustains us. Into reforestation projects in the Mau Forest Complex. Into anti-poaching patrols in the Maasai Mara and Amboseli. Into community-led conservation initiatives that employ local people as rangers, guides, and citizen scientists.</p>
+            <p>We offset the carbon emissions of every flight, every vehicle, every lodge stay. That means your journey is carbon-neutral — you can travel with a clean conscience.</p>
+            <p>We are not perfect. We have much more to do. But we are committed. Genuinely. Permanently. Without reservation. That is environmental impact. That is {{brand}}.</p>
+          </div>
+        </div>
+
+        <div>
+          <p class="we-title">04 — A Time Will Be Had — Not Just a Safari. A Celebration.</p>
+          <div class="we-body">
+            <p>We are not in the business of transportation or accommodation. We are in the business of joy. Every safari we design is a celebration — of life, of nature, of the extraordinary privilege of witnessing Africa's wild places.</p>
+            <p>We will surprise you. A private dinner set up on a kopje at sunset. A bush breakfast beside a pride of lions. A boat trip down a river that most tourists never see. A Maasai elder sharing stories around a fire that has burned for a thousand years.</p>
+            <p>These moments are carefully crafted — by our guides, our camp managers, and our journey architects — to take your breath away. Because that is why we do this. For the joy on your face when you see your first lion. For the tears in your eyes when the wildebeest cross the Mara River. That is {{brand}}.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /expanded -->
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     NEWSLETTER
+══════════════════════════════ -->
+<section class="subscribe-band reveal" id="subscribe">
+  <div class="sb-bg" style="background-image:url('assets/img/packages/itinerary/africa/3.jpg');"></div>
+  <div class="sb-veil"></div>
+  <div class="sb-in">
+    <div>
+      <p class="sb-label">Stay Inspired</p>
+      <h3 class="sb-title">Subscribe To Our Journal</h3>
+      <p class="sb-sub">Field notes from our guides, migration updates as they happen, new camps as we find them, and offers we send to subscribers first.</p>
+      <div class="sb-points">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Seasonal Wildlife Reports</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>New Camps, First</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Subscriber-Only Offers</span>
+      </div>
+    </div>
+    <div>
+      <form class="sb-form" id="journalForm" novalidate>
+        <input class="sb-input" type="email" id="journalEmail" autocomplete="email" placeholder="Your email address" required>
+        <button class="sb-submit" type="submit">SUBSCRIBE</button>
+      </form>
+      <p class="sb-fine" id="journalFine">No spam. Unsubscribe anytime.</p>
+      <div class="sb-success" id="journalSuccess">
+        <h4>Almost there.</h4>
+        <p>We&rsquo;ve opened your email client with your subscription request ready to go &mdash; just hit send.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var form = document.getElementById('journalForm');
+  if (!form) return;
+  var input = document.getElementById('journalEmail');
+  var fine = document.getElementById('journalFine');
+  var success = document.getElementById('journalSuccess');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = input.value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!ok) {
+      input.style.borderColor = '#e08e8e';
+      fine.textContent = 'That doesn\'t look like a valid email address.';
+      fine.style.color = '#e08e8e';
+      return;
+    }
+    var mailto = 'mailto:{{email}}?subject=' + encodeURIComponent('Journal Subscription') + '&body=' + encodeURIComponent('Please add ' + email + ' to the Journal mailing list.');
+    window.open(mailto, '_blank');
+    form.style.display = 'none';
+    fine.style.display = 'none';
+    success.classList.add('on');
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">{{BRAND}}</div>
+      <p class="footer-tagline">{{tagline}}.</p>
+      
+    </div>
+    <div><p class="footer-col-head">Destinations</p><ul class="footer-links"><li><a href="finders-safaris-botswana.html">Botswana</a></li><li><a href="finders-safaris-egypt.html">Egypt</a></li><li><a href="finders-safaris-kenya.html">Kenya</a></li><li><a href="finders-safaris-morocco.html">Morocco</a></li><li><a href="finders-safaris-namibia.html">Namibia</a></li><li><a href="finders-safaris-rwanda.html">Rwanda</a></li><li><a href="finders-safaris-south-africa.html">South Africa</a></li><li><a href="finders-safaris-tanzania.html">Tanzania</a></li><li><a href="finders-safaris-uganda.html">Uganda</a></li><li><a href="finders-safaris-zimbabwe.html">Zimbabwe</a></li><li><a href="finders-safaris-maldives.html">Maldives</a></li><li><a href="finders-safaris-mauritius.html">Mauritius</a></li><li><a href="finders-safaris-sri-lanka.html">Sri Lanka</a></li><li><a href="finders-safaris-zanzibar.html">Zanzibar</a></li><li><a href="finders-safaris-croatia.html">Croatia</a></li><li><a href="finders-safaris-france.html">France</a></li><li><a href="finders-safaris-greece.html">Greece</a></li><li><a href="finders-safaris-italy.html">Italy</a></li><li><a href="finders-safaris-netherlands.html">Netherlands</a></li><li><a href="finders-safaris-spain.html">Spain</a></li><li><a href="finders-safaris-switzerland.html">Switzerland</a></li><li><a href="finders-safaris-turkey.html">Turkey</a></li><li><a href="finders-safaris-new-zealand.html">New Zealand</a></li></ul></div>
+    <div><p class="footer-col-head">Our Journeys</p><ul class="footer-links"><li><a href="tailor-made-safaris.html">Tailor-Made Safaris</a></li><li><a href="small-group-journeys.html">Small Group Journeys</a></li><li><a href="couples-escapes.html">Honeymoon Safaris</a></li><li><a href="family-adventures.html">Family Safaris</a></li></ul></div>
+    <div><p class="footer-col-head">Properties</p><ul class="footer-links"><li><a href="nimali-tarangire.html">Nimali Tarangire</a></li><li><a href="andbeyond-grumeti-river-lodge.html">Grumeti River Lodge</a></li></ul></div>
+    <div><p class="footer-col-head">Company</p><ul class="footer-links"><li><a href="#" class="js-fs-enquire">Contact</a></li><li><a href="brochures.html">Brochures</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p style="font-size:10.5px;color:rgba(255,255,255,0.22);font-family:var(--sans);">© 2025 {{brand}}. All rights reserved. Nairobi, Kenya.</p>
+    
+  </div>
+</footer>
+
+<!--@include speak-button-->
+
+<script>
+// ═══════════════════════════════════════════
+//  MEGA MENU — 3 level cascading panels
+// ═══════════════════════════════════════════
+
+var REGION_DATA = {
+  'africa':       { label:'All African Destinations',    cards:[['Kenya','mc2bg1','assets/img/destinations/kenya.jpg'],['Tanzania','mc2bg2','assets/img/destinations/tanzania.jpg']], countries:['Botswana','Egypt','Kenya','Morocco','Namibia','Rwanda','South Africa','Tanzania','Uganda','Zimbabwe'] },
+  'indian-ocean': { label:'All Indian Ocean Destinations',cards:[['Maldives','mc2bg3','assets/img/destinations/maldives.jpg'],['Zanzibar','mc2bg4','assets/img/destinations/zanzibar.jpg']], countries:['Maldives','Mauritius','Seychelles','Sri Lanka','Zanzibar'] },
+  'asia':         { label:'All Asian Destinations',      cards:[['Japan','mc2bg5','assets/img/destinations/japan.jpg'],['Thailand','mc2bg6','assets/img/destinations/thailand.jpg']],    countries:['Cambodia','China','Indonesia','Japan','Malaysia','Philippines','Singapore','Thailand','Vietnam'] },
+  'europe':       { label:'All European Destinations',   cards:[['Italy','mc2bg1','assets/img/destinations/italy.jpg'],['France','mc2bg2','assets/img/destinations/france.jpg']],   countries:['Croatia','France','Greece','Italy','Netherlands','Spain','Switzerland','Turkey'] },
+  'middle-east':  { label:'All Middle East Destinations',cards:[['Dubai','mc2bg3','assets/img/destinations/dubai.jpg']],    countries:['Dubai'] },
+  'oceania':      { label:'All Oceania Destinations',    cards:[['New Zealand','mc2bg4','assets/img/destinations/new-zealand.jpg'],['Fiordland','mc2bg6',null]], countries:['New Zealand'] }
+};
+
+var P2_DATA = {
+  destinations: { cards:[['Maasai Mara','mc2bg1',null],['Serengeti','mc2bg2',null]], allLabel:'ALL DESTINATIONS', showRegions:true },
+  journeys:     { cards:[['Tailor-Made','mc2bg3','assets/img/travel-style/tailor-made/1.jpg'],['Group Journeys','mc2bg4','assets/img/travel-style/small-group/1.jpg']], allLabel:'ALL JOURNEYS', showRegions:false, items:['Tailor-Made Safaris','Small Group Journeys','Honeymoon Safaris','Family Safaris','Solo Travel'] },
+  lodges:       { cards:[['City Hotels','mc2bg5','assets/img/lodges/hemingways-nairobi/1.jpg'],['Luxury Camps','mc2bg6','assets/img/lodges/jw-marriott-mara-lodge/1.jpg']], allLabel:'ALL ACCOMMODATIONS', showRegions:false, regionsKind:'lodges', items:['Nimali Tarangire','Grumeti River Lodge'] }
+};
+
+function openMegaMenu() {
+  var overlay = document.getElementById('megaOverlay');
+  var p1      = document.getElementById('mpanel1');
+  if (!overlay || !p1) return;
+  // 1. Make overlay visible
+  overlay.style.display = 'block';
+  // 2. After one frame, trigger transitions
+  requestAnimationFrame(function() {
+    overlay.classList.add('open');
+    p1.classList.add('visible');
+  });
+  document.body.style.overflow = 'hidden';
+  document.body.classList.add('mega-open');
+  var btn = document.getElementById('menuOpen');
+  if (btn) btn.setAttribute('aria-expanded','true');
+}
+
+function closeMegaMenu() {
+  var overlay = document.getElementById('megaOverlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  ['mpanel1','mpanel2','mpanel3'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.remove('visible');
+  });
+  document.body.classList.remove('mega-open');
+  document.body.style.overflow = '';
+  var btn = document.getElementById('menuOpen');
+  if (btn) btn.setAttribute('aria-expanded','false');
+  document.querySelectorAll('.mp1-nav li').forEach(function(li) { li.classList.remove('active-item'); });
+  // After slide-out transition, hide completely
+  setTimeout(function() {
+    if (!overlay.classList.contains('open')) overlay.style.display = 'none';
+  }, 450);
+}
+
+function openP2(key) {
+  var data = P2_DATA[key];
+  if (!data) return false;
+
+  var p2 = document.getElementById('mpanel2');
+  var p3 = document.getElementById('mpanel3');
+  if (!p2) return false;
+
+  // Update feature cards at top
+  var cards = p2.querySelectorAll('.mp2-card');
+  data.cards.forEach(function(c, i) {
+    if (cards[i]) {
+      var bg = cards[i].querySelector('.mp2-card-bg');
+      bg.className = 'mp2-card-bg ' + c[1];
+      bg.style.backgroundImage = c[2] ? "url('" + c[2] + "')" : '';
+      cards[i].querySelector('.mp2-card-label').textContent = c[0];
+    }
+  });
+
+  // Update all-btn
+  var allBtn = p2.querySelector('.mp2-all-btn');
+  if (allBtn) {
+    allBtn.textContent = data.allLabel;
+    var p2Hrefs = { destinations: 'destinations.html', journeys: 'journey-finder.html', lodges: 'lodges.html' };
+    allBtn.href = p2Hrefs[key] || '#';
+  }
+
+  // Update regions/items list
+  var list = p2.querySelector('.mp2-regions');
+  if (list) {
+    list.innerHTML = '';
+    if (data.regionsKind === 'lodges') {
+      var lodgeRegions = [
+        {key:'africa',       label:'Africa'},
+        {key:'indian-ocean', label:'Indian Ocean'},
+        {key:'asia',         label:'Asia'},
+        {key:'europe',       label:'Europe'},
+        {key:'oceania',      label:'Oceania'}
+      ];
+      lodgeRegions.forEach(function(r) {
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = 'lodges-' + r.key + '.html';
+        a.innerHTML = r.label + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>';
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    } else if (data.showRegions) {
+      var regions = [
+        {key:'africa',       label:'Africa'},
+        {key:'indian-ocean', label:'Indian Ocean'},
+        {key:'asia',         label:'Asia'},
+        {key:'europe',       label:'Europe'},
+        {key:'middle-east',  label:'Middle East'},
+        {key:'oceania',      label:'Oceania'}
+      ];
+      regions.forEach(function(r) {
+        var li = document.createElement('li');
+        var a  = document.createElement('a');
+        a.href = '#';
+        a.setAttribute('data-region', r.key);
+        a.innerHTML = r.label + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>';
+        a.onclick = (function(rk) { return function(e) { e.preventDefault(); openP3(rk); return false; }; })(r.key);
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    } else {
+      (data.items || []).forEach(function(item) {
+        var li = document.createElement('li');
+        var ITEM_HREFS = {
+        'Tailor-Made Safaris': 'tailor-made-safaris.html',
+        'Small Group Journeys': 'small-group-journeys.html',
+        'Honeymoon Safaris': 'couples-escapes.html',
+        'Family Safaris': 'family-adventures.html',
+        'Solo Travel': 'solo-travel.html',
+        'Nimali Tarangire': 'nimali-tarangire.html',
+        'Grumeti River Lodge': 'andbeyond-grumeti-river-lodge.html'
+      };
+      li.innerHTML = '<a href="' + (ITEM_HREFS[item] || '#') + '">' + item + '</a>';
+        list.appendChild(li);
+      });
+    }
+  }
+
+  // Highlight active p1 item
+  document.querySelectorAll('.mp1-nav li').forEach(function(li) { li.classList.remove('active-item'); });
+  var activeEl = document.getElementById('mp1-' + key);
+  if (activeEl) activeEl.classList.add('active-item');
+
+  // Show p2, hide p3
+  p2.classList.add('visible');
+  if (p3) p3.classList.remove('visible');
+
+  return false;
+}
+
+function openP3(region) {
+  var data = REGION_DATA[region];
+  if (!data) return false;
+
+  var p3 = document.getElementById('mpanel3');
+  var p2 = document.getElementById('mpanel2');
+  if (!p3) return false;
+
+  // Update cards
+  var cards = p3.querySelectorAll('.mp3-card');
+  data.cards.forEach(function(c, i) {
+    if (cards[i]) {
+      var bg = cards[i].querySelector('.mp3-card-bg');
+      bg.className = 'mp3-card-bg ' + c[1];
+      bg.style.backgroundImage = c[2] ? "url('" + c[2] + "')" : '';
+      cards[i].querySelector('.mp3-card-label').textContent = c[0];
+    }
+  });
+
+  // All-btn
+  var allBtn = p3.querySelector('.mp3-all-btn');
+  if (allBtn) {
+    allBtn.textContent = data.label.toUpperCase();
+    var p3Hrefs = { africa: 'destinations-africa.html', 'indian-ocean': 'destinations-indian-ocean.html', asia: 'destinations-asia.html', europe: 'destinations-europe.html', oceania: 'destinations-oceania.html', 'middle-east': 'destinations-middle-east.html' };
+    allBtn.href = p3Hrefs[region] || 'destinations.html';
+  }
+
+  // Countries
+  var ul = p3.querySelector('.mp3-countries');
+  if (ul) {
+    ul.innerHTML = '';
+    var COUNTRY_LINKS = {
+      'Botswana': 'finders-safaris-botswana.html',
+      'Egypt': 'finders-safaris-egypt.html',
+      'Kenya': 'finders-safaris-kenya.html',
+      'Morocco': 'finders-safaris-morocco.html',
+      'Namibia': 'finders-safaris-namibia.html',
+      'Rwanda': 'finders-safaris-rwanda.html',
+      'Seychelles': 'finders-safaris-seychelles.html',
+      'Maldives': 'finders-safaris-maldives.html',
+      'Mauritius': 'finders-safaris-mauritius.html',
+      'Sri Lanka': 'finders-safaris-sri-lanka.html',
+      'Zanzibar': 'finders-safaris-zanzibar.html',
+      'Croatia': 'finders-safaris-croatia.html',
+      'France': 'finders-safaris-france.html',
+      'Greece': 'finders-safaris-greece.html',
+      'Italy': 'finders-safaris-italy.html',
+      'Netherlands': 'finders-safaris-netherlands.html',
+      'Spain': 'finders-safaris-spain.html',
+      'Switzerland': 'finders-safaris-switzerland.html',
+      'Turkey': 'finders-safaris-turkey.html',
+      'New Zealand': 'finders-safaris-new-zealand.html',
+      'South Africa': 'finders-safaris-south-africa.html',
+      'Tanzania': 'finders-safaris-tanzania.html',
+      'Uganda': 'finders-safaris-uganda.html',
+      'Zimbabwe': 'finders-safaris-zimbabwe.html',
+      'Cambodia': 'finders-safaris-cambodia.html',
+      'China': 'finders-safaris-china.html',
+      'Indonesia': 'finders-safaris-indonesia.html',
+      'Japan': 'finders-safaris-japan.html',
+      'Malaysia': 'finders-safaris-malaysia.html',
+      'Philippines': 'finders-safaris-philippines.html',
+      'Singapore': 'finders-safaris-singapore.html',
+      'Thailand': 'finders-safaris-thailand.html',
+      'Vietnam': 'finders-safaris-vietnam.html',
+      'Dubai': 'finders-safaris-dubai.html'
+      // Add other country page filenames here as they are built
+    };
+    data.countries.forEach(function(c) {
+      var li = document.createElement('li');
+      var href = COUNTRY_LINKS[c] || '#';
+      li.innerHTML = '<a href="' + href + '">' + c + '</a>';
+      ul.appendChild(li);
+    });
+  }
+
+  // Mark active region
+  if (p2) {
+    p2.querySelectorAll('.mp2-regions a').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-region') === region);
+    });
+  }
+
+  // Show p3
+  p3.classList.add('visible');
+  return false;
+}
+
+function toggleWhyExpand() {
+  var expanded = document.getElementById('whyExpanded');
+  var btn = document.getElementById('whyReadMore');
+  if (!expanded || !btn) return;
+  var isOpen = expanded.classList.contains('open');
+  expanded.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  var textNode = Array.from(btn.childNodes).find(function(n) { return n.nodeType === 3; });
+  if (textNode) textNode.textContent = isOpen ? 'READ MORE ' : 'READ LESS ';
+}
+
+// ═══════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Wire up hamburger, close, backdrop
+  var hamburger = document.getElementById('menuOpen');
+  var closeBtn  = document.getElementById('megaClose');
+  var backdrop  = document.getElementById('megaBackdrop');
+  if (hamburger) hamburger.addEventListener('click', openMegaMenu);
+  if (closeBtn)  closeBtn.addEventListener('click', closeMegaMenu);
+  if (backdrop)  backdrop.addEventListener('click', closeMegaMenu);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMegaMenu(); });
+
+
+  // ══ STICKY TABS ══
+  var tabs = document.querySelectorAll('.disc-tab');
+  var panels = document.querySelectorAll('.disc-panel');
+  var tabsWrap = document.getElementById('discTabsWrap');
+  function activateTab(id) {
+    tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.tab === id); });
+    panels.forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabs.forEach(function(t) { t.addEventListener('click', function() { activateTab(t.dataset.tab); }); });
+
+  window.addEventListener('scroll', function() {
+    var offset = 64 + (tabsWrap ? tabsWrap.offsetHeight : 0) + 20;
+    panels.forEach(function(p) {
+      var r = p.getBoundingClientRect();
+      if (r.top <= offset && r.bottom > offset) {
+        tabs.forEach(function(t) { t.classList.toggle('active', t.dataset.tab === p.id); });
+      }
+    });
+  }, { passive: true });
+
+  // ══ VIEW ALL DESTINATIONS ══
+  (function() {
+    var btn  = document.getElementById('destMoreBtn');
+    var more = document.getElementById('destMore');
+    if (!btn || !more) return;
+    btn.addEventListener('click', function() {
+      var open = more.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Show Fewer Destinations' : 'View All Destinations';
+      if (open) {
+        // reveal-on-scroll has already run past this point, so show the new cards outright
+        more.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
+      } else {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  })();
+
+  // ══ INFINITE CAROUSEL ══
+  (function() {
+    var track = document.getElementById('carTrack');
+    var prevC = document.getElementById('carPrev');
+    var nextC = document.getElementById('carNext');
+    if (!track) return;
+    var orig = Array.from(track.children);
+    orig.forEach(function(c) { track.appendChild(c.cloneNode(true)); });
+    orig.forEach(function(c) { track.insertBefore(c.cloneNode(true), track.firstChild); });
+    var GAP = 16;
+    var pos = orig.length;
+    function cpv() { return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3; }
+    function cw()  { return (track.parentElement.offsetWidth - GAP * (cpv() - 1)) / cpv(); }
+    function setPos(idx, animate) {
+      pos = idx;
+      track.style.transition = animate ? 'transform .5s cubic-bezier(0.25,0.46,0.45,0.94)' : 'none';
+      track.style.transform  = 'translateX(-' + (pos * (cw() + GAP)) + 'px)';
+    }
+    track.addEventListener('transitionend', function() {
+      if (pos >= orig.length * 2) setPos(orig.length, false);
+      if (pos <= orig.length - 1) setPos(orig.length * 2 - 1, false);
+    });
+    setPos(pos, false);
+    if (nextC) nextC.addEventListener('click', function() { setPos(pos + 1, true); });
+    if (prevC) prevC.addEventListener('click', function() { setPos(pos - 1, true); });
+    var cTimer = setInterval(function() { setPos(pos + 1, true); }, 5000);
+    window.addEventListener('resize', function() { setPos(pos, false); });
+    var tx = null;
+    track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (tx === null) return;
+      var diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) setPos(pos + (diff > 0 ? 1 : -1), true);
+      tx = null;
+    }, { passive: true });
+  })();
+
+  // ══ SCROLL REVEAL ══
+  var ro = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+}); // end DOMContentLoaded
+</script>
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<script>(function(){var v=document.querySelector('.lazy-hero-video');if(!v)return;function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}if(!('IntersectionObserver' in window)){go();return;}var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){go();}else{v.pause();}});},{rootMargin:'200px'});io.observe(v);})();</script>
+</body>
+</html>

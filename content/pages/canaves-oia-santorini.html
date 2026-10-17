@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canaves Oia Hotel — Oia, Santorini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ivory: #EDE3CE;
+    --charcoal: #241f16;
+    --accent: #4A78A8;
+    --accent-dark: #33547A;
+    --olive: #6B7A5A;
+    --gold: #C9A667;
+    --tent-cream: #FBF6EA;
+    --line: rgba(36,31,22,0.14);
+    --shadow: 0 30px 60px -30px rgba(36,31,22,0.35);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
+  body{ margin:0; background: var(--ivory); color: var(--charcoal); font-family:'Work Sans', sans-serif; font-weight:400; line-height:1.6; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,.display{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem; color: var(--accent); display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow::before{ content:""; width:22px; height:1px; background: var(--accent); display:inline-block; }
+  a{ color:inherit; } button{ font-family:inherit; }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset:3px; }
+  .elevation-rule{ width:100%; height:46px; display:block; }
+  .elevation-rule path{ stroke: var(--gold); stroke-width:1.4; fill:none; }
+  .hero{ position:relative; height:100svh; min-height:560px; width:100%; overflow:hidden; background: var(--charcoal); }
+  .hero-track{ position:absolute; inset:0; display:flex; height:100%; width:100%; transition: transform 900ms cubic-bezier(.65,0,.35,1); }
+  .hero-slide{ position:relative; min-width:100%; height:100%; display:flex; align-items:flex-end; overflow:hidden; }
+  .hero-slide .scene{ position:absolute; inset:0; }
+  .scene-1{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/canaves-oia-santorini/1.jpg'); background-size:cover; background-position:center; }
+  .scene-2{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/canaves-oia-santorini/2.jpg'); background-size:cover; background-position:center; }
+  .scene-3{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/canaves-oia-santorini/3.jpg'); background-size:cover; background-position:center; }
+  .scene-4{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/canaves-oia-santorini/4.jpg'); background-size:cover; background-position:center; }
+  .scene-5{ background-image: linear-gradient(155deg, rgba(20,17,10,0.12) 0%, rgba(20,17,10,0.4) 100%), url('assets/img/lodges/canaves-oia-santorini/5.jpg'); background-size:cover; background-position:center; }
+  .scene::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(20,17,10,0) 40%, rgba(20,17,10,0.72) 100%); }
+  .scene .grain{ position:absolute; inset:0; opacity:0.06; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+  .hero-caption{ position:relative; z-index:2; padding:0 clamp(20px,6vw,80px) 100px; color: var(--tent-cream); max-width:720px; }
+  .hero-top{ position:absolute; top:0; left:0; right:0; z-index:3; display:flex; align-items:flex-start; justify-content:space-between; padding: clamp(20px,4vw,44px) clamp(20px,6vw,80px) 0; color: var(--tent-cream); }
+  .brandmark{ font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:0.02em; }
+  .brandmark span{ color: var(--gold); }
+  .hero-coords{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-align:right; line-height:1.7; opacity:0.85; }
+  .hero-headline{ position:absolute; z-index:2; left: clamp(20px,6vw,80px); bottom:190px; max-width:780px; }
+  .hero-headline .eyebrow{ color: var(--gold); } .hero-headline .eyebrow::before{ background: var(--gold); }
+  .hero-headline h1{ color: var(--tent-cream); font-size: clamp(2.5rem, 6.6vw, 4.8rem); line-height:0.98; margin-top:18px; }
+  .hero-headline p{ color: rgba(251,246,234,0.82); max-width:440px; margin-top:18px; font-size:1rem; }
+  .hero-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:52px; height:52px; border-radius:50%; background: rgba(251,246,234,0.14); border:1px solid rgba(251,246,234,0.4); backdrop-filter: blur(6px); color: var(--tent-cream); display:flex; align-items:center; justify-content:center; cursor:pointer; transition: background 200ms ease, transform 200ms ease; }
+  .hero-arrow:hover{ background: rgba(251,246,234,0.28); }
+  .hero-arrow:active{ transform: translateY(-50%) scale(0.94); }
+  .hero-arrow.prev{ left: clamp(14px,3vw,40px); } .hero-arrow.next{ right: clamp(14px,3vw,40px); }
+  .hero-arrow svg{ width:18px; height:18px; }
+  .hero-dots{ position:absolute; bottom:40px; left: clamp(20px,6vw,80px); z-index:4; display:flex; gap:10px; }
+  .hero-dot{ width:26px; height:3px; background: rgba(251,246,234,0.35); border:none; cursor:pointer; position:relative; padding:0; }
+  .hero-dot::after{ content:""; position:absolute; inset:0; background: var(--gold); transform: scaleX(0); transform-origin:left; transition: transform 300ms ease; }
+  .hero-dot.active::after{ transform: scaleX(1); }
+  .hero-scene-count{ position:absolute; bottom:40px; right: clamp(20px,6vw,80px); z-index:4; font-family:'Space Mono', monospace; font-size:0.72rem; color: var(--tent-cream); letter-spacing:0.06em; }
+  .tabbar-wrap{ position:sticky; top:0; z-index:40; background: var(--ivory); border-bottom:1px solid var(--line); }
+  .tabbar{ max-width:1180px; margin:0 auto; display:flex; gap: clamp(18px,3vw,44px); padding:0 clamp(20px,6vw,80px); overflow-x:auto; scrollbar-width:none; }
+  .tabbar::-webkit-scrollbar{ display:none; }
+  .tab{ background:none; border:none; padding:22px 0 18px; font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color: rgba(36,31,22,0.5); cursor:pointer; white-space:nowrap; position:relative; transition: color 200ms ease; }
+  .tab::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--accent); transform: scaleX(0); transform-origin:left; transition: transform 250ms ease; }
+  .tab:hover{ color: var(--charcoal); } .tab.active{ color: var(--accent); } .tab.active::after{ transform: scaleX(1); }
+  section{ padding: clamp(70px,9vw,130px) clamp(20px,6vw,80px); max-width:1180px; margin:0 auto; scroll-margin-top:66px; }
+  .section-head{ display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; margin-bottom:56px; }
+  .section-head h2{ font-size: clamp(2rem,4vw,3rem); margin-top:14px; }
+  .section-head .lede{ font-size:1.05rem; color: rgba(36,31,22,0.78); padding-top:4px; }
+  @media (max-width:800px){ .section-head{ grid-template-columns:1fr; gap:20px; } }
+  .stat-row{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:50px 0 0; }
+  .stat{ background: var(--ivory); padding:26px 18px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size: clamp(1.5rem,3vw,2.2rem); color: var(--accent); }
+  .stat .label{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color: rgba(36,31,22,0.6); margin-top:6px; }
+  @media (max-width:700px){ .stat-row{ grid-template-columns: repeat(2,1fr);} }
+  .lodges-note{ background: var(--tent-cream); border:1px solid var(--line); border-left:3px solid var(--accent); padding:28px 32px; margin-top:54px; font-size:0.98rem; color: rgba(36,31,22,0.85); }
+  .lodges-note strong{ color: var(--accent); font-family:'Fraunces',serif; font-weight:500; font-style:italic; }
+  .suite-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .suite-visual{ aspect-ratio:4/5; border-radius:2px; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/canaves-oia-santorini/5.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .suite-visual::after{ content:""; position:absolute; inset:0; background: radial-gradient(90% 70% at 75% 15%, rgba(201,166,103,0.3), transparent 55%); }
+  .suite-visual .cap{ position:absolute; left:24px; bottom:24px; z-index:2; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  .feature-list{ list-style:none; padding:0; margin:30px 0 0; }
+  .feature-list li{ display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line); align-items:flex-start; }
+  .feature-list li:last-child{ border-bottom:1px solid var(--line); }
+  .feature-list .mark{ font-family:'Fraunces', serif; color: var(--accent); font-size:1rem; font-style:italic; min-width:32px; }
+  .feature-list .txt strong{ display:block; font-family:'Fraunces',serif; font-weight:500; margin-bottom:4px; font-size:1.05rem; }
+  .feature-list .txt span{ color: rgba(36,31,22,0.72); font-size:0.95rem; }
+  @media (max-width:800px){ .suite-grid{ grid-template-columns:1fr; } }
+  .exp-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2px; background: var(--line); margin-top:50px; }
+  .exp-card{ background: var(--ivory); padding:34px 28px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between; transition: background 250ms ease; }
+  .exp-card:hover{ background: var(--tent-cream); }
+  .exp-card .exp-tag{ font-family:'Space Mono', monospace; font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--olive); }
+  .exp-card h3{ font-size:1.25rem; margin-top:20px; font-style:italic; font-weight:400; }
+  .exp-card p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.72); }
+  @media (max-width:800px){ .exp-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .exp-grid{ grid-template-columns:1fr; } }
+  .dining-wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .venue-list{ margin-top:32px; display:grid; gap:14px; }
+  .venue-list .venue{ display:flex; align-items:baseline; gap:16px; padding-bottom:14px; border-bottom:1px dashed var(--line); }
+  .venue-list .venue .n{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--accent); }
+  .dining-visual{ aspect-ratio:3/4; background: linear-gradient(155deg, rgba(20,17,10,0.05) 0%, rgba(20,17,10,0.5) 100%), url('assets/img/lodges/canaves-oia-santorini/4.jpg'); background-size:cover; background-position:center; position:relative; overflow:hidden; box-shadow: var(--shadow); }
+  .dining-visual .cap{ position:absolute; left:24px; bottom:24px; font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--tent-cream); }
+  @media (max-width:800px){ .dining-wrap{ grid-template-columns:1fr; display:flex; flex-direction:column-reverse; } }
+  .loc-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .loc-bullets{ list-style:none; padding:0; margin:0; display:grid; gap:22px; }
+  .loc-bullets li{ padding-left:26px; position:relative; color: rgba(36,31,22,0.82); }
+  .loc-bullets li::before{ content:"\2014"; position:absolute; left:0; top:0; color: var(--accent); font-family:'Fraunces',serif; }
+  .loc-map{ background: var(--charcoal); border-radius:2px; position:relative; overflow:hidden; min-height:340px; box-shadow: var(--shadow); }
+  .loc-map svg{ width:100%; height:100%; display:block; }
+  @media (max-width:800px){ .loc-wrap{ grid-template-columns:1fr; } }
+  .journey-strip{ margin-top:54px; display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .journey-step{ background: var(--ivory); padding:26px 22px; }
+  .journey-step .k{ font-family:'Space Mono', monospace; color: var(--accent); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; }
+  .journey-step p{ margin-top:10px; font-size:0.92rem; color: rgba(36,31,22,0.75); }
+  @media (max-width:700px){ .journey-strip{ grid-template-columns:1fr; } }
+  .offer-bar{ background: var(--olive-deep, #3A4130); color: var(--tent-cream); padding:60px clamp(20px,6vw,80px); }
+  .offer-inner{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+  .offer-inner .eyebrow{ color: var(--gold); } .offer-inner .eyebrow::before{ background: var(--gold); }
+  .offer-inner h2{ color: var(--tent-cream); font-size: clamp(1.6rem,3vw,2.3rem); margin-top:12px; }
+  .offer-inner p{ color: rgba(251,246,234,0.75); max-width:420px; margin-top:10px; }
+  .cta{ display:inline-flex; align-items:center; gap:12px; background: var(--accent); color: var(--tent-cream); padding:16px 30px; text-decoration:none; font-family:'Space Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; border:none; cursor:pointer; transition: background 200ms ease; white-space:nowrap; }
+  .cta:hover{ background: var(--accent-dark); }
+  footer{ padding:40px clamp(20px,6vw,80px); text-align:center; font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; color: rgba(36,31,22,0.5); background: var(--ivory); }
+
+.offer-bar{ background: #3C4634; }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+
+<!--@include quicknav-->
+<!--@include quicknav-styles-->
+<!--@include quicknav-script-->
+
+
+
+<div class="hero" id="hero">
+  <div class="hero-top">
+    <div class="brandmark">CANAVES <span>OIA</span></div>
+    <div class="hero-coords">36&deg;27'N 25&deg;22'E<br>OIA, SANTORINI</div>
+  </div>
+
+  <div class="hero-track" id="heroTrack">
+        <div class="hero-slide"><div class="scene scene-1"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-2"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-3"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-4"><div class="grain"></div></div></div>
+    <div class="hero-slide"><div class="scene scene-5"><div class="grain"></div></div></div>
+  </div>
+
+  <div class="hero-headline">
+    <span class="eyebrow">Cliffside Hotel &mdash; Oia</span>
+    <h1>Cut Into the<br>Volcano Wall</h1>
+    <p>Suites carved directly into the caldera cliff at Oia, each terrace hung above a flooded volcanic crater.</p>
+  </div>
+
+  <button class="hero-arrow prev" id="prevArrow" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero-arrow next" id="nextArrow" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-scene-count"><span id="sceneCur">01</span> / 05</div>
+</div>
+
+<!--@include lodge-tabbar-3-->
+
+<section id="overview">
+  <div class="section-head">
+    <div><span class="eyebrow">Overview</span><h2>Inside the<br>Caldera</h2></div>
+    <p class="lede">Every suite, the pool, the spa and the restaurant face the caldera.</p>
+  </div>
+  <p style="max-width:760px; color:rgba(36,31,22,0.82); font-size:1.02rem;">Canaves Oia is built directly into the volcanic cliffs of Oia, and the arrangement is total: every suite, the infinity pool, the indoor-outdoor spa and the restaurant all face out across the caldera. It sits in the heart of Oia rather than out along the road, which keeps it clear of the cruise-tour traffic while leaving the village&rsquo;s galleries and restaurants walkable. Suites are freshly renovated in a chic modern register, with balconies holding plunge pools above the Aegean.</p>
+
+  <div class="lodges-note"><strong>The spa is inside a cave.</strong> Canaves Spa is built into a natural cave, with two treatment rooms, a Rasul steam bath, a sauna and an outdoor couples&rsquo; treatment room facing the caldera.</div>
+
+  <div class="stat-row"><div class="stat"><div class="num">1</div><div class="label">Infinity Pool With Built-In Jacuzzi</div></div><div class="stat"><div class="num">2</div><div class="label">Cave Spa Treatment Rooms</div></div><div class="stat"><div class="num">2</div><div class="label">Restaurants</div></div><div class="stat"><div class="num">100%</div><div class="label">Of Suites Facing the Caldera</div></div></div>
+</section>
+
+<!--@include elevation-divider-->
+
+<section id="suites">
+  <div class="section-head">
+    <div><span class="eyebrow">Suites</span><h2>Plunge Pools<br>Over the Aegean</h2></div>
+    <p class="lede">Renovated suites with balcony plunge pools, some with private infinity pools and open-air dining.</p>
+  </div>
+  <div class="suite-grid">
+    <div class="suite-visual"><span class="cap">Caldera Suite &mdash; Canaves Oia</span></div>
+    <ul class="feature-list"><li><span class="mark">01</span><div class="txt"><strong>Carved Into Volcanic Rock</strong><span>Suites occupy spaces cut into the caldera cliff, in the traditional Santorini manner.</span></div></li><li><span class="mark">02</span><div class="txt"><strong>Balcony Plunge Pools</strong><span>Chic modern d&eacute;cor with a plunge pool on the balcony above the Aegean.</span></div></li><li><span class="mark">03</span><div class="txt"><strong>Private Infinity Pools</strong><span>Select suites add a private infinity pool and an open-air dining area.</span></div></li><li><span class="mark">04</span><div class="txt"><strong>Multi-Level Layouts</strong><span>Larger categories offer additional bedrooms, bathrooms and large soaking tubs.</span></div></li></ul>
+  </div>
+</section>
+
+<!--@include elevation-divider-2-->
+
+<section id="experiences">
+  <div class="section-head">
+    <div><span class="eyebrow">Experiences</span><h2>Sunset, Volcano<br>&amp; Assyrtiko</h2></div>
+    <p class="lede">The most famous sunset in Greece, and a volcanic wine region beneath it.</p>
+  </div>
+  <div class="exp-grid"><div class="exp-card"><div><span class="exp-tag">Signature</span><h3>The Oia Sunset</h3><p>The caldera turns gold and red as the sun goes into the Aegean. The hotel faces it directly.</p></div></div><div class="exp-card"><div><span class="exp-tag">Volcano</span><h3>Nea Kameni</h3><p>A walk across black lava to the smoking crater at the centre of the flooded caldera.</p></div></div><div class="exp-card"><div><span class="exp-tag">Water</span><h3>Palea Kameni Hot Springs</h3><p>Warm, iron and sulphur-rich water in the caldera, therapeutic and permanently unkind to pale swimwear.</p></div></div><div class="exp-card"><div><span class="exp-tag">Wine</span><h3>Volcanic Vineyards</h3><p>Assyrtiko grown on vines woven into low baskets against the wind, tasted with a sommelier.</p></div></div><div class="exp-card"><div><span class="exp-tag">Village</span><h3>Oia</h3><p>Blue-domed churches, the Venetian castle ruins, and artisan galleries along the main street.</p></div></div><div class="exp-card"><div><span class="exp-tag">Wellness</span><h3>The Cave Spa</h3><p>Treatment rooms inside natural rock, plus a Rasul steam bath and an outdoor couples&rsquo; room.</p></div></div></div>
+</section>
+
+<!--@include elevation-divider-3-->
+
+<section id="dining">
+  <div class="dining-wrap">
+    <div>
+      <span class="eyebrow">Dining</span>
+      <h2 style="margin-top:14px;">Petra,<br>Over the Caldera</h2>
+      <p class="lede" style="margin-top:24px;">Fine Greek cooking with a creative turn, paired with the view and the stars.</p>
+      <div class="venue-list"><div class="venue"><span class="n">01</span><span>Petra Restaurant &amp; Bar, for fine Greek cooking above the caldera</span></div><div class="venue"><span class="n">02</span><span>Pool Side, for Mediterranean lunch and dinner</span></div><div class="venue"><span class="n">03</span><span>In-suite dining on a private terrace</span></div><div class="venue"><span class="n">04</span><span>The pool bar, with a built-in jacuzzi and the sunset ahead</span></div></div>
+    </div>
+    <div class="dining-visual"><span class="cap">Petra Restaurant &mdash; Canaves Oia</span></div>
+  </div>
+</section>
+
+<!--@include elevation-divider-4-->
+
+<section id="location">
+  <div class="section-head">
+    <div><span class="eyebrow">Location</span><h2>Oia,<br>Santorini</h2></div>
+    <p class="lede">The most photographed village in the Cyclades, on the northern rim of the caldera.</p>
+  </div>
+  <div class="loc-wrap">
+    <ul class="loc-bullets"><li>Built into the volcanic cliff in the heart of Oia.</li><li>Away from the cruise-tour routes, but walkable to the village&rsquo;s restaurants and galleries.</li><li>Facing directly out over the flooded caldera and the volcanic islands within it.</li><li>Roughly 30 minutes from Santorini Airport, or from the port at Athinios.</li></ul>
+    <div class="loc-map"><svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="340" fill="#241f16"/>
+        <path d="M0 230 L60 210 L120 235 L190 195 L260 225 L320 200 L400 220 L400 340 L0 340 Z" fill="#3a4130" opacity="0.9"/>
+        <path d="M0 260 L80 250 L150 270 L230 245 L300 265 L400 250 L400 340 L0 340 Z" fill="#2a2f22"/>
+        <line x1="60" y1="210" x2="60" y2="60" stroke="#C9A667" stroke-width="1" stroke-dasharray="2 4"/>
+        <circle cx="60" cy="210" r="4" fill="#4A78A8"/>
+        <text x="72" y="150" fill="#FBF6EA" font-family="Space Mono, monospace" font-size="11" letter-spacing="1">CANAVES OIA</text>
+        <text x="72" y="166" fill="#C9A667" font-family="Space Mono, monospace" font-size="9">OIA, SANTORINI</text>
+        <text x="72" y="182" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">BUILT INTO THE CALDERA WALL</text>
+        <text x="150" y="300" fill="#8c8672" font-family="Space Mono, monospace" font-size="9">GREECE</text>
+      </svg></div>
+  </div>
+  <div class="journey-strip"><div class="journey-step"><span class="k">Sail</span><p>A high-speed ferry from Piraeus, four to five hours across the Aegean.</p></div><div class="journey-step"><span class="k">Drive</span><p>A private transfer from the port or the airport up to Oia.</p></div><div class="journey-step"><span class="k">Arrive</span><p>Check in, and be on the terrace well before sunset.</p></div></div>
+</section>
+
+<div class="offer-bar">
+  <div class="offer-inner">
+    <div>
+      <span class="eyebrow">Santorini</span>
+      <h2>Cut Into the Caldera</h2>
+      <p>Every suite faces the volcano, and the sunset needs no introduction.</p>
+    </div>
+    <a class="cta" href="finders-safaris-greece.html">Plan Your Stay &rarr;</a>
+  </div>
+</div>
+
+<footer>CANAVES OIA HOTEL &middot; OIA &middot; SANTORINI &middot; GREECE</footer>
+
+<!--@include lodge-hero-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>

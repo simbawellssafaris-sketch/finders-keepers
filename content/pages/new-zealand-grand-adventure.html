@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Zealand &mdash; The Grand Adventure | {{brand}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#EDE3CE;--tan:#E0D3B8;--ink:#2C2A26;--ink-soft:#5C5750;--terracotta:#B5572F;--terracotta-dark:#9C4926;--line:#CFC1A3;--white:#FFFFFF;--maxw:1376px;}
+  *{box-sizing:border-box;}html,body{margin:0;padding:0;}
+  body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;margin:0;color:var(--ink);}
+  a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);font-weight:600;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border:1px solid var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:transparent;cursor:pointer;transition:.2s ease;white-space:nowrap;}
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn-solid{background:var(--terracotta);color:var(--white);border-color:var(--terracotta);}
+  .btn-solid:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);}
+  .topbar{background:var(--terracotta);color:var(--white);font-size:13px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:10px 40px;}
+  .topbar a{font-weight:600;letter-spacing:.1em;}
+  .topbar .right a{margin-left:24px;text-transform:uppercase;font-size:12px;}
+  .mainnav{background:var(--white);border-bottom:1px solid var(--line);}
+  .mainnav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;}
+  .mainnav .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;}
+  .mainnav .logo{font-family:'Fraunces',serif;font-size:24px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;}
+  .hero{position:relative;height:640px;overflow:hidden;background-image:url('assets/img/packages/new-zealand-grand-adventure.jpg');background-size:cover;background-position:center;}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 32%,rgba(0,0,0,.65) 100%);}
+  .hero-content{position:absolute;left:0;right:0;bottom:36px;padding:0 40px;max-width:var(--maxw);margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;color:var(--white);z-index:2;}
+  .hero-tags{display:flex;gap:10px;margin-bottom:18px;}
+  .hero-title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;}
+  .hero-year{font-family:'Fraunces',serif;font-style:italic;font-size:34px;color:var(--white);border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:4px;display:flex;align-items:center;gap:10px;position:relative;cursor:pointer;user-select:none;}
+  .hero-year .yeardrop{display:none;position:absolute;bottom:130%;top:auto;left:0;background:var(--white);color:var(--ink);min-width:120px;font-size:18px;font-style:normal;z-index:5;border:1px solid var(--line);}
+  .hero-year.open .yeardrop{display:block;}
+  .hero-year .yeardrop a{display:block;padding:10px 16px;font-family:'Jost',sans-serif;}
+  .hero-year .yeardrop a:hover{background:var(--tan);}
+  .tag{background:var(--white);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;font-weight:600;}
+  .tag.offer{background:var(--terracotta);color:var(--white);}
+  .hero-tags a.tag{text-decoration:none;display:inline-block;transition:background .2s ease,color .2s ease;}
+  .hero-tags a.tag-offers:hover{background:var(--terracotta);color:var(--white);}
+  .hero h1{font-size:50px;color:var(--white);line-height:1.05;}
+  .hero-sub{margin-top:14px;font-size:15px;color:rgba(255,255,255,.92);}
+  .hero-stats-card{background:var(--white);color:var(--ink);padding:18px 26px;display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500;flex-shrink:0;}
+  .hero-stats-card .divider{width:1px;height:18px;background:var(--line);}
+  .statstrip{background:var(--cream);padding:46px 0;}
+  .statstrip .wrap{display:flex;justify-content:space-around;text-align:center;}
+  .statstrip .stat .num{font-family:'Fraunces',serif;font-size:48px;line-height:1;}
+  .statstrip .stat .label{margin-top:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);}
+  .ctaband{background:var(--tan);padding:34px 0;text-align:center;}
+  .ctaband p{margin:0 0 16px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);}
+  .tabnav{background:var(--cream);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .tabnav .wrap{display:flex;align-items:center;gap:40px;padding:0 40px;overflow-x:auto;white-space:nowrap;}
+  .tabnav .backtotop{display:none;align-items:center;gap:8px;font-size:14px;font-weight:500;padding:22px 0;cursor:pointer;border-right:1px solid var(--line);padding-right:30px;margin-right:-10px;}
+  .tabnav.stuck .backtotop{display:flex;}
+  .tabnav a.tab{display:inline-block;padding:22px 0;font-size:15px;color:var(--ink-soft);border-bottom:2px solid transparent;font-weight:500;}
+  .tabnav a.tab.active{color:var(--terracotta);border-color:var(--terracotta);}
+  .floatcard{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:stretch;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.12);}
+  .floatcard .info{display:flex;align-items:center;gap:14px;padding:16px 22px;font-size:14px;font-weight:500;}
+  .floatcard .info .div{width:1px;height:16px;background:var(--line);}
+  section{padding:80px 0;}
+  .crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:36px;}
+  .crumbs a{border-bottom:1px solid var(--line);}
+  .crumbs .current{color:var(--terracotta);border-bottom:1px solid var(--terracotta);}
+  .overview-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start;}
+  .overview-grid p.lead{font-family:'Fraunces',serif;font-size:25px;line-height:1.5;}
+  .overview-img{position:sticky;top:120px;}
+  .overview-img img{width:100%;height:560px;object-fit:cover;}
+  .highlights{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line);}
+  .highlight{display:flex;gap:18px;padding:28px 0;border-bottom:1px solid var(--line);}
+  .highlight .spark{font-size:20px;flex-shrink:0;}
+  .highlight p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-soft);}
+  .facts-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:14px;}
+  .facts-table tr{border-bottom:1px solid var(--line);}
+  .facts-table td{padding:14px 0;}
+  .facts-table td:first-child{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;color:var(--ink-soft);width:35%;}
+  .download-row{margin-top:40px;}
+  .itinerary-section{padding:0;background:var(--white);}
+  .itinerary-layout{display:grid;grid-template-columns:1fr 1fr;}
+  .map-col{position:relative;;min-width:0}
+  .map-sticky{position:sticky;top:65px;height:calc(100vh - 65px);background:var(--tan);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);}
+  .map-placeholder{text-align:center;color:var(--ink-soft);padding:40px;}
+  .map-placeholder .pin{font-size:42px;display:block;margin-bottom:14px;}
+  .map-placeholder h4{font-size:20px;margin-bottom:10px;}
+  .map-placeholder p{font-size:14px;line-height:1.6;max-width:320px;margin:0 auto;}
+  .map-route{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;font-size:13px;letter-spacing:.3em;text-transform:uppercase;}
+  .days-col{padding:60px 40px 60px 60px;;min-width:0}
+  .days-col .it-head{margin-bottom:40px;}
+  .days-col .it-head h2{font-size:46px;}
+  .location-tag{display:inline-flex;align-items:center;gap:8px;background:var(--tan);padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:24px;color:var(--terracotta-dark);}
+  .day-block{padding-bottom:46px;margin-bottom:46px;border-bottom:1px solid var(--line);}
+  .day-block:last-child{border-bottom:none;}
+  .day-block h3{font-size:25px;line-height:1.35;margin-bottom:18px;}
+  .day-body p{font-size:15px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;}
+  .day-body.clamped p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .day-body.clamped p + p{display:none;}
+  .day-body.clamped.expanded p{-webkit-line-clamp:unset;overflow:visible;display:block;}
+  .day-body.clamped.expanded p + p{display:block;}
+  .read-more{border:none;background:none;cursor:pointer;color:var(--terracotta);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:0;margin-bottom:18px;}
+  .day-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+  .day-meta .row{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;}
+  .day-img{margin-top:24px;}
+  .day-img img{width:100%;height:240px;object-fit:cover;}
+  .private-cta{margin-top:50px;background:var(--tan);display:flex;align-items:stretch;}
+  .private-cta .text{padding:40px;flex:1;}
+  .private-cta h4{font-size:26px;margin-bottom:14px;line-height:1.3;}
+  .private-cta p{font-size:15px;color:var(--ink-soft);margin:0 0 22px;}
+  .private-cta img{width:280px;object-fit:cover;}
+  .stays-head{margin-bottom:40px;}
+  .stays-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stays-carousel-wrap{position:relative;}
+  .stays-grid.carousel{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:24px;padding-bottom:10px;scrollbar-width:none;-ms-overflow-style:none;}
+  .stays-grid.carousel::-webkit-scrollbar{display:none;}
+  .stays-grid.carousel .stay-card{flex:0 0 calc(25% - 18px);scroll-snap-align:start;min-width:230px;}
+  .stays-carousel-arrow{position:absolute;top:38%;transform:translateY(-50%);background:#fff;border:1px solid rgba(0,0,0,0.12);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.12);z-index:5;font-size:16px;color:#1a1209;transition:background .2s ease;}
+  .stays-carousel-arrow:hover{background:#f2ede2;}
+  .stays-carousel-arrow.prev{left:-18px;}
+  .stays-carousel-arrow.next{right:-18px;}
+  @media (max-width:900px){.stays-grid.carousel .stay-card{flex:0 0 calc(50% - 12px);}}
+  @media (max-width:600px){.stays-grid.carousel .stay-card{flex:0 0 82%;} .stays-carousel-arrow{display:none;}}
+
+  .stay-card{background:var(--white);display:flex;flex-direction:column;height:100%;}
+  .stay-card .imgwrap{position:relative;height:200px;overflow:hidden;background:#e8e2d4;}
+  .stay-card .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .stay-card .badge{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--white);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;font-weight:600;}
+  .stay-card .body{padding:16px 0 0;display:flex;flex-direction:column;flex:1;}
+  .stay-card .btn{margin-top:auto;}
+  .stay-card .loc{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .stay-card h4{font-size:17px;margin-bottom:14px;min-height:44px;}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .pricing-grid h2{font-size:42px;margin-bottom:40px;}
+  .offer-card{display:flex;gap:18px;border-left:4px solid var(--terracotta);padding:24px 0 24px 22px;border-bottom:1px solid var(--line);}
+  .offer-card .offer-title{font-weight:600;color:var(--ink);margin:2px 0 6px;}
+  .offer-more{background:none;border:none;padding:0;margin-top:8px;cursor:pointer;
+    font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;color:var(--terracotta-dark);border-bottom:1px solid var(--terracotta-dark);}
+  .offer-detail{display:none;margin-top:12px;}
+  .offer-detail.open{display:block;}
+  .offer-detail ul{list-style:none;margin:0;padding:0;}
+  .offer-detail li{position:relative;padding-left:16px;margin-bottom:8px;font-size:13px;line-height:1.65;color:var(--ink-soft,#6B6459);}
+  .offer-detail li:last-child{margin-bottom:0;}
+  .offer-detail li:before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--terracotta-dark);}
+  .floatcard .fc-price{white-space:nowrap;}
+  .hero-year .yeardrop a.is-current{background:var(--tan);font-weight:600;}
+  .offer-card .ic{font-size:22px;}
+  .offer-card .eyebrow{display:block;margin-bottom:8px;}
+  .offer-card p{margin:0 0 12px;font-size:15px;line-height:1.6;}
+  .price-card{background:var(--tan);padding:40px;}
+  .season-pricing{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);}
+  .season-pricing h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .season-pricing .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5;}
+  .season-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);}
+  .season-row:last-child{border-bottom:none;}
+  .season-row .season-main{flex:1;min-width:0;}
+  .season-row .season-label{font-size:14px;font-weight:600;color:var(--ink);}
+  .season-badge{display:inline-block;font-size:9.5px;padding:2px 9px;border-radius:20px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;vertical-align:middle;white-space:nowrap;}
+  .badge-value{background:#DCE8D2;color:#3F6B2E;}
+  .badge-peak{background:#F3D9C4;color:var(--terracotta-dark);}
+  .badge-shoulder{background:#E7DEEF;color:#5B4B7A;}
+  .season-row .season-tag{display:block;font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.4;}
+  .season-row .season-price{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);white-space:nowrap;padding-left:8px;}
+
+  .payment-plan{margin-top:28px;padding-top:26px;border-top:1px solid var(--line);}
+  .payment-plan h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--terracotta-dark);font-family:var(--sans, 'Jost', sans-serif);font-weight:600;}
+  .payment-steps{display:flex;flex-direction:column;gap:13px;}
+  .payment-step{display:flex;gap:12px;align-items:flex-start;}
+  .payment-step .num{width:22px;height:22px;border-radius:50%;background:var(--terracotta);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;margin-top:1px;}
+  .payment-step p{font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .payment-step strong{color:var(--ink);}
+
+  .price-card h3{font-size:22px;margin-bottom:24px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);}
+  .price-row:last-of-type{border-bottom:none;}
+  .price-row .label{font-size:15px;color:var(--ink-soft);}
+  .price-row .value{font-family:'Fraunces',serif;font-size:28px;}
+  .price-note{font-size:13px;color:var(--ink-soft);margin-top:18px;line-height:1.6;}
+  .inclusion-list{margin-top:28px;}
+  .inclusion-list summary{cursor:pointer;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:16px 0;border-top:1px solid var(--line);}
+  .inclusion-list ul{margin:0 0 20px;padding-left:0;list-style:none;font-size:14px;line-height:1.9;color:var(--ink-soft);display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .inclusion-list li::before{content:"— ";color:var(--terracotta);}
+  .more-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;}
+  .more-head h2{font-size:42px;}
+  .more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .package-card{background:var(--white);border:1px solid var(--line);transition:box-shadow .3s ease;display:flex;flex-direction:column;height:100%;}
+  .package-card:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.18);}
+  .package-card .imgwrap{position:relative;height:190px;overflow:hidden;background:#e8e2d4;}
+  .package-card .imgwrap img{width:100%;height:100%;object-fit:cover;transition:.4s ease;}
+  .package-card:hover .imgwrap img{transform:scale(1.04);}
+  .package-card .tags{position:absolute;top:14px;left:14px;display:flex;gap:8px;}
+  .package-card .body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .package-card h3{font-size:20px;margin-bottom:8px;}
+  .package-card .meta{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;}
+  .package-card .it-list{font-size:14px;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin-bottom:18px;}
+  .package-card .it-list b{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;margin-bottom:6px;color:var(--ink);}
+  .package-card .footer-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .package-card .price{font-family:'Fraunces',serif;font-size:20px;}
+  .package-card .price span{font-size:13px;font-family:'Jost',sans-serif;color:var(--ink-soft);}
+  footer{background:var(--ink);color:var(--cream);padding:60px 0 30px;}
+  footer h5{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin:0 0 24px;color:rgba(246,241,231,.5);}
+  footer ul{list-style:none;padding:0;margin:0;}footer li{margin-bottom:14px;}footer a{font-size:15px;color:var(--cream);opacity:.8;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+  .foot-form{display:flex;flex-direction:column;gap:12px;}
+  .foot-form input{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:12px 16px;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;}
+  .foot-form input::placeholder{color:rgba(246,241,231,.4);}
+  .foot-form .btn{background:var(--terracotta);border-color:var(--terracotta);color:var(--white);}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:13px;color:rgba(246,241,231,.4);}
+  @media(max-width:900px){.overview-grid,.itinerary-layout,.pricing-grid,.foot-grid{grid-template-columns:1fr;}.highlights{grid-template-columns:1fr;}.stays-grid,.more-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:32px;}}
+
+  /* ============ JOURNEY DETAILS ============ */
+  .journey-details{background:var(--tan);text-align:center;}
+  .jd-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:30px;
+    border-bottom:1px solid var(--line);padding-bottom:50px;margin-bottom:0;
+  }
+  .jd-item .icon{font-size:30px;margin-bottom:14px;}
+  .jd-item h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:600;font-family:'Jost',sans-serif;}
+  .jd-item p{font-size:15px;line-height:1.6;margin:0 0 14px;color:var(--ink);}
+  .jd-toggle{
+    border:none;background:none;cursor:pointer;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;color:var(--terracotta-dark);
+    border-bottom:1px solid var(--terracotta-dark);padding:0 0 2px;
+  }
+  .jd-panel{
+    display:none;text-align:left;background:var(--cream);padding:24px;margin-top:16px;font-size:14px;
+    line-height:1.7;color:var(--ink-soft);
+  }
+  .jd-panel.open{display:block;}
+  .gi-list{list-style:none;margin:0;padding:0;}
+  .gi-list li{position:relative;padding-left:26px;margin:0 0 16px;}
+  .gi-list li:last-child{margin-bottom:0;}
+  .gi-list li:before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--terracotta-dark);}
+  .gi-list li strong{color:var(--ink);font-weight:600;}
+  .gi-list li em{font-style:italic;}
+  .jd-panel .gi-list{margin-top:14px;}
+  .jd-panel .gi-list li{padding-left:18px;margin-bottom:12px;}
+  .jd-panel .gi-list li:before{left:2px;top:9px;width:5px;height:5px;}
+  .jd-panel .placeholder{font-style:italic;color:#A39E92;}
+
+  .general-info{margin-top:50px;}
+  .general-info-panel{
+    display:none;max-width:760px;margin:24px auto 0;background:var(--cream);
+    padding:34px;text-align:left;font-size:14px;line-height:1.8;color:var(--ink-soft);
+  }
+  .general-info-panel.open{display:block;}
+
+  /* keep the enquiry bar inside narrow screens */
+  @media (max-width:900px){
+    .floatcard{left:16px;right:16px;justify-content:center;}
+    .floatcard .info{flex:1;min-width:0;flex-wrap:wrap;justify-content:center;gap:6px 12px;padding:12px 14px;font-size:13px;}
+    .floatcard .btn-solid{padding:0 18px;white-space:nowrap;}
+  }
+  @media (max-width:560px){
+    .floatcard{flex-direction:column;align-items:stretch;left:12px;right:12px;bottom:12px;}
+    .floatcard .info{justify-content:center;padding:11px 12px;}
+    .floatcard .info .div{display:none;}
+    .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
+  }
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<link rel="stylesheet" href="assets/fs-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+<style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
+<style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
+</head>
+<body>
+<!--@include topbar-detail-pages-->
+<!--@include nav-detail-pages-2-->
+
+<div class="hero" id="top">
+  <div class="hero-content">
+    <div>
+      <div class="hero-tags"><span class="tag offer">PRIVATE JOURNEY</span><a href="#pricing" class="tag tag-offers">OFFERS</a></div>
+      <div class="hero-title-row"><h1>The New Zealand<br>Grand Adventure</h1><div class="hero-year" id="yearToggle"><span class="hy-label">2026</span><span>&#9662;</span><div class="yeardrop"><a href="#" data-year="2026">2026</a><a href="#" data-year="2027">2027</a></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="statstrip"><div class="wrap">
+  <div class="stat"><div class="num">10</div><div class="label">Days</div></div>
+  <div class="stat"><div class="num">2</div><div class="label">Islands</div></div>
+  <div class="stat"><div class="num">1692</div><div class="label">Metres of Mitre Peak</div></div>
+  <div class="stat"><div class="num">30</div><div class="label">Metre P&#333;hutu Geyser</div></div>
+</div></div>
+
+<div class="ctaband"><p>M&#257;ori culture at Te Puia, geysers and mud pools, the Southern Alps and a cruise through Milford Sound</p><a href="#pricing" class="btn">See Pricing &amp; Inclusions &darr;</a></div>
+
+<!--@include package-tabnav-2-->
+
+<div class="floatcard"><div class="info"><span>10 Days</span><div class="div"></div><span>Private Guided</span><div class="div"></div><span class="fc-price">from $14,600 pp</span></div></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="crumbs"><a href="finders-safaris-homepage.html">Home</a> &nbsp;&rsaquo;&nbsp; <a href="journey-finder.html">Journeys</a> &nbsp;&rsaquo;&nbsp; <a href="finders-safaris-new-zealand.html">New Zealand</a> &nbsp;&rsaquo;&nbsp; <span class="current">New Zealand &mdash; The Grand Adventure</span></div>
+    <div class="overview-grid">
+      <div>
+        <p class="lead"><span class="eyebrow">Overview</span>The definitive New Zealand introduction &mdash; from the coastal city of Auckland to the geothermal and cultural heart of Rotorua, from the adventure capital at Queenstown to the fiords of Fiordland National Park, and finally to Christchurch. M&#257;ori culture, dramatic alpine landscape and the natural beauty that makes this one of the most treasured countries on Earth.</p>
+        <table class="facts-table">
+          <tr><td>Best For</td><td>First-time visitors to New Zealand, couples and active travellers</td></tr>
+          <tr><td>Duration</td><td>10 Days / 9 Nights</td></tr>
+          <tr><td>Route</td><td>Auckland &rarr; Rotorua &rarr; Queenstown &rarr; Milford Sound &rarr; Christchurch</td></tr>
+          <tr><td>Group Size</td><td>Private or small group &mdash; guided throughout</td></tr>
+          <tr><td>Price From</td><td>$14,600 per person sharing</td></tr>
+        </table>
+        <div class="highlights">
+          <div class="highlight"><span class="spark">&#10022;</span><p>Auckland&rsquo;s volcanic cones, Mount Eden and the black-sand beaches of the west coast</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Two nights at Huka Lodge, on the banks of the Waikato River</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Te Puia &mdash; the P&#333;hutu Geyser, the largest active geyser in the southern hemisphere</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>A M&#257;ori cultural performance in a carved meeting house, and a h&#257;ngi cooked beneath the earth</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The New Zealand M&#257;ori Arts and Crafts Institute, and the Kiwi Conservation Centre</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Wai-O-Tapu &mdash; the Champagne Pool, the Artist&rsquo;s Palette and the Devil&rsquo;s Bath</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>The Redwood Forest by canopy walk or zipline</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Queenstown, Lake Wakatipu and the Skyline gondola to Bob&rsquo;s Peak</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Fiordland National Park and a cruise through Milford Sound</p></div>
+          <div class="highlight"><span class="spark">&#10022;</span><p>Lake Tekapo and the Church of the Good Shepherd, schedule permitting</p></div>
+        </div>
+        <div class="download-row"><a href="assets/itineraries/new-zealand-grand-adventure.pdf" class="btn" download>Download PDF <i class="fs-ico fs-ico-download" aria-hidden="true"></i></a></div>
+      </div>
+      <div class="overview-img"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/oceania/2.jpg" alt="New Zealand &mdash; The Grand Adventure"></div>
+    </div>
+  </div>
+</section>
+
+<section class="itinerary-section" id="itinerary">
+  <div class="itinerary-layout">
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-route">Route Map</div>
+        <div class="map-placeholder">
+          <span class="pin"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i></span>
+          <h4>Interactive Route Map</h4>
+          <p>Auckland &rarr; Wait&#257;kere Ranges &rarr; Rotorua &rarr; Queenstown &rarr; Milford Sound &rarr; Te Anau &rarr; Christchurch. Day-by-day scrollspy markers to follow.</p>
+        </div>
+      </div>
+    </div>
+    <div class="days-col">
+      <div class="it-head"><h2>Itinerary</h2></div>
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Auckland</div>
+      <div class="day-block">
+        <h3>Day 1 | Arrival in Auckland</h3>
+        <div class="day-body"><p>Land at Auckland International and transfer to the Park Hyatt on the Waitemat&#257; Harbour waterfront, looking across to the Hauraki Gulf.</p><p>Auckland is built on a field of extinct volcanoes, and the cones dotted through the suburbs are a constant reminder of the geology underneath. The Sky Tower rises over everything, and the harbour is full of boats &mdash; there are more per head here than anywhere in the world.</p><p>The evening walks the waterfront: the Viaduct Harbour, where superyachts and fishing boats share the water; the Wynyard Quarter with its restaurants and public art; and Queen Street. Dinner is New Zealand seafood &mdash; Bluff oysters, green-lipped mussels or crayfish &mdash; with a Marlborough Sauvignon Blanc or a Central Otago Pinot Noir.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-auckland.html">Park Hyatt Auckland</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 2 | Auckland &amp; the Wait&#257;kere Ranges</h3>
+        <div class="day-body"><p>The morning explores Auckland&rsquo;s volcanic landscape. Mount Eden &mdash; Maungawhau &mdash; is the highest cone in the city, with a deep crater at the top and a view across both harbours. The Auckland Museum, in its neoclassical building in the Domain, holds one of the great collections of M&#257;ori and Pacific taonga, and the daily cultural performance is a good introduction before Rotorua.</p><p>Along the waterfront to Mission Bay, looking out to Rangitoto &mdash; the youngest volcano in the field, and the one that dominates the harbour. Then the ferry to Devonport, a Victorian village on the North Shore with the city skyline behind it.</p><p>The afternoon crosses to the west coast and the Wait&#257;kere Ranges, a regional park of dense native forest running down to black-sand beaches where the Tasman comes in hard. The contrast with the calm eastern harbours, twenty minutes away, is total.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="park-hyatt-auckland.html">Park Hyatt Auckland</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Rotorua</div>
+      <div class="day-block">
+        <h3>Day 3 | Auckland &rarr; Rotorua &amp; Te Puia</h3>
+        <div class="day-body"><p>South about three hours through the Waikato&rsquo;s farmland and forest to Rotorua, one of the most culturally significant regions in the country. Check in at Huka Lodge, on the banks of the Waikato surrounded by manicured gardens and native bush.</p><p>The afternoon is Te Puia, where M&#257;ori culture and geothermal activity meet in one place. The Te Whakarewarewa valley holds the P&#333;hutu Geyser, the largest active geyser in the southern hemisphere, which throws steam and water up to 30 metres. Around it, bubbling mud pools and steaming vents make the ground itself feel provisional.</p><p>The New Zealand M&#257;ori Arts and Crafts Institute is on site, where master carvers and weavers work and teach, and the Kiwi Conservation Centre keeps the national bird in a purpose-built nocturnal enclosure. The evening is a p&#333;hiri welcome, waiata, poi and haka in a carved meeting house, and a h&#257;ngi &mdash; a feast cooked in the ground using geothermal heat.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="huka-lodge.html">Huka Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 4 | Wai-O-Tapu &amp; the Redwoods</h3>
+        <div class="day-body"><p>Wai-O-Tapu means sacred waters, and after ten minutes in it the name makes sense. It is among the most spectacular geothermal areas anywhere. The Lady Knox Geyser erupts daily at 10:15 at a separate location, reaching 10 to 20 metres, so you arrive early.</p><p>The Champagne Pool is the centrepiece: the largest hot spring in the park, ringed in brilliant orange, with carbon dioxide rising through it in a constant fizz. The Artist&rsquo;s Palette shifts colour with mineral content across a series of pools, and the Devil&rsquo;s Bath is a startling green that comes from arsenic. Three walking loops of 30, 50 and 70 minutes let you choose the depth.</p><p>The afternoon is the Redwood Forest at Whakarewarewa, a stand of Californian redwoods planted in the early 20th century that now tower over the native understorey &mdash; explored by canopy walkway on suspended bridges, by zipline, or on the mountain-bike trails.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="huka-lodge.html">Huka Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Queenstown</div>
+      <div class="day-block">
+        <h3>Day 5 | Rotorua &rarr; Queenstown</h3>
+        <div class="day-body"><p>A flight of about two hours south across the Cook Strait, descending into the Southern Alps &mdash; and the approach into Queenstown is one of the more dramatic commercial landings anywhere.</p><p>Check in at The Rees, on Lake Wakatipu with the Remarkables filling the window. The afternoon explores the town: the lake itself, glacier-carved and bent like a finger; the Queenstown Gardens on their peninsula; and the Skyline gondola up to Bob&rsquo;s Peak, 450 metres above the town, for the view over the lake and the ranges.</p><p>Dinner overlooks Lake Wakatipu, with Central Otago wine.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-rees-queenstown.html">The Rees Hotel Queenstown</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 6 | Queenstown &amp; the Southern Alps</h3>
+        <div class="day-body"><p>Queenstown invented commercial bungy jumping and has never quite calmed down. The day is yours to shape: jet boating through the Shotover Canyon, where the walls come at you on both sides; a bungy from one of the original sites at the Kawarau Gorge; ziplining above the town; skydiving over the Remarkables; or white-water rafting on the Shotover or the Kawarau.</p><p>The luxury alternative is a private scenic helicopter over the Southern Alps and the glaciers, landing on a remote peak or on the ice itself. Snow-capped mountains, alpine lakes and glacier fields with nobody else in them.</p><p>The evening is free &mdash; the Onsen Hot Pools at Arthurs Point, with indoor-outdoor tubs over the Shotover canyon, are best booked for sunset.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-rees-queenstown.html">The Rees Hotel Queenstown</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Milford Sound &amp; Te Anau</div>
+      <div class="day-block">
+        <h3>Day 7 | Queenstown &rarr; Milford Sound &rarr; Te Anau</h3>
+        <div class="day-body"><p>An early departure from Queenstown into Fiordland National Park, part of the 2.6-million-hectare Te W&#257;hipounamu World Heritage Area and one of the great wilderness regions on Earth. The drive is half the experience: the Eglinton Valley, carved flat by ancient glaciers; the Mirror Lakes, which do exactly what the name says on a still morning; and the Homer Tunnel, bored straight through solid rock.</p><p>Then the cruise itself, through Milford Sound &mdash; Piopiotahi &mdash; where cliffs rise vertically out of the water and waterfalls come off them in every direction. Mitre Peak stands 1,692 metres straight up from the sea and is the most photographed mountain in the country. Stirling Falls and Fairy Falls are close enough to feel the spray.</p><p>Rainforest clings to the rock at impossible angles. New Zealand fur seals lie on the ledges, bottlenose dolphins ride the bow wave, and Fiordland crested penguins &mdash; among the rarest in the world &mdash; nest along the shore between July and November. The cruise runs out to the open Tasman Sea and back.</p><p>The afternoon continues to Te Anau, the gateway township for the park, and Fiordland Lodge on the edge of the national park with the lake below it.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="fiordland-lodge.html">Fiordland Lodge</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Lunch, Dinner</div></div>
+      </div>
+
+      <div class="location-tag"><i class="fs-ico fs-ico-map-pin" aria-hidden="true"></i> Christchurch</div>
+      <div class="day-block">
+        <h3>Day 8 | Fiordland &rarr; Christchurch</h3>
+        <div class="day-body"><p>North through the South Island. The road from Te Anau to Queenstown is among the most scenic in the country, running through alpine valleys and along the shore of Lake Wakatipu.</p><p>From there you continue to Christchurch, by a combination of scenic flight and road transfer or by the road journey across the island, depending on the schedule.</p><p>Check in at The George on the banks of the Avon. The evening explores the centre: the Botanic Gardens, the river, and Cathedral Square, which still carries the marks of the 2011 earthquake alongside a remarkable amount of rebuilding. The Riverside Market is the best place in the city to eat.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-george-christchurch.html">The George Christchurch</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 9 | Christchurch &amp; Canterbury</h3>
+        <div class="day-body"><p>A private excursion through Canterbury &mdash; the farming heart of the South Island, where the plains run flat to the Southern Alps and braided rivers come down off the mountains in pale channels.</p><p>Where the schedule allows, the day reaches Lake Tekapo, which is an improbable milky turquoise from glacial flour suspended in the water, with the Alps behind it and the tiny stone Church of the Good Shepherd on its shore. It is one of the most photographed spots in the country, and it is also a Dark Sky Reserve.</p><p>Back to Christchurch for a farewell dinner &mdash; Canterbury lamb, South Island seafood and New Zealand wine.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> <a href="the-george-christchurch.html">The George Christchurch</a></div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast, Dinner</div></div>
+      </div>
+
+      <div class="day-block">
+        <h3>Day 10 | Departure</h3>
+        <div class="day-body"><p>Breakfast at the hotel and, if the flight allows, a last walk through the Botanic Gardens or a coffee by the Avon. Private transfer to Christchurch International Airport.</p></div>
+        <button class="read-more">Read more</button>
+        <div class="day-meta"><div class="row"><span class="icon"><i class="fs-ico fs-ico-bed" aria-hidden="true"></i></span> </div><div class="row"><span><i class="fs-ico fs-ico-utensils" aria-hidden="true"></i></span> Breakfast</div></div>
+      </div>
+
+      <div class="private-cta">
+        <div class="text">
+          <h4>Want to adjust the pace, swap a lodge, or extend this journey?</h4>
+          <p>We are here for that. Every {{brand}} itinerary is a starting point, not a fixed departure &mdash; the pace, the lodges, the length, the dates and the party travelling can all be reshaped around you. Tell us what you would change and a specialist will rebuild the journey and price it honestly, before you commit to anything.</p>
+          <a href="tailor-your-journey.html" class="btn">Tailor This Journey &rarr;</a>
+        </div>
+        <img loading="lazy" decoding="async" src="assets/img/packages/itinerary/oceania/2.jpg" alt="Tailor this journey with {{brand}}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stays">
+  <div class="wrap">
+    <div class="stays-head"><span class="eyebrow">Your Accommodation</span><h2 style="font-size:42px;margin-top:12px;">Five Exceptional Properties</h2></div>
+    <div class="stays-carousel-wrap">
+<div class="stays-grid carousel">
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/park-hyatt-auckland/1.jpg" alt="Park Hyatt Auckland"><div class="badge">NIGHTS 1&ndash;2</div></div><div class="body"><div class="loc">Waitemat&#257; Harbour, Auckland</div><h4>Park Hyatt Auckland</h4><a href="park-hyatt-auckland.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/huka-lodge/5.jpg" alt="Huka Lodge"><div class="badge">NIGHTS 3&ndash;4</div></div><div class="body"><div class="loc">Waikato River, Rotorua region</div><h4>Huka Lodge</h4><a href="huka-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/the-rees-queenstown/5.jpg" alt="The Rees Hotel Queenstown"><div class="badge">NIGHTS 5&ndash;7</div></div><div class="body"><div class="loc">Lake Wakatipu, Queenstown</div><h4>The Rees Hotel Queenstown</h4><a href="the-rees-queenstown.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/fiordland-lodge/5.jpg" alt="Fiordland Lodge"><div class="badge">NIGHT 8</div></div><div class="body"><div class="loc">Lake Te Anau, Fiordland</div><h4>Fiordland Lodge</h4><a href="fiordland-lodge.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+      <div class="stay-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/lodges/the-george-christchurch/4.jpg" alt="The George Christchurch"><div class="badge">NIGHT 9</div></div><div class="body"><div class="loc">Avon River, Christchurch</div><h4>The George Christchurch</h4><a href="the-george-christchurch.html" class="btn" style="font-size:11px;padding:10px 16px;">View</a></div></div>
+    </div>
+<button class="stays-carousel-arrow prev" aria-label="Previous">&#8592;</button>
+<button class="stays-carousel-arrow next" aria-label="Next">&#8594;</button>
+</div>
+  </div>
+</section>
+
+<!--@why-journey-->
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <h2>Inclusions &amp; Price</h2>
+        <div class="offer-card"><div class="ic"><i class="fs-ico fs-ico-piggy-bank" aria-hidden="true"></i></div><div><span class="eyebrow">Deposit Offer</span><p class="offer-title">Hold 2027 for half the usual deposit</p><p>Confirm any 2027 departure with a 15% deposit instead of the usual 30%, booked before 31 December 2026.</p><button type="button" class="offer-more">Learn more</button><div class="offer-detail"><ul><li>Your balance is not due until 60 days before departure.</li><li>The reduced deposit holds your camps, permits and internal flights at today&rsquo;s rates, so a mid-year price movement does not reach you.</li><li>Applies to new 2027 bookings only and cannot be combined with a group discount on the same booking.</li></ul></div></div></div>
+      <details class="inclusion-list" open>
+          <summary>What's Included</summary>
+          <ul>
+            <li>Private transfers and licensed guides throughout</li>
+            <li>9 nights accommodation across five properties</li>
+            <li>Domestic flight Rotorua &ndash; Queenstown, and the Christchurch connection</li>
+            <li>Daily breakfast, plus meals as detailed in the itinerary</li>
+            <li>Guided Auckland city and volcanic landscape tour, including the Auckland Museum</li>
+            <li>Wait&#257;kere Ranges and west coast black-sand beach excursion</li>
+            <li>Te Puia guided experience: the geothermal valley, P&#333;hutu Geyser, Kiwi Conservation Centre and the M&#257;ori Arts and Crafts Institute</li>
+            <li>Te P&#333; indigenous evening experience with h&#257;ngi dinner and cultural performance</li>
+            <li>Wai-O-Tapu Thermal Wonderland entry, timed for the Lady Knox Geyser</li>
+            <li>Redwood Forest canopy walk or zipline</li>
+            <li>Skyline Queenstown gondola</li>
+            <li>A full Queenstown adventure day, or a private scenic helicopter flight with an alpine landing</li>
+            <li>Full-day Fiordland excursion including the Milford Sound cruise</li>
+            <li>Private Canterbury excursion, including Lake Tekapo where the schedule allows</li>
+            <li><span class="ic">&#10003;</span>Travel insurance facilitated on your behalf (adjusted in your quote if you are already covered)</li>
+            <li>NZeTA or visitor visa preparation</li>
+          </ul>
+        </details>
+        <details class="inclusion-list">
+          <summary>What's Not Included</summary>
+          <ul>
+            <li>International flights to Auckland and from Christchurch</li>
+            <li>Bungy jumping, skydiving and jet boating where selected as additions</li>
+            <li>Lunches and dinners not listed in the itinerary</li>
+            <li>Gratuities for guides, drivers and lodge staff</li>
+            <li>Items of a personal nature</li>
+          </ul>
+        </details>
+      </div>
+      <div class="price-card">
+        <h3>Per Person Pricing</h3>
+        <div class="price-row"><span class="label">Per Person Sharing</span><span class="value">$15,400</span></div><div class="price-row"><span class="label">Single Traveller Supplement</span><span class="value">On Request</span></div>
+        <div class="price-note">&#9432; Pricing is an estimate subject to confirmation based on season, room category, and final accommodation selection.</div>
+        <div class="season-pricing">
+  <h4>2027 Season Pricing</h4>
+  <p class="sub">The same unforgettable journey, priced by season.</p>
+  <div class="season-row"><div class="season-main"><span class="season-label">May &ndash; Aug</span><span class="season-badge badge-value"><i class="fs-ico fs-ico-sprout" aria-hidden="true"></i> Winter Season</span><span class="season-tag">Snow in the Southern Alps, quiet fiords</span></div><span class="season-price">$14,600</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Dec &ndash; Feb</span><span class="season-badge badge-peak"><i class="fs-ico fs-ico-sun" aria-hidden="true"></i> Peak Season</span><span class="season-tag">Long summer days and warm lakes</span></div><span class="season-price">$18,200</span></div>
+  <div class="season-row"><div class="season-main"><span class="season-label">Oct &ndash; Nov, Mar &ndash; Apr</span><span class="season-badge badge-shoulder"><i class="fs-ico fs-ico-leaf" aria-hidden="true"></i> Shoulder Season</span><span class="season-tag">Best value, and crested penguins in November</span></div><span class="season-price">$16,100</span></div>
+</div>
+<div class="payment-plan">
+  <h4>Flexible Payment Plan</h4>
+  <div class="payment-steps">
+    <div class="payment-step"><span class="num">1</span><p><strong>Reserve today</strong> with a low early deposit to lock in your 2027 dates and pricing.</p></div>
+    <div class="payment-step"><span class="num">2</span><p><strong>Spread the rest</strong> across convenient instalments, at a pace that suits you.</p></div>
+    <div class="payment-step"><span class="num">3</span><p><strong>Final balance due</strong> one month before departure &mdash; nothing more to pay once you fly.</p></div>
+  </div>
+</div>
+<a href="tailor-your-journey.html" class="btn btn-solid js-fs-enquire" data-fs-package="The New Zealand Grand Adventure" style="width:100%;margin-top:24px;">Speak To Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-details" id="details"><div class="wrap">
+  <h2 style="margin-bottom:50px;font-size:42px;">Journey Details</h2>
+  <div class="jd-grid">
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-backpack" aria-hidden="true"></i></div><h4>Travel Kit</h4><p>Duffel, waterproof shell and a dry bag</p><button class="jd-toggle" data-target="kit-nzgrand">View +</button><div class="jd-panel" id="kit-nzgrand"><ul class="gi-list gi-list-compact"><li><strong>Your duffel</strong> &mdash; A soft-sided {{brand}} duffel, sized for the domestic flights and light aircraft this journey uses.</li><li><strong>What is inside it</strong> &mdash; A packable waterproof shell, a roll-top dry bag for the Milford cruise and the boat days, and a merino base layer.</li><li><strong>Yours to keep</strong> &mdash; The bag and everything in it is a gift, not a loan.</li><li><strong>Why the shell matters</strong> &mdash; Fiordland is one of the wettest inhabited places on Earth. Rain is not a risk here, it is the normal condition, and it is also what makes the waterfalls run.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-notebook-pen" aria-hidden="true"></i></div><h4>Note</h4><p>Fiordland is wet, and that is the point</p><button class="jd-toggle" data-target="note-nzgrand">View +</button><div class="jd-panel" id="note-nzgrand"><p>Milford Sound receives rain on roughly two days in three, and the cruise runs regardless &mdash; heavy rain brings hundreds of temporary waterfalls off the cliffs and is arguably the better experience. Adventure activities in Queenstown are weather- and operator-dependent, and the helicopter alternatives depend on cloud. Fiordland crested penguins are seen between July and November; whale, dolphin and seal sightings are natural and never guaranteed.</p><ul class="gi-list gi-list-compact"><li><strong>Early starts</strong> &mdash; The best of this journey happens at dawn &mdash; before the heat, the crowds and the haze. Your guide will confirm what time you will be collected.</li><li><strong>Tailoring this journey</strong> &mdash; If you would like this package with more or fewer days, arranged for a group, a family or a solo traveller, or with add-ons, <a href="tailor-your-journey.html">reach out and we will tailor it for you</a>.</li><li><strong>Route changes</strong> &mdash; Your guide or driver may alter the route in certain circumstances, but every destination set out in the itinerary will be covered.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-file-text" aria-hidden="true"></i></div><h4>Documents</h4><p>An NZeTA is required for visa-waiver nationalities</p><button class="jd-toggle" data-target="docs-nzgrand">View +</button><div class="jd-panel" id="docs-nzgrand"><ul class="gi-list gi-list-compact"><li><strong>Passport</strong> &mdash; Valid for at least three months beyond your intended departure from New Zealand.</li><li><strong>NZeTA</strong> &mdash; Visa-waiver nationalities must hold a New Zealand Electronic Travel Authority, requested online before departure and valid for two years. The International Visitor Levy is paid at the same time.</li><li><strong>Visitor visa</strong> &mdash; Nationals of countries outside the visa-waiver list, Kenya included, must apply for a visitor visa in advance.</li><li><strong>Biosecurity</strong> &mdash; New Zealand runs among the strictest biosecurity regimes in the world. Declare all food, plant material and outdoor equipment, and clean any hiking boots thoroughly before you fly. Fines for undeclared items are immediate and substantial.</li><li><strong>We handle the paperwork</strong> &mdash; We complete and submit your visa, eVisa or travel-authorisation applications on your behalf. You supply the documents once; we do the filing, track the approval and hold the confirmations for you.</li><li><strong>Before you travel</strong> &mdash; Entry rules change frequently and without much notice. Your specialist confirms the current requirements for every passport in your party at the time of booking, and checks them again before you fly.</li></ul></div></div>
+    <div class="jd-item"><div class="icon"><i class="fs-ico fs-ico-users" aria-hidden="true"></i></div><h4>Guaranteed Departures</h4><p>Private, tailor-made departures on your dates</p><button class="jd-toggle" data-target="dep-nzgrand">View +</button><div class="jd-panel" id="dep-nzgrand"><ul class="gi-list gi-list-compact"><li><strong>Once confirmed, you travel</strong> &mdash; When your departure date is confirmed, it is guaranteed. We do not cancel, merge or reschedule a confirmed departure for commercial reasons, however the final numbers fall.</li><li><strong>What confirms a departure</strong> &mdash; A departure becomes confirmed once the agreed number of travellers has been reached and paid for in line with the agreed payment schedule. Places held without payment do not count towards it.</li><li><strong>If the minimum is not reached</strong> &mdash; Where a group departure has not reached its agreed numbers, we tell you early rather than late, and you choose: move to the next available date, continue at a revised small-group rate, or take a full refund of everything you have paid.</li><li><strong>Solo journeys</strong> &mdash; Solo and tailor-made itineraries carry no group minimum at all. Your dates are confirmed the moment your deposit is received.</li></ul></div></div>
+  </div>
+  <div class="general-info">
+    <button class="btn jd-toggle" data-target="general-nzgrand" style="border-color:var(--ink);">General Information &#8681;</button>
+    <div class="general-info-panel" id="general-nzgrand"><p>A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure. All itineraries can be tailored &mdash; <a href="tailor-your-journey.html">extend a stay, add a destination, or adjust the pace to suit you</a>. Comprehensive travel insurance covering trip cancellation, medical evacuation and personal effects is required for all guests. Your dedicated specialist remains on call throughout your journey for any changes or assistance you need.</p><ul class="gi-list"><li><strong>What to pack</strong> &mdash; Layers, and a genuine waterproof shell rather than a fashion one. Four seasons in a day is a local saying rather than a joke. Sturdy walking shoes, thoroughly cleaned before you fly for biosecurity, plus sunglasses and high-factor sun cream &mdash; the UV here is among the fiercest anywhere. Swimwear for the hot pools, and warm layers for the alpine mornings in every season.</li></ul></div>
+  </div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <div class="more-head"><h2>More Journeys in New Zealand &amp; the Pacific</h2></div>
+    <div class="more-grid"><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/new-zealand-and-fiji.jpg" alt="New Zealand &amp; Fiji &mdash; From the Southern Alps to Paradise"><div class="tags"><span class="tag">NEW ZEALAND &amp; FIJI</span></div></div><div class="body"><h3>New Zealand &amp; Fiji &mdash; From the Southern Alps to Paradise</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Auckland &middot; Queenstown &middot; Milford Sound &middot; Malolo Island</div><div class="footer-row"><div class="price">$16,400 <span>pp</span></div><a href="new-zealand-and-fiji.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/switzerland-alpine-grand-tour.jpg" alt="Switzerland &mdash; The Swiss Alpine Grand Tour"><div class="tags"><span class="tag">SWITZERLAND</span></div></div><div class="body"><h3>Switzerland &mdash; The Swiss Alpine Grand Tour</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Zurich &middot; Lucerne &middot; Interlaken &middot; Zermatt &middot; Geneva</div><div class="footer-row"><div class="price">$15,800 <span>pp</span></div><a href="switzerland-alpine-grand-tour.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Wild Seychelles"><div class="tags"><span class="tag">SEYCHELLES</span></div></div><div class="body"><h3>Wild Seychelles</h3><div class="meta">10 Days &middot; Private</div><div class="it-list"><b>Route</b>Mah&eacute; &middot; Sainte Anne &middot; F&eacute;licit&eacute; &middot; La Digue</div><div class="footer-row"><div class="price">$11,200 <span>pp</span></div><a href="seychelles-wild-adventure.html" class="btn">View Journey</a></div></div></div><div class="package-card"><div class="imgwrap"><img loading="lazy" decoding="async" src="assets/img/packages/east-african-grand-safari.jpg" alt="The East African Grand Safari"><div class="tags"><span class="tag">FIVE COUNTRIES</span></div></div><div class="body"><h3>The East African Grand Safari</h3><div class="meta">31 Days &middot; Private</div><div class="it-list"><b>Route</b>Kenya &middot; Uganda &middot; Rwanda &middot; Tanzania &middot; Zanzibar</div><div class="footer-row"><div class="price">$58,500 <span>pp</span></div><a href="east-african-grand-safari.html" class="btn">View Journey</a></div></div></div></div>
+  </div>
+</section>
+
+<!--@include footer-newsletter-2-->
+
+<!--@include package-tabnav-script-2-->
+<!--@include itinerary-expand-script-->
+<!--@include journey-details-script-->
+
+<script src="assets/fs-geo.js"></script>
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"region":"asia","focus":null,"stops":[["Auckland",-36.85,174.76],["Rotorua",-38.14,176.25],["Queenstown",-45.03,168.66],["Milford Sound",-44.67,167.93],["Te Anau",-45.41,167.72],["Christchurch",-43.53,172.64]],"overviewLabel":"Full route","title":"Route Map"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include year-toggle-script-->
+
+<script>window.FS_PRICING={"currency":"$","defaultYear":"2026","years":{"2026":{"headline":15400,"seasons":[14600,18200,16100],"from":14600,"single":"On Request"},"2027":{"headline":14650,"seasons":[13850,17300,15300],"from":13850,"single":"On Request"}}}</script>
+<script src="assets/fs-pricing.js"></script>
+
+<!--@include offers-more-script-->
+
+<!--@include enquiry-modal-->
+<!--@include floatcard-dock-->
+
+<!--@include script-3-->
+
+<!--@include print-styles-b-->
+<!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
+</body>
+</html>

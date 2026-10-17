@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Journeys in Italy — {{brand}}</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;color:#1a1209;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --rust:#8B3A2A;
+  --rust-dark:#6B2D1F;
+  --warm:#EDE3CE;
+  --ink:#1a1209;
+  --muted:#8a7a68;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Raleway',sans-serif;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar{
+  background:var(--rust);color:#fff;padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;letter-spacing:0.04em;font-family:var(--sans);
+}
+.topbar-left{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.topbar-right a{color:#fff;opacity:0.9;transition:opacity .2s;}
+.topbar-right a:hover{opacity:1;}
+.topbar-dot{opacity:0.35;}
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  background:#fff;border-bottom:1px solid #e8e0d4;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 40px;height:64px;
+}
+.nav-left{display:flex;align-items:center;gap:32px;}
+
+/* Hamburger — 3 bars animate to X */
+.nav-hamburger{
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:5px;
+  padding:4px;position:relative;z-index:600;
+  flex-shrink:0;
+}
+.nav-hamburger .hb{
+  display:block;width:22px;height:1.5px;
+  background:var(--ink);
+  transition:transform .35s ease,opacity .25s ease,top .35s ease;
+  transform-origin:center;
+  position:relative;
+}
+/* Hamburger → X when mega menu open */
+.mega-open .nav-hamburger .hb:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mega-open .nav-hamburger .hb:nth-child(2){opacity:0;transform:scaleX(0);}
+.mega-open .nav-hamburger .hb:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-link{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;transition:color .2s;
+}
+.nav-link:hover{color:var(--rust);}
+.nav-logo{
+  font-family:var(--serif);font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--ink);text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
+.nav-right-area{display:flex;align-items:center;justify-content:flex-end;}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);transition:color .2s;font-family:var(--sans);
+}
+.nav-search:hover{color:var(--rust);}
+
+/* ══════════════════════════════════════════
+   3-LEVEL CASCADING MEGA MENU — FIXED
+══════════════════════════════════════════ */
+
+/* Fullscreen overlay — hidden by default */
+.mega-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9000;
+  display:none;
+}
+.mega-overlay.open{ display:block; }
+
+/* Dark backdrop behind panels */
+.mega-backdrop{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(10,6,2,0.5);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.mega-overlay.open .mega-backdrop{ opacity:1; }
+
+/* Panel row — sits on top of backdrop, left-aligned */
+.mega-panels{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  z-index:1;
+  /* wide enough to hold all 3 panels */
+  width:1180px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.mega-overlay.open .mega-panels{
+  pointer-events:all;
+}
+
+/* Base panel — hidden off left edge */
+.mpanel{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#fff;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-right:1px solid #e0d8cc;
+  /* animate using left position */
+  transition:left .38s cubic-bezier(0.16,1,0.3,1);
+  pointer-events:none;
+}
+.mpanel.visible{
+  pointer-events:all;
+}
+
+/* PANEL 1
+   hidden:  left:-380px (off screen left)
+   visible: left:0
+*/
+.mpanel-1{
+  width:380px;
+  left:-380px;
+}
+.mpanel-1.visible{ left:0; }
+
+/* PANEL 2
+   hidden:  left:-420px (behind panel 1)
+   visible: left:380px (right of panel 1)
+*/
+.mpanel-2{
+  width:420px;
+  left:-420px;
+}
+.mpanel-2.visible{ left:380px; }
+
+/* PANEL 3
+   hidden:  left:-380px (behind panel 2)
+   visible: left:800px (right of panel 2)
+*/
+.mpanel-3{
+  width:380px;
+  left:-380px;
+}
+.mpanel-3.visible{ left:800px; }
+
+/* Panel 1 inner padding */
+.mp1-inner{ padding:32px 36px 40px; }
+
+/* Close × */
+.mp-close-row{ margin-bottom:28px; }
+.mp-close{
+  background:none;border:none;cursor:pointer;
+  font-size:26px;line-height:1;color:var(--ink);
+  padding:0;transition:opacity .2s;font-family:sans-serif;
+}
+.mp-close:hover{ opacity:0.4; }
+
+/* Level 1 main links */
+.mp1-nav{ list-style:none; }
+.mp1-nav li{ border-bottom:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav li:first-child{ border-top:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-size:30px;font-weight:400;
+  color:var(--ink);padding:16px 0;
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.mp1-nav a:hover,
+.mp1-nav li.active-item > a{ color:var(--rust); }
+.mp1-nav a svg{ flex-shrink:0;transition:transform .2s; }
+.mp1-nav li.active-item > a svg{ transform:translateX(4px); }
+
+/* Divider + POPULAR */
+.mp1-divider{
+  height:0.5px;background:rgba(26,18,9,0.12);margin:28px 0 20px;
+}
+.mp1-popular-label{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:#3E6B4E;margin-bottom:16px;
+}
+.mp1-secondary{ list-style:none; }
+.mp1-secondary li{ border-bottom:0.5px solid rgba(26,18,9,0.06); }
+.mp1-secondary a{
+  display:block;font-family:var(--sans);font-size:13px;
+  color:rgba(26,18,9,0.6);padding:9px 0;transition:color .2s;
+}
+.mp1-secondary a:hover{ color:var(--rust); }
+
+/* Panel 2 */
+.mp2-inner{ padding:28px 32px 40px; }
+.mp2-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp2-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp2-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp2-card:hover .mp2-card-bg{ transform:scale(1.05); }
+.mp2-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp2-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mc2bg1{ background:radial-gradient(ellipse at 45% 55%,#1a3010,#060c04); }
+.mc2bg2{ background:radial-gradient(ellipse at 55% 45%,#201808,#0c0a04); }
+.mc2bg3{ background:radial-gradient(ellipse at 40% 60%,#001828,#040810); }
+.mc2bg4{ background:radial-gradient(ellipse at 60% 40%,#1e0800,#0c0400); }
+.mc2bg5{ background:radial-gradient(ellipse at 50% 50%,#180a00,#0a0500); }
+.mc2bg6{ background:radial-gradient(ellipse at 45% 55%,#0a1020,#04060c); }
+.mp2-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp2-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp2-regions{ list-style:none; }
+.mp2-regions li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp2-regions a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:13px 0;cursor:pointer;transition:color .2s;text-decoration:none;
+}
+.mp2-regions a:hover,
+.mp2-regions a.active{ color:var(--rust); }
+.mp2-regions a svg{ flex-shrink:0;opacity:0.3;transition:opacity .2s; }
+.mp2-regions a:hover svg,
+.mp2-regions a.active svg{ opacity:1;color:var(--rust); }
+
+/* Panel 3 */
+.mp3-inner{ padding:28px 32px 40px; }
+.mp3-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp3-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp3-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp3-card:hover .mp3-card-bg{ transform:scale(1.05); }
+.mp3-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp3-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mp3-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp3-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp3-countries{ list-style:none; }
+.mp3-countries li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp3-countries a{
+  display:flex;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:12px 0;transition:color .2s;text-decoration:none;
+}
+.mp3-countries a:hover{ color:var(--rust); }
+
+/* Stagger animations */
+.mega-overlay.open .mp1-nav li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-nav li:nth-child(1){ animation-delay:.05s; }
+.mega-overlay.open .mp1-nav li:nth-child(2){ animation-delay:.10s; }
+.mega-overlay.open .mp1-nav li:nth-child(3){ animation-delay:.15s; }
+.mega-overlay.open .mp1-secondary li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-secondary li:nth-child(1){ animation-delay:.18s; }
+.mega-overlay.open .mp1-secondary li:nth-child(2){ animation-delay:.21s; }
+.mega-overlay.open .mp1-secondary li:nth-child(3){ animation-delay:.24s; }
+.mega-overlay.open .mp1-secondary li:nth-child(4){ animation-delay:.27s; }
+.mega-overlay.open .mp1-secondary li:nth-child(5){ animation-delay:.30s; }
+.mega-overlay.open .mp1-secondary li:nth-child(6){ animation-delay:.33s; }
+@keyframes mpIn{
+  from{ opacity:0; transform:translateX(-12px); }
+  to{   opacity:1; transform:none; }
+}
+
+/* ══════════════════════════════
+   DESTINATION HERO — full-bleed image
+══════════════════════════════ */
+.dest-hero{
+  position:relative;
+  height:300px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.dest-hero-bg{
+  position:absolute;inset:0;
+  /* FS-HERO:START — the hero image for this destination.
+     Replace the value below with your own image, e.g.
+       background: url('images/italy-hero.jpg');
+     Then run sync-dest-cards.js so the matching homepage card updates too. */
+  background-image:url('assets/img/destinations/italy.jpg');
+  /* FS-HERO:END */
+  background-size:cover;background-position:center 40%;
+}
+.dest-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(10,6,2,0.25) 0%, rgba(10,6,2,0.60) 100%);
+}
+.dest-hero-content{position:relative;z-index:2;padding:0 24px;}
+.dest-hero-title{
+  font-family:var(--serif);font-size:clamp(40px,6vw,72px);
+  font-weight:400;color:#fff;line-height:1.05;margin-bottom:28px;
+}
+.dest-hero-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);
+  padding-bottom:6px;transition:opacity .2s;
+}
+.dest-hero-link:hover{opacity:0.7;}
+
+/* ══════════════════════════════
+   OVERVIEW SECTION — breadcrumb + paragraphs
+══════════════════════════════ */
+.dest-overview{background:var(--warm);padding:48px 15% 60px;}
+.dest-breadcrumb{
+  font-family:var(--sans);font-size:12px;color:var(--muted);
+  margin-bottom:32px;letter-spacing:0.02em;
+}
+.dest-breadcrumb a{color:var(--muted);transition:color .2s;}
+.dest-breadcrumb a:hover{color:var(--rust);}
+.dest-breadcrumb .current{color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+.dest-breadcrumb .sep{margin:0 8px;opacity:0.5;}
+.dest-overview-headline{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.4;
+  color:var(--ink);margin:0 0 24px;max-width:90%;
+}
+.dest-overview p{
+  font-family:var(--sans);font-size:15px;line-height:1.85;
+  color:var(--ink);margin-bottom:24px;max-width:100%;
+}
+.dest-overview p:last-child{margin-bottom:0;}
+.dest-overview a.inline-link{color:var(--rust);text-decoration:underline;text-underline-offset:2px;}
+.dest-overview p em{font-style:italic;}
+
+/* ══════════════════════════════
+   SECONDARY STICKY NAV — jump links
+══════════════════════════════ */
+.dest-subnav-wrap{position:sticky;top:64px;z-index:300;}
+.dest-subnav{
+  position:relative;background:var(--warm);
+  border-top:1px solid #e8ddc8;border-bottom:1px solid #e8ddc8;
+  display:flex;align-items:center;gap:36px;
+  padding:18px 15%;overflow-x:auto;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0.04em;
+  white-space:nowrap;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.dest-subnav-spacer{height:0;}
+.dest-subnav a{
+  color:var(--ink);transition:color .2s;display:flex;align-items:center;gap:6px;
+}
+.dest-subnav a.back-to-top{color:var(--muted);}
+.dest-subnav a.active,.dest-subnav a:hover{color:var(--rust);}
+.dest-subnav a.active{border-bottom:1.5px solid var(--rust);padding-bottom:4px;}
+
+/* ══════════════════════════════
+   SECTION HEADINGS (shared)
+══════════════════════════════ */
+.dest-section{padding:64px 15%;}
+.dest-section-eyebrow{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.dest-section-title{
+  text-align:center;font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);
+  font-weight:400;color:var(--ink);line-height:1.3;max-width:900px;
+  margin:0 auto 48px;
+}
+
+/* ══════════════════════════════
+══════════════════════════════ */
+
+/* ══════════════════════════════
+   JOURNEY CARDS — image left / details right
+══════════════════════════════ */
+.journey-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-top:1px solid #e8e0d4;border-bottom:1px solid #e8e0d4;
+  background:#fff;align-items:stretch;
+  width:100%;
+}
+.journey-card-img{
+  position:relative;overflow:hidden;
+  min-height:560px;
+}
+.journey-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+}
+.jcbg1{background:radial-gradient(ellipse at 40% 60%, #1c3424 0%, #08140a 100%);}
+.jcbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.jcbg3{background:radial-gradient(ellipse at 45% 55%, #1c2c38 0%, #08101a 100%);}
+.journey-card-badges{
+  position:absolute;top:16px;left:16px;display:flex;gap:8px;
+}
+.jc-badge{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:7px 12px;font-weight:500;
+}
+.jc-badge-type{background:#fff;color:var(--ink);}
+.jc-badge-offer{background:var(--rust);color:#fff;}
+.journey-card + .journey-card{margin-top:0;border-top:none;}
+.journey-card-body{
+  padding:56px 64px;display:flex;flex-direction:column;justify-content:center;
+}
+.jc-title{
+  font-family:var(--serif);font-size:32px;font-weight:400;
+  color:var(--ink);margin-bottom:14px;line-height:1.2;
+}
+.jc-meta{
+  font-family:var(--sans);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+}
+.jc-desc{
+  font-family:var(--sans);font-size:14.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:22px;
+}
+.jc-itinerary-label{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.jc-itinerary{
+  font-family:var(--sans);font-size:13.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:24px;
+}
+.jc-footer{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:22px;
+}
+.jc-price{font-family:var(--sans);font-size:13px;color:var(--ink);}
+.jc-price strong{font-size:17px;}
+.jc-btn{
+  background:var(--ink);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 26px;transition:background .25s;
+}
+.jc-btn:hover{background:var(--rust);}
+
+/* ══════════════════════════════
+   EXPERIENCES GRID — 4 columns
+══════════════════════════════ */
+.exp-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.exp-card{cursor:pointer;}
+.exp-card-img{
+  position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;
+}
+.exp-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.exp-card:hover .exp-card-img-bg{transform:scale(1.05);}
+.ecbg1{background-image:url('assets/img/experiences/colosseum-private-guide-experience.jpg');}
+.ecbg2{background-image:url('assets/img/experiences/sistine-chapel-before-crowds-experience.jpg');}
+.ecbg3{background-image:url('assets/img/experiences/chianti-classico-estate-tasting-experience.jpg');}
+.ecbg4{background-image:url('assets/img/experiences/venice-private-gondola-back-canals-experience.jpg');}
+.exp-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+
+.exp-card-explore{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--rust);}
+.exp-card-link{display:block;text-decoration:none;color:inherit;}
+.exp-card-link:hover .exp-card-explore{gap:10px;transition:gap .2s ease;}
+
+.exp-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;
+  color:var(--ink);line-height:1.35;
+}
+
+/* ══════════════════════════════
+   FEATURED ACCOMMODATION — editorial
+══════════════════════════════ */
+.featured-acc{padding:64px 15%;}
+.featured-acc-label{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:32px;
+}
+.featured-acc-img{
+  aspect-ratio:16/7;overflow:hidden;margin-bottom:32px;
+  background:radial-gradient(ellipse at 50% 50%, #3c2c1c 0%, #140c06 100%);
+}
+.featured-acc-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);line-height:1.3;margin-bottom:24px;max-width:900px;
+}
+.featured-acc p{
+  font-family:var(--sans);font-size:14px;line-height:1.85;
+  color:var(--ink);margin-bottom:18px;max-width:1000px;
+}
+.featured-acc-place{
+  text-align:center;font-family:var(--sans);font-size:12px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--rust);margin-bottom:16px;
+}
+.featured-acc-link{
+  display:inline-block;margin-top:14px;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);
+  border-bottom:1px solid var(--rust);padding-bottom:5px;transition:color .2s,border-color .2s;
+}
+.featured-acc-link:hover{color:var(--rust);}
+
+/* ══════════════════════════════
+   ACCOMMODATIONS — horizontal scroll carousel
+══════════════════════════════ */
+.acc-carousel-wrap{position:relative;}
+.acc-carousel{
+  display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;
+  scrollbar-width:none;padding-bottom:4px;
+}
+.acc-carousel::-webkit-scrollbar{display:none;}
+.acc-card{flex:0 0 480px;cursor:pointer;}
+.acc-card-img{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:16px;}
+.acc-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.acc-card:hover .acc-card-img-bg{transform:scale(1.05);}
+.acbg1{background:radial-gradient(ellipse at 50% 50%, #1c2c38 0%, #08101a 100%);}
+.acbg2{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.acbg3{background:radial-gradient(ellipse at 55% 45%, #403424 0%, #140e08 100%);}
+.acbg4{background:radial-gradient(ellipse at 50% 50%, #243828 0%, #0a140c 100%);}
+.acbg5{background:radial-gradient(ellipse at 48% 52%, #1c3424 0%, #08140a 100%);}
+.acc-badge{
+  position:absolute;top:12px;left:12px;
+  background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:6px 11px;font-weight:500;
+}
+.acc-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;
+}
+.acc-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);
+}
+.acc-arrow{
+  position:absolute;top:38%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;background:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);color:var(--ink);transition:background .2s,color .2s;
+}
+.acc-arrow:hover{background:var(--rust);color:#fff;}
+.acc-arrow.prev{left:-22px;}
+.acc-arrow.next{right:-22px;}
+
+/* ══════════════════════════════
+   WAYS TO EXPLORE
+══════════════════════════════ */
+/* ══════════════════════════════
+   SPEAK TO US CTA
+══════════════════════════════ */
+.expert-cta{padding:0 15% 64px;}
+.expert-cta-inner{
+  display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  background:var(--white);border-left:4px solid var(--rust);
+  padding:48px 56px;
+}
+.expert-cta-logo{
+  width:90px;height:90px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:32px;flex-shrink:0;
+}
+.expert-cta-title{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.35;
+  color:var(--ink);margin:0 0 12px;
+}
+.expert-cta-text{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin:0 0 16px;}
+.expert-cta-contact{
+  font-family:var(--sans);font-size:13px;line-height:1.9;color:var(--ink);
+  text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;
+}
+.expert-cta-contact strong{display:block;font-size:16px;letter-spacing:0.02em;margin-bottom:4px;}
+
+.ways-explore{padding:64px 15%;background:var(--warm);}
+.ways-tabs{display:flex;flex-wrap:wrap;border:1px solid #e2d6bd;border-radius:6px;overflow:hidden;margin-bottom:36px;background:#fff;}
+.ways-tab{flex:1;min-width:140px;text-align:center;padding:18px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);cursor:pointer;background:transparent;border:none;border-right:1px solid #e2d6bd;line-height:1.4;transition:background .2s ease;}
+.ways-tab:last-child{border-right:none;}
+.ways-tab.active{background:#DFCFA3;}
+.ways-tab:hover:not(.active){background:#f2ead6;}
+.ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.ways-img{aspect-ratio:4/3;width:100%;min-width:0;background:radial-gradient(ellipse at 50% 50%, #3a2814 0%, #100a04 100%);overflow:hidden;position:relative;}
+.ways-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ways-content{position:relative;}
+.ways-content .ways-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
+.ways-content h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.3;}
+.ways-content p{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin-bottom:18px;}
+.ways-link{font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+
+/* ══════════════════════════════
+   MAP SECTION
+══════════════════════════════ */
+.map-section{padding:0 15% 64px;}
+.map-frame{
+  aspect-ratio:16/8;background:var(--warm);border:1px solid #e8ddc8;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;color:var(--muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* ══════════════════════════════
+   ALL JOURNEYS — filters + package grid
+══════════════════════════════ */
+.all-journeys{padding:64px 8% 80px;background:var(--warm);}
+.all-journeys-header{text-align:center;margin-bottom:12px;}
+.all-journeys-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);margin-bottom:8px;
+}
+.all-journeys-results{
+  text-align:center;font-family:var(--sans);font-size:13px;color:var(--muted);
+  margin-bottom:8px;
+}
+.all-journeys-results strong{color:var(--ink);}
+.all-journeys-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #e0d8cc;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.08em;
+  padding:8px 14px;margin:0 auto 40px;width:fit-content;
+}
+
+.all-journeys-layout{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;}
+
+/* Filter sidebar */
+.aj-filters{display:flex;flex-direction:column;gap:28px;}
+.aj-filter-group h4{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.aj-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.aj-pill{
+  font-family:var(--sans);font-size:11.5px;color:var(--ink);
+  border:1px solid #e0d8cc;background:#fff;
+  padding:7px 14px;border-radius:20px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.aj-pill:hover,.aj-pill.active{border-color:var(--rust);color:var(--rust);}
+.aj-checkbox{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13px;color:var(--ink);
+  padding:6px 0;cursor:pointer;
+}
+.aj-checkbox input{accent-color:var(--rust);width:14px;height:14px;}
+.aj-season-note{font-family:var(--sans);font-size:12.5px;line-height:1.7;color:var(--ink);background:#f7f2ea;border-left:2px solid var(--rust);padding:12px 16px;margin:4px 0 28px;max-width:640px;}
+.aj-empty{padding:48px 20px;text-align:center;border:1px dashed #e0d8cc;}
+.aj-empty p{font-family:var(--sans);font-size:14px;color:var(--ink);margin:0 auto 16px;max-width:440px;line-height:1.7;}
+
+/* Package grid — 2 columns */
+.aj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.aj-card{background:#fff;border:1px solid #e8e0d4;}
+.aj-card-img{position:relative;aspect-ratio:4/4.2;overflow:hidden;}
+.aj-card-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
+.aj-card:hover .aj-card-img-bg{transform:scale(1.05);}
+.ajbg1{background:radial-gradient(ellipse at 45% 55%, #1c3424 0%, #08140a 100%);}
+.ajbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.ajbg3{background:radial-gradient(ellipse at 40% 60%, #1c2c38 0%, #08101a 100%);}
+.ajbg4{background:radial-gradient(ellipse at 55% 50%, #2c3818 0%, #0c1406 100%);}
+.ajbg5{background:radial-gradient(ellipse at 45% 45%, #403424 0%, #140e08 100%);}
+.ajbg6{background:radial-gradient(ellipse at 50% 55%, #243828 0%, #0a140c 100%);}
+.aj-card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;}
+.aj-badge{
+  font-family:var(--sans);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:6px 10px;font-weight:500;
+}
+.aj-badge-type{background:#fff;color:var(--ink);}
+.aj-badge-offer{background:var(--rust);color:#fff;}
+.aj-badge-new{background:var(--ink);color:#fff;}
+.aj-card-body{padding:20px 22px 24px;}
+.aj-card-title{
+  font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);
+  line-height:1.3;margin-bottom:10px;
+}
+.aj-card-meta{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--muted);
+  margin-bottom:12px;
+}
+.aj-card-route{font-family:var(--sans);font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:14px;}
+.aj-card-route b{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.aj-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:14px;
+}
+.aj-card-price{font-family:var(--sans);font-size:12.5px;color:var(--ink);}
+.aj-card-price strong{font-size:15px;}
+.aj-card-link{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--rust);border-bottom:1px solid var(--rust);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.aj-card-link:hover{opacity:0.6;}
+
+.aj-loadmore{
+  display:block;margin:40px auto 0;
+  background:none;border:1px solid var(--ink);color:var(--ink);
+  font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:14px 36px;cursor:pointer;transition:background .25s,color .25s;
+}
+.aj-loadmore:hover{background:var(--ink);color:#fff;}
+
+
+/* ══════════════════════════════
+   FLOATING CTA
+══════════════════════════════ */
+.speak-btn{
+  position:fixed;bottom:24px;right:24px;z-index:300;background:var(--rust);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.25);transition:background .25s;
+}
+.speak-btn:hover{background:var(--rust-dark);}
+
+/* ══════════════════════════════
+   FOOTER (reuse from homepage)
+══════════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+.footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;letter-spacing:0.04em;margin-bottom:12px;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.33);margin-bottom:24px;}
+.footer-social{display:flex;gap:12px;}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.fsoc:hover{border-color:rgba(255,255,255,0.5);}
+.footer-col-head{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:16px;font-family:var(--sans);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.52);transition:color .2s;font-family:var(--sans);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:10.5px;color:rgba(255,255,255,0.28);transition:color .2s;font-family:var(--sans);}
+.footer-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* ══════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .topbar{padding:10px 20px;font-size:10.5px;}
+  .topbar-right{display:none;}
+  .nav{padding:0 20px;}
+  .nav-left .nav-link{display:none;}
+  .nav-logo{font-size:18px;gap:7px;}
+  .nav-logo img{height:24px;}
+  .dest-overview{padding:40px 24px 48px;}
+  .dest-section{padding:48px 24px;}
+  .dest-subnav{padding:14px 24px;}
+  .dest-subnav.is-pinned{padding:12px 24px;}
+  .journey-card{grid-template-columns:1fr;}
+  .journey-card-img{min-height:320px;}
+  .journey-card-body{padding:32px 24px;}
+      .exp-grid{grid-template-columns:1fr 1fr;}
+  .ways-grid{grid-template-columns:1fr;}
+  .ways-tabs{flex-direction:column;}
+  .ways-tab{border-right:none;border-bottom:1px solid #e2d6bd;}
+  .ways-tab:last-child{border-bottom:none;}
+  .expert-cta-inner{grid-template-columns:1fr;text-align:center;padding:36px 24px;}
+  .expert-cta-contact{white-space:normal;}
+  .expert-cta{padding:0 24px 48px;}
+  .featured-acc{padding:48px 24px;}
+  .ways-explore{padding:48px 24px;}
+  .map-section{padding:0 24px 48px;}
+  .all-journeys{padding:48px 24px 64px;}
+  .all-journeys-layout{grid-template-columns:1fr;gap:24px;}
+  .aj-filters{flex-direction:row;flex-wrap:wrap;gap:16px;}
+  .aj-filter-group{flex:1 1 100%;}
+  .aj-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .dest-hero-title{font-size:clamp(32px,8vw,52px);}
+  .mpanel-1{width:88vw;max-width:380px;}
+  .mpanel-2{width:88vw;max-width:420px;left:0;}
+  .mpanel-3{width:88vw;max-width:380px;left:0;}
+}
+@media(max-width:600px){
+  .exp-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .footer-top{grid-template-columns:1fr;}
+  .dest-breadcrumb{font-size:11px;}
+}
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<body>
+<!-- ══════════════════════════════════════════
+     3-LEVEL CASCADING MEGA MENU
+══════════════════════════════════════════ -->
+<!--@include mega-menu-panels--><!-- /mega-overlay -->
+
+<!-- ══════════════════════════════
+     TOP BAR + NAV
+══════════════════════════════ -->
+<!--@include topbar-menu-pages-->
+
+<!-- ══════════════════════════════
+     NAV
+══════════════════════════════ -->
+<!--@include nav-menu-pages-->
+
+<!-- ══════════════════════════════
+     SECONDARY SUBNAV
+══════════════════════════════ -->
+<!--@include div-dest-subnav-wrap-top-3-->
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section class="dest-hero">
+  <div class="dest-hero-bg"></div>
+  <div class="dest-hero-overlay"></div>
+  <div class="dest-hero-content">
+    <h1 class="dest-hero-title">Italy: Where Every Street<br>Is a Museum</h1>
+    <a href="#all" class="dest-hero-link">VIEW ALL JOURNEYS &darr;</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     OVERVIEW
+══════════════════════════════ -->
+<section class="dest-overview">
+  <p class="dest-breadcrumb">
+    <a href="destinations.html">All Destinations</a>
+    <span class="sep">&rsaquo;</span>
+    <a href="destinations-europe.html">Europe</a>
+    <span class="sep">&rsaquo;</span>
+    <span class="current">Italy</span>
+  </p>
+
+  <h2 class="dest-overview-headline">A country with more UNESCO World Heritage Sites than any other on Earth &mdash; and it still feels like it is holding something back.</h2>
+
+  <p>Italy is not one destination but a dozen arguing with each other. Rome is imperial, layered and loud; Florence is compact, precise and stuffed with the Renaissance; Venice is a logistical impossibility that has been working for a thousand years. Between them lie Tuscany&rsquo;s hills, the Amalfi Coast&rsquo;s vertical villages, and a food culture that changes measurably every fifty kilometres.</p>
+
+  <p>Sixty-one UNESCO World Heritage Sites is more than any other country holds, and the sheer density is the challenge as much as the appeal. Two days in Rome is not enough and ten days across three cities can still feel rushed if the order is wrong. That is where our specialists earn their keep &mdash; booking the Accademia at the opening slot so David comes before the crowds, putting the Vatican Museums ahead of the mid-morning coach arrivals, and knowing which Tuscan estate actually serves lunch worth driving for.</p>
+
+  <p>At {{brand}} we travel Italy privately and on rail rather than by coach, with licensed local guides in every city. The result is a country experienced at a civilised pace &mdash; the Sistine Chapel, a Chianti cellar and a gondola through the back canals, without a single queue you did not need to stand in.</p>
+</section>
+
+<!-- ══════════════════════════════
+     EXPERIENCES
+══════════════════════════════ -->
+<section class="dest-section" id="experiences" style="background:var(--warm);">
+  <p class="dest-section-eyebrow">Enhance Your Journey with Add-On Experiences</p>
+  <h2 class="dest-section-title reveal">Discover a selection of incredible add-on experiences in Italy, curated by our on-site local experts to make every moment of your trip truly unforgettable.</h2>
+
+  <div class="exp-grid">
+
+    <a href="colosseum-private-guide-experience.html" class="exp-card-link"><div class="exp-card reveal">
+      <div class="exp-card-img"><div class="exp-card-img-bg ecbg1"></div></div>
+      <p class="exp-card-location">Rome, Italy</p>
+      <h3 class="exp-card-title">Stand inside the Colosseum with a private guide</h3>
+      <span class="exp-card-explore">Explore &rarr;</span>
+    </div></a>
+
+    <a href="sistine-chapel-before-crowds-experience.html" class="exp-card-link"><div class="exp-card reveal">
+      <div class="exp-card-img"><div class="exp-card-img-bg ecbg2"></div></div>
+      <p class="exp-card-location">Vatican City</p>
+      <h3 class="exp-card-title">See the Sistine Chapel ceiling before the crowds</h3>
+      <span class="exp-card-explore">Explore &rarr;</span>
+    </div></a>
+
+    <a href="chianti-classico-estate-tasting-experience.html" class="exp-card-link"><div class="exp-card reveal">
+      <div class="exp-card-img"><div class="exp-card-img-bg ecbg3"></div></div>
+      <p class="exp-card-location">Chianti, Tuscany</p>
+      <h3 class="exp-card-title">Taste Chianti Classico at a family-owned estate</h3>
+      <span class="exp-card-explore">Explore &rarr;</span>
+    </div></a>
+
+    <a href="venice-private-gondola-back-canals-experience.html" class="exp-card-link"><div class="exp-card reveal">
+      <div class="exp-card-img"><div class="exp-card-img-bg ecbg4"></div></div>
+      <p class="exp-card-location">Venice, Italy</p>
+      <h3 class="exp-card-title">Take a private gondola through the quiet back canals</h3>
+      <span class="exp-card-explore">Explore &rarr;</span>
+    </div></a>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     FEATURED ACCOMMODATION
+══════════════════════════════ -->
+<section class="featured-acc">
+  <p class="featured-acc-label">Featured Accommodation</p>
+  <div class="featured-acc-img reveal"></div>
+  <p class="featured-acc-place">Ravello, Amalfi Coast</p>
+  <h2 class="featured-acc-title">Caruso, A Belmond Hotel &mdash; an 11th-century palace suspended between sky and sea</h2>
+  <p>Caruso occupies an eleventh-century palace on a clifftop high above Ravello, and the building has been kept rather than gutted &mdash; original frescoes, vaulted ceilings and archaeological fragments sit alongside the modern comforts rather than being replaced by them.</p>
+  <p>The grounds fall away below in layered terraces, and the infinity pool at the top appears to hang between the sky and the Tyrrhenian. It is one of the most photographed views on a coast that is nothing but views, and it earns the attention.</p>
+  <p>Ristorante Belvedere serves traditional Italian and Mediterranean cooking from a terrace over the whole coastline, and the hotel runs a complimentary daily boat along the shore in its own traditional wooden vessel &mdash; which is by some distance the best way to see the Amalfi Coast.</p>
+</section>
+
+<!-- ══════════════════════════════
+     ACCOMMODATIONS
+══════════════════════════════ -->
+<section class="dest-section" id="accommodations">
+  <p class="dest-section-eyebrow">Recommended Hotels &amp; Lodges</p>
+  <h2 class="dest-section-title reveal">Choose your dream stay in Italy from our curated collection</h2>
+
+  <div class="acc-carousel-wrap">
+    <button class="acc-arrow prev" id="accPrev" aria-label="Previous">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="acc-carousel" id="accCarousel">
+      <a href="hotel-de-la-ville-rome.html" class="acc-card" style="text-decoration:none;color:inherit;">
+        <div class="acc-card-img">
+          <div class="acc-card-img-bg acbg1" style="background-image:url('assets/img/lodges/hotel-de-la-ville-rome/3.jpg');background-size:cover;background-position:center"></div>
+        </div>
+        <p class="acc-card-location">Above the Spanish Steps, Rome</p>
+        <h3 class="acc-card-title">Hotel de la Ville, a Rocco Forte Hotel</h3>
+      </a>
+      <a href="hotel-savoy-florence.html" class="acc-card" style="text-decoration:none;color:inherit;">
+        <div class="acc-card-img">
+          <div class="acc-card-img-bg acbg2" style="background-image:url('assets/img/lodges/hotel-savoy-florence/3.jpg');background-size:cover;background-position:center"></div>
+        </div>
+        <p class="acc-card-location">Piazza della Repubblica, Florence</p>
+        <h3 class="acc-card-title">Hotel Savoy, a Rocco Forte Hotel</h3>
+      </a>
+      <a href="danieli-venezia-four-seasons.html" class="acc-card" style="text-decoration:none;color:inherit;">
+        <div class="acc-card-img">
+          <div class="acc-card-img-bg acbg3" style="background-image:url('assets/img/lodges/danieli-venezia-four-seasons/2.jpg');background-size:cover;background-position:center"></div>
+        </div>
+        <p class="acc-card-location">Riva degli Schiavoni, Venice</p>
+        <h3 class="acc-card-title">Danieli, Venezia, A Four Seasons Hotel</h3>
+      </a>
+      <a href="caruso-belmond-ravello.html" class="acc-card" style="text-decoration:none;color:inherit;">
+        <div class="acc-card-img">
+          <div class="acc-card-img-bg acbg4" style="background-image:url('assets/img/lodges/caruso-belmond-ravello/1.jpg');background-size:cover;background-position:center"></div>
+        </div>
+        <p class="acc-card-location">Ravello, Amalfi Coast</p>
+        <h3 class="acc-card-title">Caruso, A Belmond Hotel</h3>
+      </a>
+      <a href="the-phoenicia-malta.html" class="acc-card" style="text-decoration:none;color:inherit;">
+        <div class="acc-card-img">
+          <div class="acc-card-img-bg acbg5" style="background-image:url('assets/img/lodges/the-phoenicia-malta/3.jpg');background-size:cover;background-position:center"></div>
+        </div>
+        <p class="acc-card-location">Floriana, outside Valletta</p>
+        <h3 class="acc-card-title">The Phoenicia Malta</h3>
+      </a>
+    </div>
+    <button class="acc-arrow next" id="accNext" aria-label="Next">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     EXPERT CTA
+══════════════════════════════ -->
+<section class="expert-cta">
+  <div class="expert-cta-inner">
+    <div class="expert-cta-logo"><i class="fs-ico fs-ico-phone" aria-hidden="true"></i></div>
+    <div class="expert-cta-body">
+      <p class="dest-section-eyebrow" style="margin-bottom:10px;">Speak To Us</p>
+      <h2 class="expert-cta-title">Connect with our Travel Experts to begin planning your Italy journey.</h2>
+      <p class="expert-cta-text">Call our experts or schedule a video consultation through Skype or Google Meet, for expert guidance.</p>
+      <a href="#" class="ways-link js-fs-enquire">SPEAK TO US</a>
+    </div>
+    <div class="expert-cta-contact">
+      <p>CALL US AT <strong><a href="tel:+254700000000" style="color:inherit;text-decoration:none;">{{phone}}</a></strong></p>
+      <p>MON&ndash;FRI 8AM&ndash;6PM EAT, OR</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     WAYS TO EXPLORE
+══════════════════════════════ -->
+<section class="ways-explore" id="explore">
+  <p class="dest-section-eyebrow">Ways to Explore</p>
+  <h2 class="dest-section-title reveal">Travel privately, or join a small group of like-minded explorers</h2>
+
+  <div class="ways-tabs" id="waysTabs">
+    <button class="ways-tab active" data-tab="0">Tailor-Made<br>Journeys</button>
+    <button class="ways-tab" data-tab="1">Small Group<br>Journeys</button>
+    <button class="ways-tab" data-tab="2">Solo<br>Journeys</button>
+    <button class="ways-tab" data-tab="3">Couples<br>Journeys</button>
+  </div>
+
+  <div class="ways-grid">
+    <div class="ways-img reveal"><img loading="lazy" decoding="async" id="waysImg" src="assets/img/travel-style/tailor-made/8.jpg" alt="Tailor-Made Journeys"></div>
+    <div class="ways-content">
+      <span class="ways-eyebrow" id="waysEyebrow">TAILOR-MADE JOURNEYS</span>
+      <h3 id="waysHeadline">A journey designed entirely around you</h3>
+      <p id="waysParagraph">Every {{brand}} tailor-made journey is built from a blank page — your pace, your interests, your dates. Whether it is a private Tuscan estate or a Venetian palazzo or a once-in-a-lifetime detour, our specialists design it exclusively for you and the people you are travelling with.</p>
+      <a href="tailor-your-journey.html" class="ways-link" id="waysLink">EXPLORE TAILOR-MADE JOURNEYS</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var waysData = [
+  {
+    "eyebrow": "TAILOR-MADE JOURNEYS",
+    "headline": "A journey designed entirely around you",
+    "paragraph": "Every {{brand}} tailor-made journey is built from a blank page — your pace, your interests, your dates. Whether it is a private Tuscan estate or a Venetian palazzo or a once-in-a-lifetime detour, our specialists design it exclusively for you and the people you are travelling with.",
+    "link": "EXPLORE TAILOR-MADE JOURNEYS",
+    img: "assets/img/travel-style/tailor-made/8.jpg"
+  },
+  {
+    "eyebrow": "SMALL GROUP JOURNEYS",
+    "headline": "Intimate groups, extraordinary experiences",
+    "paragraph": "Our small group departures bring together like-minded travellers on expertly guided itineraries through Italy — limited to a handful of guests per journey, accompanied by specialists who bring every destination to life.",
+    "link": "EXPLORE SMALL GROUP JOURNEYS",
+    img: "assets/img/travel-style/small-group/5.jpg"
+  },
+  {
+    "eyebrow": "SOLO JOURNEYS",
+    "headline": "Travel further, entirely on your terms",
+    "paragraph": "Travelling solo to Italy does not mean travelling alone. Our solo journeys pair independent travellers with expert guides and welcoming hotels, so you explore at your own pace without ever feeling like an afterthought.",
+    "link": "EXPLORE SOLO JOURNEYS",
+    img: "assets/img/travel-style/solo-travel/5.jpg"
+  },
+  {
+    "eyebrow": "COUPLES JOURNEYS",
+    "headline": "Intimacy, wonder, and a little indulgence",
+    "paragraph": "From private dinners to secluded suites, our Italy couples journeys are designed for two — pairing romance with the kind of once-in-a-lifetime moments that are best shared.",
+    "link": "EXPLORE COUPLES JOURNEYS",
+    img: "assets/img/couples-escapes/hero-8.jpg"
+  }
+];
+  var tabs = document.querySelectorAll('#waysTabs .ways-tab');
+  var img = document.getElementById('waysImg');
+  var eyebrow = document.getElementById('waysEyebrow');
+  var headline = document.getElementById('waysHeadline');
+  var paragraph = document.getElementById('waysParagraph');
+  var link = document.getElementById('waysLink');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var d = waysData[parseInt(tab.dataset.tab, 10)];
+      img.src = d.img;
+      img.alt = d.headline;
+      eyebrow.textContent = d.eyebrow;
+      headline.textContent = d.headline;
+      paragraph.textContent = d.paragraph;
+      link.textContent = d.link;
+    });
+  });
+})();
+</script>
+
+<!-- ══════════════════════════════
+     MAP
+══════════════════════════════ -->
+<section class="map-section" id="map">
+  <div class="map-frame reveal">Interactive map &mdash; Italy &amp; the Mediterranean</div>
+</section>
+
+<!-- ══════════════════════════════
+     ALL JOURNEYS
+══════════════════════════════ -->
+<section class="all-journeys" id="all">
+  <div class="all-journeys-header">
+    <h2 class="all-journeys-title">See Where {{brand}} Can Take You</h2>
+  </div>
+  <p class="all-journeys-results">Showing <strong>3</strong> results for:</p>
+  <div class="all-journeys-tag">Italy</div>
+  <p class="aj-season-note" id="ajSeasonNote" hidden></p>
+
+  <div class="all-journeys-layout">
+
+    <aside class="aj-filters">
+      <div class="aj-filter-group">
+        <h4>Regions</h4>
+        <label class="aj-checkbox"><input type="checkbox"> Africa</label>
+        <label class="aj-checkbox"><input type="checkbox"> Indian Ocean</label>
+        <label class="aj-checkbox"><input type="checkbox"> Asia</label>
+        <label class="aj-checkbox"><input type="checkbox" checked> Europe</label>
+        <label class="aj-checkbox"><input type="checkbox"> Middle East</label>
+        <label class="aj-checkbox"><input type="checkbox"> Oceania</label>
+      </div>
+      <div class="aj-filter-group">
+        <h4>Journey Type</h4>
+        <div class="aj-pills">
+          <span class="aj-pill" data-type="tailor-made">Tailor-Made</span>
+          <span class="aj-pill" data-type="small-group">Small Group</span>
+          <span class="aj-pill" data-type="family">Family</span>
+          <span class="aj-pill" data-type="honeymoon">Honeymoon</span>
+          <span class="aj-pill" data-type="culture-heritage">Culture &amp; Heritage</span>
+          <span class="aj-pill" data-type="nature-landscapes">Nature &amp; Landscapes</span>
+        </div>
+      </div>
+      <div class="aj-filter-group">
+        <h4>Months</h4>
+        <div class="aj-pills">
+          <span class="aj-pill" data-month="1">January</span><span class="aj-pill" data-month="2">February</span><span class="aj-pill" data-month="3">March</span>
+          <span class="aj-pill" data-month="4">April</span><span class="aj-pill" data-month="5">May</span><span class="aj-pill" data-month="6">June</span>
+          <span class="aj-pill" data-month="7">July</span><span class="aj-pill" data-month="8">August</span><span class="aj-pill" data-month="9">September</span>
+          <span class="aj-pill" data-month="10">October</span><span class="aj-pill" data-month="11">November</span><span class="aj-pill" data-month="12">December</span>
+        </div>
+      </div>
+      <div class="aj-filter-group">
+        <h4>Years</h4>
+        <div class="aj-pills">
+          <span class="aj-pill active" data-year="2026">2026</span><span class="aj-pill" data-year="2027">2027</span><span class="aj-pill" data-year="2028">2028</span>
+        </div>
+      </div>
+      <div class="aj-filter-group">
+        <h4>Duration</h4>
+        <label class="aj-checkbox"><input type="checkbox"> 6&ndash;10 Days</label>
+        <label class="aj-checkbox"><input type="checkbox"> 11&ndash;15 Days</label>
+        <label class="aj-checkbox"><input type="checkbox"> 16&ndash;20 Days</label>
+        <label class="aj-checkbox"><input type="checkbox"> 21&ndash;35 Days</label>
+      </div>
+    </aside>
+
+    <div class="aj-grid">
+
+      <div class="aj-card reveal" data-types="tailor-made culture-heritage">
+        <div class="aj-card-img">
+          <div class="aj-card-img-bg ajbg1" style="background-image:url('assets/img/packages/italy-icons.jpg');background-size:cover;background-position:center"></div>
+          <div class="aj-card-badges">
+            <span class="aj-badge aj-badge-type">PRIVATE JOURNEY</span>
+            <span class="aj-badge aj-badge-new">NEW</span>
+          </div>
+        </div>
+        <div class="aj-card-body">
+          <h3 class="aj-card-title">Italy Icons</h3>
+          <p class="aj-card-meta">10 Days · Italy &middot; Private</p>
+          <p class="aj-card-route"><b>Itinerary</b>Rome → Florence → Siena → Chianti → San Gimignano → Venice → Murano → Burano</p>
+          <div class="aj-card-footer">
+            <p class="aj-card-price">From <strong>$11,400</strong> pp</p>
+            <a href="italy-icons.html" class="aj-card-link">View Journey</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="aj-card reveal" data-types="tailor-made">
+        <div class="aj-card-img">
+          <div class="aj-card-img-bg ajbg2" style="background-image:url('assets/img/packages/italy-la-dolce-vita.jpg');background-size:cover;background-position:center"></div>
+          <div class="aj-card-badges">
+            <span class="aj-badge aj-badge-type">ULTRA-LUXURY</span>
+            <span class="aj-badge aj-badge-new">NEW</span>
+          </div>
+        </div>
+        <div class="aj-card-body">
+          <h3 class="aj-card-title">La Dolce Vita</h3>
+          <p class="aj-card-meta">10 Days · Italy &middot; Private</p>
+          <p class="aj-card-route"><b>Itinerary</b>Rome → Florence → Tuscany → Ravello → Positano → Amalfi → Capri</p>
+          <div class="aj-card-footer">
+            <p class="aj-card-price">From <strong>$16,900</strong> pp</p>
+            <a href="italy-la-dolce-vita.html" class="aj-card-link">View Journey</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="aj-card reveal" data-types="tailor-made">
+        <div class="aj-card-img">
+          <div class="aj-card-img-bg ajbg3" style="background-image:url('assets/img/packages/italy-and-malta.jpg');background-size:cover;background-position:center"></div>
+          <div class="aj-card-badges">
+            <span class="aj-badge aj-badge-type">TWO COUNTRIES</span>
+            <span class="aj-badge aj-badge-new">NEW</span>
+          </div>
+        </div>
+        <div class="aj-card-body">
+          <h3 class="aj-card-title">Italy &amp; Malta</h3>
+          <p class="aj-card-meta">10 Days · Italy &amp; Malta &middot; Private</p>
+          <p class="aj-card-route"><b>Itinerary</b>Rome → Florence → Tuscany → Valletta → Mdina → Gozo → Comino</p>
+          <div class="aj-card-footer">
+            <p class="aj-card-price">From <strong>$12,600</strong> pp</p>
+            <a href="italy-and-malta.html" class="aj-card-link">View Journey</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="aj-empty" id="ajEmptyState" hidden>
+    <p>No journeys of that type in Italy just yet — but every journey we run can be tailored to what you have in mind.</p>
+    <a href="#" class="ways-link js-fs-enquire">Speak To Us</a>
+  </div>
+  <button class="aj-loadmore">Load More Journeys</button>
+</section>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<!--@include footer-site-->
+
+<!--@include speak-button-->
+
+<!--@include mega-menu-script-4-->
+
+<script src="assets/fs-geo.js"></script>
+<script>window.FS_ROUTE={"static":true,"region":"europe","focus":"ITA","stops":[["Rome",41.9,12.5],["Florence",43.77,11.26],["Siena",43.32,11.33],["Venice",45.44,12.34],["Ravello",40.65,14.61],["Capri",40.55,14.24]],"overviewLabel":"Italy","title":"Where we travel"};</script>
+<script src="assets/fs-map.js"></script>
+
+<!--@include enquiry-modal-->
+<!--@include ways-links-script-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+<!-- FS-AJ-FILTERS:START -->
+<script>
+(function(){
+  var COUNTRY = "Italy";
+  var SEASON = {best:[4,5,6,9,10],label:"comfortable touring weather from the lakes to the coast",off:"July–August is hot and crowded, while winter suits Rome and the cities"};
+  var MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  var typePills = document.querySelectorAll('.aj-pill[data-type]');
+  var monthPills = document.querySelectorAll('.aj-pill[data-month]');
+  var yearPills = document.querySelectorAll('.aj-pill[data-year]');
+  var cards = document.querySelectorAll('.aj-card[data-types]');
+  var resultsCount = document.querySelector('.all-journeys-results strong');
+  var tag = document.querySelector('.all-journeys-tag');
+  var seasonNote = document.getElementById('ajSeasonNote');
+  var emptyState = document.getElementById('ajEmptyState');
+  var grid = document.querySelector('.aj-grid');
+  if (!typePills.length && !monthPills.length && !yearPills.length) return;
+
+  function bindPill(p, handler) {
+    p.setAttribute('role', 'button');
+    p.setAttribute('tabindex', '0');
+    p.addEventListener('click', function(e){ e.preventDefault(); handler(); });
+    p.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+    });
+  }
+
+  function applyTypeFilter() {
+    var active = [];
+    typePills.forEach(function(p){ if (p.classList.contains('active')) active.push(p.getAttribute('data-type')); });
+    var visible = 0;
+    cards.forEach(function(card){
+      var types = (card.getAttribute('data-types') || '').split(' ');
+      var match = active.length === 0 || active.some(function(t){ return types.indexOf(t) !== -1; });
+      card.hidden = !match;
+      if (match) visible++;
+    });
+    if (resultsCount) resultsCount.textContent = visible;
+    if (grid) grid.hidden = visible === 0;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  }
+
+  typePills.forEach(function(p){
+    bindPill(p, function(){ p.classList.toggle('active'); applyTypeFilter(); });
+  });
+
+  monthPills.forEach(function(p){
+    bindPill(p, function(){
+      var was = p.classList.contains('active');
+      monthPills.forEach(function(o){ o.classList.remove('active'); });
+      if (was) { if (seasonNote) seasonNote.hidden = true; return; }
+      p.classList.add('active');
+      var m = parseInt(p.getAttribute('data-month'), 10);
+      var name = MONTH_NAMES[m - 1];
+      var inSeason = SEASON.best.indexOf(m) !== -1;
+      if (seasonNote) {
+        seasonNote.textContent = inSeason
+          ? ("You've picked " + name + " \u2014 " + SEASON.label + " in " + COUNTRY + ", one of the best times to travel.")
+          : ("You've picked " + name + " \u2014 outside " + COUNTRY + "'s classic season, but " + SEASON.off + ". Every journey below can still be tailored for this month.");
+        seasonNote.hidden = false;
+      }
+    });
+  });
+
+  yearPills.forEach(function(p){
+    bindPill(p, function(){
+      yearPills.forEach(function(o){ o.classList.remove('active'); });
+      p.classList.add('active');
+      if (tag) tag.textContent = COUNTRY + ' \u00b7 ' + p.textContent.trim();
+    });
+  });
+})();
+</script>
+<!-- FS-AJ-FILTERS:END -->
+</body>
+</html>

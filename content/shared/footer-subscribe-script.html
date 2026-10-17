@@ -1,0 +1,31 @@
+<!-- FS-FOOT-SUB:START -->
+<script>
+(function(){
+  var form = document.getElementById('footSubForm');
+  if (!form) return;
+  var fn = document.getElementById('footFirstName');
+  var ln = document.getElementById('footLastName');
+  var em = document.getElementById('footEmail');
+  var note = document.getElementById('footFormNote');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    [fn, ln, em].forEach(function(f){ f.classList.remove('fs-err'); });
+    var bad = null;
+    if (!fn.value.trim()) bad = fn;
+    else if (!ln.value.trim()) bad = ln;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) bad = em;
+    if (bad) {
+      bad.classList.add('fs-err');
+      note.textContent = 'Please fill in your first name, last name and a valid email address.';
+      bad.focus();
+      return;
+    }
+    var body = 'First Name: ' + fn.value.trim() + '\nLast Name: ' + ln.value.trim() + '\nEmail: ' + em.value.trim() + '\n\nPlease add me to the mailing list.';
+    var mailto = 'mailto:{{email}}?subject=' + encodeURIComponent('Newsletter Signup') + '&body=' + encodeURIComponent(body);
+    window.open(mailto, '_blank');
+    form.reset();
+    note.textContent = 'We\'ve opened your email client with your details ready to send \u2014 just hit send.';
+  });
+})();
+</script>
+<!-- FS-FOOT-SUB:END -->

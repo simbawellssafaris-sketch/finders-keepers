@@ -1,0 +1,12 @@
+{
+  "name": "Finders & Keepers Safaris",
+  "short_name": "Finders & Keepers",
+  "start_url": "/finders-safaris-homepage.html",
+  "display": "standalone",
+  "background_color": "#EDE3CE",
+  "theme_color": "#8B3A2A",
+  "icons": [
+    { "src": "/icons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

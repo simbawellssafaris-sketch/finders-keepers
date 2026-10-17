@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journey Finder | Every Trip We Run &mdash; {{brand}}</title>
+<meta name="description" content="Every journey we publish, in one place — filtered by region, country, duration and guide price, across Africa, the Indian Ocean, Asia, Europe and Oceania.">
+<meta name="keywords" content="journey finder, safari finder, find a trip, luxury travel search, Africa Asia Europe journeys">
+<link rel="canonical" href="https://{{domain}}/journey-finder.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{brand}}">
+<meta property="og:title" content="Journey Finder | Every Trip We Run &mdash; {{brand}}">
+<meta property="og:description" content="Every journey we publish, in one place — filtered by region, country, duration and guide price, across Africa, the Indian Ocean, Asia, Europe and Oceania.">
+<meta property="og:url" content="https://{{domain}}/journey-finder.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Journey Finder | Every Trip We Run &mdash; {{brand}}">
+<meta name="twitter:description" content="Every journey we publish, in one place — filtered by region, country, duration and guide price, across Africa, the Indian Ocean, Asia, Europe and Oceania.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=1200&auto=format&fit=crop">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Journey Finder | Every Trip We Run &mdash; {{brand}}","description":"Every journey we publish, in one place — filtered by region, country, duration and guide price, across Africa, the Indian Ocean, Asia, Europe and Oceania.","url":"https://{{domain}}/journey-finder.html","isPartOf":{"@type":"WebSite","name":"{{brand}}","url":"https://{{domain}}/"},"provider":{"@type":"TravelAgency","name":"{{brand}}","areaServed":"Worldwide"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;color:#1a1209;background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --rust:#8B3A2A;
+  --rust-dark:#6B2D1F;
+  --warm:#EDE3CE;
+  --ink:#1a1209;
+  --muted:#8a7a68;
+  --serif:'EB Garamond',Georgia,serif;
+  --sans:'Raleway',sans-serif;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar{
+  background:var(--rust);color:#fff;padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:11.5px;letter-spacing:0.04em;font-family:var(--sans);
+}
+.topbar-left{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:20px;}
+.topbar-right a{color:#fff;opacity:0.9;transition:opacity .2s;}
+.topbar-right a:hover{opacity:1;}
+.topbar-dot{opacity:0.35;}
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:400;
+  background:#fff;border-bottom:1px solid #e8e0d4;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 40px;height:64px;
+}
+.nav-left{display:flex;align-items:center;gap:32px;}
+
+/* Hamburger — 3 bars animate to X */
+.nav-hamburger{
+  background:none;border:none;cursor:pointer;
+  width:32px;height:32px;
+  display:flex;flex-direction:column;
+  justify-content:center;gap:5px;
+  padding:4px;position:relative;z-index:600;
+  flex-shrink:0;
+}
+.nav-hamburger .hb{
+  display:block;width:22px;height:1.5px;
+  background:var(--ink);
+  transition:transform .35s ease,opacity .25s ease,top .35s ease;
+  transform-origin:center;
+  position:relative;
+}
+/* Hamburger → X when mega menu open */
+.mega-open .nav-hamburger .hb:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mega-open .nav-hamburger .hb:nth-child(2){opacity:0;transform:scaleX(0);}
+.mega-open .nav-hamburger .hb:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.nav-link{
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;transition:color .2s;
+}
+.nav-link:hover{color:var(--rust);}
+.nav-logo{
+  font-family:var(--serif);font-size:22px;font-weight:400;
+  letter-spacing:0.06em;color:var(--ink);text-align:center;white-space:nowrap;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.nav-logo img{height:30px;width:auto;display:block;flex-shrink:0;}
+.nav-right-area{display:flex;align-items:center;justify-content:flex-end;}
+.nav-search{
+  background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink);transition:color .2s;font-family:var(--sans);
+}
+.nav-search:hover{color:var(--rust);}
+
+/* ══════════════════════════════════════════
+   3-LEVEL CASCADING MEGA MENU — FIXED
+══════════════════════════════════════════ */
+
+/* Fullscreen overlay — hidden by default */
+.mega-overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9000;
+  display:none;
+}
+.mega-overlay.open{ display:block; }
+
+/* Dark backdrop behind panels */
+.mega-backdrop{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(10,6,2,0.5);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.mega-overlay.open .mega-backdrop{ opacity:1; }
+
+/* Panel row — sits on top of backdrop, left-aligned */
+.mega-panels{
+  position:absolute;
+  top:0;left:0;
+  height:100%;
+  z-index:1;
+  /* wide enough to hold all 3 panels */
+  width:1180px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.mega-overlay.open .mega-panels{
+  pointer-events:all;
+}
+
+/* Base panel — hidden off left edge */
+.mpanel{
+  position:absolute;
+  top:0;
+  height:100%;
+  background:#fff;
+  overflow-y:auto;
+  overflow-x:hidden;
+  border-right:1px solid #e0d8cc;
+  /* animate using left position */
+  transition:left .38s cubic-bezier(0.16,1,0.3,1);
+  pointer-events:none;
+}
+.mpanel.visible{
+  pointer-events:all;
+}
+
+/* PANEL 1
+   hidden:  left:-380px (off screen left)
+   visible: left:0
+*/
+.mpanel-1{
+  width:380px;
+  left:-380px;
+}
+.mpanel-1.visible{ left:0; }
+
+/* PANEL 2
+   hidden:  left:-420px (behind panel 1)
+   visible: left:380px (right of panel 1)
+*/
+.mpanel-2{
+  width:420px;
+  left:-420px;
+}
+.mpanel-2.visible{ left:380px; }
+
+/* PANEL 3
+   hidden:  left:-380px (behind panel 2)
+   visible: left:800px (right of panel 2)
+*/
+.mpanel-3{
+  width:380px;
+  left:-380px;
+}
+.mpanel-3.visible{ left:800px; }
+
+/* Panel 1 inner padding */
+.mp1-inner{ padding:32px 36px 40px; }
+
+/* Close × */
+.mp-close-row{ margin-bottom:28px; }
+.mp-close{
+  background:none;border:none;cursor:pointer;
+  font-size:26px;line-height:1;color:var(--ink);
+  padding:0;transition:opacity .2s;font-family:sans-serif;
+}
+.mp-close:hover{ opacity:0.4; }
+
+/* Level 1 main links */
+.mp1-nav{ list-style:none; }
+.mp1-nav li{ border-bottom:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav li:first-child{ border-top:0.5px solid rgba(26,18,9,0.1); }
+.mp1-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-size:30px;font-weight:400;
+  color:var(--ink);padding:16px 0;
+  text-decoration:none;transition:color .2s;cursor:pointer;
+}
+.mp1-nav a:hover,
+.mp1-nav li.active-item > a{ color:var(--rust); }
+.mp1-nav a svg{ flex-shrink:0;transition:transform .2s; }
+.mp1-nav li.active-item > a svg{ transform:translateX(4px); }
+
+/* Divider + POPULAR */
+.mp1-divider{
+  height:0.5px;background:rgba(26,18,9,0.12);margin:28px 0 20px;
+}
+.mp1-popular-label{
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:#3E6B4E;margin-bottom:16px;
+}
+.mp1-secondary{ list-style:none; }
+.mp1-secondary li{ border-bottom:0.5px solid rgba(26,18,9,0.06); }
+.mp1-secondary a{
+  display:block;font-family:var(--sans);font-size:13px;
+  color:rgba(26,18,9,0.6);padding:9px 0;transition:color .2s;
+}
+.mp1-secondary a:hover{ color:var(--rust); }
+
+/* Panel 2 */
+.mp2-inner{ padding:28px 32px 40px; }
+.mp2-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp2-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp2-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp2-card:hover .mp2-card-bg{ transform:scale(1.05); }
+.mp2-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp2-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mc2bg1{ background:radial-gradient(ellipse at 45% 55%,#1a3010,#060c04); }
+.mc2bg2{ background:radial-gradient(ellipse at 55% 45%,#201808,#0c0a04); }
+.mc2bg3{ background:radial-gradient(ellipse at 40% 60%,#001828,#040810); }
+.mc2bg4{ background:radial-gradient(ellipse at 60% 40%,#1e0800,#0c0400); }
+.mc2bg5{ background:radial-gradient(ellipse at 50% 50%,#180a00,#0a0500); }
+.mc2bg6{ background:radial-gradient(ellipse at 45% 55%,#0a1020,#04060c); }
+.mp2-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp2-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp2-regions{ list-style:none; }
+.mp2-regions li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp2-regions a{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:13px 0;cursor:pointer;transition:color .2s;text-decoration:none;
+}
+.mp2-regions a:hover,
+.mp2-regions a.active{ color:var(--rust); }
+.mp2-regions a svg{ flex-shrink:0;opacity:0.3;transition:opacity .2s; }
+.mp2-regions a:hover svg,
+.mp2-regions a.active svg{ opacity:1;color:var(--rust); }
+
+/* Panel 3 */
+.mp3-inner{ padding:28px 32px 40px; }
+.mp3-cards{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px; }
+.mp3-card{ position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer; }
+.mp3-card-bg{ position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s; }
+.mp3-card:hover .mp3-card-bg{ transform:scale(1.05); }
+.mp3-card-overlay{ position:absolute;inset:0;background:rgba(10,6,2,0.3); }
+.mp3-card-label{ position:absolute;bottom:8px;left:10px;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#fff;font-weight:500; }
+.mp3-all-btn{
+  display:block;width:100%;border:1px solid rgba(26,18,9,0.18);
+  font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink);text-align:center;padding:11px;margin-bottom:16px;
+  transition:background .2s,color .2s;text-decoration:none;
+}
+.mp3-all-btn:hover{ background:var(--rust);color:#fff;border-color:var(--rust); }
+.mp3-countries{ list-style:none; }
+.mp3-countries li{ border-bottom:0.5px solid rgba(26,18,9,0.08); }
+.mp3-countries a{
+  display:flex;align-items:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);padding:12px 0;transition:color .2s;text-decoration:none;
+}
+.mp3-countries a:hover{ color:var(--rust); }
+
+/* Stagger animations */
+.mega-overlay.open .mp1-nav li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-nav li:nth-child(1){ animation-delay:.05s; }
+.mega-overlay.open .mp1-nav li:nth-child(2){ animation-delay:.10s; }
+.mega-overlay.open .mp1-nav li:nth-child(3){ animation-delay:.15s; }
+.mega-overlay.open .mp1-secondary li{ animation:mpIn .3s ease both; }
+.mega-overlay.open .mp1-secondary li:nth-child(1){ animation-delay:.18s; }
+.mega-overlay.open .mp1-secondary li:nth-child(2){ animation-delay:.21s; }
+.mega-overlay.open .mp1-secondary li:nth-child(3){ animation-delay:.24s; }
+.mega-overlay.open .mp1-secondary li:nth-child(4){ animation-delay:.27s; }
+.mega-overlay.open .mp1-secondary li:nth-child(5){ animation-delay:.30s; }
+.mega-overlay.open .mp1-secondary li:nth-child(6){ animation-delay:.33s; }
+@keyframes mpIn{
+  from{ opacity:0; transform:translateX(-12px); }
+  to{   opacity:1; transform:none; }
+}
+
+/* ══════════════════════════════
+   DESTINATION HERO — full-bleed image
+══════════════════════════════ */
+.dest-hero{
+  position:relative;
+  height:300px;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.dest-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 40% 55%, #2c4030 0%, #142010 60%, #060c04 100%);
+  background-size:cover;background-position:center 40%;
+}
+.dest-hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(10,6,2,0.25) 0%, rgba(10,6,2,0.60) 100%);
+}
+.dest-hero-content{position:relative;z-index:2;padding:0 24px;}
+.dest-hero-title{
+  font-family:var(--serif);font-size:clamp(40px,6vw,72px);
+  font-weight:400;color:#fff;line-height:1.05;margin-bottom:28px;
+}
+.dest-hero-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#fff;border-bottom:1px solid rgba(255,255,255,0.6);
+  padding-bottom:6px;transition:opacity .2s;
+}
+.dest-hero-link:hover{opacity:0.7;}
+
+/* ══════════════════════════════
+   OVERVIEW SECTION — breadcrumb + paragraphs
+══════════════════════════════ */
+.dest-overview{background:var(--warm);padding:48px 15% 60px;}
+.dest-breadcrumb{
+  font-family:var(--sans);font-size:12px;color:var(--muted);
+  margin-bottom:32px;letter-spacing:0.02em;
+}
+.dest-breadcrumb a{color:var(--muted);transition:color .2s;}
+.dest-breadcrumb a:hover{color:var(--rust);}
+.dest-breadcrumb .current{color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+.dest-breadcrumb .sep{margin:0 8px;opacity:0.5;}
+.dest-overview-headline{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.4;
+  color:var(--ink);margin:0 0 24px;max-width:90%;
+}
+.dest-overview p{
+  font-family:var(--sans);font-size:15px;line-height:1.85;
+  color:var(--ink);margin-bottom:24px;max-width:100%;
+}
+.dest-overview p:last-child{margin-bottom:0;}
+.dest-overview a.inline-link{color:var(--rust);text-decoration:underline;text-underline-offset:2px;}
+.dest-overview p em{font-style:italic;}
+
+/* ══════════════════════════════
+   SECONDARY STICKY NAV — jump links
+══════════════════════════════ */
+.dest-subnav-wrap{position:sticky;top:64px;z-index:300;}
+.dest-subnav{
+  position:relative;background:var(--warm);
+  border-top:1px solid #e8ddc8;border-bottom:1px solid #e8ddc8;
+  display:flex;align-items:center;gap:36px;
+  padding:18px 15%;overflow-x:auto;
+  font-family:var(--sans);font-size:12.5px;letter-spacing:0.04em;
+  white-space:nowrap;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.dest-subnav-spacer{height:0;}
+.dest-subnav a{
+  color:var(--ink);transition:color .2s;display:flex;align-items:center;gap:6px;
+}
+.dest-subnav a.back-to-top{color:var(--muted);}
+.dest-subnav a.active,.dest-subnav a:hover{color:var(--rust);}
+.dest-subnav a.active{border-bottom:1.5px solid var(--rust);padding-bottom:4px;}
+
+/* ══════════════════════════════
+   SECTION HEADINGS (shared)
+══════════════════════════════ */
+.dest-section{padding:64px 15%;}
+.dest-section-eyebrow{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:14px;
+}
+.dest-section-title{
+  text-align:center;font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);
+  font-weight:400;color:var(--ink);line-height:1.3;max-width:900px;
+  margin:0 auto 48px;
+}
+
+/* ══════════════════════════════
+══════════════════════════════ */
+
+/* ══════════════════════════════
+   JOURNEY CARDS — image left / details right
+══════════════════════════════ */
+.journey-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-top:1px solid #e8e0d4;border-bottom:1px solid #e8e0d4;
+  background:#fff;align-items:stretch;
+  width:100%;
+}
+.journey-card-img{
+  position:relative;overflow:hidden;
+  min-height:560px;
+}
+.journey-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+}
+.jcbg1{background:radial-gradient(ellipse at 40% 60%, #1c3424 0%, #08140a 100%);}
+.jcbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.jcbg3{background:radial-gradient(ellipse at 45% 55%, #1c2c38 0%, #08101a 100%);}
+.journey-card-badges{
+  position:absolute;top:16px;left:16px;display:flex;gap:8px;
+}
+.jc-badge{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:7px 12px;font-weight:500;
+}
+.jc-badge-type{background:#fff;color:var(--ink);}
+.jc-badge-offer{background:var(--rust);color:#fff;}
+.journey-card + .journey-card{margin-top:0;border-top:none;}
+.journey-card-body{
+  padding:56px 64px;display:flex;flex-direction:column;justify-content:center;
+}
+.jc-title{
+  font-family:var(--serif);font-size:32px;font-weight:400;
+  color:var(--ink);margin-bottom:14px;line-height:1.2;
+}
+.jc-meta{
+  font-family:var(--sans);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+}
+.jc-desc{
+  font-family:var(--sans);font-size:14.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:22px;
+}
+.jc-itinerary-label{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.jc-itinerary{
+  font-family:var(--sans);font-size:13.5px;line-height:1.8;
+  color:var(--ink);margin-bottom:24px;
+}
+.jc-footer{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:22px;
+}
+.jc-price{font-family:var(--sans);font-size:13px;color:var(--ink);}
+.jc-price strong{font-size:17px;}
+.jc-btn{
+  background:var(--ink);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 26px;transition:background .25s;
+}
+.jc-btn:hover{background:var(--rust);}
+
+/* ══════════════════════════════
+   EXPERIENCES GRID — 4 columns
+══════════════════════════════ */
+.exp-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+}
+.exp-card{cursor:pointer;}
+.exp-card-img{
+  position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;
+}
+.exp-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.exp-card:hover .exp-card-img-bg{transform:scale(1.05);}
+.ecbg1{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.ecbg2{background:radial-gradient(ellipse at 50% 50%, #403424 0%, #140e08 100%);}
+.ecbg3{background:radial-gradient(ellipse at 55% 40%, #243828 0%, #0a140c 100%);}
+.ecbg4{background:radial-gradient(ellipse at 40% 50%, #1c3424 0%, #08140a 100%);}
+.exp-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+
+.exp-card-explore{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:var(--sans);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--rust);}
+.exp-card-link{display:block;text-decoration:none;color:inherit;}
+.exp-card-link:hover .exp-card-explore{gap:10px;transition:gap .2s ease;}
+
+.exp-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;
+  color:var(--ink);line-height:1.35;
+}
+
+/* ══════════════════════════════
+   FEATURED ACCOMMODATION — editorial
+══════════════════════════════ */
+.featured-acc{padding:64px 15%;}
+.featured-acc-label{
+  text-align:center;font-family:var(--sans);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:32px;
+}
+.featured-acc-img{
+  aspect-ratio:16/7;overflow:hidden;margin-bottom:32px;
+  background:radial-gradient(ellipse at 50% 50%, #3c2c1c 0%, #140c06 100%);
+}
+.featured-acc-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);line-height:1.3;margin-bottom:24px;max-width:900px;
+}
+.featured-acc p{
+  font-family:var(--sans);font-size:14px;line-height:1.85;
+  color:var(--ink);margin-bottom:18px;max-width:1000px;
+}
+
+/* ══════════════════════════════
+   ACCOMMODATIONS — horizontal scroll carousel
+══════════════════════════════ */
+.acc-carousel-wrap{position:relative;}
+.acc-carousel{
+  display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;
+  scrollbar-width:none;padding-bottom:4px;
+}
+.acc-carousel::-webkit-scrollbar{display:none;}
+.acc-card{flex:0 0 480px;cursor:pointer;}
+.acc-card-img{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:16px;}
+.acc-card-img-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .5s;
+}
+.acc-card:hover .acc-card-img-bg{transform:scale(1.05);}
+.acbg1{background:radial-gradient(ellipse at 50% 50%, #1c2c38 0%, #08101a 100%);}
+.acbg2{background:radial-gradient(ellipse at 45% 55%, #2c3818 0%, #0c1406 100%);}
+.acbg3{background:radial-gradient(ellipse at 55% 45%, #403424 0%, #140e08 100%);}
+.acbg4{background:radial-gradient(ellipse at 50% 50%, #243828 0%, #0a140c 100%);}
+.acbg5{background:radial-gradient(ellipse at 48% 52%, #1c3424 0%, #08140a 100%);}
+.acc-badge{
+  position:absolute;top:12px;left:12px;
+  background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:6px 11px;font-weight:500;
+}
+.acc-card-location{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;
+}
+.acc-card-title{
+  font-family:var(--serif);font-size:18px;font-weight:400;color:var(--ink);
+}
+.acc-arrow{
+  position:absolute;top:38%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;background:#fff;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);color:var(--ink);transition:background .2s,color .2s;
+}
+.acc-arrow:hover{background:var(--rust);color:#fff;}
+.acc-arrow.prev{left:-22px;}
+.acc-arrow.next{right:-22px;}
+
+/* ══════════════════════════════
+   WAYS TO EXPLORE
+══════════════════════════════ */
+/* ══════════════════════════════
+   SPEAK TO US CTA
+══════════════════════════════ */
+.expert-cta{padding:0 15% 64px;}
+.expert-cta-inner{
+  display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  background:var(--white);border-left:4px solid var(--rust);
+  padding:48px 56px;
+}
+.expert-cta-logo{
+  width:90px;height:90px;border-radius:50%;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:32px;flex-shrink:0;
+}
+.expert-cta-title{
+  font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.35;
+  color:var(--ink);margin:0 0 12px;
+}
+.expert-cta-text{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin:0 0 16px;}
+.expert-cta-contact{
+  font-family:var(--sans);font-size:13px;line-height:1.9;color:var(--ink);
+  text-transform:uppercase;letter-spacing:0.03em;white-space:nowrap;
+}
+.expert-cta-contact strong{display:block;font-size:16px;letter-spacing:0.02em;margin-bottom:4px;}
+
+.ways-explore{padding:64px 15%;background:var(--warm);}
+.ways-tabs{display:flex;flex-wrap:wrap;border:1px solid #e2d6bd;border-radius:6px;overflow:hidden;margin-bottom:36px;background:#fff;}
+.ways-tab{flex:1;min-width:140px;text-align:center;padding:18px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);cursor:pointer;background:transparent;border:none;border-right:1px solid #e2d6bd;line-height:1.4;transition:background .2s ease;}
+.ways-tab:last-child{border-right:none;}
+.ways-tab.active{background:#DFCFA3;}
+.ways-tab:hover:not(.active){background:#f2ead6;}
+.ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.ways-img{aspect-ratio:4/3;width:100%;min-width:0;background:radial-gradient(ellipse at 50% 50%, #3a2814 0%, #100a04 100%);overflow:hidden;position:relative;}
+.ways-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.ways-content{position:relative;}
+.ways-content .ways-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block;}
+.ways-content h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);margin-bottom:16px;line-height:1.3;}
+.ways-content p{font-family:var(--sans);font-size:14px;line-height:1.8;color:var(--ink);margin-bottom:18px;}
+.ways-link{font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rust);text-decoration:underline;text-underline-offset:3px;}
+
+/* ══════════════════════════════
+   MAP SECTION
+══════════════════════════════ */
+.map-section{padding:0 15% 64px;}
+.map-frame{
+  aspect-ratio:16/8;background:var(--warm);border:1px solid #e8ddc8;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;color:var(--muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* ══════════════════════════════
+   ALL JOURNEYS — filters + package grid
+══════════════════════════════ */
+.all-journeys{padding:64px 8% 80px;background:var(--warm);}
+.all-journeys-header{text-align:center;margin-bottom:12px;}
+.all-journeys-title{
+  font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:400;
+  color:var(--ink);margin-bottom:8px;
+}
+.all-journeys-results{
+  text-align:center;font-family:var(--sans);font-size:13px;color:var(--muted);
+  margin-bottom:8px;
+}
+.all-journeys-results strong{color:var(--ink);}
+.all-journeys-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #e0d8cc;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.08em;
+  padding:8px 14px;margin:0 auto 40px;width:fit-content;
+}
+
+.all-journeys-layout{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start;}
+
+/* Filter sidebar */
+.aj-filters{display:flex;flex-direction:column;gap:28px;}
+.aj-filter-group h4{
+  font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.aj-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.aj-pill{
+  font-family:var(--sans);font-size:11.5px;color:var(--ink);
+  border:1px solid #e0d8cc;background:#fff;
+  padding:7px 14px;border-radius:20px;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.aj-pill:hover,.aj-pill.active{border-color:var(--rust);color:var(--rust);}
+.aj-checkbox{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13px;color:var(--ink);
+  padding:6px 0;cursor:pointer;
+}
+.aj-checkbox input{accent-color:var(--rust);width:14px;height:14px;}
+
+/* Package grid — 2 columns */
+.aj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.aj-card{background:#fff;border:1px solid #e8e0d4;}
+.aj-card-img{position:relative;aspect-ratio:4/4.2;overflow:hidden;}
+.aj-card-img-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s;}
+.aj-card:hover .aj-card-img-bg{transform:scale(1.05);}
+.ajbg1{background:radial-gradient(ellipse at 45% 55%, #1c3424 0%, #08140a 100%);}
+.ajbg2{background:radial-gradient(ellipse at 50% 45%, #3c2c1c 0%, #140c06 100%);}
+.ajbg3{background:radial-gradient(ellipse at 40% 60%, #1c2c38 0%, #08101a 100%);}
+.ajbg4{background:radial-gradient(ellipse at 55% 50%, #2c3818 0%, #0c1406 100%);}
+.ajbg5{background:radial-gradient(ellipse at 45% 45%, #403424 0%, #140e08 100%);}
+.ajbg6{background:radial-gradient(ellipse at 50% 55%, #243828 0%, #0a140c 100%);}
+.aj-card-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;}
+.aj-badge{
+  font-family:var(--sans);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:6px 10px;font-weight:500;
+}
+.aj-badge-type{background:#fff;color:var(--ink);}
+.aj-badge-offer{background:var(--rust);color:#fff;}
+.aj-badge-new{background:var(--ink);color:#fff;}
+.aj-card-body{padding:20px 22px 24px;}
+.aj-card-title{
+  font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink);
+  line-height:1.3;margin-bottom:10px;
+}
+.aj-card-meta{
+  font-family:var(--sans);font-size:11px;letter-spacing:0.06em;color:var(--muted);
+  margin-bottom:12px;
+}
+.aj-card-route{font-family:var(--sans);font-size:11px;line-height:1.6;color:var(--muted);margin-bottom:14px;}
+.aj-card-route b{display:block;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;}
+.aj-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid #ece8e0;padding-top:14px;
+}
+.aj-card-price{font-family:var(--sans);font-size:12.5px;color:var(--ink);}
+.aj-card-price strong{font-size:15px;}
+.aj-card-link{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--rust);border-bottom:1px solid var(--rust);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.aj-card-link:hover{opacity:0.6;}
+
+.aj-loadmore{
+  display:block;margin:40px auto 0;
+  background:none;border:1px solid var(--ink);color:var(--ink);
+  font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:14px 36px;cursor:pointer;transition:background .25s,color .25s;
+}
+.aj-loadmore:hover{background:var(--ink);color:#fff;}
+
+
+/* ══════════════════════════════
+   FLOATING CTA
+══════════════════════════════ */
+.speak-btn{
+  position:fixed;bottom:24px;right:24px;z-index:300;background:var(--rust);color:#fff;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.25);transition:background .25s;
+}
+.speak-btn:hover{background:var(--rust-dark);}
+
+/* ══════════════════════════════
+   FOOTER (reuse from homepage)
+══════════════════════════════ */
+footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:28px;}
+.footer-brand-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;letter-spacing:0.04em;margin-bottom:12px;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(255,255,255,0.33);margin-bottom:24px;}
+.footer-social{display:flex;gap:12px;}
+.fsoc{width:32px;height:32px;border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.fsoc:hover{border-color:rgba(255,255,255,0.5);}
+.footer-col-head{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.33);margin-bottom:16px;font-family:var(--sans);}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,0.52);transition:color .2s;font-family:var(--sans);}
+.footer-links a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:10.5px;color:rgba(255,255,255,0.28);transition:color .2s;font-family:var(--sans);}
+.footer-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* ══════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media(max-width:900px){
+  .topbar{padding:10px 20px;font-size:10.5px;}
+  .topbar-right{display:none;}
+  .nav{padding:0 20px;}
+  .nav-left .nav-link{display:none;}
+  .nav-logo{font-size:18px;gap:7px;}
+  .nav-logo img{height:24px;}
+  .dest-overview{padding:40px 24px 48px;}
+  .dest-section{padding:48px 24px;}
+  .dest-subnav{padding:14px 24px;}
+  .dest-subnav.is-pinned{padding:12px 24px;}
+  .journey-card{grid-template-columns:1fr;}
+  .journey-card-img{min-height:320px;}
+  .journey-card-body{padding:32px 24px;}
+      .exp-grid{grid-template-columns:1fr 1fr;}
+  .ways-grid{grid-template-columns:1fr;}
+  .ways-tabs{flex-direction:column;}
+  .ways-tab{border-right:none;border-bottom:1px solid #e2d6bd;}
+  .ways-tab:last-child{border-bottom:none;}
+  .expert-cta-inner{grid-template-columns:1fr;text-align:center;padding:36px 24px;}
+  .expert-cta-contact{white-space:normal;}
+  .expert-cta{padding:0 24px 48px;}
+  .featured-acc{padding:48px 24px;}
+  .ways-explore{padding:48px 24px;}
+  .map-section{padding:0 24px 48px;}
+  .all-journeys{padding:48px 24px 64px;}
+  .all-journeys-layout{grid-template-columns:1fr;gap:24px;}
+  .aj-filters{flex-direction:row;flex-wrap:wrap;gap:16px;}
+  .aj-filter-group{flex:1 1 100%;}
+  .aj-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .dest-hero-title{font-size:clamp(32px,8vw,52px);}
+  .mpanel-1{width:88vw;max-width:380px;}
+  .mpanel-2{width:88vw;max-width:420px;left:0;}
+  .mpanel-3{width:88vw;max-width:380px;left:0;}
+}
+@media(max-width:600px){
+  .exp-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .footer-top{grid-template-columns:1fr;}
+  .dest-breadcrumb{font-size:11px;}
+}
+
+/* ── Journey finder ── */
+.jf-head{background:var(--warm);padding:52px 7% 40px;border-bottom:1px solid #e2d6bd;}
+.jf-head .k{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rust);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.jf-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,48px);line-height:1.14;margin-bottom:16px;}
+.jf-head p{font-family:var(--sans);font-size:14.5px;line-height:1.9;max-width:760px;opacity:.9;}
+
+.jf-body{display:grid;grid-template-columns:272px 1fr;gap:40px;padding:44px 7% 78px;align-items:start;}
+.jf-rail{position:sticky;top:96px;border:1px solid #e2d6bd;background:#fff;}
+.jf-rail-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-bottom:1px solid #e2d6bd;background:var(--warm);}
+.jf-rail-h h2{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);}
+.jf-clear{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:none;border:none;color:var(--muted);cursor:pointer;padding:0;}
+.jf-clear:hover{color:var(--rust);}
+.jf-clear:focus-visible{outline:2px solid var(--rust);outline-offset:2px;}
+
+.jf-facet{border-bottom:1px solid #efe6d5;}
+.jf-facet:last-child{border-bottom:none;}
+.jf-facet > h3{margin:0;}
+.jf-fbtn{width:100%;background:none;border:none;text-align:left;font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:15px 20px 11px;cursor:default;}
+
+/* region row inside the destination facet */
+.jf-reg{border-top:1px solid #f3ece0;}
+.jf-reg:first-of-type{border-top:none;}
+.jf-rbtn{width:100%;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--sans);font-size:13px;letter-spacing:.02em;color:var(--ink);padding:13px 20px;display:flex;align-items:center;gap:10px;transition:background .2s;}
+.jf-rbtn:hover{background:var(--warm);}
+.jf-rbtn:focus-visible{outline:2px solid var(--rust);outline-offset:-3px;}
+.jf-rbtn .lbl{flex:1;}
+.jf-rbtn .n{font-size:11px;color:var(--muted);}
+.jf-rbtn .chev{width:7px;height:7px;border-right:1.4px solid var(--muted);border-bottom:1.4px solid var(--muted);transform:rotate(-45deg);transition:transform .25s;flex-shrink:0;margin-left:2px;}
+.jf-reg.open .jf-rbtn .chev{transform:rotate(45deg);}
+.jf-reg.open .jf-rbtn{color:var(--rust);font-weight:600;}
+.jf-reg.has .jf-rbtn .lbl::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--rust);margin-left:8px;vertical-align:middle;}
+.jf-kids{display:none;padding:2px 20px 14px 32px;background:#fdfbf6;}
+.jf-reg.open .jf-kids{display:block;}
+
+.jf-opt{display:flex;align-items:center;gap:10px;padding:7px 0;font-family:var(--sans);font-size:13px;cursor:pointer;}
+.jf-opt input{accent-color:var(--rust);width:15px;height:15px;flex-shrink:0;}
+.jf-opt span{flex:1;}
+.jf-opt .n{font-size:11px;color:var(--muted);}
+.jf-plain{padding:0 20px 16px;}
+
+.jf-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.jf-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11.5px;background:var(--warm);border:1px solid #ded0b6;padding:8px 12px;}
+.jf-chip button{background:none;border:none;cursor:pointer;color:var(--rust);font-size:14px;line-height:1;padding:0;}
+.jf-chip button:focus-visible{outline:2px solid var(--rust);outline-offset:2px;}
+
+.jf-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-bottom:22px;border-bottom:1px solid #e2d6bd;margin-bottom:26px;}
+.jf-count{font-family:var(--sans);font-size:12.5px;letter-spacing:.05em;}
+.jf-count b{font-family:var(--serif);font-size:20px;font-weight:400;}
+.jf-sort{display:flex;align-items:center;gap:10px;}
+.jf-sort label{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+.jf-sort select{font-family:var(--sans);font-size:13px;border:1px solid #ded0b6;background:#fff;padding:9px 12px;color:var(--ink);}
+.jf-sort select:focus{outline:none;border-color:var(--rust);}
+
+.jf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:34px 26px;}
+.jf-card{display:flex;flex-direction:column;border:1px solid #e2d6bd;background:#fff;transition:transform .3s ease,box-shadow .3s ease;}
+/* display:flex above beats the browser default for [hidden], so state it explicitly. */
+.jf-card[hidden]{display:none;}
+.jf-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -28px rgba(26,18,9,.5);}
+.jf-card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#241a0e;}
+.jf-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.jf-card:hover .jf-card-img img{transform:scale(1.06);}
+.jf-ribbon{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap;}
+.jf-rib{font-family:var(--sans);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;padding:5px 9px;background:rgba(20,12,5,.82);color:#fff;}
+.jf-rib.alt{background:var(--rust);}
+.jf-card-b{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.jf-card h3{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.25;margin-bottom:9px;}
+.jf-meta{font-family:var(--sans);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.jf-it{font-family:var(--sans);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);padding-top:14px;border-top:1px solid #efe6d5;margin-bottom:9px;}
+.jf-route{font-family:var(--sans);font-size:12px;line-height:1.8;opacity:.82;margin-bottom:18px;flex:1;}
+.jf-go{font-family:var(--sans);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--rust);border-bottom:1px solid currentColor;padding-bottom:3px;align-self:flex-start;}
+.jf-go:hover{opacity:.7;}
+.jf-go:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+.jf-empty{border:1px dashed #ded0b6;padding:52px 30px;text-align:center;font-family:var(--sans);font-size:14px;opacity:.8;}
+
+.jf-final{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#0d0904;}
+.jf-final-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.jf-final-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,6,3,.56),rgba(9,6,3,.88));}
+.jf-final-in{position:relative;z-index:2;padding:70px 8%;max-width:800px;}
+.jf-final h2{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(24px,3.6vw,42px);line-height:1.18;margin-bottom:16px;}
+.jf-final p{font-family:var(--sans);font-size:15px;line-height:1.85;color:rgba(255,255,255,.8);margin-bottom:28px;}
+.jf-final-btns{display:flex;flex-wrap:wrap;gap:13px;justify-content:center;}
+
+.jf-toggle{display:none;}
+@media(max-width:1000px){
+  .jf-body{grid-template-columns:1fr;gap:22px;padding:32px 8% 60px;}
+  .jf-rail{position:static;}
+  .jf-toggle{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;background:var(--rust);color:#fff;border:none;padding:15px;cursor:pointer;}
+  .jf-rail.shut .jf-rail-h,.jf-rail.shut .jf-facet{display:none;}
+  .jf-head{padding:44px 8% 34px;}
+}
+@media(prefers-reduced-motion:reduce){.jf-card,.jf-card-img img,.jf-rbtn .chev{transition:none;}}
+
+</style>
+
+<link rel="stylesheet" href="assets/fs-map.css">
+<!-- FS-FAVICON:START -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#8B3A2A">
+<!-- FS-FAVICON:END -->
+</head>
+<style>
+/* ══════════════════════════════
+   TAILOR YOUR JOURNEY — page styles
+══════════════════════════════ */
+.tj-hero{position:relative;height:clamp(360px,46vh,480px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.tj-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);}
+.tj-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.30) 0%,rgba(20,12,6,.64) 100%);}
+.tj-hero-inner{position:relative;z-index:2;padding:0 24px;max-width:900px;}
+.tj-hero-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:20px;}
+.tj-hero h1{font-family:var(--serif);font-weight:400;color:#fff;font-size:clamp(28px,4.2vw,50px);line-height:1.22;margin-bottom:16px;}
+.tj-hero .tj-hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.2vw,25px);color:rgba(255,255,255,.9);margin-bottom:30px;}
+.tj-btn{display:inline-block;font-family:var(--sans);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:15px 32px;border:1px solid currentColor;transition:background .25s,color .25s,border-color .25s;}
+.tj-btn-light{color:#fff;}
+.tj-btn-light:hover{background:#fff;color:var(--ink);}
+.tj-btn-solid{background:var(--rust);border-color:var(--rust);color:#fff;}
+.tj-btn-solid:hover{background:var(--rust-dark);border-color:var(--rust-dark);color:#fff;}
+.tj-btn-ghost{color:var(--ink);border-color:#cdbda6;}
+.tj-btn-ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+.tj-breadcrumb{font-family:var(--sans);font-size:12px;color:var(--muted);padding:26px 15% 0;}
+.tj-breadcrumb a:hover{color:var(--rust);}
+.tj-breadcrumb .sep{margin:0 8px;opacity:.5;}
+.tj-breadcrumb .current{color:var(--ink);}
+
+.tj-intro{padding:40px 15% 64px;}
+.tj-intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.35;color:var(--ink);margin-bottom:26px;max-width:940px;}
+.tj-intro p{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);margin-bottom:18px;max-width:940px;}
+
+.tj-eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.tj-section-title{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.4vw,40px);line-height:1.3;color:var(--ink);margin-bottom:14px;max-width:860px;}
+.tj-section-lead{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);max-width:820px;margin-bottom:44px;}
+
+.tj-change{background:var(--warm);padding:72px 15%;}
+.tj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#e2d6bd;border:1px solid #e2d6bd;}
+.tj-cell{background:var(--warm);padding:32px 28px;}
+.tj-cell-num{font-family:var(--serif);font-size:13px;letter-spacing:.16em;color:var(--rust);margin-bottom:14px;}
+.tj-cell h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.3;color:var(--ink);margin-bottom:12px;}
+.tj-cell p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink);opacity:.86;}
+
+.tj-steps{padding:72px 15%;}
+.tj-steps-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px;margin-top:8px;}
+.tj-step{border-top:1px solid #e2d6bd;padding-top:22px;}
+.tj-step-n{font-family:var(--serif);font-size:34px;color:var(--rust);opacity:.55;line-height:1;margin-bottom:14px;}
+.tj-step h4{font-family:var(--serif);font-weight:400;font-size:20px;color:var(--ink);margin-bottom:10px;}
+.tj-step p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:var(--ink);opacity:.86;}
+
+.tj-fixed{background:#1a1209;color:#fff;padding:72px 15%;}
+.tj-fixed .tj-eyebrow{color:rgba(255,255,255,.5);}
+.tj-fixed .tj-section-title{color:#fff;}
+.tj-fixed .tj-section-lead{color:rgba(255,255,255,.72);}
+.tj-fixed-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;}
+.tj-fixed-item{border-top:1px solid rgba(255,255,255,.18);padding-top:20px;}
+.tj-fixed-item h4{font-family:var(--serif);font-weight:400;font-size:19px;margin-bottom:10px;color:#fff;}
+.tj-fixed-item p{font-family:var(--sans);font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.66);}
+
+.tj-enquire{padding:80px 15%;background:var(--warm);}
+.tj-enquire-inner{background:#fff;border:1px solid #e2d6bd;padding:56px;display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:center;}
+.tj-enquire h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.3;color:var(--ink);margin-bottom:16px;}
+.tj-enquire p{font-family:var(--sans);font-size:14.5px;line-height:1.9;color:var(--ink);opacity:.86;margin-bottom:12px;}
+.tj-enquire-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+.tj-contact{border-left:1px solid #e2d6bd;padding-left:40px;}
+.tj-contact-row{margin-bottom:22px;}
+.tj-contact-row:last-child{margin-bottom:0;}
+.tj-contact-label{font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.tj-contact-value{font-family:var(--serif);font-size:19px;color:var(--ink);}
+.tj-contact-value a:hover{color:var(--rust);}
+.tj-note{font-family:var(--sans);font-size:12px;line-height:1.7;color:var(--muted);margin-top:24px;}
+
+@media(max-width:1024px){
+  .tj-breadcrumb,.tj-intro,.tj-change,.tj-steps,.tj-fixed,.tj-enquire{padding-left:8%;padding-right:8%;}
+}
+@media(max-width:820px){
+  .tj-breadcrumb{padding:22px 24px 0;}
+  .tj-intro{padding:32px 24px 48px;}
+  .tj-change,.tj-steps,.tj-fixed,.tj-enquire{padding:56px 24px;}
+  .tj-enquire-inner{grid-template-columns:1fr;padding:36px 28px;gap:32px;}
+  .tj-contact{border-left:none;border-top:1px solid #e2d6bd;padding-left:0;padding-top:28px;}
+}
+
+</style>
+<body>
+<!--@include mega-menu-panels--><!-- /mega-overlay -->
+
+<!--@include topbar-menu-pages-->
+
+<!-- ══════════════════════════════
+     NAV
+══════════════════════════════ -->
+<!--@include nav-menu-pages-->
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<main id="main">
+<section class="jf-head">
+  <p class="k"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Journey Finder</p>
+  <h1>Find the journey you want.</h1>
+  <p>Every trip we publish, in one place. Open a region to see its countries, tick as many as you like, and the results widen to cover all of them — narrow by duration or guide price alongside it.</p>
+</section>
+
+<div class="jf-body">
+  <button type="button" class="jf-toggle" id="jfToggle" aria-expanded="false" aria-controls="jfRail"><svg class="" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg> Refine Search</button>
+
+  <aside class="jf-rail shut" id="jfRail" aria-label="Refine journeys">
+    <div class="jf-rail-h">
+      <h2>Refine Search</h2>
+      <button type="button" class="jf-clear" id="jfClear">Clear all</button>
+    </div>
+
+    <div class="jf-facet">
+      <h3><button type="button" class="jf-fbtn">Destination</button></h3>
+      <div>
+        <div class="jf-reg" data-region="Africa">
+          <h4 style="margin:0;"><button type="button" class="jf-rbtn" aria-expanded="false">
+            <span class="lbl">Africa</span><span class="n">62</span><span class="chev" aria-hidden="true"></span>
+          </button></h4>
+          <div class="jf-kids">
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Kenya"><span>Kenya</span><span class="n">21</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Botswana"><span>Botswana</span><span class="n">7</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Namibia"><span>Namibia</span><span class="n">6</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="South Africa"><span>South Africa</span><span class="n">6</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Tanzania"><span>Tanzania</span><span class="n">6</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Zanzibar"><span>Zanzibar</span><span class="n">6</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Morocco"><span>Morocco</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Rwanda"><span>Rwanda</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Uganda"><span>Uganda</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Zimbabwe"><span>Zimbabwe</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Egypt"><span>Egypt</span><span class="n">3</span></label>
+          </div>
+        </div>
+        <div class="jf-reg" data-region="Indian Ocean">
+          <h4 style="margin:0;"><button type="button" class="jf-rbtn" aria-expanded="false">
+            <span class="lbl">Indian Ocean</span><span class="n">23</span><span class="chev" aria-hidden="true"></span>
+          </button></h4>
+          <div class="jf-kids">
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Seychelles"><span>Seychelles</span><span class="n">10</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Mauritius"><span>Mauritius</span><span class="n">8</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Maldives"><span>Maldives</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Sri Lanka"><span>Sri Lanka</span><span class="n">3</span></label>
+          </div>
+        </div>
+        <div class="jf-reg" data-region="Asia">
+          <h4 style="margin:0;"><button type="button" class="jf-rbtn" aria-expanded="false">
+            <span class="lbl">Asia</span><span class="n">33</span><span class="chev" aria-hidden="true"></span>
+          </button></h4>
+          <div class="jf-kids">
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Thailand"><span>Thailand</span><span class="n">7</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Malaysia"><span>Malaysia</span><span class="n">5</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Indonesia"><span>Indonesia</span><span class="n">4</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Philippines"><span>Philippines</span><span class="n">4</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Singapore"><span>Singapore</span><span class="n">4</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Cambodia"><span>Cambodia</span><span class="n">3</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="China"><span>China</span><span class="n">3</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Vietnam"><span>Vietnam</span><span class="n">3</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Japan"><span>Japan</span><span class="n">2</span></label>
+          </div>
+        </div>
+        <div class="jf-reg" data-region="Europe">
+          <h4 style="margin:0;"><button type="button" class="jf-rbtn" aria-expanded="false">
+            <span class="lbl">Europe</span><span class="n">13</span><span class="chev" aria-hidden="true"></span>
+          </button></h4>
+          <div class="jf-kids">
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="France"><span>France</span><span class="n">3</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Italy"><span>Italy</span><span class="n">3</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Greece"><span>Greece</span><span class="n">2</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Spain"><span>Spain</span><span class="n">2</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Switzerland"><span>Switzerland</span><span class="n">2</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Turkey"><span>Turkey</span><span class="n">2</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Croatia"><span>Croatia</span><span class="n">1</span></label>
+          </div>
+        </div>
+        <div class="jf-reg" data-region="Oceania">
+          <h4 style="margin:0;"><button type="button" class="jf-rbtn" aria-expanded="false">
+            <span class="lbl">Oceania</span><span class="n">2</span><span class="chev" aria-hidden="true"></span>
+          </button></h4>
+          <div class="jf-kids">
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="New Zealand"><span>New Zealand</span><span class="n">2</span></label>
+            <label class="jf-opt"><input type="checkbox" data-k="countries" value="Fiji"><span>Fiji</span><span class="n">1</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="jf-facet">
+        <h3><button type="button" class="jf-fbtn">Duration</button></h3>
+        <div class="jf-plain">
+          <label class="jf-opt"><input type="checkbox" data-k="band" value="Up to 9 days"><span>Up to 9 days</span><span class="n">3</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="band" value="10 to 13 days"><span>10 to 13 days</span><span class="n">120</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="band" value="14 to 20 days"><span>14 to 20 days</span><span class="n">4</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="band" value="21 days or more"><span>21 days or more</span><span class="n">2</span></label>
+        </div>
+      </div>
+      <div class="jf-facet">
+        <h3><button type="button" class="jf-fbtn">Guide price</button></h3>
+        <div class="jf-plain">
+          <label class="jf-opt"><input type="checkbox" data-k="tier" value="Under $10,000"><span>Under $10,000</span><span class="n">67</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="tier" value="$10,000 &ndash; $16,000"><span>$10,000 &ndash; $16,000</span><span class="n">46</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="tier" value="$16,000 &ndash; $25,000"><span>$16,000 &ndash; $25,000</span><span class="n">13</span></label>
+          <label class="jf-opt"><input type="checkbox" data-k="tier" value="Over $25,000"><span>Over $25,000</span><span class="n">3</span></label>
+        </div>
+      </div>
+  </aside>
+
+  <div>
+    <div class="jf-chips" id="jfChips"></div>
+    <div class="jf-bar">
+      <p class="jf-count" id="jfCount" role="status" aria-live="polite"><b>129</b> journeys</p>
+      <div class="jf-sort">
+        <label for="jfSort">Sort by</label>
+        <select id="jfSort">
+          <option value="days">Duration, shortest first</option>
+          <option value="-days">Duration, longest first</option>
+          <option value="price">Guide price, lowest first</option>
+          <option value="-price">Guide price, highest first</option>
+          <option value="az">Name, A to Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="jf-grid" id="jfGrid">
+      <article class="jf-card" data-countries="Kenya" data-band="Up to 9 days" data-tier="Under $10,000" data-days="7" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/great-migration-explorer.jpg" alt="The Great Migration Explorer" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Great Migration Explorer</h3>
+          <p class="jf-meta">7 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Maasai Mara</p>
+          <a class="jf-go" href="great-migration-explorer.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="Up to 9 days" data-tier="$10,000 &ndash; $16,000" data-days="7" data-price="10100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/ultimate-mara-lodge-hopper.jpg" alt="The Ultimate Mara Lodge Hopper" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Mara Lodge Hopper</h3>
+          <p class="jf-meta">7 Days &middot; from $10,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Angama Mara &middot; Talek River</p>
+          <a class="jf-go" href="ultimate-mara-lodge-hopper.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="Up to 9 days" data-tier="Under $10,000" data-days="8" data-price="9800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/kenya-family-safari-ol-pejeta-mount-kenya.jpg" alt="Kenya Family Safari: Ol Pejeta &amp; Mount Kenya" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Kenya Family Safari: Ol Pejeta &amp; Mount Kenya</h3>
+          <p class="jf-meta">8 Days &middot; from $39,200 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Ol Pejeta Conservancy &middot; Mount Kenya</p>
+          <a class="jf-go" href="kenya-family-safari-ol-pejeta-mount-kenya.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Indonesia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8750">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/bali-cultural-peaks-royal-palaces.jpg" alt="The Cultural Peaks & Royal Palaces" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cultural Peaks & Royal Palaces</h3>
+          <p class="jf-meta">10 Days &middot; from $8,750 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Ubud &middot; North Bali &middot; Sidemen &middot; Uluwatu</p>
+          <a class="jf-go" href="bali-cultural-peaks-royal-palaces.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Indonesia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/bali-island-jungle-romance.jpg" alt="The Island & Jungle Romance" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Island & Jungle Romance</h3>
+          <p class="jf-meta">10 Days &middot; from $10,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Ubud &middot; North Bali &middot; Sidemen &middot; Bawah Reserve</p>
+          <a class="jf-go" href="bali-island-jungle-romance.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Indonesia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/bali-secrets-volcanic-canyons.jpg" alt="Secrets of the Volcanic Canyons" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Secrets of the Volcanic Canyons</h3>
+          <p class="jf-meta">10 Days &middot; from $7,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Ubud &middot; North Bali &middot; Sidemen</p>
+          <a class="jf-go" href="bali-secrets-volcanic-canyons.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Indonesia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/bali-ultimate-archipelago-secret-falls.jpg" alt="The Ultimate Archipelago & Secret Falls" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Archipelago & Secret Falls</h3>
+          <p class="jf-meta">10 Days &middot; from $8,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Ubud &middot; North Bali &middot; Sidemen &middot; Nusa Penida</p>
+          <a class="jf-go" href="bali-ultimate-archipelago-secret-falls.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/bird-wildlife-quad.jpg" alt="The Bird &amp; Wildlife Quad" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Bird &amp; Wildlife Quad</h3>
+          <p class="jf-meta">10 Days &middot; from $7,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Amboseli &middot; Solio Ranch &middot; Maasai Mara &middot; Lake Nakuru</p>
+          <a class="jf-go" href="bird-wildlife-quad.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Botswana" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="15250">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/botswana-desert-salt-pans-cultural-circuit.jpg" alt="The Desert, Salt Pans & Ancestral Culture Circuit" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Desert, Salt Pans & Ancestral Culture Circuit</h3>
+          <p class="jf-meta">10 Days &middot; from $15,250 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Gaborone &middot; Makgadikgadi Pans &middot; Central Kalahari Game Reserve</p>
+          <a class="jf-go" href="botswana-desert-salt-pans-cultural-circuit.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Botswana" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="10" data-price="21800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/botswana-water-wilderness-victoria-falls.jpg" alt="The Water, Wilderness & Victoria Falls Grand Circuit" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Water, Wilderness & Victoria Falls Grand Circuit</h3>
+          <p class="jf-meta">10 Days &middot; from $21,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Gaborone &middot; Okavango Delta &middot; Moremi Game Reserve &middot; Chobe National Park</p>
+          <a class="jf-go" href="botswana-water-wilderness-victoria-falls.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9850">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/cambodia-cardamom-jungle-island-frontiers.jpg" alt="The Cardamom Jungle &amp; Island Frontiers" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cardamom Jungle &amp; Island Frontiers</h3>
+          <p class="jf-meta">10 Days &middot; from $9,850 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cardamom Mountains, Cambodia &middot; Song Saa Private Island, Koh Rong</p>
+          <a class="jf-go" href="cambodia-cardamom-jungle-island-frontiers.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Cambodia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/cambodia-khmer-empires-secret-lagoons.jpg" alt="The Khmer Empires &amp; Secret Lagoons" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Khmer Empires &amp; Secret Lagoons</h3>
+          <p class="jf-meta">10 Days &middot; from $7,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Siem Reap, Cambodia &middot; Angkor Wat &middot; Angkor Thom &amp; Ta Prohm &middot; Beng Mealea &middot; Tonle Sap Lake</p>
+          <a class="jf-go" href="cambodia-khmer-empires-secret-lagoons.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand|Cambodia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/cambodia-lost-citadels-northern-canyons.jpg" alt="The Lost Citadels &amp; Northern Canyons" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Lost Citadels &amp; Northern Canyons</h3>
+          <p class="jf-meta">10 Days &middot; from $8,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Siem Reap, Cambodia &middot; Koh Ker &middot; Preah Vihear &middot; Sambor Prei Kuk &middot; Preah Khan of Kompong Svay</p>
+          <a class="jf-go" href="cambodia-lost-citadels-northern-canyons.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Cambodia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7750">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/cambodia-mekong-capitals-coastal-palaces.jpg" alt="The Mekong Capitals &amp; Coastal Palaces" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Mekong Capitals &amp; Coastal Palaces</h3>
+          <p class="jf-meta">10 Days &middot; from $7,750 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Phnom Penh, Cambodia &middot; Phnom Penh &middot; Kep, Gulf of Thailand &middot; Phnom Chhnork &middot; Kampot</p>
+          <a class="jf-go" href="cambodia-mekong-capitals-coastal-palaces.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="China" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/china-ancient-silk-road-floating-peaks.jpg" alt="The Ancient Silk Road & Floating Peaks" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ancient Silk Road & Floating Peaks</h3>
+          <p class="jf-meta">10 Days &middot; from $9,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Dunhuang &middot; Zhangjiajie &middot; Chongqing</p>
+          <a class="jf-go" href="china-ancient-silk-road-floating-peaks.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="China" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/china-deep-heritage-rice-terraces.jpg" alt="Deep Heritage & Rice Terraces" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Deep Heritage & Rice Terraces</h3>
+          <p class="jf-meta">10 Days &middot; from $9,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Xi'an &middot; Jiangxi — Gexian Village &middot; Guilin &middot; Yangshuo &middot; Shanghai</p>
+          <a class="jf-go" href="china-deep-heritage-rice-terraces.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="China" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8700">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/china-modern-icons-mystic-valleys.jpg" alt="The Modern Icons & Mystic Valleys" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Modern Icons & Mystic Valleys</h3>
+          <p class="jf-meta">10 Days &middot; from $8,700 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Shanghai &middot; Jiangxi — Gexian Village &middot; Wangxian Valley &middot; Hangzhou</p>
+          <a class="jf-go" href="china-modern-icons-mystic-valleys.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Croatia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/croatia-adriatic-dreams.jpg" alt="Croatia &mdash; Adriatic Dreams" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Croatia &mdash; Adriatic Dreams</h3>
+          <p class="jf-meta">10 Days &middot; from $10,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Zagreb &middot; Plitvice Lakes National Park &middot; Split &middot; Hvar &middot; Pakleni Islands</p>
+          <a class="jf-go" href="croatia-adriatic-dreams.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Egypt" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/egypt-mediterranean-pearl-palaces.jpg" alt="The Mediterranean Pearl &amp; Palaces" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Mediterranean Pearl &amp; Palaces</h3>
+          <p class="jf-meta">10 Days &middot; from $11,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cairo &middot; Alexandria &middot; Luxor</p>
+          <a class="jf-go" href="egypt-mediterranean-pearl-palaces.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Egypt" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/egypt-pharaonic-kingdoms.jpg" alt="The Pharaonic Kingdoms" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Pharaonic Kingdoms</h3>
+          <p class="jf-meta">10 Days &middot; from $11,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cairo &middot; Luxor &middot; Edfu &amp; Kom Ombo &middot; Aswan</p>
+          <a class="jf-go" href="egypt-pharaonic-kingdoms.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Egypt" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/egypt-secret-oasis-hidden-tombs.jpg" alt="The Secret Oasis &amp; Hidden Tombs" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Secret Oasis &amp; Hidden Tombs</h3>
+          <p class="jf-meta">10 Days &middot; from $10,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cairo &middot; Siwa Oasis &middot; Luxor &middot; Kom Ombo &middot; Aswan</p>
+          <a class="jf-go" href="egypt-secret-oasis-hidden-tombs.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/ewaso-nyiro-community-conservancies.jpg" alt="The Ewaso Nyiro & Community Conservancies" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ewaso Nyiro & Community Conservancies</h3>
+          <p class="jf-meta">10 Days &middot; from $9,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; West Gate Conservancy &middot; Kalama Conservancy &middot; Samburu National Reserve</p>
+          <a class="jf-go" href="ewaso-nyiro-community-conservancies.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="France" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="13600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/france-and-germany-paris-to-berlin.jpg" alt="France &amp; Germany &mdash; From Paris to Berlin" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>France &amp; Germany &mdash; From Paris to Berlin</h3>
+          <p class="jf-meta">10 Days &middot; from $13,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Paris &middot; Strasbourg &middot; Munich &middot; Neuschwanstein &middot; Berlin</p>
+          <a class="jf-go" href="france-and-germany-paris-to-berlin.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="France" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="14200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/france-grand-journey.jpg" alt="France &mdash; The French Grand Journey" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>France &mdash; The French Grand Journey</h3>
+          <p class="jf-meta">10 Days &middot; from $14,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Paris &middot; Versailles &amp; the Loire Valley &middot; Lyon &middot; Nice &middot; Monaco &amp; &Egrave;ze</p>
+          <a class="jf-go" href="france-grand-journey.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/great-tsavo-overland-expedition.jpg" alt="The Great Tsavo Overland Expedition" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Great Tsavo Overland Expedition</h3>
+          <p class="jf-meta">10 Days &middot; from $7,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Tsavo West National Park &middot; Tsavo East National Park</p>
+          <a class="jf-go" href="great-tsavo-overland-expedition.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Greece" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12300">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/greece-aegean-elegance.jpg" alt="Greece: Aegean Elegance" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Greece: Aegean Elegance</h3>
+          <p class="jf-meta">10 Days &middot; from $12,300 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Athens &middot; Mykonos &middot; Delos &middot; Santorini</p>
+          <a class="jf-go" href="greece-aegean-elegance.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Greece|Turkey" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/greece-and-turkey-aegean-to-bosphorus.jpg" alt="Greece &amp; Turkey &mdash; Aegean to Bosphorus" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Greece &amp; Turkey &mdash; Aegean to Bosphorus</h3>
+          <p class="jf-meta">10 Days &middot; from $12,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Athens &middot; Santorini &middot; Chios &middot; Istanbul</p>
+          <a class="jf-go" href="greece-and-turkey-aegean-to-bosphorus.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Italy|Morocco" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/italy-and-malta.jpg" alt="Italy &amp; Malta" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Italy &amp; Malta</h3>
+          <p class="jf-meta">10 Days &middot; from $12,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Rome &middot; Florence &middot; Siena &amp; Chianti &middot; Valletta, Malta &middot; Mdina &amp; Rabat</p>
+          <a class="jf-go" href="italy-and-malta.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Italy|France" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/italy-icons.jpg" alt="Italy Icons" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Italy Icons</h3>
+          <p class="jf-meta">10 Days &middot; from $11,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Rome &middot; Florence &middot; Siena &amp; Chianti &middot; Venice &middot; Murano &amp; Burano</p>
+          <a class="jf-go" href="italy-icons.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Italy" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="10" data-price="16900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/italy-la-dolce-vita.jpg" alt="La Dolce Vita" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>La Dolce Vita</h3>
+          <p class="jf-meta">10 Days &middot; from $16,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Rome &middot; Florence &middot; Siena &amp; Chianti &middot; Ravello, Amalfi Coast &middot; Positano &amp; Amalfi</p>
+          <a class="jf-go" href="italy-la-dolce-vita.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Japan" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/japan-alpine-peaks-hidden-samurai-valleys.jpg" alt="The Alpine Peaks &amp; Hidden Samurai Valleys" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Alpine Peaks &amp; Hidden Samurai Valleys</h3>
+          <p class="jf-meta">10 Days &middot; from $9,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Takayama, Gifu, Japan &middot; Matsumoto &amp; Takayama &middot; Shirakawa-go &middot; Kanazawa, Ishikawa, Japan &middot; Kenroku-en Garden, Kanazawa</p>
+          <a class="jf-go" href="japan-alpine-peaks-hidden-samurai-valleys.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Japan" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9650">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/japan-ancient-spiritual-kingdom-sea-canals.jpg" alt="The Ancient Spiritual Kingdom &amp; Sea Canals" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ancient Spiritual Kingdom &amp; Sea Canals</h3>
+          <p class="jf-meta">10 Days &middot; from $9,650 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Mount Koya (Koyasan), Japan &middot; Okunoin Cemetery, Mount Koya &middot; Kumano Kodo &middot; Naoshima Art Island, Seto Inland Sea &middot; Naoshima</p>
+          <a class="jf-go" href="japan-ancient-spiritual-kingdom-sea-canals.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Malaysia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/malaysia-ancient-jungle-island-frontier.jpg" alt="The Ancient Jungle & Island Frontier" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ancient Jungle & Island Frontier</h3>
+          <p class="jf-meta">10 Days &middot; from $10,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Danum Valley</p>
+          <a class="jf-go" href="malaysia-ancient-jungle-island-frontier.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Malaysia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8650">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/malaysia-central-coral-coast-loop.jpg" alt="The Central & Coral Coast Loop" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Central & Coral Coast Loop</h3>
+          <p class="jf-meta">10 Days &middot; from $8,650 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Redang Island</p>
+          <a class="jf-go" href="malaysia-central-coral-coast-loop.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Malaysia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/malaysia-great-western-spice-route.jpg" alt="The Great Western Spice Route" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Great Western Spice Route</h3>
+          <p class="jf-meta">10 Days &middot; from $8,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Penang &middot; Langkawi</p>
+          <a class="jf-go" href="malaysia-great-western-spice-route.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Malaysia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/malaysia-southern-heritage-rainforest-arc.jpg" alt="The Southern Heritage & Rainforest Arc" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern Heritage & Rainforest Arc</h3>
+          <p class="jf-meta">10 Days &middot; from $7,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Malacca &middot; Desaru Coast</p>
+          <a class="jf-go" href="malaysia-southern-heritage-rainforest-arc.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Maldives" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/maldives-centara-grand-lagoon.jpg" alt="Centara Grand Lagoon Maldives Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Centara Grand Lagoon Maldives Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $7,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Centara Grand Lagoon Maldives</p>
+          <a class="jf-go" href="maldives-centara-grand-lagoon.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Maldives" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="6750">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/maldives-cocoon-collection.jpg" alt="Cocoon Collection Maldives Hidden Paradise" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Cocoon Collection Maldives Hidden Paradise</h3>
+          <p class="jf-meta">10 Days &middot; from $6,750 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cocoon Collection Maldives</p>
+          <a class="jf-go" href="maldives-cocoon-collection.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/1.jpg" alt="Mauritius Grand Island Discovery" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Mauritius Grand Island Discovery</h3>
+          <p class="jf-meta">10 Days &middot; from $9,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Grand Baie, North Coast &middot; Port Louis &middot; Pamplemousses &middot; Belle Mare, East Coast &middot; &Icirc;le aux Cerfs</p>
+          <a class="jf-go" href="mauritius-grand-island-discovery.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/mauritius-historic-west-marine-wilderness.jpg" alt="The Historic West &amp; Marine Wilderness" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Historic West &amp; Marine Wilderness</h3>
+          <p class="jf-meta">10 Days &middot; from $7,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">West Coast, Mauritius &middot; Chamarel &middot; Tamarin Bay &middot; Casela &middot; Tamarin</p>
+          <a class="jf-go" href="mauritius-historic-west-marine-wilderness.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/4.jpg" alt="Mauritius &mdash; The Indian Ocean Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Mauritius &mdash; The Indian Ocean Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $10,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Belle Mare, East Coast &middot; &Icirc;le aux Cerfs &middot; Le Morne, from the air &middot; Grand Baie, North Coast &middot; The Northern Islands</p>
+          <a class="jf-go" href="mauritius-indian-ocean-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius|Seychelles" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/mauritius-peninsula-royal-splendor.jpg" alt="The Peninsula of Royal Splendor" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Peninsula of Royal Splendor</h3>
+          <p class="jf-meta">10 Days &middot; from $9,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Belle Mare, East Coast &middot; Port Louis &middot; Pamplemousses &middot; Ile aux Cerfs &middot; Mahebourg</p>
+          <a class="jf-go" href="mauritius-peninsula-royal-splendor.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="4650">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/mauritius-ultimate-romance-secret-lagoons.jpg" alt="The Ultimate Romance &amp; Secret Lagoons" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Romance &amp; Secret Lagoons</h3>
+          <p class="jf-meta">10 Days &middot; from $4,650 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Le Morne Brabant Peninsula &middot; Le Morne Brabant &middot; Riambel Beach &middot; Ile aux Benitiers &middot; Ilot Gabriel</p>
+          <a class="jf-go" href="mauritius-ultimate-romance-secret-lagoons.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/2.jpg" alt="Wild Mauritius" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Wild Mauritius</h3>
+          <p class="jf-meta">10 Days &middot; from $7,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Le Morne Peninsula &middot; Chamarel &middot; Black River Gorges National Park &middot; Casela Nature Parks &middot; West Coast</p>
+          <a class="jf-go" href="mauritius-wild-adventure.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Mauritius" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/mauritius-wild-south-geological-wonders.jpg" alt="The Wild South &amp; Geological Wonders" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Wild South &amp; Geological Wonders</h3>
+          <p class="jf-meta">10 Days &middot; from $7,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Bel Ombre, South Coast &middot; Grand Bassin &middot; Gris Gris &middot; Black River Gorges &middot; Rochester Falls</p>
+          <a class="jf-go" href="mauritius-wild-south-geological-wonders.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Morocco" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/morocco-imperial-cities.jpg" alt="The Imperial Cities & Shifting Sands" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Imperial Cities & Shifting Sands</h3>
+          <p class="jf-meta">10 Days &middot; from $34,400 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Casablanca &middot; Fes &middot; Merzouga &middot; Sahara Desert &middot; Ouarzazate &middot; Marrakech</p>
+          <a class="jf-go" href="morocco-imperial-cities.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Morocco" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/morocco-mediterranean-pearl.jpg" alt="The Mediterranean Pearl & Atlantic Coast" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Mediterranean Pearl & Atlantic Coast</h3>
+          <p class="jf-meta">10 Days &middot; from $7,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Tangier &middot; Chefchaouen &middot; Rabat &middot; Essaouira</p>
+          <a class="jf-go" href="morocco-mediterranean-pearl.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Morocco" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/morocco-rif-saharan-oases.jpg" alt="Secrets of the Rif & The Saharan Oases" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Secrets of the Rif & The Saharan Oases</h3>
+          <p class="jf-meta">10 Days &middot; from $9,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Chefchaouen &middot; Fez &middot; Bin El Ouidane &middot; Skoura Oasis &middot; Essaouira</p>
+          <a class="jf-go" href="morocco-rif-saharan-oases.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Morocco" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/morocco-secret-oasis-atlas.jpg" alt="The Secret Oasis & High Atlas Peaks" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Secret Oasis & High Atlas Peaks</h3>
+          <p class="jf-meta">10 Days &middot; from $28,800 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Marrakech &middot; Agafay Desert &middot; Ourika Valley</p>
+          <a class="jf-go" href="morocco-secret-oasis-atlas.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Namibia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12300">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/namibia-classic-icons-kaokoveld.jpg" alt="The Classic Icons & Kaokoveld" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Classic Icons & Kaokoveld</h3>
+          <p class="jf-meta">10 Days &middot; from $12,300 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Windhoek, Namibia &middot; Namib Desert — Little Kulala &middot; Etosha — Ongava Lodge &middot; Kaokoveld — Serra Cafema &middot; Return — Windhoek</p>
+          <a class="jf-go" href="namibia-classic-icons-kaokoveld.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Namibia" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/namibia-elegant-central-loop.jpg" alt="The Elegant Central Loop" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Elegant Central Loop</h3>
+          <p class="jf-meta">10 Days &middot; from $9,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Windhoek, Namibia &middot; Sossusvlei — Desert Whisper &middot; Swakopmund — The Strand Hotel &middot; Erongo — Spitzkoppen Lodge &middot; Okonjima — Bush Suite</p>
+          <a class="jf-go" href="namibia-elegant-central-loop.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Namibia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11750">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/namibia-rugged-desert-ancient-coast.jpg" alt="The Rugged Desert & Ancient Coast" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Rugged Desert & Ancient Coast</h3>
+          <p class="jf-meta">10 Days &middot; from $11,750 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Windhoek, Namibia &middot; NamibRand Nature Reserve — Wolwedans &middot; Swakopmund — The Strand Hotel &middot; Skeleton Coast — Shipwreck Lodge &middot; Damaraland — Damaraland Camp</p>
+          <a class="jf-go" href="namibia-rugged-desert-ancient-coast.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Namibia|Botswana" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/namibia-southern-wonders-wilderness.jpg" alt="The Southern Wonders & Wilderness" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern Wonders & Wilderness</h3>
+          <p class="jf-meta">10 Days &middot; from $11,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Windhoek, Namibia &middot; Kalahari — Zebra Kalahari Lodge &middot; Fish River Canyon — Fish River Lodge &middot; Diamond Coast — Eagle's Nest Lodge &middot; NamibRand — Zannier Sonop</p>
+          <a class="jf-go" href="namibia-southern-wonders-wilderness.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/netherlands-and-belgium-low-countries.jpg" alt="Netherlands &amp; Belgium &mdash; The Low Countries" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Netherlands &amp; Belgium &mdash; The Low Countries</h3>
+          <p class="jf-meta">10 Days &middot; from $11,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Amsterdam &middot; Zaanse Schans &amp; Volendam &middot; Rotterdam &middot; Brussels &middot; Bruges</p>
+          <a class="jf-go" href="netherlands-and-belgium-low-countries.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/netherlands-dutch-grand-experience.jpg" alt="Netherlands &mdash; The Dutch Grand Experience" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Netherlands &mdash; The Dutch Grand Experience</h3>
+          <p class="jf-meta">10 Days &middot; from $11,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Amsterdam &middot; Zaanse Schans &amp; Volendam &middot; The Keukenhof &middot; Giethoorn &middot; Rotterdam</p>
+          <a class="jf-go" href="netherlands-dutch-grand-experience.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="New Zealand|Fiji" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="10" data-price="16400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/new-zealand-and-fiji.jpg" alt="New Zealand &amp; Fiji &mdash; From the Southern Alps to Paradise" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>New Zealand &amp; Fiji &mdash; From the Southern Alps to Paradise</h3>
+          <p class="jf-meta">10 Days &middot; from $16,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Auckland &middot; Queenstown &middot; Milford Sound &amp; Te Anau &middot; Malolo Island, Fiji</p>
+          <a class="jf-go" href="new-zealand-and-fiji.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="New Zealand" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="14600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/new-zealand-grand-adventure.jpg" alt="New Zealand &mdash; The Grand Adventure" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>New Zealand &mdash; The Grand Adventure</h3>
+          <p class="jf-meta">10 Days &middot; from $14,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Auckland &middot; Rotorua &middot; Queenstown &middot; Milford Sound &amp; Te Anau &middot; Christchurch</p>
+          <a class="jf-go" href="new-zealand-grand-adventure.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Philippines" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/philippines-eastern-mindanao-siargao.jpg" alt="The Eastern Mindanao & Siargao Atolls" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Eastern Mindanao & Siargao Atolls</h3>
+          <p class="jf-meta">10 Days &middot; from $7,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Siargao</p>
+          <a class="jf-go" href="philippines-eastern-mindanao-siargao.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Philippines" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/philippines-northern-palawan-sanctuary.jpg" alt="The Northern Palawan Sanctuary" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Northern Palawan Sanctuary</h3>
+          <p class="jf-meta">10 Days &middot; from $8,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Pangulasian Island</p>
+          <a class="jf-go" href="philippines-northern-palawan-sanctuary.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Philippines" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/philippines-southern-luzon-calamianes.jpg" alt="The Southern Luzon & Calamianes Arc" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern Luzon & Calamianes Arc</h3>
+          <p class="jf-meta">10 Days &middot; from $8,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Coron</p>
+          <a class="jf-go" href="philippines-southern-luzon-calamianes.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rhino-tracking-sacred-mountain-circuit.jpg" alt="The Rhino Tracking & Sacred Mountain Circuit" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Rhino Tracking & Sacred Mountain Circuit</h3>
+          <p class="jf-meta">10 Days &middot; from $10,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Sera Wildlife Conservancy &middot; Namunyak, Mathews Range &middot; Samburu National Reserve</p>
+          <a class="jf-go" href="rhino-tracking-sacred-mountain-circuit.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rift-valley-discovery.jpg" alt="The Valley Lakes & Savannahs" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Valley Lakes & Savannahs</h3>
+          <p class="jf-meta">10 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Amboseli &middot; Maasai Mara &middot; Lake Naivasha & Hell's Gate</p>
+          <a class="jf-go" href="rift-valley-discovery.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Rwanda" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rwanda-creative-valleys-spas-lakes.jpg" alt="The Creative Valleys, Spas & Lakes" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Creative Valleys, Spas & Lakes</h3>
+          <p class="jf-meta">10 Days &middot; from $9,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Kigali &middot; Gisenyi &middot; Lake Kivu North</p>
+          <a class="jf-go" href="rwanda-creative-valleys-spas-lakes.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Rwanda" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10300">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rwanda-primates-great-rift.jpg" alt="The Primates of the Great Rift" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Primates of the Great Rift</h3>
+          <p class="jf-meta">10 Days &middot; from $10,300 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Kigali &middot; Nyungwe National Park &middot; Lake Kivu (Karongi)</p>
+          <a class="jf-go" href="rwanda-primates-great-rift.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Rwanda" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rwanda-royal-volcanoes-primates.jpg" alt="The Royal Volcanoes & Primates" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Royal Volcanoes & Primates</h3>
+          <p class="jf-meta">10 Days &middot; from $49,600 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Kigali &middot; Volcanoes National Park</p>
+          <a class="jf-go" href="rwanda-royal-volcanoes-primates.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/4.jpg" alt="Seychelles Grand Island Discovery" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Seychelles Grand Island Discovery</h3>
+          <p class="jf-meta">10 Days &middot; from $8,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Glacis, Northern Mah&eacute; &middot; Anse Kerlan, Praslin &middot; Curieuse Island &middot; Cousin Island</p>
+          <a class="jf-go" href="seychelles-grand-island-discovery.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/1.jpg" alt="The Praslin &amp; La Digue Collection" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Praslin &amp; La Digue Collection</h3>
+          <p class="jf-meta">10 Days &middot; from $12,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Anse Kerlan, Praslin &middot; Curieuse Island &middot; Cousin Island &middot; La Digue &amp; F&eacute;licit&eacute; &middot; Coco Island National Park</p>
+          <a class="jf-go" href="seychelles-praslin-la-digue-collection.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/seychelles-ultimate-couples-romance.jpg" alt="The Ultimate Couples Romance" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Couples Romance</h3>
+          <p class="jf-meta">10 Days &middot; from $7,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Praslin Island, Seychelles &middot; La Digue Island &middot; Curieuse Island &middot; Mahé Island</p>
+          <a class="jf-go" href="seychelles-ultimate-couples-romance.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/seychelles-ultra-luxury-island-hopper.jpg" alt="The Ultra-Luxury Island Hopper" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultra-Luxury Island Hopper</h3>
+          <p class="jf-meta">10 Days &middot; from $9,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Eden Island, Mahé &middot; Praslin Island &middot; Mahé Island</p>
+          <a class="jf-go" href="seychelles-ultra-luxury-island-hopper.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11200">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/indian-ocean/3.jpg" alt="Wild Seychelles" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Wild Seychelles</h3>
+          <p class="jf-meta">10 Days &middot; from $11,200 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Glacis, Northern Mah&eacute; &middot; Sainte Anne Marine National Park &middot; Port Launay &amp; Beau Vallon &middot; F&eacute;licit&eacute; Island &middot; La Digue</p>
+          <a class="jf-go" href="seychelles-wild-adventure.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Seychelles|Maldives" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/seychelles-wild-outer-island-explorer.jpg" alt="The Wild Outer Island Explorer" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Wild Outer Island Explorer</h3>
+          <p class="jf-meta">10 Days &middot; from $12,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Eden Island, Mahé &middot; Alphonse Island Atoll &middot; St. François Atoll</p>
+          <a class="jf-go" href="seychelles-wild-outer-island-explorer.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="South Africa" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="13900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/south-africa-apex-reserves-kruger-sabisands.jpg" alt="The Apex Reserves — Sabi Sands & Kruger" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Apex Reserves — Sabi Sands & Kruger</h3>
+          <p class="jf-meta">10 Days &middot; from $55,600 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Johannesburg, South Africa &middot; Sabi Sand — Singita Boulders Lodge &middot; Kruger National Park — Singita Lebombo Lodge &middot; Return — Johannesburg</p>
+          <a class="jf-go" href="south-africa-apex-reserves-kruger-sabisands.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="South Africa" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10450">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/south-africa-cape-elegance-historic-winelands.jpg" alt="The Cape Elegance & Historic Winelands" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cape Elegance & Historic Winelands</h3>
+          <p class="jf-meta">10 Days &middot; from $10,450 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cape Town, South Africa &middot; Franschhoek — La Residence or Leeu Estates &middot; Hermanus — Birkenhead House &middot; Return — Cape Town</p>
+          <a class="jf-go" href="south-africa-cape-elegance-historic-winelands.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="South Africa" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/south-africa-garden-route-ancient-karoo.jpg" alt="The Dramatic Garden Route & Ancient Karoo" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Dramatic Garden Route & Ancient Karoo</h3>
+          <p class="jf-meta">10 Days &middot; from $9,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Cape Town → Plettenberg Bay &middot; Oudtshoorn — Rosenhof Boutique Manor &middot; Return — Cape Town</p>
+          <a class="jf-go" href="south-africa-garden-route-ancient-karoo.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="South Africa|Botswana" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="13100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/south-africa-red-sands-malaria-free-giants.jpg" alt="The Red Sands & Malaria-Free Giants" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Red Sands & Malaria-Free Giants</h3>
+          <p class="jf-meta">10 Days &middot; from $13,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Johannesburg, South Africa &middot; Tswalu Kalahari Reserve &middot; Madikwe Game Reserve — Molori Safari Lodge &middot; Return — Johannesburg</p>
+          <a class="jf-go" href="south-africa-red-sands-malaria-free-giants.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/southern-wilderness-apex-views.jpg" alt="The Southern Wilderness & Apex Views" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern Wilderness & Apex Views</h3>
+          <p class="jf-meta">10 Days &middot; from $9,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Amboseli National Park &middot; Chyulu Hills &middot; Tsavo West National Park</p>
+          <a class="jf-go" href="southern-wilderness-apex-views.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/sovereign-mara-conservancies.jpg" alt="The Sovereign Mara Conservancies" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Sovereign Mara Conservancies</h3>
+          <p class="jf-meta">10 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Ol Kinyei Conservancy &middot; Mara Naboisho Conservancy &middot; Olare Motorogi Conservancy &middot; Lake Naivasha &amp; Hell's Gate National Park</p>
+          <a class="jf-go" href="sovereign-mara-conservancies.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Spain" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="13400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/spain-and-portugal-iberian-discovery.jpg" alt="Spain &amp; Portugal &mdash; Iberian Discovery" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Spain &amp; Portugal &mdash; Iberian Discovery</h3>
+          <p class="jf-meta">10 Days &middot; from $13,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Madrid &middot; Seville &middot; Lisbon &middot; Sintra &amp; Cascais &middot; Porto</p>
+          <a class="jf-go" href="spain-and-portugal-iberian-discovery.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Spain" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/spain-grand-escape.jpg" alt="Spain &mdash; The Spanish Grand Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Spain &mdash; The Spanish Grand Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $12,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Madrid &middot; Seville &middot; Barcelona &middot; Ibiza</p>
+          <a class="jf-go" href="spain-grand-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Sri Lanka" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7250">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/srilanka-ancient-northern-kingdoms-reefs.jpg" alt="The Ancient Northern Kingdoms &amp; Reefs" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ancient Northern Kingdoms &amp; Reefs</h3>
+          <p class="jf-meta">10 Days &middot; from $7,250 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Anuradhapura Region &middot; Wilpattu National Park &middot; Anuradhapura &middot; Jaffna, Northern Sri Lanka &middot; Delft Island</p>
+          <a class="jf-go" href="srilanka-ancient-northern-kingdoms-reefs.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Sri Lanka|Maldives" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/srilanka-cultural-triangle-apex-wilds.jpg" alt="The Cultural Triangle &amp; Apex Wilds" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cultural Triangle &amp; Apex Wilds</h3>
+          <p class="jf-meta">10 Days &middot; from $7,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Colombo, Sri Lanka &middot; Sigiriya &middot; Polonnaruwa &amp; Minneriya &middot; Ritigala &middot; Trincomalee, East Coast</p>
+          <a class="jf-go" href="srilanka-cultural-triangle-apex-wilds.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Sri Lanka" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="6900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/srilanka-tea-highlands-whales-south.jpg" alt="The Tea Highlands &amp; Whales of the South" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Tea Highlands &amp; Whales of the South</h3>
+          <p class="jf-meta">10 Days &middot; from $6,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Ella Highlands, Sri Lanka &middot; Kandy &middot; Ella &middot; Weligama / Mirissa &middot; Mirissa</p>
+          <a class="jf-go" href="srilanka-tea-highlands-whales-south.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Switzerland" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="15800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/switzerland-alpine-grand-tour.jpg" alt="Switzerland &mdash; The Swiss Alpine Grand Tour" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Switzerland &mdash; The Swiss Alpine Grand Tour</h3>
+          <p class="jf-meta">10 Days &middot; from $15,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Zurich &middot; Rhine Falls &middot; Lucerne &middot; Mount Pilatus &middot; Interlaken</p>
+          <a class="jf-go" href="switzerland-alpine-grand-tour.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Switzerland" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="14900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/switzerland-and-germany-alps-to-bavaria.jpg" alt="Switzerland &amp; Germany &mdash; Alps to Bavaria" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Switzerland &amp; Germany &mdash; Alps to Bavaria</h3>
+          <p class="jf-meta">10 Days &middot; from $14,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Zurich &middot; Rhine Falls &middot; Lucerne &middot; Mount Pilatus &middot; Munich</p>
+          <a class="jf-go" href="switzerland-and-germany-alps-to-bavaria.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/thailand-andaman-luxury-escape.jpg" alt="The Andaman Luxury Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Andaman Luxury Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $7,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Phuket &middot; Krabi</p>
+          <a class="jf-go" href="thailand-andaman-luxury-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand|Philippines" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8600">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/thailand-cross-border-adrenaline-expedition.jpg" alt="The Cross-Border Adrenaline Expedition" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cross-Border Adrenaline Expedition</h3>
+          <p class="jf-meta">10 Days &middot; from $8,600 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Phuket &middot; Cebu, Philippines &middot; Bangkok</p>
+          <a class="jf-go" href="thailand-cross-border-adrenaline-expedition.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/asia/3.jpg" alt="The Cultural Coast &amp; Royal Escapes" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Cultural Coast &amp; Royal Escapes</h3>
+          <p class="jf-meta">10 Days &middot; from $8,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Phuket &middot; Krabi</p>
+          <a class="jf-go" href="thailand-cultural-coast-royal-escapes.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="6850">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/thailand-gulf-eco-expedition.jpg" alt="The Gulf Eco-Expedition" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Gulf Eco-Expedition</h3>
+          <p class="jf-meta">10 Days &middot; from $6,850 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Koh Samui &middot; Koh Phangan</p>
+          <a class="jf-go" href="thailand-gulf-eco-expedition.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Thailand" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="5050">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/thailand-ultimate-islands-jungles-luxury.jpg" alt="Thailand Ultimate Islands, Jungles &amp; Luxury Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Thailand Ultimate Islands, Jungles &amp; Luxury Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $5,050 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Bangkok &middot; Chiang Rai &middot; Koh Chang &middot; Koh Kood &middot; Koh Tao</p>
+          <a class="jf-go" href="thailand-ultimate-islands-jungles-luxury.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/the-monarchs-untamed-mara.jpg" alt="The Monarch's Untamed Mara" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Monarch's Untamed Mara</h3>
+          <p class="jf-meta">10 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Ol Kinyei Conservancy &middot; Mara Naboisho Conservancy &middot; Maasai Mara National Reserve &middot; Hell's Gate National Park</p>
+          <a class="jf-go" href="the-monarchs-untamed-mara.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Turkey" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/turkey-empires-balloons-turquoise-coast.jpg" alt="Turkey &mdash; Empires, Balloons &amp; the Turquoise Coast" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Turkey &mdash; Empires, Balloons &amp; the Turquoise Coast</h3>
+          <p class="jf-meta">10 Days &middot; from $11,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Istanbul &middot; Cappadocia &middot; Pamukkale &middot; Ephesus &amp; Sel&ccedil;uk &middot; Antalya</p>
+          <a class="jf-go" href="turkey-empires-balloons-turquoise-coast.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Uganda" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/uganda-gorilla-riverine-giants.jpg" alt="The Gorilla & Riverine Giants" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Gorilla & Riverine Giants</h3>
+          <p class="jf-meta">10 Days &middot; from $11,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Entebbe &middot; Queen Elizabeth National Park &middot; Bwindi Impenetrable Forest</p>
+          <a class="jf-go" href="uganda-gorilla-riverine-giants.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Uganda" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10850">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/uganda-secrets-north-volcanic-lakes.jpg" alt="Secrets of the North & Volcanic Lakes" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Secrets of the North & Volcanic Lakes</h3>
+          <p class="jf-meta">10 Days &middot; from $10,850 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Entebbe &middot; Kidepo Valley National Park &middot; Western Crater Lakes &middot; Kibale Forest &middot; Kyaninga</p>
+          <a class="jf-go" href="uganda-secrets-north-volcanic-lakes.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Uganda" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="8750">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/uganda-source-nile-wildwaters.jpg" alt="The Source of the Nile & Wildwaters" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Source of the Nile & Wildwaters</h3>
+          <p class="jf-meta">10 Days &middot; from $8,750 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Entebbe &middot; Jinja &middot; Source of the Nile &middot; Kalagala Falls &middot; Kangulumira Island</p>
+          <a class="jf-go" href="uganda-source-nile-wildwaters.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Vietnam" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="5800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/vietnam-central-south-coastal-escape.jpg" alt="Central & South Vietnam Coastal Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Central & South Vietnam Coastal Escape</h3>
+          <p class="jf-meta">10 Days &middot; from $5,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Da Nang &middot; Hoi An &middot; Quy Nhon &middot; Ho Chi Minh City & Mekong Delta &middot; Mui Ne</p>
+          <a class="jf-go" href="vietnam-central-south-coastal-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Vietnam" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="5400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/vietnam-northern-central-discovery.jpg" alt="Northern & Central Vietnam Discovery" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Northern & Central Vietnam Discovery</h3>
+          <p class="jf-meta">10 Days &middot; from $5,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Hanoi &middot; Ha Giang &middot; Cao Bang &middot; Ninh Binh &middot; Ha Long Bay</p>
+          <a class="jf-go" href="vietnam-northern-central-discovery.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar|Tanzania" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-island-savannah-romance.jpg" alt="The Island & Savannah Romance" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Island & Savannah Romance</h3>
+          <p class="jf-meta">10 Days &middot; from $11,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Stone Town &middot; Kizimkazi &middot; Kilimanjaro</p>
+          <a class="jf-go" href="zanzibar-island-savannah-romance.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar|Maldives" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="9000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-palatial-stone-town-coral-atolls.jpg" alt="The Palatial Stone Town & Coral Atolls" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Palatial Stone Town & Coral Atolls</h3>
+          <p class="jf-meta">10 Days &middot; from $9,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Stone Town &middot; Mnemba Atoll</p>
+          <a class="jf-go" href="zanzibar-palatial-stone-town-coral-atolls.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7100">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-secret-oases-hidden-sandbars.jpg" alt="The Secret Oases & Hidden Sandbars" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Secret Oases & Hidden Sandbars</h3>
+          <p class="jf-meta">10 Days &middot; from $7,100 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Kizimkazi &middot; Michamvi Peninsula</p>
+          <a class="jf-go" href="zanzibar-secret-oases-hidden-sandbars.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="7400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-southern-marine-dolphin-sanctuary.jpg" alt="The Southern Marine & Dolphin Sanctuary" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern Marine & Dolphin Sanctuary</h3>
+          <p class="jf-meta">10 Days &middot; from $7,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Stone Town &middot; Kizimkazi &middot; Michamvi</p>
+          <a class="jf-go" href="zanzibar-southern-marine-dolphin-sanctuary.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar" data-band="10 to 13 days" data-tier="Under $10,000" data-days="10" data-price="6850">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-spice-coast-ancient-kingdoms.jpg" alt="The Spice Coast & Ancient Kingdoms" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Spice Coast & Ancient Kingdoms</h3>
+          <p class="jf-meta">10 Days &middot; from $6,850 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Stone Town &middot; Nungwi Peninsula</p>
+          <a class="jf-go" href="zanzibar-spice-coast-ancient-kingdoms.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zanzibar" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10650">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zanzibar-ultimate-sultans-archipelago.jpg" alt="The Ultimate Sultan's Archipelago" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Sultan's Archipelago</h3>
+          <p class="jf-meta">10 Days &middot; from $10,650 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Stone Town &middot; Eastern Coast &middot; Pemba Island</p>
+          <a class="jf-go" href="zanzibar-ultimate-sultans-archipelago.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zimbabwe" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="10900">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zimbabwe-granite-castles-wild-valleys.jpg" alt="The Granite Castles & Wild Valleys" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Granite Castles & Wild Valleys</h3>
+          <p class="jf-meta">10 Days &middot; from $10,900 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Harare → Matobo Hills &middot; Malilangwe Reserve — Singita Pamushana &middot; Return — Harare</p>
+          <a class="jf-go" href="zimbabwe-granite-castles-wild-valleys.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zimbabwe" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="11500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zimbabwe-legendary-wildlife-waterfalls.jpg" alt="The Legendary Wildlife & Waterfalls" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Legendary Wildlife & Waterfalls</h3>
+          <p class="jf-meta">10 Days &middot; from $11,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Harare, Zimbabwe &middot; Victoria Falls — Matetsi Victoria Falls &middot; Hwange National Park — Linkwasha Camp &middot; Zambezi Concession — Sapi Explorers Camp &middot; Return — Harare</p>
+          <a class="jf-go" href="zimbabwe-legendary-wildlife-waterfalls.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Zimbabwe" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="10" data-price="12050">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/zimbabwe-secret-wilderness-ancient-empires.jpg" alt="The Secret Wilderness & Ancient Empires" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Secret Wilderness & Ancient Empires</h3>
+          <p class="jf-meta">10 Days &middot; from $12,050 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Harare, Zimbabwe &middot; Masvingo — Singita Pamushana Lodge &middot; Mana Pools — Nyamatusi Camp &middot; Lake Kariba — Bumi Hills Safari Lodge &middot; Return — Harare</p>
+          <a class="jf-go" href="zimbabwe-secret-wilderness-ancient-empires.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Malaysia" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="11" data-price="12150">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/malayan-grandeur.jpg" alt="The Malayan Grandeur" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Malayan Grandeur</h3>
+          <p class="jf-meta">11 Days &middot; from $12,150 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Kuala Lumpur &middot; Genting Highlands &middot; Cameron Highlands &middot; Penang &middot; Langkawi</p>
+          <a class="jf-go" href="malayan-grandeur.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Tanzania" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="11" data-price="17800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/serengeti-grandeur.jpg" alt="The Serengeti Grandeur" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Serengeti Grandeur</h3>
+          <p class="jf-meta">11 Days &middot; from $17,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Dar es Salaam &middot; Serengeti — Mwiba Private Concession &middot; Serengeti — Central Serengeti</p>
+          <a class="jf-go" href="serengeti-grandeur.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Singapore" data-band="10 to 13 days" data-tier="Under $10,000" data-days="11" data-price="4475">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/singapore-couples-escape.jpg" alt="Singapore Couples Luxury Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Singapore Couples Luxury Escape</h3>
+          <p class="jf-meta">11 Days &middot; from $4,475 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Singapore — Hotel Mi Rochor</p>
+          <a class="jf-go" href="singapore-couples-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Singapore" data-band="10 to 13 days" data-tier="Under $10,000" data-days="11" data-price="2785">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/singapore-group-escape.jpg" alt="Singapore Ultimate Group Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Singapore Ultimate Group Escape</h3>
+          <p class="jf-meta">11 Days &middot; from $2,785 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Singapore — Hotel Mi Rochor</p>
+          <a class="jf-go" href="singapore-group-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Singapore" data-band="10 to 13 days" data-tier="Under $10,000" data-days="11" data-price="3475">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/singapore-malaysia-family.jpg" alt="Singapore & Malaysia Family Luxury Experience" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Singapore & Malaysia Family Luxury Experience</h3>
+          <p class="jf-meta">11 Days &middot; from $13,900 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Singapore — Hotel Mi Rochor</p>
+          <a class="jf-go" href="singapore-malaysia-family.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Singapore" data-band="10 to 13 days" data-tier="Under $10,000" data-days="11" data-price="4950">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/singapore-solo-escape.jpg" alt="Singapore Solo Escape" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Singapore Solo Escape</h3>
+          <p class="jf-meta">11 Days &middot; from $4,950 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Singapore</p>
+          <a class="jf-go" href="singapore-solo-escape.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Uganda|Kenya" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="11" data-price="13350">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/uganda-kenya-great-rift.jpg" alt="The Great East African Rift" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Great East African Rift</h3>
+          <p class="jf-meta">11 Days &middot; from $13,350 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Maasai Mara &middot; Entebbe &middot; Jinja &middot; Kangulumira Island</p>
+          <a class="jf-go" href="uganda-kenya-great-rift.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="South Africa|Seychelles" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="18500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/big-five-to-the-indian-ocean.jpg" alt="From the Big Five to the Indian Ocean" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>From the Big Five to the Indian Ocean</h3>
+          <p class="jf-meta">12 Days &middot; from $18,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Sabi Sand Reserve, South Africa &middot; Glacis, Mah&eacute; &middot; Anse Kerlan, Praslin &middot; Curieuse Island &middot; La Digue &amp; F&eacute;licit&eacute;</p>
+          <a class="jf-go" href="big-five-to-the-indian-ocean.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="12" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/conservation-royal-circuit.jpg" alt="The Conservation Royal Circuit" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Conservation Royal Circuit</h3>
+          <p class="jf-meta">12 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Ol Pejeta Conservancy &middot; Lewa Conservancy &middot; Loisaba Conservancy</p>
+          <a class="jf-go" href="conservation-royal-circuit.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Namibia|Mauritius" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="16400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/itinerary/africa/1.jpg" alt="Etosha &amp; Mauritius" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Etosha &amp; Mauritius</h3>
+          <p class="jf-meta">12 Days &middot; from $16,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Windhoek, Namibia &middot; Etosha National Park &middot; Le Morne Peninsula, Mauritius &middot; Chamarel &amp; Black River Gorges &middot; Belle Mare, East Coast</p>
+          <a class="jf-go" href="etosha-and-mauritius.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="20700">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/grand-emperor-circle.jpg" alt="The Grand Emperor Circle" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Grand Emperor Circle</h3>
+          <p class="jf-meta">12 Days &middot; from $20,700 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Lewa Downs &middot; Amboseli &middot; Maasai Mara &middot; Lake Naivasha & Hell's Gate → Nairobi</p>
+          <a class="jf-go" href="grand-emperor-circle.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="Under $10,000" data-days="12" data-price="8800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/laikipia-royal-sanctuaries.jpg" alt="Laikipia's Royal Sanctuaries" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Laikipia's Royal Sanctuaries</h3>
+          <p class="jf-meta">12 Days &middot; from $8,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Ol Pejeta &middot; Lewa &middot; Lake Nakuru</p>
+          <a class="jf-go" href="laikipia-royal-sanctuaries.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="16000">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/northern-escarpment-dream.jpg" alt="The Northern & Escarpment Dream" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Northern & Escarpment Dream</h3>
+          <p class="jf-meta">12 Days &middot; from $16,000 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Lewa Downs &middot; Loisaba Conservancy &middot; Maasai Mara &middot; Lake Naivasha &amp; Hell's Gate</p>
+          <a class="jf-go" href="northern-escarpment-dream.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="19350">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/private-estates-of-laikipia.jpg" alt="Private Estates of Laikipia" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Private Estates of Laikipia</h3>
+          <p class="jf-meta">12 Days &middot; from $19,350 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Segera &middot; Borana &middot; Suyian</p>
+          <a class="jf-go" href="private-estates-of-laikipia.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="12" data-price="17550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/savannas-coral-coast.jpg" alt="Savannas & The Coral Coast" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>Savannas & The Coral Coast</h3>
+          <p class="jf-meta">12 Days &middot; from $17,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Maasai Mara &middot; Tsavo West &middot; Diani Beach · Chale Island</p>
+          <a class="jf-go" href="savannas-coral-coast.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Tanzania" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="12" data-price="12800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/serengeti-grand-migration.jpg" alt="The Serengeti Grand Migration" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Serengeti Grand Migration</h3>
+          <p class="jf-meta">12 Days &middot; from $12,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Arusha, Tanzania &middot; Tarangire National Park &middot; Ngorongoro Conservation Area &middot; Central Serengeti &middot; Northern Serengeti</p>
+          <a class="jf-go" href="serengeti-grand-migration.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Rwanda|Kenya" data-band="10 to 13 days" data-tier="$10,000 &ndash; $16,000" data-days="13" data-price="14550">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/rwanda-kenya-east-african-rift.jpg" alt="The East African Rift Expedition" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The East African Rift Expedition</h3>
+          <p class="jf-meta">13 Days &middot; from $14,550 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Maasai Mara &middot; Kigali &middot; Volcanoes National Park</p>
+          <a class="jf-go" href="rwanda-kenya-east-african-rift.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya|Tanzania" data-band="10 to 13 days" data-tier="$16,000 &ndash; $25,000" data-days="13" data-price="19800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/ultimate-tanzania-luxury-circuit.jpg" alt="The Ultimate Tanzania Luxury Circuit" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Ultimate Tanzania Luxury Circuit</h3>
+          <p class="jf-meta">13 Days &middot; from $79,200 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi &middot; Tarangire National Park &middot; Lake Manyara National Park &middot; Ngorongoro Conservation Area &middot; Serengeti National Park</p>
+          <a class="jf-go" href="ultimate-tanzania-luxury-circuit.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Tanzania" data-band="14 to 20 days" data-tier="Over $25,000" data-days="14" data-price="29250">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/untamed-sanctuaries.jpg" alt="The Untamed Sanctuaries" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Untamed Sanctuaries</h3>
+          <p class="jf-meta">14 Days &middot; from $117,000 total</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Dar es Salaam &middot; Ruaha National Park &middot; Nyerere National Park &middot; Mahale Mountains National Park</p>
+          <a class="jf-go" href="untamed-sanctuaries.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Botswana|Zimbabwe" data-band="14 to 20 days" data-tier="$16,000 &ndash; $25,000" data-days="15" data-price="20800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/botswana-grand-safari.jpg" alt="The Botswana Grand Safari" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Botswana Grand Safari</h3>
+          <p class="jf-meta">15 Days &middot; from $20,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Gaborone &middot; Mashatu Reserve &middot; Chobe National Park &middot; Victoria Falls, Zimbabwe</p>
+          <a class="jf-go" href="botswana-grand-safari.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Botswana" data-band="14 to 20 days" data-tier="$16,000 &ndash; $25,000" data-days="15" data-price="20800">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/botswana-wilderness-immersion.jpg" alt="The Botswana Wilderness Immersion" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Botswana Wilderness Immersion</h3>
+          <p class="jf-meta">15 Days &middot; from $20,800 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Gaborone &middot; Mashatu Reserve &middot; Chobe National Park</p>
+          <a class="jf-go" href="botswana-wilderness-immersion.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Vietnam" data-band="14 to 20 days" data-tier="Under $10,000" data-days="15" data-price="8050">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/vietnam-grand-expedition.jpg" alt="The Grand Vietnam Expedition" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Grand Vietnam Expedition</h3>
+          <p class="jf-meta">15 Days &middot; from $8,050 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Hanoi &middot; Sapa &middot; Ha Giang &middot; Cao Bang &middot; Ninh Binh</p>
+          <a class="jf-go" href="vietnam-grand-expedition.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Botswana|Zimbabwe|Namibia|South Africa" data-band="21 days or more" data-tier="Over $25,000" data-days="27" data-price="52400">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/southern-african-grand-safari.jpg" alt="The Southern African Grand Safari" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span><span class="jf-rib alt">Grand Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The Southern African Grand Safari</h3>
+          <p class="jf-meta">27 Days &middot; from $52,400 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Gaborone, Botswana &middot; Okavango Delta &middot; Harare, Zimbabwe &middot; Victoria Falls &middot; South Luangwa, Zambia</p>
+          <a class="jf-go" href="southern-african-grand-safari.html">View Journey &rarr;</a>
+        </div>
+      </article>
+      <article class="jf-card" data-countries="Kenya|Uganda|Rwanda|Tanzania" data-band="21 days or more" data-tier="Over $25,000" data-days="31" data-price="58500">
+        <div class="jf-card-img">
+          <img src="assets/img/packages/east-african-grand-safari.jpg" alt="The East African Grand Safari" loading="lazy" width="900" height="675">
+          <div class="jf-ribbon"><span class="jf-rib">Journey</span><span class="jf-rib alt">Grand Journey</span></div>
+        </div>
+        <div class="jf-card-b">
+          <h3>The East African Grand Safari</h3>
+          <p class="jf-meta">31 Days &middot; from $58,500 pp</p>
+          <p class="jf-it">Itinerary</p>
+          <p class="jf-route">Nairobi, Kenya &middot; Lake Nakuru National Park &middot; Maasai Mara &middot; Bwindi Impenetrable Forest, Uganda &middot; Queen Elizabeth National Park</p>
+          <a class="jf-go" href="east-african-grand-safari.html">View Journey &rarr;</a>
+        </div>
+      </article>
+    </div>
+    <p class="jf-empty" id="jfEmpty" hidden>No journeys match every filter you have set. Try clearing one, or <a href="tailor-your-journey.html#enquire" style="text-decoration:underline;">ask us to build one</a>.</p>
+  </div>
+</div>
+
+<section class="jf-final">
+  <div class="jf-final-bg" style="background-image:url('assets/img/packages/itinerary/africa/4.jpg');"></div>
+  <div class="jf-final-veil"></div>
+  <div class="jf-final-in">
+    <h2>Nothing here quite right?</h2>
+    <p>Tell us the country, the month and roughly how long you have, and a specialist will build the journey around you instead.</p>
+    <div class="jf-final-btns">
+      <a href="tailor-your-journey.html#enquire" class="tj-btn tj-btn-light">Plan My Journey</a>
+      <a href="finders-safaris-homepage.html#discovery" class="tj-btn tj-btn-light">Browse Destinations</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var grid = document.getElementById('jfGrid');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.children);
+  var count = document.getElementById('jfCount');
+  var empty = document.getElementById('jfEmpty');
+  var chips = document.getElementById('jfChips');
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.jf-opt input'));
+
+  function apply(){
+    /* Ticks within one facet widen the result — Kenya plus South Africa shows both.
+       Ticks across different facets narrow it. */
+    var want = {};
+    boxes.filter(function(b){ return b.checked; }).forEach(function(b){
+      (want[b.dataset.k] = want[b.dataset.k] || []).push(b.value);
+    });
+
+    var shown = 0;
+    cards.forEach(function(c){
+      var ok = Object.keys(want).every(function(k){
+        var have = (c.dataset[k] || '').split('|');
+        return want[k].some(function(v){ return have.indexOf(v) !== -1; });
+      });
+      c.hidden = !ok;
+      if (ok) shown++;
+    });
+
+    count.innerHTML = '<b>' + shown + '</b> journey' + (shown === 1 ? '' : 's');
+    empty.hidden = shown !== 0;
+
+    /* a removable chip for every active tick */
+    chips.innerHTML = '';
+    boxes.filter(function(b){ return b.checked; }).forEach(function(b){
+      var chip = document.createElement('span');
+      chip.className = 'jf-chip';
+      var label = document.createElement('span');
+      label.textContent = b.value;
+      chip.appendChild(label);
+      var x = document.createElement('button');
+      x.type = 'button'; x.innerHTML = '&times;';
+      x.setAttribute('aria-label', 'Remove ' + b.value + ' filter');
+      x.addEventListener('click', function(){ b.checked = false; apply(); });
+      chip.appendChild(x);
+      chips.appendChild(chip);
+    });
+
+    /* mark regions holding a ticked country, so it reads at a glance when collapsed */
+    document.querySelectorAll('.jf-reg').forEach(function(reg){
+      var any = Array.prototype.slice.call(reg.querySelectorAll('input')).some(function(i){ return i.checked; });
+      reg.classList.toggle('has', any);
+    });
+  }
+
+  boxes.forEach(function(b){ b.addEventListener('change', apply); });
+
+  document.getElementById('jfClear').addEventListener('click', function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    apply();
+  });
+
+  /* region rows open and close */
+  document.querySelectorAll('.jf-rbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var reg = btn.closest('.jf-reg'), open = reg.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  document.getElementById('jfSort').addEventListener('change', function(e){
+    var v = e.target.value;
+    cards.slice().sort(function(a, b){
+      if (v === 'az') return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+      var k = v.replace('-', ''), n = v.charAt(0) === '-' ? -1 : 1;
+      return (parseInt(a.dataset[k], 10) - parseInt(b.dataset[k], 10)) * n;
+    }).forEach(function(c){ grid.appendChild(c); });
+  });
+
+  /* the rail collapses on narrow screens */
+  var toggle = document.getElementById('jfToggle'), rail = document.getElementById('jfRail');
+  function sync(){ if (window.innerWidth > 1000) rail.classList.remove('shut'); else rail.classList.add('shut'); }
+  toggle.addEventListener('click', function(){
+    var shut = rail.classList.toggle('shut');
+    toggle.setAttribute('aria-expanded', String(!shut));
+  });
+  window.addEventListener('resize', sync);
+  sync();
+  apply();
+})();
+</script>
+
+<!--@include footer-site-->
+
+<!--@include speak-button-->
+
+<!--@include mega-menu-script-->
+
+<!--@include enquiry-modal-->
+<!--@include print-styles-->
+<!--@include subscribe-modal-->
+</body>
+</html>
