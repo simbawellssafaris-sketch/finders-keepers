@@ -81,7 +81,9 @@ Deno.serve(async (req) => {
       const buf = new Uint8Array(256);
       const n = await conn.read(buf);
       conn.close();
-      return json({ ok: true, host, port, greeting: new TextDecoder().decode(buf.subarray(0, n ?? 0)).trim() });
+      // names only, never values: shows whether the mailbox secrets reached the function
+      const custom = Object.keys(Deno.env.toObject()).filter((k) => !/^(SUPABASE_|SB_|DENO_|EDGE_|NODE_|HOME|PATH|LANG|TZ)/.test(k)).sort();
+      return json({ ok: true, host, port, greeting: new TextDecoder().decode(buf.subarray(0, n ?? 0)).trim(), smtpUserSet: !!Deno.env.get('SMTP_USER'), smtpPassSet: !!Deno.env.get('SMTP_PASS'), customSecretNames: custom });
     } catch (e) {
       return json({ ok: false, host, port, error: String(e) }, 502);
     }
