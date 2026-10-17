@@ -3,7 +3,7 @@ import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
-execSync('npx next build', { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
+execSync('npx next build --webpack', { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
 
 const OUT = path.join(process.cwd(), 'out');
 const KEEP = new Set(['_next', 'assets', 'icons', 'images']);
