@@ -38,3 +38,6 @@ desktop.ini
 
 # One-off scratch scripts (investigation helpers)
 scripts/_*.mjs
+
+# Claude skill links point to absolute paths on one computer
+.claude/skills/
