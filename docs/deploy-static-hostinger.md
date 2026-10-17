@@ -11,7 +11,7 @@ This works on any Hostinger plan, no Node.js needed. When you later add the back
 5. Open the temporary preview address Hostinger gives you and click around: home page, a destination, a package, a lodge, a PDF, the video, the "Speak To Us" pop-up.
 
 ## Before you point a real domain at it
-- Replace the placeholder domain `findersandkeepers.com` once you own one (`lib/site.mjs` and the page files; ask Claude to swap it in one pass), and rebuild.
+- Replace the placeholder domain `finderskeeperssafaris.com` once you own one (`lib/site.mjs` and the page files; ask Claude to swap it in one pass), and rebuild.
 - Turn on HTTPS (SSL) in hPanel.
 - Remember: the enquiry pop-up still opens WhatsApp/email only. Saving enquiries needs the server version.
 

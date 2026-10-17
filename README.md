@@ -32,7 +32,7 @@ Double-click `Start Next.js Dev.bat` (editing) or `Build and Preview.bat` (build
 The "Find Your Journey" button in every header opens a search box (also press `/`). It looks through all pages: destinations, journeys, stays, experiences. Nothing to maintain: new pages appear in it after the next build.
 
 ## Good to know
-- The domain/email is the placeholder `findersandkeepers.com` until the real one is bought (`lib/site.mjs`; page files use `{{domain}}`). Share previews and the sitemap use it.
+- The domain/email is the placeholder `finderskeeperssafaris.com` until the real one is bought (`lib/site.mjs`; page files use `{{domain}}`). Share previews and the sitemap use it.
 - Adding a page: put a new `.html` file in `content/pages/` and rebuild — it gets SEO tags, search and sitemap entries automatically.
 
 ## Database (Supabase)
@@ -50,3 +50,21 @@ Website forms are saved to Supabase (project `finders&keepers`). There is no log
 - `.env` holds `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (see `.env.example`). These are baked in when the site is **built**, so on a host such as Hostinger add both as environment variables before building. The publishable key is meant to be public; never put the service-role key in a `NEXT_PUBLIC_` variable.
 - `lib/supabase/server.js` is a ready-made server client for the later admin page; no page uses it yet.
 - Windows note: if the project folder name contains `&` (e.g. `nders&keepers`), `npm run ...` fails; use the two `.bat` files, which call Node directly.
+
+## Email notifications (Supabase Edge Function)
+
+When a form row is saved, a database trigger calls the `notify-submission` Edge Function (`supabase/functions/notify-submission/index.ts`),
+which emails the details to the business mailbox through Hostinger SMTP. Each row is marked `notified_at` once, so it can only ever send one email.
+The sender is the mailbox itself and `Reply-To` is the customer, so replying answers the customer directly.
+
+The mailbox login is stored as **secrets in Supabase** (dashboard > Edge Functions > Secrets), not in this repo or in `.env`:
+
+| Secret | Value |
+|---|---|
+| `SMTP_USER` | `bookings@finderskeeperssafaris.com` |
+| `SMTP_PASS` | that mailbox's password |
+| `NOTIFY_TO` | optional, where notifications go (defaults to `SMTP_USER`) |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_FROM_NAME` | optional; default `smtp.hostinger.com` / `465` / `Finders & Keepers Website` |
+
+Until `SMTP_USER` and `SMTP_PASS` are set the function answers 503 and rows stay un-notified. Opening
+`https://<project>.supabase.co/functions/v1/notify-submission` in a browser tests the connection to the mail server.

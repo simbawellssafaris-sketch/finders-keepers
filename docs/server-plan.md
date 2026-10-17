@@ -20,5 +20,5 @@ Server features need a host that **runs Node.js**. In Hostinger's hPanel look fo
 5. **Payments**: pick a provider (Stripe, Pesapal, or M-Pesa/Daraja for Kenya), create a checkout session in an API route, confirm via webhook `/api/payments/webhook`, update the booking.
 
 ## 4. Before going live
-- Buy the domain; replace the placeholder `findersandkeepers.com`.
+- Buy the domain; replace the placeholder `finderskeeperssafaris.com`.
 - Turn on HTTPS, set all environment variables on the host, test a real enquiry end to end.
