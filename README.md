@@ -94,3 +94,9 @@ charges themselves are deliberately not stated: the page says they are written i
 
 See `docs/production-readiness.md` for the environment variables, database backup and restore steps, search-engine (Google / Bing) setup, the
 security headers, and what was deliberately left out (analytics, admin dashboard, payments).
+
+## IndexNow (faster Bing crawling)
+
+`public/<32 characters>.txt` is the IndexNow key file (its content is the key itself). After the site has been deployed, `node scripts/indexnow.mjs`
+sends every page in the live sitemap to Bing and the other IndexNow search engines (add page addresses after the command to send only those).
+Run it after publishing new or changed pages. Google does not use IndexNow; it relies on the sitemap in Search Console.
