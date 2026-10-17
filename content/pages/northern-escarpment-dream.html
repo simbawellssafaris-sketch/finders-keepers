@@ -446,6 +446,28 @@
     .floatcard .info .div{display:none;}
     .floatcard .btn-solid{padding:13px 18px;text-align:center;justify-content:center;}
   }
+
+  /* ============ FOOTER (copied from the other Kenya package pages) ============ */
+  footer{background:#231F1B;color:#E9E3D6;padding:80px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;}
+  .foot-form input{
+    width:100%;background:transparent;border:1px solid #4A453C;color:#fff;padding:14px;
+    margin-bottom:14px;font-family:'Jost',sans-serif;font-size:14px;
+  }
+  .foot-form input::placeholder{color:#A39E92;}
+  .foot-form .btn{border-color:#fff;color:#fff;}
+  .foot-form .btn:hover{background:#fff;color:#231F1B;}
+  .foot-form-note{font-family:'Jost',sans-serif;font-size:11.5px;line-height:1.6;color:#A39E92;margin-top:10px;}
+  .foot-form input.fs-err{border-color:#c0524a;}
+  footer h5{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px;color:#A39E92;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;font-size:15px;}
+  .foot-bottom{
+    margin-top:70px;padding-top:30px;border-top:1px solid #4A453C;text-align:center;
+    font-size:13px;color:#A39E92;
+  }
+
+  @media (max-width:1024px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:700px){.foot-grid{grid-template-columns:1fr;}}
 </style>
 
 <link rel="stylesheet" href="assets/fs-map.css">
@@ -1036,6 +1058,9 @@
   onScroll();
 </script>
 
+<!-- ============ FOOTER ============ -->
+<!--@include footer-newsletter-3-->
+
 <script src="assets/fs-geo.js"></script>
 <script>window.FS_ROUTE={"region":"africa","focus":"KEN","stops":[["Nairobi",-1.286,36.817],["Lewa Downs",0.2,37.42],["Loisaba Conservancy",0.62,36.82],["Maasai Mara",-1.49,35.14],["Lake Naivasha & Hell's Gate",-0.77,36.37]],"overviewLabel":"Full route","title":"Route Map"};</script>
 <script src="assets/fs-map.js"></script>
@@ -1059,5 +1084,6 @@ document.querySelectorAll('.offer-more').forEach(function(b){
 <!--@include floatcard-dock-->
 <!--@include print-styles-b-->
 <!--@include subscribe-modal-->
+<!--@include footer-subscribe-script-->
 </body>
 </html>

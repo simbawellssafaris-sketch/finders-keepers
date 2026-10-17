@@ -81,3 +81,11 @@ The form route (`app/api/submit/route.js`) only emails a submission that passes 
 - **Cloudflare Turnstile** (free CAPTCHA, normally invisible) when `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (public, baked in at build time) and `TURNSTILE_SECRET_KEY` (server only) are set. Without them this check is skipped. Cloudflare publishes test keys for local testing (site `1x00000000000000000000AA`, secret `1x0000000000000000000000000000000AA` always pass).
 
 Known limit: the Supabase publishable key is public by design, so someone who extracts it could still insert rows straight into the database, bypassing these checks (it cannot read anything and no email is sent for such rows). Stricter option for later: remove the anonymous insert policy and let only the server route insert with a server-only key.
+
+## Legal pages
+
+`privacy-policy.html`, `terms-and-conditions.html` and `cancellation-policy.html` (in `content/pages/`) are linked from every footer (the three footer
+types: one-line lodge/experience footer, the link-column footer, and the package-page footer). They are drafts written from what the site already promises
+(30% deposit, balance 60 days before departure, travel insurance required, the group-departure refund choice) and from how the site actually handles data
+(Supabase, Hostinger email, Google Fonts, optional Cloudflare Turnstile). They should be reviewed by a lawyer before being relied on. The cancellation
+charges themselves are deliberately not stated: the page says they are written in each quotation and booking confirmation.
