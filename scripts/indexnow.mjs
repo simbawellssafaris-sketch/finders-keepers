@@ -27,11 +27,16 @@ if (!urls.length) {
 urls = urls.filter((u) => u.startsWith(`https://${HOST}/`)).slice(0, 10000);
 if (!urls.length) throw new Error('No pages to send');
 
-// 3. send
-const res = await fetch('https://api.indexnow.org/IndexNow', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  body: JSON.stringify({ host: HOST, key, keyLocation, urlList: urls }),
-});
+// 3. send to Bing's IndexNow address (IndexNow engines share what they receive); retry because some connections are slow to open
+const body = JSON.stringify({ host: HOST, key, keyLocation, urlList: urls });
+let res;
+for (let attempt = 1; attempt <= 3 && !res; attempt++) {
+  try {
+    res = await fetch('https://www.bing.com/indexnow', { method: 'POST', headers: { 'Content-Type': 'application/json; charset=utf-8' }, body, signal: AbortSignal.timeout(60000) });
+  } catch (e) {
+    console.error('Attempt ' + attempt + ' failed: ' + (e.cause && e.cause.code || e.message));
+  }
+}
+if (!res) throw new Error('Could not reach Bing. Try again in a minute.');
 console.log(`Sent ${urls.length} pages. Answer: HTTP ${res.status} ${res.statusText}`);
 console.log(res.status === 200 || res.status === 202 ? 'Accepted. Bing will crawl them soon.' : 'Not accepted: ' + (await res.text()));
