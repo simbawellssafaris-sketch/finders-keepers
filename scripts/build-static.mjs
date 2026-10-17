@@ -6,14 +6,18 @@ import path from 'node:path';
 
 // Run Next.js through node directly (not npx / npm shims) so this also works in a folder whose name contains '&'.
 const nextBin = createRequire(import.meta.url).resolve('next/dist/bin/next');
-// A static export cannot contain server routes, so app/api is set aside during the build and always put back.
-const API = path.join(process.cwd(), 'app', 'api');
-const API_OFF = path.join(process.cwd(), 'app', '_api-off');
-if (fs.existsSync(API)) fs.renameSync(API, API_OFF);
+// A static export cannot contain server code (the form route, the admin dashboard, the proxy that guards it),
+// so those are set aside during the build and always put back.
+const ASIDE = [
+  [path.join(process.cwd(), 'app', 'api'), path.join(process.cwd(), 'app', '_api-off')],
+  [path.join(process.cwd(), 'app', 'admin'), path.join(process.cwd(), 'app', '_admin-off')],
+  [path.join(process.cwd(), 'proxy.js'), path.join(process.cwd(), '_proxy-off.js')],
+];
+for (const [from, to] of ASIDE) if (fs.existsSync(from)) fs.renameSync(from, to);
 try {
   execFileSync(process.execPath, [nextBin, 'build', '--webpack'], { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
 } finally {
-  if (fs.existsSync(API_OFF)) fs.renameSync(API_OFF, API);
+  for (const [from, to] of ASIDE) if (fs.existsSync(to)) fs.renameSync(to, from);
 }
 
 const OUT = path.join(process.cwd(), 'out');

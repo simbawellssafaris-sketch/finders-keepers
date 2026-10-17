@@ -100,3 +100,8 @@ security headers, and what was deliberately left out (analytics, admin dashboard
 `public/<32 characters>.txt` is the IndexNow key file (its content is the key itself). After the site has been deployed, `node scripts/indexnow.mjs`
 sends every page in the live sitemap to Bing and the other IndexNow search engines (add page addresses after the command to send only those).
 Run it after publishing new or changed pages. Google does not use IndexNow; it relies on the sitemap in Search Console.
+
+## Admin dashboard
+
+`/admin` is a protected dashboard for the enquiries, service requests and subscribers that the forms collect (server version only). See
+`docs/admin-dashboard.md` for what it does, how it is locked down, and how to create the first admin account.
