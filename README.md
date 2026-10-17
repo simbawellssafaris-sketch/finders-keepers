@@ -8,9 +8,9 @@ All 642 pages of the site on Next.js 16. It builds two ways:
 | Command | What it does |
 |---|---|
 | `npm install` | One-time: installs the tools (needs Node.js 20+). |
-| `npm run dev` | Live editing at http://localhost:3010 — changes show instantly. |
+| `npm run dev` | Live editing at http://localhost:3000 (the .bat files use 3010) — changes show instantly. |
 | `npm run build:static` | Builds the upload-anywhere version into `out/` (see docs/deploy-static-hostinger.md). |
-| `npm run build` / `npm start` | Builds / runs the server version at http://localhost:3010. |
+| `npm run build` / `npm start` | Builds / runs the server version at http://localhost:3000 (the .bat files use 3010); on a host it uses the PORT the host provides. |
 | `BUILD_DIR=out node scripts/verify-final.mjs` | After `build:static`: checks every page, SEO tag, picture and the sitemap. (Without `BUILD_DIR`, it checks the server build.) |
 | `node scripts/audit.mjs` | Reports missing SEO tags, dead "#" links, forms, external hosts on the static build. |
 
