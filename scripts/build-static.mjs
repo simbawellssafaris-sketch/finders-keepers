@@ -6,7 +6,15 @@ import path from 'node:path';
 
 // Run Next.js through node directly (not npx / npm shims) so this also works in a folder whose name contains '&'.
 const nextBin = createRequire(import.meta.url).resolve('next/dist/bin/next');
-execFileSync(process.execPath, [nextBin, 'build', '--webpack'], { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
+// A static export cannot contain server routes, so app/api is set aside during the build and always put back.
+const API = path.join(process.cwd(), 'app', 'api');
+const API_OFF = path.join(process.cwd(), 'app', '_api-off');
+if (fs.existsSync(API)) fs.renameSync(API, API_OFF);
+try {
+  execFileSync(process.execPath, [nextBin, 'build', '--webpack'], { stdio: 'inherit', env: { ...process.env, STATIC_EXPORT: '1' } });
+} finally {
+  if (fs.existsSync(API_OFF)) fs.renameSync(API_OFF, API);
+}
 
 const OUT = path.join(process.cwd(), 'out');
 const KEEP = new Set(['_next', 'assets', 'icons', 'images']);

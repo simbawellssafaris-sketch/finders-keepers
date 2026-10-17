@@ -1,0 +1,61 @@
+import { NextResponse } from 'next/server';
+import { createClient } from '../../../lib/supabase/server';
+import { sendSubmissionEmail } from '../../../lib/notify-email';
+
+// Server route (server build only): saves a website form to Supabase, then emails the business.
+// The browser tries this first and falls back to saving straight to Supabase when it is not available
+// (for example on the static export), so a submission is never lost.
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
+// Only these columns can be written; anything else the browser sends (status, id, ...) is dropped.
+const COLUMNS = {
+  enquiries: ['name', 'phone', 'email', 'travellers', 'preferred_date', 'interest', 'package', 'notes', 'source_page'],
+  service_requests: ['service', 'name', 'email', 'phone', 'travellers', 'details', 'source_page'],
+  newsletter_subscribers: ['email', 'first_name', 'last_name', 'source', 'source_page'],
+};
+
+// Simple per-visitor limit (kept in memory, resets on restart): 8 submissions per 10 minutes.
+const hits = new Map();
+function tooMany(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < 600000);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 5000) hits.clear();
+  return recent.length > 8;
+}
+
+export async function POST(request) {
+  const ip = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
+  if (tooMany(ip)) return NextResponse.json({ ok: false, error: 'Too many requests' }, { status: 429 });
+
+  const body = await request.json().catch(() => null);
+  const table = body && body.table;
+  const row = body && body.row;
+  if (!COLUMNS[table] || !row || typeof row !== 'object') return NextResponse.json({ ok: false }, { status: 400 });
+
+  const clean = {};
+  for (const key of COLUMNS[table]) {
+    if (row[key] !== undefined && row[key] !== null && row[key] !== '') clean[key] = row[key];
+  }
+
+  const supabase = await createClient();
+  let { error } = await supabase.from(table).insert(clean);
+  // a network hiccup between this server and Supabase has no database error code: try once more before giving up
+  if (error && !error.code) ({ error } = await supabase.from(table).insert(clean));
+  if (error) {
+    if (error.code === '23505') return NextResponse.json({ ok: true, saved: true, duplicate: true }); // already subscribed
+    const refused = /^(22|23|42)/.test(error.code || ''); // the database will never accept this data
+    console.error('Submission not saved:', error.message);
+    return NextResponse.json({ ok: false }, { status: refused ? 400 : 502 });
+  }
+
+  let emailed = false;
+  try {
+    emailed = await sendSubmissionEmail(table, clean);
+  } catch (e) {
+    console.error('Email failed (submission is saved):', e && e.message);
+  }
+  return NextResponse.json({ ok: true, saved: true, emailed });
+}

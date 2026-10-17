@@ -48,23 +48,25 @@ Website forms are saved to Supabase (project `finders&keepers`). There is no log
 - Row Level Security is on for every table. The public (`anon`) role can only **insert**: it cannot read, change or delete rows, so one visitor can never see another's details. Read submissions in the Supabase dashboard (Table Editor).
 - The save happens in the browser (`app/[[...page]]/supabase-forms.jsx` + `lib/forms.js`), so it works for both the server build and the static export. The pages' own thank-you messages and WhatsApp / email buttons are unchanged. If a visitor is offline, the submission is kept in their browser and sent next time.
 - `.env` holds `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (see `.env.example`). These are baked in when the site is **built**, so on a host such as Hostinger add both as environment variables before building. The publishable key is meant to be public; never put the service-role key in a `NEXT_PUBLIC_` variable.
-- `lib/supabase/server.js` is a ready-made server client for the later admin page; no page uses it yet.
+- `lib/supabase/server.js` is the server-side client, used by the form route `app/api/submit/route.js` and ready for the later admin page.
 - Windows note: if the project folder name contains `&` (e.g. `nders&keepers`), `npm run ...` fails; use the two `.bat` files, which call Node directly.
 
-## Email notifications (Supabase Edge Function)
+## Email notifications
 
-When a form row is saved, a database trigger calls the `notify-submission` Edge Function (`supabase/functions/notify-submission/index.ts`),
-which emails the details to the business mailbox through Hostinger SMTP. Each row is marked `notified_at` once, so it can only ever send one email.
-The sender is the mailbox itself and `Reply-To` is the customer, so replying answers the customer directly.
+Same setup as the other Next.js site: a server route (`app/api/submit/route.js`, mail code in `lib/notify-email.js`) saves the form to Supabase and then
+emails the business through the Hostinger mailbox with nodemailer. The sender is the mailbox and `Reply-To` is the customer, so replying answers them directly.
 
-The mailbox login is stored as **secrets in Supabase** (dashboard > Edge Functions > Secrets), not in this repo or in `.env`:
+Add these as environment variables on Hostinger (they are read when the server runs, so no rebuild is needed, just a restart/redeploy):
 
-| Secret | Value |
+| Variable | Value |
 |---|---|
+| `SMTP_HOST` | `smtp.hostinger.com` |
+| `SMTP_PORT` | `465` |
+| `SMTP_SECURE` | `true` |
 | `SMTP_USER` | `bookings@finderskeeperssafaris.com` |
-| `SMTP_PASS` | that mailbox's password |
-| `NOTIFY_TO` | optional, where notifications go (defaults to `SMTP_USER`) |
-| `SMTP_HOST` / `SMTP_PORT` / `SMTP_FROM_NAME` | optional; default `smtp.hostinger.com` / `465` / `Finders & Keepers Website` |
+| `SMTP_PASS` | the mailbox password |
+| `MAIL_FROM` | `Finders & Keepers Website <bookings@finderskeeperssafaris.com>` |
+| `MAIL_TO` | `bookings@finderskeeperssafaris.com` |
 
-Until `SMTP_USER` and `SMTP_PASS` are set the function answers 503 and rows stay un-notified. Opening
-`https://<project>.supabase.co/functions/v1/notify-submission` in a browser tests the connection to the mail server.
+Without `SMTP_USER` / `SMTP_PASS` the submission is still saved, just not emailed. The static zip has no server, so there the forms are
+saved straight to Supabase from the browser and no email is sent. (`npm run build:static` sets `app/api` aside while it builds.)
