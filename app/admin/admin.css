@@ -86,7 +86,7 @@ dl.ad-fields dd{margin:0;padding:10px 0;border-bottom:1px solid #eee6d6;word-bre
 .ad-secret{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--beige);padding:8px 10px;display:inline-block;word-break:break-all;font-size:13px;}
 .ad-ok{background:#d6ead8;color:#1f5a2b;padding:10px 14px;margin:0 0 14px;}
 .ad-codeinput{max-width:190px;font-size:24px!important;letter-spacing:.25em;text-align:center;}
-.ad-nav a{padding-left:11px;padding-right:11px;}
+.ad-nav a{padding-left:9px;padding-right:9px;font-size:12px;letter-spacing:.04em;}
 @media (max-width:1100px){.ad-bar{gap:8px 20px;padding-top:10px;}.ad-nav{order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;}.ad-nav a{padding:10px 12px;white-space:nowrap;}}
 .st-provisional{background:#efe6c4;color:#5d4b0a;}
 .st-confirmed{background:#d6ead8;color:#1f5a2b;}
@@ -140,5 +140,14 @@ thead .ad-ptable th,.ad-ptable thead th{width:auto;}
 .ad-lines td:first-child{width:50%;}
 .ad-total td{font-weight:600;border-top:2px solid var(--ink);}
 .ad-terms{color:var(--muted);font-size:12.5px;margin-top:22px;white-space:pre-wrap;}
+.ad-idle{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:50;background:var(--ink);color:#fff;padding:14px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;max-width:min(560px,calc(100vw - 24px));box-shadow:0 6px 24px rgba(0,0,0,.3);font-size:14px;}
+.ad-toolbar input[type=date]{font:inherit;padding:8px 10px;border:1px solid var(--line);background:var(--white);min-width:0;}
+.ad-bars{display:flex;flex-direction:column;gap:6px;}
+.ad-barrow{display:grid;grid-template-columns:44px minmax(0,1fr) 120px;gap:10px;align-items:center;font-size:13px;}
+.ad-barlabel{color:var(--muted);}
+.ad-bartrack{background:var(--beige);height:14px;display:block;}
+.ad-barfill{display:block;height:100%;background:var(--rust);}
+.ad-barvalue{text-align:right;white-space:nowrap;}
+.ad-toolbar .ad-btn{padding:8px 14px;}
 .ad-teamrow{display:grid;grid-template-columns:1.2fr 1fr auto;gap:10px;align-items:end;padding:14px 0;border-bottom:1px solid #eee6d6;}
 @media (max-width:700px){.ad-teamrow{grid-template-columns:1fr;}}

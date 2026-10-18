@@ -49,6 +49,28 @@ Money rules, enforced by the database itself:
 - VAT: the business is not VAT-registered yet, so documents carry no tax line. When that changes, tax lines will need adding to quotations and invoices.
 - The Overview shows quotations waiting for an answer, unpaid and overdue invoices (per currency) and draft invoices waiting to be issued.
 
+### Forgotten password, idle sign-out, activity history and reports
+- **Forgot your password?** (link on the sign-in page): enter your email and a reset link arrives (valid one hour, works once). The link opens a page with a
+  **Continue** button (so an email scanner opening the link cannot use it up), then you choose a new password (12+ characters). If you have two-factor login on,
+  the 6-digit code is asked for here too, so a stolen email alone cannot take over an account. Saving signs every device out. The page never says whether an
+  email address has an account.
+  **One-time Supabase set-up (Authentication in the Supabase dashboard):**
+  1. *URL Configuration*: set **Site URL** to `https://finderskeeperssafaris.com` and add `https://finderskeeperssafaris.com/admin/reset` to **Redirect URLs**.
+  2. *Email Templates > Reset Password*: change the link to `{{ .SiteURL }}/admin/reset?token_hash={{ .TokenHash }}&type=recovery` (this makes the link work on any
+     device or browser, for example when the email opens in a phone's built-in browser).
+  3. *SMTP Settings*: switch on **custom SMTP** with the same Hostinger mailbox details used for the website emails. Without it Supabase only emails people who
+     are members of your Supabase organisation, and only a few per hour, so a colleague you add later would never receive a reset email.
+- **Idle sign-out:** after 30 minutes with no mouse, keyboard or touch activity the dashboard warns two minutes before, then signs that device out and shows a
+  message on the sign-in page. While you are working it quietly keeps the session alive, so a long form is never lost. The server also signs out a session that has
+  been unused for 35 minutes (for example a closed laptop). To change the 30 minutes, add `ADMIN_IDLE_MINUTES` (1 to 240) in Hostinger's environment variables.
+- **Activity** (owners, top bar): sign-ins (with the device and address), sign-outs, idle sign-outs, password changes, two-factor on/off, team changes, record
+  deletions, CSV downloads and every time someone opens a client document, plus every edit already shown in each record's History. Filter by person, area,
+  dates or text, and download it as CSV. Nobody can edit or delete these entries.
+- **Reports:** pick this month, last month, this quarter, this year, last year, the last 90 days or your own dates. It shows money received (confirmed, after
+  refunds) and a month-by-month chart, new bookings value, invoices issued, money still to collect and payments waiting for confirmation, received by payment
+  method, best-selling journeys, how late outstanding balances and invoices are (not due, 1 to 30, 31 to 60, over 60 days), enquiries by status and by where they
+  came from, quotations won and lost, and departures in the next 90 days. Every figure is per currency; USD and KES are never added together.
+
 The original features:
 - **Overview:** new enquiries, new service requests, subscribers, last 7 days, latest activity.
 - **Enquiries / Service requests:** search, filter by status, open a record, see everything the customer sent, one-click Reply by email and

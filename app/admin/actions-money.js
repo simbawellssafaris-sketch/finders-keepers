@@ -47,8 +47,10 @@ export async function saveClient(id, prev, formData) {
 export async function deleteClient(id) {
   const ctx = await requireOwner();
   if (!UUID.test(String(id))) throw new Error('Bad request');
+  const { data: before } = await ctx.supabase.from('clients').select('full_name').eq('id', id).maybeSingle();
   const { error } = await ctx.supabase.from('clients').delete().eq('id', id);
   if (error) redirect(`/admin/clients/${id}?error=has-bookings`); // the database refuses while bookings, quotations, invoices or documents exist
+  await logActivity(ctx.supabase, ctx, 'clients', id, 'deleted', { name: before ? before.full_name : null });
   revalidatePath('/admin/clients');
   redirect('/admin/clients');
 }
@@ -152,8 +154,10 @@ export async function saveBooking(id, prev, formData) {
 export async function deleteBooking(id) {
   const ctx = await requireOwner();
   if (!UUID.test(String(id))) throw new Error('Bad request');
+  const { data: before } = await ctx.supabase.from('bookings').select('reference, journey').eq('id', id).maybeSingle();
   const { error } = await ctx.supabase.from('bookings').delete().eq('id', id);
   if (error) redirect(`/admin/bookings/${id}?error=has-payments`); // refused while payments exist
+  await logActivity(ctx.supabase, ctx, 'bookings', id, 'deleted', { name: before ? `${before.reference} ${before.journey}` : null });
   revalidatePath('/admin/bookings');
   redirect('/admin/bookings');
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useActionState } from 'react';
 import { signIn } from '../actions';
 
@@ -16,6 +17,7 @@ export default function LoginForm({ denied }) {
       <div className="ad-actions">
         <button className="ad-btn" type="submit" disabled={pending}>{pending ? 'Signing in…' : 'Sign in'}</button>
       </div>
+      <p style={{ margin: '16px 0 0', fontSize: 14 }}><Link href="/admin/forgot">Forgot your password?</Link></p>
     </form>
   );
 }

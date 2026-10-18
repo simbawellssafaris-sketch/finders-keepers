@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { signOut } from '../actions';
+import { idleMinutes } from '../../../lib/admin/idle';
+import IdleWatcher from './IdleWatcher';
 
 const NAV = [
   ['/admin', 'Overview', 'overview'],
@@ -10,6 +12,7 @@ const NAV = [
   ['/admin/bookings', 'Bookings', 'bookings'],
   ['/admin/invoices', 'Invoices', 'invoices'],
   ['/admin/payments', 'Payments', 'payments'],
+  ['/admin/reports', 'Reports', 'reports'],
   ['/admin/subscribers', 'Subscribers', 'newsletter_subscribers'],
   ['/admin/team', 'Team', 'team'],
 ];
@@ -27,6 +30,7 @@ export default function Shell({ ctx, current, children }) {
         </nav>
         <div className="ad-user">
           <span>{ctx.admin.name}</span>
+          {ctx.admin.isOwner ? <Link href="/admin/activity" aria-current={current === 'activity' ? 'page' : undefined}>Activity</Link> : null}
           {ctx.admin.isOwner ? <Link href="/admin/settings" aria-current={current === 'settings' ? 'page' : undefined}>Settings</Link> : null}
           <Link href="/admin/security" aria-current={current === 'security' ? 'page' : undefined}>Security</Link>
           <form action={signOut}><button type="submit">Sign out</button></form>
@@ -38,6 +42,7 @@ export default function Shell({ ctx, current, children }) {
         </div>
       ) : null}
       <main className="ad-main">{children}</main>
+      <IdleWatcher minutes={idleMinutes()} />
     </>
   );
 }

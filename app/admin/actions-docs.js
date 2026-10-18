@@ -141,9 +141,10 @@ export async function convertQuotationToBooking(id) {
 export async function deleteQuotation(id) {
   const ctx = await requireAdmin();
   if (!UUID.test(String(id))) throw new Error('Bad request');
-  const { data: q } = await ctx.supabase.from('quotations').select('status').eq('id', id).maybeSingle();
+  const { data: q } = await ctx.supabase.from('quotations').select('status, reference, title').eq('id', id).maybeSingle();
   if (q && q.status !== 'draft' && !ctx.admin.isOwner) redirect(`/admin/quotations/${id}?error=owner-only`);
   await ctx.supabase.from('quotations').delete().eq('id', id);
+  if (q) await logActivity(ctx.supabase, ctx, 'quotations', id, 'deleted', { name: `${q.reference} ${q.title}` });
   revalidatePath('/admin/quotations');
   redirect('/admin/quotations');
 }
@@ -272,8 +273,10 @@ export async function emailInvoice(id) {
 export async function deleteInvoice(id) {
   const ctx = await requireAdmin();
   if (!UUID.test(String(id))) throw new Error('Bad request');
+  const { data: before } = await ctx.supabase.from('invoices').select('title').eq('id', id).eq('status', 'draft').maybeSingle();
   const { error } = await ctx.supabase.from('invoices').delete().eq('id', id).eq('status', 'draft');
-  if (error) redirect(`/admin/invoices/${id}?error=cannot-delete`);
+  if (error || !before) redirect(`/admin/invoices/${id}?error=cannot-delete`);
+  await logActivity(ctx.supabase, ctx, 'invoices', id, 'deleted', { name: `draft invoice “${before.title}”` });
   revalidatePath('/admin/invoices');
   redirect('/admin/invoices');
 }

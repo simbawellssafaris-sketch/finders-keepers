@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { createClient } from '../../lib/supabase/server';
 import { requireAdmin, requireOwner, loginLimited } from '../../lib/admin/auth';
-import { getStaff, logActivity } from '../../lib/admin/staff';
+import { getStaff, logActivity, quickCtx } from '../../lib/admin/staff';
 import { TABLES, TABLE_NAMES, STATUSES, UUID, DATE, MANUAL_CHANNELS } from '../../lib/admin/config';
 
 const clientIp = async () => ((await headers()).get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
@@ -23,18 +23,86 @@ export async function signIn(prev, formData) {
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error || !data.user) return { error: 'Incorrect email or password.' };
 
-  const { data: admin } = await supabase.from('admins').select('user_id').eq('user_id', data.user.id).maybeSingle();
+  const { data: admin } = await supabase.from('admins').select('user_id, role, display_name').eq('user_id', data.user.id).maybeSingle();
   if (!admin) {
     await supabase.auth.signOut();
     return { error: 'This account does not have admin access.' };
   }
+  const ua = String((await headers()).get('user-agent') || '').slice(0, 160);
+  await logActivity(supabase, { user: data.user, admin: { name: admin.display_name || (admin.role === 'admin' ? 'Owner' : 'Staff') } }, 'admins', data.user.id, 'signed_in', { ip: await clientIp(), device: ua });
   redirect('/admin'); // requireAdmin sends people with two-factor on to the code screen
 }
 
 export async function signOut() {
   const supabase = await createClient();
+  const ctx = await quickCtx(supabase);
+  if (ctx) await logActivity(supabase, ctx, 'admins', ctx.user.id, 'signed_out', {});
   await supabase.auth.signOut();
   redirect('/admin/login');
+}
+
+// ---- forgotten password --------------------------------------------------------------------------------------------
+// Always answers the same way, so nobody can use this form to find out which email addresses have an account.
+const SITE = () => (process.env.NODE_ENV === 'production' ? 'https://finderskeeperssafaris.com' : null);
+
+export async function requestReset(prev, formData) {
+  const ip = await clientIp();
+  if (loginLimited(ip, 'reset')) return { error: 'Too many attempts. Please wait a few minutes and try again.' };
+  const email = String(formData.get('email') || '').trim().slice(0, 254);
+  if (!EMAIL.test(email)) return { error: 'Please enter the email address you sign in with.' };
+  const h = await headers();
+  const origin = SITE() || `${h.get('x-forwarded-proto') || 'http'}://${h.get('host') || 'localhost:3010'}`;
+  const supabase = await createClient();
+  const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin}/admin/reset` });
+  if (error && /rate limit|too many/i.test(error.message || '')) return { error: 'A reset email was requested a moment ago. Please wait a few minutes before asking again.' };
+  return { sent: true };
+}
+
+// The link in the email lands on a page with a button (not straight into the app), so mail scanners that open links cannot use up the one-time link.
+export async function continueReset(formData) {
+  const supabase = await createClient();
+  const tokenHash = String(formData.get('token_hash') || '').slice(0, 200);
+  const code = String(formData.get('code') || '').slice(0, 200);
+  let error = null;
+  if (tokenHash) ({ error } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type: 'recovery' }));
+  else if (code) ({ error } = await supabase.auth.exchangeCodeForSession(code));
+  else error = new Error('missing');
+  if (error) redirect('/admin/forgot?error=link');
+  redirect('/admin/reset/new');
+}
+
+export async function setNewPassword(prev, formData) {
+  if (loginLimited(await clientIp(), 'code')) return { error: 'Too many attempts. Please wait a few minutes and try again.' };
+  const supabase = await createClient();
+  const { data: u } = await supabase.auth.getUser();
+  if (!u || !u.user) redirect('/admin/forgot?error=link');
+
+  const password = String(formData.get('password') || '').slice(0, 200);
+  if (password.length < 12) return { error: 'Please use at least 12 characters. A few random words joined together is easy to remember and hard to guess.' };
+  if (password !== String(formData.get('confirm') || '').slice(0, 200)) return { error: 'The two passwords do not match.' };
+
+  // If two-factor is on, the code must be entered here too: a reset link alone is not enough to take over an account.
+  if ((u.user.factors || []).some((f) => f.status === 'verified')) {
+    const code = String(formData.get('code') || '').replace(/\s/g, '');
+    if (!/^\d{6}$/.test(code)) return { error: 'Enter the 6-digit code from your authenticator app.' };
+    const { data: factors } = await supabase.auth.mfa.listFactors();
+    const factor = (factors?.totp || [])[0];
+    if (factor) {
+      const { error: codeError } = await supabase.auth.mfa.challengeAndVerify({ factorId: factor.id, code });
+      if (codeError) return { error: 'That code did not work. Use the newest code in your authenticator app.' };
+    }
+  }
+
+  const { error } = await supabase.auth.updateUser({ password });
+  if (error) {
+    if (/same|different from the old/i.test(error.message || '')) return { error: 'Please choose a password you have not used before.' };
+    if (/weak|pwned|compromised|easy to guess/i.test(error.message || '')) return { error: 'That password is too easy to guess or has appeared in a data leak. Please choose another.' };
+    return { error: 'The password could not be changed. Please try again, or request a new reset link.' };
+  }
+  const ctx = await quickCtx(supabase);
+  if (ctx) await logActivity(supabase, ctx, 'admins', ctx.user.id, 'password_changed', { via: 'reset link' });
+  await supabase.auth.signOut({ scope: 'global' }); // every device signs in again with the new password
+  redirect('/admin/login?reset=1');
 }
 
 // ---- two-factor login (authenticator app) --------------------------------------------------------------------------
@@ -65,7 +133,7 @@ export async function enrollTotp() {
 }
 
 export async function confirmTotp(factorId, prev, formData) {
-  await requireAdmin({ partial: true });
+  const ctx = await requireAdmin({ partial: true });
   if (!UUID.test(String(factorId))) return { error: 'Please start the setup again.' };
   if (loginLimited(await clientIp(), 'code')) return { error: 'Too many attempts. Please wait a few minutes and try again.' };
   const code = String(formData.get('code') || '').replace(/\s/g, '');
@@ -73,14 +141,17 @@ export async function confirmTotp(factorId, prev, formData) {
   const supabase = await createClient();
   const { error } = await supabase.auth.mfa.challengeAndVerify({ factorId, code });
   if (error) return { error: 'That code did not work. Try the newest code in your app.' };
+  await logActivity(supabase, ctx, 'admins', ctx.user.id, 'two_factor_on', {});
   revalidatePath('/admin/security');
   return { done: true };
 }
 
 export async function removeTotp() {
-  const { supabase } = await requireAdmin(); // needs a fully verified (two-factor) session
+  const ctx = await requireAdmin(); // needs a fully verified (two-factor) session
+  const { supabase } = ctx;
   const { data: factors } = await supabase.auth.mfa.listFactors();
   for (const f of factors?.all || []) await supabase.auth.mfa.unenroll({ factorId: f.id });
+  await logActivity(supabase, ctx, 'admins', ctx.user.id, 'two_factor_off', {});
   await supabase.auth.refreshSession(); // brings the stored session up to date
   revalidatePath('/admin/security');
   revalidatePath('/admin');
@@ -202,7 +273,8 @@ export async function setSubscription(id, subscription) {
 
 // ---- team (owners only) --------------------------------------------------------------------------------------------
 export async function updateStaff(userId, formData) {
-  const { supabase, user } = await requireOwner();
+  const ctx = await requireOwner();
+  const { supabase, user } = ctx;
   if (!UUID.test(String(userId))) throw new Error('Bad request');
   const role = String(formData.get('role') || '');
   if (!['admin', 'staff'].includes(role)) throw new Error('Bad role');
@@ -211,17 +283,23 @@ export async function updateStaff(userId, formData) {
     const { count } = await supabase.from('admins').select('*', { count: 'exact', head: true }).eq('role', 'admin').neq('user_id', userId);
     if (!count) throw new Error('There must always be at least one owner.');
   }
+  const { data: before } = await supabase.from('admins').select('role, display_name').eq('user_id', userId).maybeSingle();
   const { error } = await supabase.from('admins').update({ role, display_name }).eq('user_id', userId);
   if (error) throw new Error('Could not save');
+  if (before && before.role !== role) await logActivity(supabase, ctx, 'admins', userId, 'role_changed', { name: display_name || before.display_name, from: before.role, to: role });
+  else if (before && (before.display_name || null) !== display_name) await logActivity(supabase, ctx, 'admins', userId, 'team_renamed', { from: before.display_name, to: display_name });
   revalidatePath('/admin/team');
   revalidatePath('/admin');
   if (userId === user.id && role === 'staff') redirect('/admin');
 }
 
 export async function removeStaff(userId) {
-  const { supabase, user } = await requireOwner();
+  const ctx = await requireOwner();
+  const { supabase, user } = ctx;
   if (!UUID.test(String(userId)) || userId === user.id) throw new Error('You cannot remove yourself.');
+  const { data: before } = await supabase.from('admins').select('role, display_name').eq('user_id', userId).maybeSingle();
   const { error } = await supabase.from('admins').delete().eq('user_id', userId);
   if (error) throw new Error('Could not remove');
+  await logActivity(supabase, ctx, 'admins', userId, 'team_removed', { name: before ? before.display_name : null, role: before ? before.role : null });
   revalidatePath('/admin/team');
 }
