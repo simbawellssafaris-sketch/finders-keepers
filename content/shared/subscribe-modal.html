@@ -63,8 +63,8 @@ body.sub-lock{overflow:hidden;}
       <div class="sub-foot"></div>
     </form>
     <div class="sub-success" id="subSuccess">
-      <h3>Almost there.</h3>
-      <p>We&rsquo;ve opened your email client with your subscription request ready to go &mdash; just hit send.</p>
+      <h3>You&rsquo;re on the list.</h3>
+      <p>Thank you for subscribing. A short welcome note is on its way to your inbox &mdash; check your spam folder if you don&rsquo;t see it.</p>
     </div>
   </div>
 </div>
@@ -128,8 +128,7 @@ body.sub-lock{overflow:hidden;}
       fine.style.color = '#e08e8e';
       return;
     }
-    var mailto = 'mailto:' + EMAIL_ADDR + '?subject=' + encodeURIComponent('Journal Subscription') + '&body=' + encodeURIComponent('Please add ' + email + ' to the Journal mailing list.');
-    window.open(mailto, '_blank');
+    // the sign-up itself is saved by the site (see lib/forms.js); nothing needs to be sent from the visitor's own email program
     form.style.display = 'none';
     success.classList.add('sub-on');
   });

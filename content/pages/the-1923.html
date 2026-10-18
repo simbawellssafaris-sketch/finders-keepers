@@ -1493,11 +1493,9 @@ body.enq-lock{overflow:hidden;}
       bad.focus();
       return;
     }
-    var body = 'First Name: ' + fn.value.trim() + '\nLast Name: ' + ln.value.trim() + '\nEmail: ' + em.value.trim() + '\n\nPlease add me to the mailing list.';
-    var mailto = 'mailto:{{email}}?subject=' + encodeURIComponent('Newsletter Signup') + '&body=' + encodeURIComponent(body);
-    window.open(mailto, '_blank');
+    // the sign-up itself is saved by the site (see lib/forms.js); nothing needs to be sent from the visitor's own email program
     form.reset();
-    note.textContent = 'We\'ve opened your email client with your details ready to send — just hit send.';
+    note.textContent = 'Thank you — you\'re on the list. A welcome note is on its way (check your spam folder if you don\'t see it).';
   });
 })();
 </script>

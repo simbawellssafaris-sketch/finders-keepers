@@ -1033,8 +1033,8 @@ footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px
       </form>
       <p class="sb-fine" id="journalFine">No spam. Unsubscribe anytime.</p>
       <div class="sb-success" id="journalSuccess">
-        <h4>Almost there.</h4>
-        <p>We&rsquo;ve opened your email client with your subscription request ready to go &mdash; just hit send.</p>
+        <h4>You&rsquo;re on the list.</h4>
+        <p>Thank you for subscribing. A short welcome note is on its way to your inbox &mdash; check your spam folder if you don&rsquo;t see it.</p>
       </div>
     </div>
   </div>
@@ -1056,8 +1056,7 @@ footer{background:var(--ink);color:rgba(255,255,255,0.52);padding:56px 48px 36px
       fine.style.color = '#e08e8e';
       return;
     }
-    var mailto = 'mailto:{{email}}?subject=' + encodeURIComponent('Journal Subscription') + '&body=' + encodeURIComponent('Please add ' + email + ' to the Journal mailing list.');
-    window.open(mailto, '_blank');
+    // the sign-up itself is saved by the site (see lib/forms.js); nothing needs to be sent from the visitor's own email program
     form.style.display = 'none';
     fine.style.display = 'none';
     success.classList.add('on');

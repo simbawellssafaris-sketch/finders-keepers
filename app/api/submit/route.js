@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '../../../lib/supabase/server';
-import { sendSubmissionEmail } from '../../../lib/notify-email';
+import { sendSubmissionEmail, sendWelcomeEmail } from '../../../lib/notify-email';
 
 // Server route (server build only): saves a website form to Supabase, then emails the business.
 // The browser tries this first and falls back to saving straight to Supabase when it is not available
@@ -86,5 +86,14 @@ export async function POST(request) {
   } catch (e) {
     console.error('Email failed (submission is saved):', e && e.message);
   }
-  return NextResponse.json({ ok: true, saved: true, emailed });
+  // a brand-new subscriber gets a short welcome (repeat sign-ups returned above, so nobody can be emailed twice)
+  let welcomed = false;
+  if (table === 'newsletter_subscribers') {
+    try {
+      welcomed = await sendWelcomeEmail(clean.email, clean.first_name);
+    } catch (e) {
+      console.error('Welcome email failed (subscriber is saved):', e && e.message);
+    }
+  }
+  return NextResponse.json({ ok: true, saved: true, emailed, welcomed });
 }
