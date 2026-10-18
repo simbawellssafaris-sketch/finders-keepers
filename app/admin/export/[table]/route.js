@@ -61,7 +61,8 @@ export async function GET(request, { params }) {
   const { data, error } = await query;
   if (error) return new NextResponse('Could not export', { status: 500 });
 
-  const header = ['id', 'created_at', ...Object.keys((data[0] || {})).filter((k) => !['id', 'created_at'].includes(k))];
+  // the private unsubscribe token never leaves the database in a spreadsheet
+  const header = ['id', 'created_at', ...Object.keys((data[0] || {})).filter((k) => !['id', 'created_at', 'unsubscribe_token'].includes(k))];
   await logActivity(supabase, ctx, 'admins', ctx.user.id, 'exported', { what: cfg.path, rows: data.length });
   return csv(cfg.path, header, data);
 }

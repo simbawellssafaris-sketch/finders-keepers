@@ -27,6 +27,8 @@ export default function IdleWatcher({ minutes }) {
       if (now - pinged.current > 120000) ping();
     };
     const check = () => {
+      // a page that is busy on someone's behalf (the newsletter sender) counts as activity
+      if (window.__fsBusy && Date.now() - window.__fsBusy < 90000) { last.current = Date.now(); if (Date.now() - pinged.current > 120000) ping(); }
       const idle = Date.now() - last.current;
       if (idle >= limit) { window.location.assign('/admin/idle'); return; }
       if (idle >= warnAt) { warned.current = true; setSecondsLeft(Math.max(1, Math.ceil((limit - idle) / 1000))); }

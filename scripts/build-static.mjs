@@ -11,6 +11,7 @@ const nextBin = createRequire(import.meta.url).resolve('next/dist/bin/next');
 const ASIDE = [
   [path.join(process.cwd(), 'app', 'api'), path.join(process.cwd(), 'app', '_api-off')],
   [path.join(process.cwd(), 'app', 'admin'), path.join(process.cwd(), 'app', '_admin-off')],
+  [path.join(process.cwd(), 'app', 'unsubscribe'), path.join(process.cwd(), 'app', '_unsubscribe-off')],
   [path.join(process.cwd(), 'proxy.js'), path.join(process.cwd(), '_proxy-off.js')],
 ];
 for (const [from, to] of ASIDE) if (fs.existsSync(from)) fs.renameSync(from, to);

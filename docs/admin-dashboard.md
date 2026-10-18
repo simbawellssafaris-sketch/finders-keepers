@@ -71,6 +71,22 @@ Money rules, enforced by the database itself:
   method, best-selling journeys, how late outstanding balances and invoices are (not due, 1 to 30, 31 to 60, over 60 days), enquiries by status and by where they
   came from, quotations won and lost, and departures in the next 90 days. Every figure is per currency; USD and KES are never added together.
 
+### Newsletters (the Journal)
+- **Newsletters** in the top bar: write an issue (subject, preview line, message) with a live preview that shows exactly what subscribers will see. Formatting is
+  simple: blank line = new paragraph, `# Heading`, `## Smaller heading`, `- bullets`, `**bold**`, `[link](https://...)`, `[[Button|https://...]]`,
+  `![picture](https://...jpg)`, `---` divider, and `{{first_name}}` for the subscriber's first name (or "there"). Nothing typed can inject code.
+- **Send me a test** emails the saved draft to the signed-in person only. **Send to N subscribers** (owners only, after a confirmation) freezes the wording and queues
+  one email per currently subscribed person. Anyone who unsubscribes before their turn is skipped.
+- Emails go out through the Hostinger mailbox a few at a time **while the sending page stays open**, at most **60 an hour** by default (Hostinger limits how fast a
+  mailbox may send; change it with `NEWSLETTER_HOURLY_LIMIT` in Hostinger's environment variables). If the hour's allowance is used up it pauses and says when to press
+  **Continue sending**; closing the page is safe, and nothing is ever sent twice. Failed addresses are listed with the mail server's reason and can be retried.
+  For a list of more than a few hundred people, or sending to be left to run on its own, move to a dedicated service (Brevo, Mailchimp).
+- Every email has the company name and address and an **Unsubscribe** link, plus Gmail's and Apple Mail's own one-click unsubscribe button. The link opens a page
+  with an "Unsubscribe me" button (so a mail scanner opening the link cannot unsubscribe anyone), and the subscriber is then marked unsubscribed in the Subscribers list.
+  Each subscriber has a private, unguessable token; it never appears in the CSV download.
+- Sent issues stay on record and cannot be edited or deleted; **Copy as a new draft** starts the next issue from an old one.
+- Sign-ups on the website also get a one-off welcome email, sent as "Finders & Keepers Safaris".
+
 The original features:
 - **Overview:** new enquiries, new service requests, subscribers, last 7 days, latest activity.
 - **Enquiries / Service requests:** search, filter by status, open a record, see everything the customer sent, one-click Reply by email and
