@@ -5,8 +5,10 @@ import { getStaff } from '../../../../lib/admin/staff';
 import { UUID } from '../../../../lib/admin/config';
 import { describeActivity } from '../../../../lib/admin/activity';
 import { fmtDate, fmtDay, todayNairobi } from '../../../../lib/admin/format';
-import { BOOKING_STATUS_LABELS, ACTIVE_BOOKING_STATUSES, PAYMENT_KIND_LABELS, PAYMENT_METHOD_LABELS, PAYMENT_STATUS_LABELS, fmtMoney, toCents, fromCents } from '../../../../lib/admin/money';
+import { BOOKING_STATUS_LABELS, ACTIVE_BOOKING_STATUSES, INVOICE_DISPLAY_LABELS, PAYMENT_KIND_LABELS, PAYMENT_METHOD_LABELS, PAYMENT_STATUS_LABELS, invoiceDisplay, fmtMoney, toCents, fromCents } from '../../../../lib/admin/money';
 import { setPaymentStatus, deleteBooking } from '../../actions-money';
+import { createInvoiceFromBooking } from '../../actions-docs';
+import DocumentsPanel from '../../_components/DocumentsPanel';
 import ConfirmButton from '../../_components/ConfirmButton';
 import BookingForm from '../../_components/BookingForm';
 import PaymentForm from '../../_components/PaymentForm';
@@ -23,12 +25,14 @@ export default async function BookingPage({ params, searchParams }) {
   const { data: b } = await supabase.from('booking_summary').select('*').eq('id', id).maybeSingle();
   if (!b) notFound();
 
-  const [{ staff }, { data: payments }, { data: history }, { data: enquiry }] = await Promise.all([
+  const [{ staff }, { data: payments }, { data: history }, { data: enquiry }, { data: invoices }] = await Promise.all([
     getStaff(supabase),
     supabase.from('payments').select('*').eq('booking_id', id).order('paid_on', { ascending: false }).order('created_at', { ascending: false }),
     supabase.from('activity_log').select('*').eq('entity_table', 'bookings').eq('entity_id', id).order('created_at', { ascending: false }).limit(40),
     b.enquiry_id ? supabase.from('enquiries').select('id').eq('id', b.enquiry_id).maybeSingle() : { data: null },
+    supabase.from('invoice_summary').select('id,reference,title,status,total,paid,outstanding,due_date,currency').eq('booking_id', id).order('created_at'),
   ]);
+  const openInvoices = (invoices || []).filter((i) => i.status === 'sent');
   const today = todayNairobi();
   const staffName = (uid) => (staff.find((s) => s.user_id === uid) || {}).name || '';
   const depositAmount = fromCents(Math.round(toCents(b.total_price) * Number(b.deposit_percent) / 100));
@@ -49,7 +53,7 @@ export default async function BookingPage({ params, searchParams }) {
         </div>
         <Link className="ad-btn ghost" href={`/admin/bookings/${id}/print`} target="_blank">Print summary</Link>
       </div>
-      {sp.error === 'has-payments' ? <p className="ad-err" role="alert">This booking has payments recorded, so it cannot be deleted. Mark it as Cancelled instead.</p> : null}
+      {sp.error === 'has-payments' ? <p className="ad-err" role="alert">This booking has payments, invoices or documents on record, so it cannot be deleted. Mark it as Cancelled instead.</p> : null}
 
       <div className="ad-grid">
         <div className="ad-card"><div className="n" style={{ fontSize: 30 }}>{fmtMoney(b.total_price, b.currency)}</div><div className="l">Total price</div></div>
@@ -70,7 +74,7 @@ export default async function BookingPage({ params, searchParams }) {
             {payments && payments.length ? (
               <div className="ad-tablewrap" style={{ boxShadow: 'none' }}>
                 <table className="ad-table">
-                  <thead><tr><th>Date</th><th>For</th><th>Amount</th><th>Paid by</th><th>Reference</th><th>Status</th>{ctx.admin.isOwner ? <th>Action</th> : null}</tr></thead>
+                  <thead><tr><th>Date</th><th>For</th><th>Amount</th><th>Paid by</th><th>Reference</th><th>Status</th><th>Receipt</th>{ctx.admin.isOwner ? <th>Action</th> : null}</tr></thead>
                   <tbody>
                     {payments.map((p) => (
                       <tr key={p.id} style={p.status === 'failed' ? { opacity: 0.55 } : undefined}>
@@ -80,6 +84,7 @@ export default async function BookingPage({ params, searchParams }) {
                         <td>{PAYMENT_METHOD_LABELS[p.method]}</td>
                         <td>{p.reference || ''}<small style={{ display: 'block', color: 'var(--muted)' }}>{staffName(p.recorded_by) ? `entered by ${staffName(p.recorded_by)}` : ''}</small></td>
                         <td><span className={`badge st-${p.status === 'confirmed' ? 'won' : p.status === 'pending' ? 'quoted' : 'spam'}`}>{PAYMENT_STATUS_LABELS[p.status]}</span></td>
+                        <td>{p.receipt_no && p.status === 'confirmed' ? <Link href={`/admin/payments/${p.id}/receipt`} target="_blank">{p.receipt_no}</Link> : ''}</td>
                         {ctx.admin.isOwner ? (
                           <td>
                             {p.status === 'pending' ? (
@@ -100,7 +105,39 @@ export default async function BookingPage({ params, searchParams }) {
             ) : <p className="ad-sub" style={{ margin: 0 }}>No payments yet.</p>}
           </section>
 
-          <PaymentForm bookingId={id} currency={b.currency} isOwner={ctx.admin.isOwner} today={today} />
+          <PaymentForm bookingId={id} currency={b.currency} isOwner={ctx.admin.isOwner} today={today} invoices={openInvoices} />
+
+          <section className="ad-panel">
+            <h2>Invoices</h2>
+            {invoices && invoices.length ? (
+              <div className="ad-tablewrap" style={{ boxShadow: 'none' }}>
+                <table className="ad-table">
+                  <thead><tr><th>Number</th><th>Title</th><th>Total</th><th>Outstanding</th><th>Status</th></tr></thead>
+                  <tbody>
+                    {invoices.map((i) => {
+                      const st = invoiceDisplay(i, today);
+                      return (
+                        <tr key={i.id} style={st === 'void' ? { opacity: 0.55 } : undefined}>
+                          <td><Link href={`/admin/invoices/${i.id}`}><strong>{i.reference || 'Draft'}</strong></Link></td>
+                          <td>{i.title}</td><td>{fmtMoney(i.total, i.currency)}</td>
+                          <td>{i.status === 'sent' ? fmtMoney(i.outstanding, i.currency) : '—'}</td>
+                          <td><span className={`badge st-i-${st}`}>{INVOICE_DISPLAY_LABELS[st]}</span></td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            ) : <p className="ad-sub" style={{ margin: 0 }}>No invoices yet.</p>}
+            <div className="ad-actions">
+              <form action={createInvoiceFromBooking.bind(null, id, 'deposit')}><button className="ad-btn ghost" type="submit">Invoice the deposit</button></form>
+              <form action={createInvoiceFromBooking.bind(null, id, 'balance')}><button className="ad-btn ghost" type="submit">Invoice the balance</button></form>
+              <form action={createInvoiceFromBooking.bind(null, id, 'full')}><button className="ad-btn ghost" type="submit">Invoice the full amount</button></form>
+            </div>
+            <p className="ad-sub" style={{ margin: '10px 0 0' }}>Each one opens a draft you can adjust. An owner issues it to give it its number.</p>
+          </section>
+
+          <DocumentsPanel supabase={supabase} clientId={b.client_id} bookingId={id} isOwner={ctx.admin.isOwner} backTo={`/admin/bookings/${id}`} />
 
           <section className="ad-panel">
             <h2>History</h2>

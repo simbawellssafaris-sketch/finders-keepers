@@ -39,7 +39,9 @@ const nextConfig = {
   images: { unoptimized: true }, // the pages use plain <img> tags with already-compressed files
   poweredByHeader: false,
   reactStrictMode: false,
-  experimental: { globalNotFound: true }, // lets app/global-not-found.jsx be the branded "page not found" screen
+  // globalNotFound lets app/global-not-found.jsx be the branded "page not found" screen.
+  // bodySizeLimit lets admins upload client documents of up to 10 MB (the default for form posts is 1 MB).
+  experimental: { globalNotFound: true, serverActions: { bodySizeLimit: '12mb' } },
 };
 
 if (!STATIC) {

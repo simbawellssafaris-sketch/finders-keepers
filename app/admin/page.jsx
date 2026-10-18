@@ -34,11 +34,16 @@ export default async function Overview() {
   ]);
 
   const soon = addDays(today, 30);
-  const [{ data: departing }, { data: owing }, { data: waiting }] = await Promise.all([
+  const [{ data: departing }, { data: owing }, { data: waiting }, { data: openInv }, quotesOpen, invDrafts] = await Promise.all([
     supabase.from('booking_summary').select('id,reference,journey,client_name,departure_date,status').in('status', ACTIVE_BOOKING_STATUSES).gte('departure_date', today).lte('departure_date', soon).order('departure_date').limit(8),
     supabase.from('booking_summary').select('id,currency,outstanding,balance_due_on,status').in('status', ACTIVE_BOOKING_STATUSES).gt('outstanding', 0),
     supabase.from('payments').select('amount,kind,bookings(currency)').eq('status', 'pending'),
+    supabase.from('invoice_summary').select('currency,outstanding,due_date').eq('status', 'sent').gt('outstanding', 0),
+    count(head('quotations').eq('status', 'sent')),
+    count(head('invoices').eq('status', 'draft')),
   ]);
+  const unpaidInv = openInv || [];
+  const overdueInv = unpaidInv.filter((i) => i.due_date && i.due_date < today);
   const owingRows = owing || [];
   const overdueRows = owingRows.filter((b) => b.balance_due_on && b.balance_due_on < today);
   const waitingRows = (waiting || []).map((p) => ({ currency: p.bookings ? p.bookings.currency : 'USD', v: p.kind === 'refund' ? -Number(p.amount) : Number(p.amount) }));
@@ -70,6 +75,13 @@ export default async function Overview() {
         <div className="ad-card"><div className="n" style={{ fontSize: 28, color: overdueRows.length ? '#a63a22' : undefined }}>{overdueRows.length}</div><div className="l">Balances overdue ({fmtTotals(totalsByCurrency(overdueRows, (b) => b.outstanding))})</div><Link href="/admin/bookings?overdue=1">Chase them &rarr;</Link></div>
         <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{waitingRows.length}</div><div className="l">Payments waiting for confirmation ({fmtTotals(totalsByCurrency(waitingRows, (r) => r.v))})</div><Link href="/admin/payments?status=pending">Review &rarr;</Link></div>
         <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{(departing || []).length}</div><div className="l">Departures in the next 30 days</div><Link href="/admin/bookings/calendar">Open calendar &rarr;</Link></div>
+      </div>
+
+      <div className="ad-grid">
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{quotesOpen}</div><div className="l">Quotations waiting for an answer</div><Link href="/admin/quotations?status=sent">Follow up &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{unpaidInv.length}</div><div className="l">Unpaid invoices ({fmtTotals(totalsByCurrency(unpaidInv, (i) => i.outstanding))})</div><Link href="/admin/invoices?status=sent">See them &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28, color: overdueInv.length ? '#a63a22' : undefined }}>{overdueInv.length}</div><div className="l">Overdue invoices ({fmtTotals(totalsByCurrency(overdueInv, (i) => i.outstanding))})</div><Link href="/admin/invoices?status=overdue">Chase them &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{invDrafts}</div><div className="l">Draft invoices to issue</div><Link href="/admin/invoices?status=draft">Review &rarr;</Link></div>
       </div>
 
       {departing && departing.length ? (

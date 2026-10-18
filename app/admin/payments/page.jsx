@@ -70,7 +70,7 @@ export default async function Payments({ searchParams }) {
         <>
           <div className="ad-tablewrap">
             <table className="ad-table">
-              <thead><tr><th>Date</th><th>Booking</th><th>Client</th><th>For</th><th>Amount</th><th>Paid by</th><th>Reference</th><th>Status</th>{ctx.admin.isOwner ? <th>Action</th> : null}</tr></thead>
+              <thead><tr><th>Date</th><th>Booking</th><th>Client</th><th>For</th><th>Amount</th><th>Paid by</th><th>Reference</th><th>Status</th><th>Receipt</th>{ctx.admin.isOwner ? <th>Action</th> : null}</tr></thead>
               <tbody>
                 {list.map((p) => (
                   <tr key={p.id} style={p.status === 'failed' ? { opacity: 0.55 } : undefined}>
@@ -82,6 +82,7 @@ export default async function Payments({ searchParams }) {
                     <td>{PAYMENT_METHOD_LABELS[p.method]}</td>
                     <td>{p.reference || ''}</td>
                     <td><span className={`badge st-${p.status === 'confirmed' ? 'won' : p.status === 'pending' ? 'quoted' : 'spam'}`}>{PAYMENT_STATUS_LABELS[p.status]}</span></td>
+                    <td>{p.receipt_no && p.status === 'confirmed' ? <Link href={`/admin/payments/${p.id}/receipt`} target="_blank">{p.receipt_no}</Link> : ''}</td>
                     {ctx.admin.isOwner ? (
                       <td>
                         {p.status === 'pending' ? (

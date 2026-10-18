@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { requireAdmin } from '../../../../lib/admin/auth';
 import { UUID, STATUS_LABELS } from '../../../../lib/admin/config';
 import { describeActivity } from '../../../../lib/admin/activity';
-import { fmtDate, fmtDay } from '../../../../lib/admin/format';
-import { BOOKING_STATUS_LABELS, fmtMoney, totalsByCurrency, fmtTotals } from '../../../../lib/admin/money';
+import { fmtDate, fmtDay, todayNairobi } from '../../../../lib/admin/format';
+import { BOOKING_STATUS_LABELS, QUOTE_STATUS_LABELS, INVOICE_DISPLAY_LABELS, quoteDisplay, invoiceDisplay, fmtMoney, totalsByCurrency, fmtTotals } from '../../../../lib/admin/money';
+import DocumentsPanel from '../../_components/DocumentsPanel';
 import { deleteClient } from '../../actions-money';
 import ConfirmButton from '../../_components/ConfirmButton';
 import ClientForm from '../../_components/ClientForm';
@@ -21,11 +22,14 @@ export default async function ClientPage({ params, searchParams }) {
   const { data: client } = await supabase.from('clients').select('*').eq('id', id).maybeSingle();
   if (!client) notFound();
 
-  const [{ data: bookings }, { data: enquiries }, { data: history }] = await Promise.all([
+  const [{ data: bookings }, { data: enquiries }, { data: history }, { data: quotes }, { data: invoices }] = await Promise.all([
     supabase.from('booking_summary').select('id,reference,journey,status,currency,total_price,paid,outstanding,departure_date').eq('client_id', id).order('departure_date', { ascending: false, nullsFirst: true }),
     supabase.from('enquiries').select('id,created_at,package,interest,status').eq('client_id', id).order('created_at', { ascending: false }),
     supabase.from('activity_log').select('*').eq('entity_table', 'clients').eq('entity_id', id).order('created_at', { ascending: false }).limit(20),
+    supabase.from('quotation_summary').select('id,reference,title,status,currency,total,valid_until').eq('client_id', id).order('created_at', { ascending: false }),
+    supabase.from('invoice_summary').select('id,reference,title,status,currency,total,paid,outstanding,due_date').eq('client_id', id).order('created_at', { ascending: false }),
   ]);
+  const today = todayNairobi();
   const live = (bookings || []).filter((b) => b.status !== 'cancelled');
 
   return (
@@ -33,7 +37,7 @@ export default async function ClientPage({ params, searchParams }) {
       <Link className="ad-back" href="/admin/clients">&larr; Back to clients</Link>
       <h1>{client.full_name}</h1>
       <p className="ad-sub">Added {fmtDate(client.created_at)} &middot; booked {fmtTotals(totalsByCurrency(live, (b) => b.total_price))} &middot; paid {fmtTotals(totalsByCurrency(live, (b) => b.paid))} &middot; outstanding {fmtTotals(totalsByCurrency(live, (b) => b.outstanding))}</p>
-      {sp.error === 'has-bookings' ? <p className="ad-err" role="alert">This client still has bookings, so they cannot be deleted.</p> : null}
+      {sp.error === 'has-bookings' ? <p className="ad-err" role="alert">This client still has bookings, quotations, invoices or documents on record, so they cannot be deleted.</p> : null}
 
       <div className="ad-detail">
         <div>
@@ -62,6 +66,27 @@ export default async function ClientPage({ params, searchParams }) {
           </section>
 
           <section className="ad-panel">
+            <h2>Quotations</h2>
+            {quotes && quotes.length ? (
+              <ol className="ad-timeline">
+                {quotes.map((x) => { const st = quoteDisplay(x, today); return <li key={x.id}><Link href={`/admin/quotations/${x.id}`}><strong>{x.reference}</strong></Link> &middot; {x.title} &middot; {fmtMoney(x.total, x.currency)} <span className={`badge st-q-${st}`}>{QUOTE_STATUS_LABELS[st]}</span></li>; })}
+              </ol>
+            ) : <p className="ad-sub" style={{ margin: 0 }}>No quotations yet.</p>}
+            <div className="ad-actions"><Link className="ad-btn ghost" href={`/admin/quotations/new?client=${id}`}>+ New quotation</Link></div>
+          </section>
+
+          <section className="ad-panel">
+            <h2>Invoices</h2>
+            {invoices && invoices.length ? (
+              <ol className="ad-timeline">
+                {invoices.map((x) => { const st = invoiceDisplay(x, today); return <li key={x.id}><Link href={`/admin/invoices/${x.id}`}><strong>{x.reference || 'Draft'}</strong></Link> &middot; {x.title} &middot; {fmtMoney(x.total, x.currency)} <span className={`badge st-i-${st}`}>{INVOICE_DISPLAY_LABELS[st]}</span></li>; })}
+              </ol>
+            ) : <p className="ad-sub" style={{ margin: 0 }}>No invoices yet. They are created from a booking.</p>}
+          </section>
+
+          <DocumentsPanel supabase={supabase} clientId={id} isOwner={ctx.admin.isOwner} backTo={`/admin/clients/${id}`} />
+
+          <section className="ad-panel">
             <h2>Enquiries</h2>
             {enquiries && enquiries.length ? (
               <ol className="ad-timeline">
@@ -85,7 +110,7 @@ export default async function ClientPage({ params, searchParams }) {
           {ctx.admin.isOwner ? (
             <form action={deleteClient.bind(null, id)} className="ad-panel">
               <h2>Delete</h2>
-              <p className="ad-sub" style={{ marginBottom: 12 }}>Only possible while the client has no bookings.</p>
+              <p className="ad-sub" style={{ marginBottom: 12 }}>Only possible while the client has no bookings, quotations, invoices or documents.</p>
               <ConfirmButton className="ad-btn danger" message="Delete this client permanently?">Delete client</ConfirmButton>
             </form>
           ) : null}

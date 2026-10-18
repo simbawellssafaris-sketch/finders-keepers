@@ -7,6 +7,7 @@ import { TABLES, UUID, STATUSES, STATUS_LABELS } from '../../../lib/admin/config
 import { fmtDate, fmtDay, whatsappDigits, todayNairobi } from '../../../lib/admin/format';
 import { updateEntry, deleteEntry } from '../actions';
 import { convertToBooking } from '../actions-money';
+import { quoteFromEnquiry } from '../actions-docs';
 import { describeActivity } from '../../../lib/admin/activity';
 import ConfirmButton from './ConfirmButton';
 import Shell from './Shell';
@@ -28,6 +29,7 @@ export default async function DetailPage({ table, params }) {
   ]);
 
   const { data: linkedBooking } = table === 'enquiries' ? await supabase.from('bookings').select('id, reference').eq('enquiry_id', id).maybeSingle() : { data: null };
+  const { data: quotes } = table === 'enquiries' ? await supabase.from('quotations').select('id, reference, title').eq('enquiry_id', id).order('created_at') : { data: null };
   const wa = whatsappDigits(row.phone);
   const details = row.details && typeof row.details === 'object' ? Object.entries(row.details) : [];
   const save = updateEntry.bind(null, table, id);
@@ -99,6 +101,20 @@ export default async function DetailPage({ table, params }) {
             <textarea id="admin_notes" name="admin_notes" defaultValue={row.admin_notes || ''} maxLength={5000} />
             <div className="ad-actions"><button className="ad-btn" type="submit">Save</button></div>
           </form>
+          {table === 'enquiries' ? (
+            <div className="ad-panel">
+              <h2>Quotation</h2>
+              {quotes && quotes.length ? (
+                <ul className="ad-doclist">
+                  {quotes.map((x) => <li key={x.id}><span><Link href={`/admin/quotations/${x.id}`}><strong>{x.reference}</strong></Link><small>{x.title}</small></span></li>)}
+                </ul>
+              ) : null}
+              <form action={quoteFromEnquiry.bind(null, id)}>
+                <p className="ad-sub" style={{ margin: '0 0 12px' }}>Prepare a priced quotation with line items. The client is created (or found) for you.</p>
+                <button className="ad-btn ghost" type="submit">Create quotation</button>
+              </form>
+            </div>
+          ) : null}
           {table === 'enquiries' ? (
             <div className="ad-panel">
               <h2>Booking</h2>

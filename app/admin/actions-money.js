@@ -7,10 +7,10 @@ import { getStaff, logActivity } from '../../lib/admin/staff';
 import { UUID, DATE } from '../../lib/admin/config';
 import { CURRENCIES, BOOKING_STATUSES, PAYMENT_METHODS, PAYMENT_KINDS, SETTING_KEYS, parseMoney, addDays, fmtMoney } from '../../lib/admin/money';
 import { todayNairobi } from '../../lib/admin/format';
+import { findOrCreateClient } from '../../lib/admin/clients';
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const text = (v, max) => String(v ?? '').trim().slice(0, max);
-const digits = (s) => String(s || '').replace(/\D/g, '');
 
 // ---- clients -------------------------------------------------------------------------------------------------------
 function readClient(formData) {
@@ -48,28 +48,9 @@ export async function deleteClient(id) {
   const ctx = await requireOwner();
   if (!UUID.test(String(id))) throw new Error('Bad request');
   const { error } = await ctx.supabase.from('clients').delete().eq('id', id);
-  if (error) redirect(`/admin/clients/${id}?error=has-bookings`); // the database refuses while bookings exist
+  if (error) redirect(`/admin/clients/${id}?error=has-bookings`); // the database refuses while bookings, quotations, invoices or documents exist
   revalidatePath('/admin/clients');
   redirect('/admin/clients');
-}
-
-// Find an existing client with the same email or phone, otherwise create one.
-async function findOrCreateClient(ctx, { name, email, phone }) {
-  const { supabase, user } = ctx;
-  if (email) {
-    const { data } = await supabase.from('clients').select('id').ilike('email', email).maybeSingle();
-    if (data) return data.id;
-  }
-  const d = digits(phone);
-  if (d.length >= 8) {
-    const { data } = await supabase.from('clients').select('id, phone').not('phone', 'is', null).limit(500);
-    const hit = (data || []).find((c) => digits(c.phone).endsWith(d.slice(-9)) && digits(c.phone).length >= 8);
-    if (hit) return hit.id;
-  }
-  const { data, error } = await supabase.from('clients').insert({ full_name: name || 'Unnamed client', email: email || null, phone: phone && phone !== 'Not given' ? phone : null, created_by: user.id }).select('id').single();
-  if (error || !data) throw new Error('Could not create the client');
-  await logActivity(supabase, ctx, 'clients', data.id, 'client_created', { from: 'enquiry' });
-  return data.id;
 }
 
 // "Convert to booking" on an enquiry: finds or creates the client, opens a provisional booking, links them.
@@ -194,12 +175,19 @@ export async function recordPayment(bookingId, prev, formData) {
   const paidOn = text(formData.get('paid_on'), 10) || todayNairobi();
   if (!DATE.test(paidOn) || paidOn > addDays(todayNairobi(), 1)) return { error: 'The payment date cannot be in the future.' };
 
+  const invoiceId = text(formData.get('invoice_id'), 40);
+  if (invoiceId) {
+    if (!UUID.test(invoiceId)) return { error: 'Please choose an invoice from the list.' };
+    const { data: inv } = await supabase.from('invoices').select('id, booking_id, status').eq('id', invoiceId).maybeSingle();
+    if (!inv || inv.booking_id !== bookingId || inv.status !== 'sent') return { error: 'That invoice is not an open invoice for this booking.' };
+  }
+
   // Staff record payments as "waiting for confirmation"; an owner confirms once the money is seen in the account / M-Pesa.
   const wantConfirmed = formData.get('confirmed') === 'yes' && admin.isOwner;
   const row = {
     booking_id: bookingId, kind, amount, method, paid_on: paidOn,
     reference: text(formData.get('reference'), 120) || null, notes: text(formData.get('notes'), 1000) || null,
-    status: wantConfirmed ? 'confirmed' : 'pending', recorded_by: user.id,
+    invoice_id: invoiceId || null, status: wantConfirmed ? 'confirmed' : 'pending', recorded_by: user.id,
     ...(wantConfirmed ? { confirmed_by: user.id, confirmed_at: new Date().toISOString() } : {}),
   };
   const { error } = await supabase.from('payments').insert(row);

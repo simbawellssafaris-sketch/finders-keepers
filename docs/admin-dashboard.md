@@ -31,6 +31,24 @@ Money rules, enforced by the database itself:
 - Changes to clients, bookings and payments appear in each record's History.
 - CSV downloads exist for clients, bookings and payments (`/admin/export/clients`, `/bookings`, `/payments`).
 
+### Quotations, invoices, receipts and documents
+- **Quotations** (`QT-0001`...): line items (description, quantity, unit price; a negative price is a discount), currency (USD or KES), valid-until date, a message and
+  terms. Create one from an enquiry (**Create quotation** on the enquiry, which finds or creates the client) or from **+ New quotation**. **Email to client** sends
+  it from your Hostinger mailbox (reply-to is your business email); **Print / save as PDF** gives a clean page. When the client says yes, **Accept and create booking**
+  opens a booking with the same title, currency and total. A sent quotation past its valid-until date shows as Expired.
+- **Invoices** (`INV-0001`...): created from a booking with **Invoice the deposit / the balance / the full amount** (it opens a draft you can adjust). Only an **owner**
+  can **issue** it. Issuing gives the invoice its permanent number (drafts have none, so deleting a draft never leaves a gap) and locks the lines. After that only
+  the due date and the private note can change; a mistake is fixed by **voiding** (owner, with a reason) and making a new one. Numbers are never reused.
+  Record a payment on the booking and pick the invoice under **Against invoice**: the invoice then shows paid, outstanding, and goes **Paid** or **Overdue** by itself.
+  **Email to client** sends the invoice with your bank details.
+- **Receipts** (`RC-0001`...): the database gives a payment its receipt number the moment an owner confirms it. Open it from the Receipt column on a booking, the
+  Payments page or an invoice. Refunds do not get receipts; a payment later marked failed shows a VOID receipt.
+- **Documents:** passports, visas, itineraries, vouchers, insurance and contracts can be uploaded on a client or a booking (PDF, JPG, PNG, WebP or Word, up to 10 MB;
+  the file's real type is checked). They live in a **private** storage bucket: only signed-in team members can open them and every download link lasts one minute.
+  Only an owner can delete a file. Clients with documents, quotations or invoices cannot be deleted.
+- VAT: the business is not VAT-registered yet, so documents carry no tax line. When that changes, tax lines will need adding to quotations and invoices.
+- The Overview shows quotations waiting for an answer, unpaid and overdue invoices (per currency) and draft invoices waiting to be issued.
+
 The original features:
 - **Overview:** new enquiries, new service requests, subscribers, last 7 days, latest activity.
 - **Enquiries / Service requests:** search, filter by status, open a record, see everything the customer sent, one-click Reply by email and

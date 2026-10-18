@@ -5,7 +5,7 @@ import { recordPayment } from '../actions-money';
 import { PAYMENT_KINDS, PAYMENT_KIND_LABELS, PAYMENT_METHODS, PAYMENT_METHOD_LABELS } from '../../../lib/admin/money';
 
 // Record a payment on a booking. Staff entries wait for an owner to confirm that the money really arrived.
-export default function PaymentForm({ bookingId, currency, isOwner, today }) {
+export default function PaymentForm({ bookingId, currency, isOwner, today, invoices = [] }) {
   const [state, action, pending] = useActionState(recordPayment.bind(null, bookingId), null);
   const form = useRef(null);
   useEffect(() => {
@@ -38,6 +38,15 @@ export default function PaymentForm({ bookingId, currency, isOwner, today }) {
           <input id="paid_on" name="paid_on" type="date" defaultValue={today} max={today} />
         </div>
       </div>
+      {invoices.length ? (
+        <>
+          <label htmlFor="invoice_id">Against invoice (optional)</label>
+          <select id="invoice_id" name="invoice_id" defaultValue="">
+            <option value="">Not matched to an invoice</option>
+            {invoices.map((i) => <option key={i.id} value={i.id}>{i.reference} ({i.title})</option>)}
+          </select>
+        </>
+      ) : null}
       <label htmlFor="reference">Reference (M-Pesa code, bank slip number…)</label>
       <input id="reference" name="reference" maxLength={120} />
       <label htmlFor="pnotes">Notes</label>

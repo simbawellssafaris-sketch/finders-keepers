@@ -10,7 +10,7 @@ export async function GET(request, { params }) {
   const { supabase } = await requireAdmin();
   const { table: path } = await params;
   // Clients, bookings and payments (fixed allow-list; the enquiry tables below keep their own).
-  const MONEY = { clients: 'clients', bookings: 'booking_summary', payments: 'payments' };
+  const MONEY = { clients: 'clients', bookings: 'booking_summary', payments: 'payments', quotations: 'quotation_summary', invoices: 'invoice_summary' };
   const isMoney = Object.prototype.hasOwnProperty.call(MONEY, path);
   const table = isMoney ? MONEY[path] : tableByPath(path);
   if (!table) return new NextResponse('Not found', { status: 404 });
