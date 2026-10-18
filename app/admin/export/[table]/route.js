@@ -9,13 +9,18 @@ export const dynamic = 'force-dynamic';
 export async function GET(request, { params }) {
   const { supabase } = await requireAdmin();
   const { table: path } = await params;
-  const table = tableByPath(path);
+  // Clients, bookings and payments (fixed allow-list; the enquiry tables below keep their own).
+  const MONEY = { clients: 'clients', bookings: 'booking_summary', payments: 'payments' };
+  const isMoney = Object.prototype.hasOwnProperty.call(MONEY, path);
+  const table = isMoney ? MONEY[path] : tableByPath(path);
   if (!table) return new NextResponse('Not found', { status: 404 });
-  const cfg = TABLES[table];
+  const cfg = isMoney ? { path } : TABLES[table];
 
-  const filter = new URL(request.url).searchParams.get('filter') || '';
   let query = supabase.from(table).select('*').order('created_at', { ascending: false }).limit(10000);
-  if (cfg.filter.values.includes(filter)) query = query.eq(cfg.filter.column, filter);
+  if (!isMoney) {
+    const filter = new URL(request.url).searchParams.get('filter') || '';
+    if (cfg.filter.values.includes(filter)) query = query.eq(cfg.filter.column, filter);
+  }
   const { data, error } = await query;
   if (error) return new NextResponse('Could not export', { status: 500 });
 

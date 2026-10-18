@@ -3,28 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { requireAdmin } from '../../../lib/admin/auth';
 import { getStaff } from '../../../lib/admin/staff';
-import { TABLES, UUID, STATUSES, STATUS_LABELS, CHANNEL_LABELS } from '../../../lib/admin/config';
+import { TABLES, UUID, STATUSES, STATUS_LABELS } from '../../../lib/admin/config';
 import { fmtDate, fmtDay, whatsappDigits, todayNairobi } from '../../../lib/admin/format';
 import { updateEntry, deleteEntry } from '../actions';
+import { convertToBooking } from '../actions-money';
+import { describeActivity } from '../../../lib/admin/activity';
 import ConfirmButton from './ConfirmButton';
 import Shell from './Shell';
 
 const humanise = (k) => k.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
-
-// Plain-English line for one history entry
-function describe(a) {
-  const d = a.details || {};
-  switch (a.action) {
-    case 'status_changed': return `changed the status from ${STATUS_LABELS[d.from] || d.from} to ${STATUS_LABELS[d.to] || d.to}`;
-    case 'note_edited': return d.excerpt ? `updated the private note: “${d.excerpt}”` : 'cleared the private note';
-    case 'follow_up_set': return d.date ? `set a follow-up for ${fmtDay(d.date)}` : 'cleared the follow-up date';
-    case 'assigned': return d.to ? `assigned this to ${d.to}` : 'removed the assignment';
-    case 'created_manually': return `logged this by hand (${CHANNEL_LABELS[d.channel] || d.channel})`;
-    case 'unsubscribed': return 'unsubscribed this address';
-    case 'resubscribed': return 'resubscribed this address';
-    default: return a.action.replace(/_/g, ' ');
-  }
-}
 
 // One enquiry or service request: everything the customer sent, plus follow-up controls and the history.
 export default async function DetailPage({ table, params }) {
@@ -40,6 +27,7 @@ export default async function DetailPage({ table, params }) {
     supabase.from('activity_log').select('*').eq('entity_table', table).eq('entity_id', id).order('created_at', { ascending: false }).limit(40),
   ]);
 
+  const { data: linkedBooking } = table === 'enquiries' ? await supabase.from('bookings').select('id, reference').eq('enquiry_id', id).maybeSingle() : { data: null };
   const wa = whatsappDigits(row.phone);
   const details = row.details && typeof row.details === 'object' ? Object.entries(row.details) : [];
   const save = updateEntry.bind(null, table, id);
@@ -80,7 +68,7 @@ export default async function DetailPage({ table, params }) {
             {history && history.length ? (
               <ol className="ad-timeline">
                 {history.map((a) => (
-                  <li key={a.id}><strong>{a.actor_name || 'Someone'}</strong> {describe(a)}<small>{fmtDate(a.created_at)}</small></li>
+                  <li key={a.id}><strong>{a.actor_name || 'Someone'}</strong> {describeActivity(a)}<small>{fmtDate(a.created_at)}</small></li>
                 ))}
               </ol>
             ) : <p className="ad-sub" style={{ margin: 0 }}>No changes yet. Anything you change here is recorded with your name and the time.</p>}
@@ -111,6 +99,19 @@ export default async function DetailPage({ table, params }) {
             <textarea id="admin_notes" name="admin_notes" defaultValue={row.admin_notes || ''} maxLength={5000} />
             <div className="ad-actions"><button className="ad-btn" type="submit">Save</button></div>
           </form>
+          {table === 'enquiries' ? (
+            <div className="ad-panel">
+              <h2>Booking</h2>
+              {linkedBooking ? (
+                <p style={{ margin: 0 }}>This enquiry became booking <Link href={`/admin/bookings/${linkedBooking.id}`}><strong>{linkedBooking.reference}</strong></Link>.</p>
+              ) : (
+                <form action={convertToBooking.bind(null, id)}>
+                  <p className="ad-sub" style={{ marginBottom: 12 }}>The customer said yes? Turn this into a booking. The client is created (or found) for you, and the 30% deposit and balance dates are worked out automatically.</p>
+                  <button className="ad-btn" type="submit">Convert to booking</button>
+                </form>
+              )}
+            </div>
+          ) : null}
           {ctx.admin.isOwner ? (
             <form action={remove} className="ad-panel">
               <h2>Delete</h2>

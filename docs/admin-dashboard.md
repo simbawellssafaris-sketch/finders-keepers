@@ -12,6 +12,25 @@ Node.js). The static zip has no server, so it has no dashboard.
 - *Two-factor login* (authenticator app) under **Security**. Once on, signing in needs a 6-digit code after the password.
 - *Team page:* see who has access; owners can rename people, change roles and remove access.
 
+### Money: clients, bookings and payments
+- **Clients:** one record per traveller or family (name, email, phone, country, notes). Duplicate emails are refused. An owner can delete a client only while they have no bookings.
+- **Bookings:** reference `FK-0001`, `FK-0002`... Journey, travellers, departure/return dates, status (Provisional, Confirmed, Completed, Cancelled), currency
+  (**USD or KES**), total price, deposit % (default 30%), deposit due date and balance due date (default **60 days before departure**, as the website promises).
+  Open an enquiry and press **Convert to booking** to create the client and booking in one click. Filters: status, leaving in the next 60 days, balance overdue.
+  **Departure calendar** shows who travels when. **Print summary** gives a one-page summary (with the company and bank details from Settings) to print or save as PDF.
+- **Payments:** recorded inside a booking (deposit, instalment, balance, refund; M-Pesa, bank transfer, card, cash, other; date; reference). The **Payments** page lists them all.
+- **Settings (owners):** legal name, contact details, KRA PIN, bank details, VAT (not registered yet). Staff can see them on printed summaries but only owners can change them.
+- **Overview** shows what is still to collect, overdue balances, payments waiting for confirmation and departures in the next 30 days.
+
+Money rules, enforced by the database itself:
+- Amounts are kept per currency. USD and KES are **never added together**; every total is shown per currency.
+- A payment always uses its booking's currency. A booking's currency cannot be changed once it has payments.
+- **Staff** record payments as *waiting for confirmation*. Only an **owner** can confirm that the money really arrived (or mark it failed / entered by mistake).
+  Only confirmed payments count as paid. Refunds subtract.
+- Payments can never be deleted (a wrong entry is marked failed, so there is always a trail). A booking with payments cannot be deleted; mark it Cancelled instead.
+- Changes to clients, bookings and payments appear in each record's History.
+- CSV downloads exist for clients, bookings and payments (`/admin/export/clients`, `/bookings`, `/payments`).
+
 The original features:
 - **Overview:** new enquiries, new service requests, subscribers, last 7 days, latest activity.
 - **Enquiries / Service requests:** search, filter by status, open a record, see everything the customer sent, one-click Reply by email and

@@ -5,6 +5,9 @@ const NAV = [
   ['/admin', 'Overview', 'overview'],
   ['/admin/enquiries', 'Enquiries', 'enquiries'],
   ['/admin/service-requests', 'Service requests', 'service_requests'],
+  ['/admin/clients', 'Clients', 'clients'],
+  ['/admin/bookings', 'Bookings', 'bookings'],
+  ['/admin/payments', 'Payments', 'payments'],
   ['/admin/subscribers', 'Subscribers', 'newsletter_subscribers'],
   ['/admin/team', 'Team', 'team'],
 ];
@@ -22,6 +25,7 @@ export default function Shell({ ctx, current, children }) {
         </nav>
         <div className="ad-user">
           <span>{ctx.admin.name}</span>
+          {ctx.admin.isOwner ? <Link href="/admin/settings" aria-current={current === 'settings' ? 'page' : undefined}>Settings</Link> : null}
           <Link href="/admin/security" aria-current={current === 'security' ? 'page' : undefined}>Security</Link>
           <form action={signOut}><button type="submit">Sign out</button></form>
         </div>

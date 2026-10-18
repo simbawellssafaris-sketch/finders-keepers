@@ -3,6 +3,7 @@ import { requireAdmin } from '../../lib/admin/auth';
 import { getStaff } from '../../lib/admin/staff';
 import { fmtDate, fmtDay, todayNairobi } from '../../lib/admin/format';
 import { serviceLabel, STATUS_LABELS, OPEN_STATUSES } from '../../lib/admin/config';
+import { ACTIVE_BOOKING_STATUSES, addDays, totalsByCurrency, fmtTotals } from '../../lib/admin/money';
 import Shell from './_components/Shell';
 
 export const dynamic = 'force-dynamic';
@@ -32,6 +33,16 @@ export default async function Overview() {
     supabase.from('service_requests').select('id,name,service,status,created_at').order('created_at', { ascending: false }).limit(6),
   ]);
 
+  const soon = addDays(today, 30);
+  const [{ data: departing }, { data: owing }, { data: waiting }] = await Promise.all([
+    supabase.from('booking_summary').select('id,reference,journey,client_name,departure_date,status').in('status', ACTIVE_BOOKING_STATUSES).gte('departure_date', today).lte('departure_date', soon).order('departure_date').limit(8),
+    supabase.from('booking_summary').select('id,currency,outstanding,balance_due_on,status').in('status', ACTIVE_BOOKING_STATUSES).gt('outstanding', 0),
+    supabase.from('payments').select('amount,kind,bookings(currency)').eq('status', 'pending'),
+  ]);
+  const owingRows = owing || [];
+  const overdueRows = owingRows.filter((b) => b.balance_due_on && b.balance_due_on < today);
+  const waitingRows = (waiting || []).map((p) => ({ currency: p.bookings ? p.bookings.currency : 'USD', v: p.kind === 'refund' ? -Number(p.amount) : Number(p.amount) }));
+
   const due = [
     ...(dueEnq.data || []).map((r) => ({ ...r, kind: 'Enquiry', href: `/admin/enquiries/${r.id}` })),
     ...(dueSvc.data || []).map((r) => ({ ...r, kind: serviceLabel(r.service), href: `/admin/service-requests/${r.id}` })),
@@ -53,6 +64,20 @@ export default async function Overview() {
         <div className="ad-card"><div className="n">{mineEnq + mineSvc}</div><div className="l">Open and assigned to you</div><Link href="/admin/enquiries?assignee=me">See yours &rarr;</Link></div>
         <div className="ad-card"><div className="n">{subs}</div><div className="l">Newsletter subscribers</div><Link href="/admin/subscribers">View list &rarr;</Link></div>
       </div>
+
+      <div className="ad-grid">
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{fmtTotals(totalsByCurrency(owingRows, (b) => b.outstanding))}</div><div className="l">Still to collect (active bookings)</div><Link href="/admin/bookings">See bookings &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28, color: overdueRows.length ? '#a63a22' : undefined }}>{overdueRows.length}</div><div className="l">Balances overdue ({fmtTotals(totalsByCurrency(overdueRows, (b) => b.outstanding))})</div><Link href="/admin/bookings?overdue=1">Chase them &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{waitingRows.length}</div><div className="l">Payments waiting for confirmation ({fmtTotals(totalsByCurrency(waitingRows, (r) => r.v))})</div><Link href="/admin/payments?status=pending">Review &rarr;</Link></div>
+        <div className="ad-card"><div className="n" style={{ fontSize: 28 }}>{(departing || []).length}</div><div className="l">Departures in the next 30 days</div><Link href="/admin/bookings/calendar">Open calendar &rarr;</Link></div>
+      </div>
+
+      {departing && departing.length ? (
+        <div className="ad-panel">
+          <h2>Leaving soon</h2>
+          <ol className="ad-timeline">{departing.map((b) => <li key={b.id}><Link href={`/admin/bookings/${b.id}`}><strong>{b.client_name}</strong></Link> &middot; {b.journey}<small>{fmtDay(b.departure_date)} &middot; {b.reference}</small></li>)}</ol>
+        </div>
+      ) : null}
 
       <div className="ad-panel">
         <h2>Follow-ups due</h2>
