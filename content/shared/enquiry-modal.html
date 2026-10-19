@@ -104,8 +104,6 @@ body.enq-lock{overflow:hidden;}
           <button type="submit" class="enq-btn-solid" id="enqReadyToggle">Submit Request</button>
           <div class="enq-sent" id="enqReadyQuick" hidden>
             <p class="enq-sent-msg"><strong>Thank you &mdash; your request is with our team.</strong> We reply by email or phone within one working day (Mon&ndash;Fri, 8am&ndash;6pm EAT).</p>
-            <a href="https://wa.me/{{whatsapp}}?text=Hi%20{{brandUrl}}%2C%20I'd%20like%20to%20speak%20to%20someone%20about%20a%20trip." target="_blank" rel="noopener" class="enq-quick-btn" id="enqReadyWA"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.03c-.24.68-1.4 1.33-1.93 1.4-.53.08-1 .28-3.38-.7-2.86-1.18-4.7-4.1-4.84-4.29-.14-.19-1.16-1.55-1.16-2.95s.73-2.09.99-2.38c.26-.29.56-.36.75-.36l.53.01c.17.01.4-.06.62.48.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.27.37-.22.63-.13.26.09 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>Continue on WhatsApp</a>
-            <p class="enq-sent-alt">Or write to us at <a href="mailto:{{email}}">{{email}}</a></p>
           </div>
         </div>
         <div>
@@ -198,8 +196,6 @@ body.enq-lock{overflow:hidden;}
 
   var readyToggle = document.getElementById('enqReadyToggle');
   var readyQuick = document.getElementById('enqReadyQuick');
-  var readyWA = document.getElementById('enqReadyWA');
-  var readyMail = document.getElementById('enqReadyMail');
 
   if (form) {
     form.addEventListener('submit', function(e){
@@ -211,38 +207,6 @@ body.enq-lock{overflow:hidden;}
         else { el.style.borderColor = ''; }
       });
       if (bad) { bad.scrollIntoView({ behavior: 'smooth', block: 'center' }); bad.focus(); return; }
-
-      var name = document.getElementById('enq-name').value.trim();
-      var phone = document.getElementById('enq-phone').value.trim();
-      var email = document.getElementById('enq-email').value.trim();
-      var travellers = document.getElementById('enq-travellers').value.trim();
-      var datesRaw = document.getElementById('enq-dates').value.trim();
-      var dates = '';
-      if (datesRaw) {
-        var dp = datesRaw.split('-'); // input[type=date] value is always YYYY-MM-DD
-        dates = dp.length === 3 ? (dp[1] + '/' + dp[2] + '/' + dp[0]) : datesRaw;
-      }
-      var interest = document.getElementById('enq-interest').value;
-      var notes = document.getElementById('enq-notes').value.trim();
-
-      var lines = [
-        currentPackage ? ('Hi {{brand}}, I\'d like to book ' + currentPackage + '.') : 'Hi {{brand}}, I\'d like a quote.'
-      ];
-      if (currentPackage) lines.push('Package: ' + currentPackage);
-      lines.push('Name: ' + name);
-      lines.push('Phone: ' + phone);
-      if (email) lines.push('Email: ' + email);
-      if (travellers) lines.push('Travellers: ' + travellers);
-      if (dates) lines.push('Preferred date: ' + dates);
-      lines.push('Interested in: ' + interest);
-      if (notes) lines.push('Travel plans: ' + notes);
-      var bodyText = lines.join('\n');
-      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(bodyText);
-      var mailSubject = currentPackage ? ('Booking Enquiry: ' + currentPackage) : ('Quote Request from ' + name);
-      var mailUrl = 'mailto:' + EMAIL_ADDR + '?subject=' + encodeURIComponent(mailSubject) + '&body=' + encodeURIComponent(bodyText);
-
-      if (readyWA) readyWA.setAttribute('href', waUrl);
-      if (readyMail) readyMail.setAttribute('href', mailUrl);
       if (readyToggle && readyQuick) { readyToggle.hidden = true; readyQuick.hidden = false; setTimeout(function(){ readyQuick.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 60); }
     });
   }
