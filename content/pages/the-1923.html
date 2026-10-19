@@ -1212,7 +1212,7 @@ body.enq-lock{overflow:hidden;}
           <div class="enq-f"><label for="enq-phone">WhatsApp / Phone <span class="enq-req">*</span></label><input id="enq-phone" name="phone" type="tel" autocomplete="tel" required></div>
         </div>
         <div class="enq-row">
-          <div class="enq-f"><label for="enq-email">Email <span class="enq-req">*</span></label><input id="enq-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="enq-f"><label for="enq-email">Email</label><input id="enq-email" name="email" type="email" autocomplete="email"></div>
           <div class="enq-f"><label for="enq-travellers">Number Of Travellers</label><input id="enq-travellers" name="travellers" type="number" min="1" max="20" placeholder="e.g. 2"></div>
         </div>
         <div class="enq-row">
@@ -1347,7 +1347,24 @@ body.enq-lock{overflow:hidden;}
      visitor's own mail program, which many phones and computers do not have set up. The mailto link stays as a fallback if scripts fail. */
   var speakMail = document.getElementById('enqSpeakMail');
   if (speakMail && form) {
-    speakMail.addEventListener('click', function(e){ e.preventDefault(); if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true })); });
+    speakMail.addEventListener('click', function(e){
+      e.preventDefault();
+      /* choosing Email means they want an email reply, so this option (and only this one) also needs a valid email address */
+      var em = document.getElementById('enq-email');
+      var okMail = em && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim());
+      if (!okMail) {
+        em.style.borderColor = '#c0524a';
+        var h = document.getElementById('enqSpeakHint');
+        if (h) h.hidden = false;
+        var nm = document.getElementById('enq-name'), ph = document.getElementById('enq-phone');
+        var first = (nm && !nm.value.trim()) ? nm : (ph && !ph.value.trim()) ? ph : em;
+        first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        first.focus();
+        return;
+      }
+      em.style.borderColor = '';
+      if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true }));
+    });
   }
   var readyMail = document.getElementById('enqReadyMail');
 
@@ -1355,10 +1372,9 @@ body.enq-lock{overflow:hidden;}
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var bad = null;
-      ['enq-name','enq-phone','enq-email'].forEach(function(id){
+      ['enq-name','enq-phone'].forEach(function(id){
         var el = document.getElementById(id);
-        var missing = !el.value.trim() || (id === 'enq-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
-        if (missing) { el.style.borderColor = '#c0524a'; if (!bad) bad = el; }
+        if (!el.value.trim()) { el.style.borderColor = '#c0524a'; if (!bad) bad = el; }
         else { el.style.borderColor = ''; }
       });
       var hint = document.getElementById('enqSpeakHint');
