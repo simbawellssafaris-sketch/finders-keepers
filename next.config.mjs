@@ -49,6 +49,10 @@ if (!STATIC) {
   nextConfig.rewrites = async () => ({
     beforeFiles: [{ source: '/:page([a-zA-Z0-9_-]+).html', destination: '/:page' }],
   });
+  // One address only: www.finderskeeperssafaris.com goes permanently to finderskeeperssafaris.com, so Google never sees two copies of the site.
+  nextConfig.redirects = async () => [
+    { source: '/:path*', has: [{ type: 'host', value: 'www.finderskeeperssafaris.com' }], destination: 'https://finderskeeperssafaris.com/:path*', permanent: true },
+  ];
   // Browsers may keep images, video and PDFs for a month.
   nextConfig.headers = async () => [
     // security headers on every page (production only: the development server needs looser rules)
