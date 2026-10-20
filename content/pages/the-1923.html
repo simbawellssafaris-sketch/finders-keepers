@@ -14,8 +14,8 @@
     --tan:#E0D3B8;
     --ink:#2C2A26;
     --ink-soft:#5C5750;
-    --terracotta:#2E5B45;
-    --terracotta-dark:#1F3F30;
+    --terracotta:#B5572F;
+    --terracotta-dark:#9C4926;
     --line:#CFC1A3;
     --white:#FFFFFF;
     --olive:#6B7257;
@@ -450,7 +450,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#2E5B45">
+<meta name="theme-color" content="#8B3A2A">
 <!-- FS-FAVICON:END -->
 <style id="fs-stay-align">.stays-grid{align-items:stretch}.stays-grid .stay-card,.stays-grid.carousel .stay-card{display:flex;flex-direction:column;height:auto!important;align-self:stretch}.stays-grid .stay-card .body{display:flex;flex-direction:column;flex:1 1 auto}.stays-grid .stay-card .btn{margin-top:auto}</style>
 <style id="fs-pkg-align">.package-card{height:auto!important;align-self:stretch}.package-card .footer-row{align-items:flex-end;gap:10px}</style>
@@ -1139,8 +1139,8 @@
 
 <style>
 /* ── Enquiry modal (self-contained brand colors — works on every page theme) ── */
-#enqFab{position:fixed;bottom:24px;right:24px;z-index:850;background:#2E5B45;color:#fff;border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:background .25s,transform .25s;}
-#enqFab:hover{background:#1F3F30;}
+#enqFab{position:fixed;bottom:24px;right:24px;z-index:850;background:#8B3A2A;color:#fff;border:none;cursor:pointer;font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:background .25s,transform .25s;}
+#enqFab:hover{background:#6B2D1F;}
 #enqOverlay{position:fixed;inset:0;z-index:9500;background:rgba(15,10,6,.6);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .28s ease;}
 #enqOverlay.enq-show{opacity:1;}
 body.enq-lock{overflow:hidden;}
@@ -1149,24 +1149,24 @@ body.enq-lock{overflow:hidden;}
 .enq-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border:none;background:transparent;cursor:pointer;color:#1a1209;display:flex;align-items:center;justify-content:center;transition:opacity .2s;opacity:.6;}
 .enq-close:hover{opacity:1;}
 .enq-head{padding:44px 44px 6px;}
-.enq-eyebrow{font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#2E5B45;margin:0 0 14px;}
+.enq-eyebrow{font-family:'Raleway',sans-serif;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:#8B3A2A;margin:0 0 14px;}
 .enq-head h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(23px,3.2vw,30px);color:#1a1209;margin:0 0 10px;line-height:1.22;}
 .enq-head p{font-family:'Raleway',sans-serif;font-size:13.5px;line-height:1.85;color:#5a4d3c;margin:0;}
-.enq-package{display:inline-block;font-family:'Raleway',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:#2E5B45;background:#faf3ee;border:1px solid #e2c7bd;padding:7px 14px;margin-top:16px !important;}
+.enq-package{display:inline-block;font-family:'Raleway',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:#8B3A2A;background:#faf3ee;border:1px solid #e2c7bd;padding:7px 14px;margin-top:16px !important;}
 .enq-package[hidden]{display:none;}
 .enq-form{padding:22px 44px 0;}
 .enq-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 .enq-f{display:flex;flex-direction:column;}
 .enq-f label{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.04em;color:#1a1209;margin-bottom:7px;}
-.enq-f .enq-req{color:#2E5B45;}
+.enq-f .enq-req{color:#8B3A2A;}
 .enq-f input,.enq-f select,.enq-f textarea{font-family:'Raleway',sans-serif;font-size:13.5px;color:#1a1209;background:#fdfbf6;border:1px solid #e2d6bd;padding:12px 13px;width:100%;box-sizing:border-box;transition:border-color .2s,background .2s;}
 .enq-f textarea{min-height:76px;resize:vertical;}
-.enq-f input:focus,.enq-f select:focus,.enq-f textarea:focus{outline:none;border-color:#2E5B45;background:#fff;}
+.enq-f input:focus,.enq-f select:focus,.enq-f textarea:focus{outline:none;border-color:#8B3A2A;background:#fff;}
 .enq-f input::placeholder,.enq-f textarea::placeholder{color:#a89a86;}
 .enq-actions{padding:26px 44px 40px;display:grid;grid-template-columns:1fr 1fr;gap:30px;border-top:1px solid #efe6d5;margin-top:14px;}
 .enq-act-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8a7a68;margin:0 0 13px;}
-.enq-btn-solid{width:100%;background:#2E5B45;color:#fff;border:none;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
-.enq-btn-solid:hover{background:#1F3F30;}
+.enq-btn-solid{width:100%;background:#8B3A2A;color:#fff;border:none;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.enq-btn-solid:hover{background:#6B2D1F;}
 .enq-btn-outline{width:100%;background:transparent;color:#1a1209;border:1px solid #1a1209;padding:15px 18px;font-family:'Raleway',sans-serif;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;box-sizing:border-box;}
 .enq-btn-outline:hover{background:#1a1209;color:#fff;}
 .enq-quick{display:flex;gap:9px;}
@@ -1423,7 +1423,7 @@ body.enq-lock{overflow:hidden;}
     letter-spacing: 3px;
     text-align: center;
     padding: 10pt 0 12pt;
-    border-bottom: 2pt solid #2E5B45;
+    border-bottom: 2pt solid #8B3A2A;
     margin-bottom: 18pt;
   }
   @page { margin: 1.6cm; }
