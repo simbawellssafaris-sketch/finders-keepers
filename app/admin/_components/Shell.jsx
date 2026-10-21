@@ -21,6 +21,7 @@ function menuGroups(isOwner) {
     ] },
     { title: 'Insights', links: [
       { href: '/admin/reports', label: 'Reports', key: 'reports' },
+      { href: '/admin/visitors', label: 'Website visitors', key: 'visitors' },
       ...(isOwner ? [{ href: '/admin/activity', label: 'Activity history', key: 'activity' }] : []),
     ] },
     { title: 'The Journal', links: [

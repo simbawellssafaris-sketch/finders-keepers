@@ -71,6 +71,15 @@ Money rules, enforced by the database itself:
   method, best-selling journeys, how late outstanding balances and invoices are (not due, 1 to 30, 31 to 60, over 60 days), enquiries by status and by where they
   came from, quotations won and lost, and departures in the next 90 days. Every figure is per currency; USD and KES are never added together.
 
+### Website visitors (Menu > Insights > Website visitors)
+How many people look at the website, counted by the website itself (no Google account or extra service needed).
+- **Today, yesterday, last 7 and 30 days**, a day-by-day chart (7, 30 or 90 days), the **most viewed pages**, **where visitors come from** (Google, Bing, Instagram, X, WhatsApp, direct, other websites), **device**, **browser** and **country**, plus how many people are on the site right now (last 30 minutes).
+- **Private by design:** no cookies, and no names, emails or IP addresses are stored. Each visit is saved as the page address, the website that sent the person, device type, browser and (when the host provides it) country, with a one-way code that changes every day. The Privacy Policy says so.
+- A **visitor** is one device in one day (the same person coming back tomorrow counts again). A **page view** is one page opened.
+- Not counted: search-engine robots and link previews, people signed in to the dashboard, visitors with "Do Not Track" on, and the static zip version of the site (no server).
+- Tip: add `?utm_source=name` to a link you share (for example `https://finderskeeperssafaris.com/?utm_source=newsletter`) and that name shows up as its own source.
+- Technical: counted by `app/api/track/route.js` into the `page_views` table (only the team can read it); the page reads it with the `visitor_stats` function. Optional Hostinger setting `ANALYTICS_SALT` (any long random text) strengthens the daily code.
+
 ### Newsletters (the Journal)
 - **Newsletters** in the top bar: write an issue (subject, preview line, message) with a live preview that shows exactly what subscribers will see. Formatting is
   simple: blank line = new paragraph, `# Heading`, `## Smaller heading`, `- bullets`, `**bold**`, `[link](https://...)`, `[[Button|https://...]]`,
