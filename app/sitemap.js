@@ -7,11 +7,12 @@ export const dynamic = 'force-static';
 const HOME = 'finders-safaris-homepage';
 
 // Every page on the site, rebuilt on each build (so it can never go out of date).
+// No lastmod dates on purpose: a fresh server copy gives every file the same date, and a date that is wrong for most pages makes Google trust the sitemap less.
 export default function sitemap() {
   const dir = path.join(process.cwd(), 'content', 'pages');
   const origin = `https://${site.domain}`;
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.html')).sort();
-  const entries = [{ url: `${origin}/`, lastModified: fs.statSync(path.join(dir, `${HOME}.html`)).mtime, changeFrequency: 'weekly', priority: 1 }];
+  const entries = [{ url: `${origin}/`, changeFrequency: 'weekly', priority: 1 }];
   for (const f of files) {
     const name = f.slice(0, -5);
     if (name === HOME) continue;
@@ -20,7 +21,7 @@ export default function sitemap() {
     if (canonical && !canonical.endsWith(`/${name}.html`)) continue;
     const priority = name.startsWith('finders-safaris-') || name.startsWith('destinations') ? 0.9
       : /-experience$/.test(name) ? 0.5 : 0.7;
-    entries.push({ url: `${origin}/${name}.html`, lastModified: fs.statSync(path.join(dir, f)).mtime, changeFrequency: 'monthly', priority });
+    entries.push({ url: `${origin}/${name}.html`, changeFrequency: 'monthly', priority });
   }
   return entries;
 }
